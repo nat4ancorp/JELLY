@@ -1,0 +1,137 @@
+# Authentication for remote server; comment on local
+# AuthType Basic
+# AuthName "Nat4an.com BETA"
+# AuthUserFile "/home/mrnat4an/.htpasswds/public_html/beta/passwd"
+# require valid-user
+
+Options +FollowSymLinks
+RewriteEngine on
+
+# ignore specific directories
+RewriteRule ^projects - [L,NC]
+RewriteRule ^cp - [L,NC]
+RewriteRule ^files - [L,NC]
+RewriteRule ^INSTALL - [L,NC]
+
+# first-level rewriting (launchpad and page)
+RewriteRule ^([^/]+)/([^/]+)$ ?launchpad=$1&page=$2 [L]
+
+# second-level rewriting (launchpad and page and subpage)
+# RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ ?launchpad=$1&page=$2&subpage=$3 [L]
+
+# temp second-level rewriting
+RewriteRule ^witllacity/([^/]+)/search$ ?launchpad=witllacity&page=$2&meta=search [L]
+
+# ----------------------------------------------------------------------------------------
+# ---------- CPANEL ----------------------------------------------------------------------
+# first-level rewriting (page)
+RewriteRule ^cp/([^/]+)$ ?page=$1 [L]
+RewriteRule ^cp/([^/]+)/$ ?page=$1 [L]
+
+# second-level rewriting (page and action)
+RewriteRule ^cp/([^/]+)/([^/]+)$ ?page=$1&action=$2 [L]
+RewriteRule ^cp/([^/]+)/([^/]+)/$ ?page=$1&action=$2 [L]
+#-----------------------------------------------------------------------------------------
+
+# SPECIFIC REWRITE STUFF FOR NAT4AN.COM
+# no page rule fix
+RewriteRule ^witllacity$ ?launchpad=witllacity&page=home [L]
+RewriteRule ^([^/]+)/$ ?launchpad=$1&page=home [L]
+
+# slash rule fix
+RewriteRule ^([^/]+)/([^/]+)/$ ?launchpad=$1&page=$2 [L]
+
+# blog user rule
+RewriteRule ^witllacity/blog/user$ ?launchpad=witllacity&page=blog&meta=users [L]
+RewriteRule ^witllacity/blog/user/$ ?launchpad=witllacity&page=blog&meta=users [L]
+RewriteRule ^witllacity/blog/user/([^/]+)$ ?launchpad=witllacity&page=blog&meta=users&user=$1 [L]
+RewriteRule ^witllacity/blog/user/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=users&user=$1 [L]
+
+# blog category rule
+RewriteRule ^witllacity/blog/category/([^/]+)$ ?launchpad=witllacity&page=blog&meta=category&category=$1 [L]
+
+# blog permalink rule
+RewriteRule ^witllacity/blog/permalink$ ?launchpad=witllacity&page=blog&meta=permalink [L]
+RewriteRule ^witllacity/blog/permalink/$ ?launchpad=witllacity&page=blog&meta=permalink [L]
+
+RewriteRule ^witllacity/blog/permalink/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1 [L]
+RewriteRule ^witllacity/blog/permalink/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1 [L]
+
+RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2 [L]
+
+RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
+
+RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+
+# blog tag rule
+RewriteRule ^witllacity/blog/tag/([^/]+)$ ?launchpad=witllacity&page=blog&meta=tag&tag=$1 [L]
+
+# blog comment rule
+RewriteRule ^witllacity/blog/comment/([^/]+)$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1 [L]
+RewriteRule ^witllacity/blog/comment/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1 [L]
+RewriteRule ^witllacity/blog/comment/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^witllacity/blog/comment$ ?launchpad=witllacity&page=blog&meta=comment [L]
+RewriteRule ^witllacity/blog/comment/$ ?launchpad=witllacity&page=blog&meta=comment [L]
+RewriteRule ^witllacity/blog/comment/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
+
+# blog archive (botr) rule
+RewriteRule ^witllacity/blog/botr$ ?launchpad=witllacity&page=blog&meta=botr [L]
+RewriteRule ^witllacity/blog/botr/$ ?launchpad=witllacity&page=blog&meta=botr [L]
+RewriteRule ^witllacity/blog/botr/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1 [L]
+RewriteRule ^witllacity/blog/botr/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1 [L]
+RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2 [L]
+
+# blog pagination rules
+RewriteRule ^witllacity/blog/category/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^witllacity/blog/category/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=category&category=$1&pagination=$2 [L]
+
+RewriteRule ^witllacity/blog/user/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^witllacity/blog/user/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=users&user=$1&pagination=$2 [L]
+
+RewriteRule ^witllacity/blog/tag/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^witllacity/blog/tag/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=tag&tag=$1&pagination=$2 [L]
+
+RewriteRule ^witllacity/blog/([^/]+)$ ?launchpad=witllacity&page=blog&pagination=$1 [L]
+RewriteRule ^witllacity/blog/([^/]+)/$ ?launchpad=witllacity&page=blog&pagination=$1 [L]
+
+RewriteRule ^witllacity/blog/botr/([^/]+)/page/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^witllacity/blog/botr/([^/]+)/page/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&pagination=$2 [L]
+
+RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
+
+# witllacity contact send stuff
+RewriteRule ^witllacity/contact/([^/]+)$ ?launchpad=witllacity&page=contact&meta=$1 [L]
+RewriteRule ^witllacity/contact/([^/]+)/$ ?launchpad=witllacity&page=contact&meta=$1 [L]
+RewriteRule ^witllacity/contact/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=contact&meta=$1&ticketid=$2 [L]
+RewriteRule ^witllacity/contact/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=contact&meta=$1&ticketid=$2 [L]
+
+# work rule
+RewriteRule ^witllacity/work/([^/]+)$ ?launchpad=witllacity&page=work&meta=type&type=$1 [L]
+RewriteRule ^witllacity/work/([^/]+)/$ ?launchpad=witllacity&page=work&meta=type&type=$1 [L]
+RewriteRule ^witllacity/work/permalink/([^/]+)$ ?launchpad=witllacity&page=work&meta=permalink&name=$1 [L]
+RewriteRule ^witllacity/work/permalink/([^/]+)/$ ?launchpad=witllacity&page=work&meta=permalink&name=$1 [L]
+RewriteRule ^witllacity/work/tag/([^/]+)$ ?launchpad=witllacity&page=work&meta=tag&tag=$1 [L]
+RewriteRule ^witllacity/work/tag/([^/]+)/$ ?launchpad=witllacity&page=work&meta=tag&tag=$1 [L]
+RewriteRule ^witllacity/work/folio/([^/]+)$ ?launchpad=witllacity&page=work&meta=folio&folio=$1 [L]
+RewriteRule ^witllacity/work/folio/([^/]+)/$ ?launchpad=witllacity&page=work&meta=folio&folio=$1 [L]
+
+# changes rule
+RewriteRule ^witllacity/changes/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=changes&year=$1&month=$2&day=$3 [L]
+
+# projects rule
+RewriteRule ^witllacity/work-projects/([^/]+)$ ?launchpad=witllacity&page=work-projects&meta=normal&projectname=$1 [L]
+RewriteRule ^witllacity/work-projects/([^/]+)/$ ?launchpad=witllacity&page=work-projects&meta=normal&projectname=$1 [L]
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------- TO BE USED FOR EVERYTHING THAT IS CUSTOM IN THIS CMS -----------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------

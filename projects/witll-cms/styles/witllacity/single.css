@@ -1,0 +1,37 @@
+#container {
+	overflow: hidden;
+	width: 950px;
+	margin: 0 auto;
+}
+#container-header {
+	width: 950px;
+	margin: 0 auto;
+}
+#container1 { /* main content */
+    float:left;
+    width:100%;
+    background:#363636;
+    position:relative;
+    right:0%;
+	min-height: auto;
+	padding-bottom: 120px;
+}
+#col1 { /* main content */
+    float:left;
+    width:96%;
+	position: relative;
+	left: 2%;
+	overflow:hidden;
+	min-height: auto;
+}
+
+#content-special { /* main content area for special 100% pages */
+	float:left;
+	width:100%;
+	padding-left: 2%;
+	padding-right: 2%;
+	background:#363636;
+	z-index:1;
+	position:relative;
+	min-height: auto;
+}

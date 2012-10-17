@@ -1,0 +1,51 @@
+#container {
+	overflow: hidden;
+	width: 950px;
+	margin: 0 auto;
+}
+#container-header {
+	width: 950px;
+	margin: 0 auto;
+}
+#container2 { /* sidebar - column 1 */
+    float:left;
+    width:100%;
+    background:#363636;
+    position:relative;
+    left:20%;
+	min-height: auto;	
+}
+#container1 { /* main content */
+    float:left;
+    width:100%;
+    background:#363636;
+    position:relative;
+    right:40%;
+	min-height: auto;
+	padding-bottom: 120px;
+}
+#col1 { /* main content */
+    float:left;
+    width:68%;
+	position: relative;
+	left: 22%;
+	overflow:hidden;
+	min-height: auto;
+}
+#col2 { /* sidebar content col 1*/
+    float:left;
+    width:26%;
+	position: relative;
+	left: 24%;
+	overflow:hidden;
+}
+
+#content-special { /* main content area for special 100% pages */
+	float:left;
+	width:100%;
+	padding-left: 2%;
+	padding-right: 2%;
+	background:#363636;
+	z-index:1;
+	position:relative;
+}
