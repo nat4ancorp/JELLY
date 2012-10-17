@@ -17,8 +17,8 @@
 
 //main non-class variables
 //GLOBAL VARIABLES THAT CAN BE CHANGED
-$globalvars_passpage_title			= "<h1 style=\"font-size:62px;text-align:center;position:relative;top:10px;\" class=\"header\" onclick=\"window.location.href='http://localhost/projects/witll-cms'\">WITLL.NET</h1>"; /* local: localhost/projects/witll-cms remote: witll.net */
-$globalvars_passpage_slogan			= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">Welcome to Witllacity!</h2>";
+$globalvars_passpage_title			= "<h1 style=\"font-size:62px;text-align:center;position:relative;top:10px;\" class=\"header\" onclick=\"window.location.href='http://www.nat4an.com'\">Nat4an.com</h1>";
+$globalvars_passpage_slogan			= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">Freelance Web Designer</h2>";
 $globalvars_passpage_closed_st		= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed)</h2>";
 $globalvars_passpage_closedbeta_st	= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed BETA)</h2>";
 
@@ -28,38 +28,38 @@ class properties
 //-------------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------
-//       MindPower v. 3.4 - Editables - These are all what you need to customize this website to your liking
+//       MindPower v. 3.7 - Editables - These are all what you need to customize this website to your liking
 //-------------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------
 	//property declaration	
 	//main variables
-	public $COMPANY_NAME 		 			 = 'Project Witllacity';
+	public $COMPANY_NAME 		 			 = 'Nat4an Corp';
 	public $PLATFORM 			 			 = 'Mind Power';
 	public $TITLE_B4_PLATFORM 	 			 = " - powered by "; //item found before the platform on title
 	public $TITLE_AFTER_PLATFORM 			 = " v. "; //item found after the platform on title
 	public $VERSION_CTRL 		 			 = '3.7';
-	public $WEBSITE_NAME 		 			 = 'WITLL';
-	public $WEBSITE_EXT 		 			 = '.NET';
-	public $WEBSITE_SLOGAN					 = 'A Web Interface To Learn &amp; to Love';
-	public $FULL_WURL						 = 'http://localhost/projects/witll-cms/';
-	public $WEBSITE_URL			 			 = 'http://localhost/projects/witll-cms/';
-	public $STYLESHEET						 = 'witllacity'; /* default: nat4an; alt: creativity */
+	public $WEBSITE_NAME 		 			 = 'Nat4an';
+	public $WEBSITE_EXT 		 			 = '.com';
+	public $WEBSITE_SLOGAN					 = 'Freelance Web Designer in San Antonio, TX Area';
+	public $FULL_WURL						 = 'http://localhost/portfolio/home';
+	public $WEBSITE_URL			 			 = 'http://localhost/';
+	public $STYLESHEET						 = 'nat4an'; /* default: nat4an; alt: creativity */
 	public $TURN_ON_BOTTOM_NAV				 = 'yes'; /* DO NOT USE THIS ATM */
 	public $TURN_ON_TOP_NAV					 = 'yes'; /* DO NOT USE THIS ATM */
-	public $DEFAULT_SEARCH_TEXT_PADMAIN		 = 'Search My Website...';
-	public $DEFAULT_SEARCH_TEXT_PAD1		 = 'Search...';
-	public $DEFAULT_SEARCH_TEXT_PAD2		 = 'Search...';
-	public $DEFAULT_SEARCH_TEXT_PAD3		 = 'Search...';
-	public $DEFAULT_SEARCH_TEXT_PAD4		 = 'Search...';
+	public $DEFAULT_SEARCH_TEXT_PADMAIN		 = 'Search Nat4an.com...';
+	public $DEFAULT_SEARCH_TEXT_PAD1		 = 'Search The Anime Fanatic...';
+	public $DEFAULT_SEARCH_TEXT_PAD2		 = 'Search The Gamer Freak...';
+	public $DEFAULT_SEARCH_TEXT_PAD3		 = 'Search The Musik Maker...';
+	public $DEFAULT_SEARCH_TEXT_PAD4		 = 'Search The Linux Nerd...';
 	
 	public $SERVER_LOCATION					 = 'America/Mexico_City'; /* for a list of locations, see here -> 
 																	     http://www.php.net/manual/en/timezones.php */
 	
 	//SEO STUFF
-	public $SITE_DESCRIPTION				 = 'An on-going project that was created to be a Web Interface To Learn and to Love. This is my first official attempt at creating a CMS that everyone will love! WITLL is a CMS that is purely driven by database and brilliantly written PHP code.It\'s an engine that you can basically take and build any other website off of it. It cuts out the base work that comes with building a website. It\'s not another Wordpress. It\'s a fully customizable (even more than wordpress) CMS that is rock solid and SEO Optimized.';
+	public $SITE_DESCRIPTION				 = 'Nat4an is a Freelance Web Designer of CSS, PHP, JavaScript, and User Experience (UX) who lives and operates mainly in the San Antonio, TX Area. Nat4an is also an Anime Fanatic, a Gamer Freak, The Musik Maker, and a Linux Nerd. Nat4an is a self-motivated child of the code who wants to become the impossible in Web Design. I make Smart, Friendly, Fast websites that are SEO-Friendly, UX-Optimized, Search Engine Spider-able, and Eye-Catching-ly Amazing.';
 	public $SITE_AUTHOR					 	 = 'Nathan Smyth';
-	public $SITE_KEYWORDS					 = 'web design,nathan smyth,witll,cms,web interface to learn and to love,cool,designed,mp,mind power,website,platform,php'; 
+	public $SITE_KEYWORDS					 = 'web design,nathan smyth,freelance web developer,web site design,web design san antonio tx,anime,gaming,musik,linux,nerd,portfolio,HTML,Javascript,PHP,UX'; 
 											   /* THIS IS FOR THE DEFAULT KEYWORDS THAT LOAD INTO THE HOME PAGES. IN ORDER */
 											   /* TO CUSTOMIZE THE INDIVIDUAL PAGE KEYWORDS PUT IT INTO THE DB. */
 											   /* DO NOT END THIS WITH A "," OR ELSE YOU WILL BREAK IT! */
@@ -69,22 +69,22 @@ class properties
 	//database stuff
 	public $DB_HOST							 = 'localhost';
 	public $DB_USER							 = 'root'; //remote: "mrnat4an_master" or local: "root"
-	public $DB_PASS							 = ''; //remote: "T7VSRyk@pTn9" or local: ""
-	public $DB_NAME							 = 'mrnat4an_witll';
+	public $DB_PASS							 = ''; //remote: "thecreation101" or local: ""
+	public $DB_NAME							 = 'mrnat4an_nat4an';
 	public $DB_PREFIX						 = 'h_';
 	
 	//main-page-elements
 	
 	//main-page-title
-	public $MAIN_TITLE			 			 = 'WITLL.NET';
+	public $MAIN_TITLE			 			 = 'Nat4an';
 	public $MAIN_TITLE_ALIGN	 			 = 'l'; //l = left; c = center; r = right
 	
 	//main-page-slogan
-	public $MAIN_SLOGAN			 			 = 'A Web Interface To Learn &amp; to Love';
-	public $MAIN_SLOGAN_EXTRA_PAD1 			 = '';
-	public $MAIN_SLOGAN_EXTRA_PAD2 			 = '';
-	public $MAIN_SLOGAN_EXTRA_PAD3 			 = '';
-	public $MAIN_SLOGAN_EXTRA_PAD4 			 = '';
+	public $MAIN_SLOGAN			 			 = 'Freelance Web Designer';
+	public $MAIN_SLOGAN_EXTRA_PAD1 			 = 'a Righteous, Dedicated, and Intrigued Anime Fanatic';
+	public $MAIN_SLOGAN_EXTRA_PAD2 			 = 'a Hardcore Gamer Freak who Lives for Kill-Joys...:P';
+	public $MAIN_SLOGAN_EXTRA_PAD3 			 = 'is a Kid from TX who makes Epic Dance Music 4 U';
+	public $MAIN_SLOGAN_EXTRA_PAD4 			 = 'is a Super Linux Nerd who Lives in the Terminal $ su';
 	public $MAIN_SLOGAN_ALIGN	 			 = 'l'; //l = left; c = center; r = right
 	
 	//header-right-side-content
@@ -96,17 +96,17 @@ class properties
 	public $TN_RIGHT_SIDE_CONTENT_ALIGN		 = 'l'; //l = left; c = center; r = right
 	
 	//specify pad amount
-	public $PAD_AMOUNT						 = 1;
+	public $PAD_AMOUNT						 = 5;
 	
 	//define pad names
-	public $PADMAIN							 = 'witllacity'; /* YOU CAN CHANGE THE OTHER PADS EXCEPT THIS ONE; WILL  */
-	public $PAD1							 = '';
-	public $PAD2							 = '';
-	public $PAD3							 = '';
-	public $PAD4							 = '';
+	public $PADMAIN							= 'portfolio'; /* YOU CAN CHANGE THE OTHER PADS EXCEPT THIS ONE; WILL  */
+	public $PAD1							= 'af';
+	public $PAD2							= 'gf';
+	public $PAD3							= 'tmm';
+	public $PAD4							= 'ln';
 	
 	//session variable names
-	public $_COOKIE_INIT_SESSION			 = 'witll_beta_session';
+	public $_COOKIE_INIT_SESSION			 = 'nat4an_beta_session';
 	
 //----------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
