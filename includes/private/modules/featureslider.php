@@ -20,7 +20,8 @@ switch($PAGE_LOCK){
 			?>
 				<div id="featured-works">
 					<div id="inner">            	
-						Coming soon! A jQuery-Animated Slider to Showcase new and popular additions to this website!
+						<?php require("includes/private/attributes/featured.php");?>
+                        <?php featured($properties,"full",$launchpad);?>
 					</div>
 				</div>
 			<?php
@@ -34,7 +35,8 @@ switch($PAGE_LOCK){
 				?>			
 				<div id="mini-featured-works">
 					<div id="inner">            	
-					This is to create perspective to the pages by adding a neat little animation jQuery thingy...
+						<?php require("includes/private/attributes/featured.php");?>
+                        <?php featured($properties,"mini",$launchpad);?>
 					</div>
 				</div>
 				<?php
@@ -54,7 +56,8 @@ switch($PAGE_LOCK){
 			?>
 				<div id="featured-works">
 					<div id="inner">            	
-						Coming soon! A jQuery-Animated Slider to Showcase new and popular additions to this website!
+						<?php require("includes/private/attributes/featured.php");?>
+                        <?php featured($properties,"full",$launchpad);?>
 					</div>
 				</div>
 			<?php
@@ -68,7 +71,8 @@ switch($PAGE_LOCK){
 				?>			
 				<div id="mini-featured-works">
 					<div id="inner">            	
-					This is to create perspective to the pages by adding a neat little animation jQuery thingy...
+						<?php require("includes/private/attributes/featured.php");?>
+                        <?php featured($properties,"mini",$launchpad);?>
 					</div>
 				</div>
 				<?php
@@ -88,7 +92,8 @@ switch($PAGE_LOCK){
 			?>
 				<div id="featured-works">
 					<div id="inner">            	
-						Coming soon! A jQuery-Animated Slider to Showcase new and popular additions to this website!
+						<?php require("includes/private/attributes/featured.php");?>
+                        <?php featured($properties,"full",$launchpad);?>
 					</div>
 				</div>
 			<?php
@@ -102,7 +107,8 @@ switch($PAGE_LOCK){
 				?>			
 				<div id="mini-featured-works">
 					<div id="inner">            	
-					This is to create perspective to the pages by adding a neat little animation jQuery thingy...
+						<?php require("includes/private/attributes/featured.php");?>
+	                    <?php featured($properties,"mini",$launchpad);?>
 					</div>
 				</div>
 				<?php
@@ -121,7 +127,8 @@ switch($PAGE_LOCK){
 		?>
 			<div id="featured-works">
 				<div id="inner">            	
-					Coming soon! A jQuery-Animated Slider to Showcase new and popular additions to this website!
+					<?php require("includes/private/attributes/featured.php");?>
+                    <?php featured($properties,"full",$launchpad);?>
 				</div>
 			</div>
 		<?php
@@ -135,7 +142,8 @@ switch($PAGE_LOCK){
 			?>			
 			<div id="mini-featured-works">
 				<div id="inner">            	
-				This is to create perspective to the pages by adding a neat little animation jQuery thingy...
+					<?php require("includes/private/attributes/featured.php");?>
+	                <?php featured($properties,"mini",$launchpad);?>
 				</div>
 			</div>
 			<?php

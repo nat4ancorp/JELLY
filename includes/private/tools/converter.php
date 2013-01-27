@@ -1,5 +1,7 @@
 <?php
 function converter($properties,$content,$type,$operand){
+	@$ip=$_SERVER['REMOTE_ADDR'];
+	@$SESSIONID=tempSystem($properties,"getSESSION","");
 	switch($operand){
 		case 'to':
 			switch($type){
@@ -47,8 +49,8 @@ function converter($properties,$content,$type,$operand){
 					$content=str_replace("(baseurl)",$properties->WEBSITE_URL,$content);
 					$content=str_replace("(homelp)",$properties->PADMAIN,$content);
 					$content=str_replace("(currentlp)",$launchpad,$content);
-					$content=str_replace("(stylesheet)",$properties->STYLESHEET,$content);
-					$content=str_replace("(entry_name)",$title,$content);
+					$content=str_replace("(stylesheet)",Theme($properties,"getCurrThemeName",$ip,$SESSIONID),$content);
+					$content=str_replace("(entry_name)",@$title,$content);
 					
 					/* READ MORE FUNCTIONAL */
 					if(strstr($content,"[!--more--]")!=""){

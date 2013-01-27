@@ -1,10 +1,10 @@
 <?php
 //tell us entries you want to get (the table names without the "_entries" part that is)
-$ITEMS_LIST="blog,";
-$SUBITEMS_LIST="entries,"; //these are what follow after the "_" on a table name (Eg. "entries")
-$ITEMS_LIST_NAMES="The Blog,";
-$ITEMS_LIST_SPECIAL="0,"; //SPECIAL LIST is for the use of determining what info to get from database (Eg. If you dont have an author item in db use "1")
-$ITEMS_LIST_SPECIAL_ITEM="none,"; //if you specified "1" above then put the name of the special item else put "none"
+$ITEMS_LIST="pages_af_atoz,blog,otherwork,work,";
+$SUBITEMS_LIST="entries,entries,entries,projects,"; //these are what follow after the "_" on a table name (Eg. "entries")
+$ITEMS_LIST_NAMES="AF : The A-Z List,The Blog,Other Work,My Work,";
+$ITEMS_LIST_SPECIAL="1,0,0,0,"; //SPECIAL LIST is for the use of determining what info to get from database (Eg. If you dont have an author item in db use "1")
+$ITEMS_LIST_SPECIAL_ITEM="reviewedby,none,none,none,"; //if you specified "1" above then put the name of the special item else put "none"
 $DEFAULT_ORDER="dateandtime OR dateandtime_goingtostart"; //if order is not set in the url, it will order by this (You can add boolean values with " OR ")
 	
 /* ------------------------------------------------------------ DO NOT EDIT BELOW THIS LINE ----------------------------------------------------------------------- */

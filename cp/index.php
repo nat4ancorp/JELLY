@@ -52,7 +52,7 @@ $CURRENT_PAGE=$_GET['page'];
 <?php
 /* DETECT IF LOGGED IN AND AGREED TO TOU */
 $ip=$_SERVER['REMOTE_ADDR'];
-$logged_session=$_COOKIE[$properties->_COOKIE_INIT_SESSION];
+include("../includes/private/attributes/logged_session.php");
 $CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='$ip' AND logged_session='$logged_session'");
 if(mysql_num_rows($CHECK_LOGIN)<1){
 	$logged=0;

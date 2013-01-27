@@ -18,8 +18,8 @@ ob_start(); //Initiate the output buffer
 //load global vars from another php file (props.php)
 include 'conf/props.php';
 require 'includes/private/tools/converter.php';
+
 $properties=new properties();
-//include "styles/".$properties->STYLESHEET."/c-css.php"; /*SEEMS TO CAUSE HAVOC ON LOCAL SERVER; UNCOMMENT ON UPLOAD*/
 @$page="";
 @$page=$_GET['page'];
 @$subpage=$_GET['subpage'];
@@ -34,110 +34,180 @@ if($launchpad==$properties->PAD4){$launchpadPN="pad4";}
 include 'conf/connect.php';
 $GETFULLWURL=$properties->getFULLWURL();
 tempSystem($properties,'_INIT','');
+//checks for newly installed themes
+Theme($properties,"checkNewlyInstalled",$ip,$SESSIONID);
 $lpToggle=tempSystem($properties,'lpToggle','');
 $properties->setServerTime();
+$ip=$_SERVER['REMOTE_ADDR'];
+$SESSIONID=tempSystem($properties,"getSESSION","");
+require("includes/private/attributes/logged_session.php");
+/* TO BE USED FOR INIT LOGGED - NOT THE SAME AS WHAT IS IN MODE.PHP */
+/* DETECT IF LOGGED IN AND AGREED TO TOU */
+$ip=$_SERVER['REMOTE_ADDR'];
+include("includes/private/attributes/logged_session.php");
+$CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='$ip' AND logged_session='$logged_session'");if(mysql_num_rows($CHECK_LOGIN)<1){$logged=0;}else{$logged=1;}
 ?>
 <title><?php echo $properties->displayWName();?> - <?php echo $properties->WEBSITE_SLOGAN;?><?php echo getPageName($launchpadPN,$page,$properties);?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/main.css" />
 <?php if(@$launchpadPN=="pad1"){?>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main-pad1.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/pad1.css" />
 <?php }if(@$launchpadPN=="pad2"){?>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main-pad2.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/pad2.css" />
 <?php }if(@$launchpadPN=="pad3"){?>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main-pad3.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/pad3.css" />
 <?php }if(@$launchpadPN=="pad4"){?>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main-pad4.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/pad4.css" />
 <?php }if (!isset($_GET['launchpad']) && ($_GET['launchpad'] != "projects") ){printf("<script type=\"text/javascript\">location.href='".$properties->WEBSITE_URL."".$properties->PADMAIN."/home'</script>");}?>
 
+<link rel="home" title="<?php echo $properties->displayWName();?> home page" href="<?php echo $properties->WEBSITE_URL;?>" />
+<link rel="contents" title="Site map" href="<?php echo $properties->WEBSITE_URL;?>sitemap" />
 <meta name="description" content="<?php echo $properties->SITE_DESCRIPTION;?>" />
+<link rel="help" title="Accessibility statement" href="/accessibility" />
 <meta name="keywords" content="<?php echo getPageKeywords($launchpadPN,$page,$properties);?>" />
 <meta name="author" content="<?php echo $properties->SITE_AUTHOR;?>" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
 <!--[if IE 6]>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main_ie6.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/main_ie6.css" />
 <![endif]-->
 
 <!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main_ie7.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/main_ie7.css" />
 <![endif]-->
 
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/ajax/all.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/general.js"></script>
+<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/c_config.js"></script>
+<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/c_smartmenus.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/tweet/jquery.tweet.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/colorbox/jquery.colorbox-min.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/cycle/jquery.cycle.all.min.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jflickrfeed.min.js"></script>
 <script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery-ui-min.js"></script>
-<link rel="shortcut icon" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/favicon.ico">
-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/colorbox/colorbox.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/tango/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/alpha/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/macho/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/ionius/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jquery-ui.css" />
+<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery.countdown.js"></script>
+<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery.datepick.js"></script>
+<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery.bpopup-0.8.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery.orbit.min.js"></script>
+
+<link rel="shortcut icon" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/modes.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/colorbox/colorbox.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jc/tango/skin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jc/alpha/skin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jc/macho/skin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jc/ionius/skin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jquery.countdown.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/datepick/jquery.datepick.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/orbit.css" />
 </head>
 
 <body>
-	<?php
-	//check for INSTALLATION LOCK
-	if(file_exists("INSTALL.LOCK")){$FILE_LOCK="yes";}else{$FILE_LOCK="no";}
-	
-	if($FILE_LOCK=="yes"){
-		/* INSTALLATION HAS BEEN DONE AND THE INSTALL DIRECTORY HAS BEEN LOCKED */
-		/* determine the mode the site is running in */
-		$MODE=getGlobalVars($properties,'mode');
-		switch($MODE){
-			case 'closed':
-			include("includes/private/tools/modes/closed.php");
-			break;
-	
-			case 'alpha mode':
-			include("includes/private/tools/modes/alphamode.php");
-			break;
-	
-			case 'closed beta':
-			include("includes/private/tools/modes/closedbeta.php");
-			break;
-	
-			case 'open beta':
-			include("includes/private/tools/modes/openbeta.php");
-			break;
-	
-			case 'open':
-			include("includes/private/tools/modes/open.php");
-			break;
+	<script type="text/javascript">
+	$(window).load(function() {    	
+		var theWindow        = $(window),
+			$bg              = $("#bg"),
+			aspectRatio      = $bg.width() / $bg.height();
+									
+		function resizeBg() {
 			
-			case 'maintenance':
-			include("includes/private/tools/modes/maintenance.php");
-			break;
+			if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+				$bg
+					.removeClass()
+					.addClass('bgheight');
+			} else {
+				$bg
+					.removeClass()
+					.addClass('bgwidth');
+			}
+						
 		}
+									
+		theWindow.resize(resizeBg).trigger("resize");
+	
+	});
+	</script>
+	<!--<img src="<?php //echo $properties->WEBSITE_URL;?>styles/<?php //echo $properties->STYLESHEET;?>/images/bg.jpg" id="bg" alt="" />-->
+	<?php
+	//include a mobile detection script
+	include("includes/private/tools/detectmobile.php");
+
+	if(@$is_mobile=="yes"){
+		?>
+        <script type="text/javascript">
+		<!--
+		window.location = "http://www.nat4an.com/mobile"
+		//-->
+		</script>
+        <?php
 	} else {
-		echo "<center><h1 style=\"line-height: 1.2em;\">Please run the installation by going to <a href=\"".$properties->WEBSITE_URL."INSTALL/\" class=\"black-url\">INSTALL/</a> or rename the &quot;INSTALL&quot; directory to &quot;INSTALL.LOCK&quot; (if you have already ran the installation and the INSTALL directory did not get auto-magically changed to &quot;INSTALL.LOCK&quot;</h1></center>";
+		//check for INSTALLATION LOCK
+		if(file_exists("INSTALL.LOCK")){$FILE_LOCK="yes";}else{$FILE_LOCK="no";}
+		
+		if($FILE_LOCK=="yes"){
+			/* INSTALLATION HAS BEEN DONE AND THE INSTALL DIRECTORY HAS BEEN LOCKED */
+			/* determine the mode the site is running in */
+			$MODE=getGlobalVars($properties,'mode');			
+			include("includes/private/tools/mode.php");
+			if(($MODE=="closed") || ($MODE=="closed beta")){
+				/* MODE requires login before seeing site */
+				if(($logged==1) && ($in_site=="yes")){
+					
+					/* CHECK TO SEE IF THE IP (AND SESSION COOKIE) LIKE FB PAGE  */
+					$ip=tempSystem($properties,"getIP","");
+					$SESSIONID=tempSystem($properties,"getSESSION","");
+					if($logged==1){
+						/* LOGGED IN; USERS */
+						$CHECK_FB_LIKE=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='".$ip."' AND logged_session='".$logged_session."'");
+						$FETCH_FB_LIKE=mysql_fetch_array($CHECK_FB_LIKE);
+						$FB_LIKE=$FETCH_FB_LIKE['fb_like'];
+						if($FB_LIKE=="yes"){
+							/* LIKED IT; DONT DISPLAY */					
+						} else {
+							/* DIDN'T LIKE IT YET; DISPLAY */
+							if($_SERVER['HTTP_HOST']=="localhost"){
+								include("includes/private/bin/fb_popup.php");
+							} else {
+								/* SHOW POPUP */
+								include("includes/private/bin/fb_popup.php");
+							}
+						}
+					} else {
+						/* NOT LOGGED IN; TEMPSYSTEM */
+						$CHECK_FB_LIKE=mysql_query("SELECT * FROM {$properties->DB_PREFIX}tempsystem WHERE ip='".$ip."' AND temp_session='".$SESSIONID."'");
+						$FETCH_FB_LIKE=mysql_fetch_array($CHECK_FB_LIKE);
+						$FB_LIKE=$FETCH_FB_LIKE['fb_like'];
+						if($FB_LIKE=="yes"){
+							/* LIKED IT; DONT DISPLAY */					
+						} else {
+							/* DIDN'T LIKE IT YET; DISPLAY */
+							if($_SERVER['HTTP_HOST']=="localhost"){
+								include("includes/private/bin/fb_popup.php");
+							} else {
+								/* SHOW POPUP */
+								include("includes/private/bin/fb_popup.php");
+							}
+						}
+					}
+				} else {
+					/* NOT LOGGED OR IN SITE */					
+				}
+			} else {
+				/* MODE is in position that requires no prior access (Open beta, Open, Maintainance) */
+				if($_SERVER['HTTP_HOST']=="localhost"){
+					
+				} else {
+					/* SHOW POPUP */
+					include("includes/private/bin/fb_popup.php");
+				}
+			}
+		} else {
+			echo "<center><h1 style=\"line-height: 1.2em;\">Please run the installation by going to <a href=\"".$properties->WEBSITE_URL."INSTALL/\" class=\"black-url\">INSTALL/</a> or rename the &quot;INSTALL&quot; directory to &quot;INSTALL.LOCK&quot; (if you have already ran the installation and the INSTALL directory did not get auto-magically changed to &quot;INSTALL.LOCK&quot;</h1></center>";
+		}	
 	}
 	?>
-<?php
-if($_SERVER['HTTP_HOST']=="localhost"){
-	/* DO NOT SEND GAUGES DATA */
-} else {
-?>
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '506f033c613f5d722900007e');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-<?php
-}
-?>
 </body>
 </html>

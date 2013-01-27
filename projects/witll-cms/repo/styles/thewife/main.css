@@ -1,0 +1,829 @@
+/* --------- demo presentation------------ */
+body {font: normal 16px/1.5em helvetica, arial, sans-serif; margin:0; width:100%;}
+#header, #footer {height:50px; padding:5px; color:#fff; /*background: #777;*/}
+#content, #sidebar {padding: 10px 0;}
+#sidebar {color:#fff}
+/*#content p, #sidebar p {max-width: 75%}*/
+h2 {font-size: 16px}
+pre {}
+/* ------------- container ---------------- */
+
+/* BEGIN BOTTOMNAVIGATION STYLES */
+#bottomnavigation {
+ padding: 0px 0px;
+ background: #AAAAAA;
+ margin: 0 auto;
+ line-height: 1.9em; /* FIX FOR NAV LOCATED A BIT LOWER THAN MUSTACHE, IMP AS OF v2.5 */
+ padding: 0;
+ color: white;
+ width: 100%;
+ height: 50px;
+ z-index:2;
+ position: relative;
+}
+#bottomnav-left {
+ width: 93%;
+ display: inline-block;
+}
+#bottomnav-right {
+ width: 5%;
+ display: inline-block;
+ vertical-align:middle;
+}
+#bottomnavigation a {
+ color: white;
+ text-decoration: none;
+}
+/*#bottomnav a:hover {
+ color: #297ACC;
+ text-decoration: none; 
+}*/
+#bottomnavigation ul {
+ margin: 0;
+ padding: 9px;
+ width: 100%;
+}
+#bottomnavigation li {
+ display: inline;
+ margin: 0;
+ font-size: 15.5px;
+ font-weight: bold;
+ cursor: pointer;
+ padding: 1.5% 3% 1.6% 3%;
+ margin-left: -9px; /* fix to make nav fill all the way left on hover; IMP as of v2.6 */
+ margin-right: 5px; /* fix to make nav fill all the way right on hover - no gaps; IMP as of v2.6 */
+}
+#bottomnavigation li:hover {
+ display: inline;
+ background: #777777;
+ font-weight: bold;
+}
+#bottomnavigation .active {
+ display: inline;
+ background: #777777;
+ font-weight: bold;
+}
+/* END BOTTOMNAVIGATION STYLES */
+
+#container {
+	overflow: hidden;
+	width: 1075px;
+	margin: 0 auto;
+	-moz-box-shadow: 0 0 10px 5px #888;
+	-webkit-box-shadow: 0 0 10px 5px#888;
+	box-shadow: 0 0 10px 5px #888;
+}
+#container-header {
+	overflow: hidden;
+	width: 1075px;
+	margin: 0 auto;
+}
+#container2 { /* sidebar */
+    float:left;
+    width:100%;
+    background:#777777;
+    position:relative;
+    left:10%;
+	
+}
+#container1 { /* main content */
+    float:left;
+    width:100%;
+    background:#EAEAEA;
+    position:relative;
+    right:40%;
+}
+#col1 { /* main content */
+    float:left;
+    width:66%;
+	position: relative;
+	left: 32%;
+	overflow:hidden;
+}
+#col2 { /* sidebar content */
+    float:left;
+    width:26%;
+	position: relative;
+	left: 36%;
+	overflow:hidden;
+}
+
+#content-special { /* main content area for special 100% pages */
+	float:left;
+	width:100%;
+	padding-left: 2%;
+	padding-right: 2%;
+	background:#EAEAEA;
+	z-index:1;
+	position:relative;
+}
+
+/* BEGIN FOOTER STYLES */
+#footer {
+ height: 140px;
+ background: #444444;
+ color: white;
+ font-size: 13px;
+ z-index:2;
+ position: relative;
+}
+#footer a {
+ color: white; 
+}
+#footer p {
+ margin: 0; 
+}
+#foot {
+ line-height: 1.4em;
+ font-family:Arial, Helvetica, sans-serif;
+ font-size: 14px;
+}
+#foot .left {
+ width: 30%;
+ float: left;
+ text-align: left;
+ padding-right: 45px;
+}
+#foot .left p {
+ text-align: justify;
+ word-wrap: break-word;
+}
+#foot .mid {
+ width: 30%;
+ float: left;
+ text-align: left;
+ padding-right: 45px;
+}
+#foot .mid p {
+ text-align: justify;
+ word-wrap: break-word;
+}
+#foot .right {
+ width: 30%;
+ float: left;
+ text-align: left;
+}
+#foot .right p {
+ text-align: justify;
+ word-wrap: break-word;
+}
+#foot #lower {
+ width: 100%;
+ text-align: center;
+ padding-top: 55px;
+ font-size: 12px;
+ color: #939393;
+ clear: both;
+}
+#foot #lower a {
+ color: #939393;
+}
+#foot #lower a:hover {
+ color: #ffffff;
+ text-decoration: none;
+}
+/* END FOOTER STYLES */
+
+/* BEGIN HEADER */
+#header {
+	display: table;
+	height: 150px;
+	width: 100%;
+}
+#header-row {
+	display: table-row;
+}
+#header-row .big {
+	font-size:xx-large;	
+}
+#header-leftcol {
+	display: table-cell;
+	width: 75%;
+	vertical-align: middle;
+}
+#header-rightcol {
+	display: table-cell;
+}
+#title {
+	display: table;	
+	width: 100%;
+}
+#title #innerheader-row {
+	display: table-row;
+}
+#title #left {
+	display: table-cell;
+	background: #777;
+	width: 30%;
+	padding: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	cursor: pointer;
+}
+#title #right-padmain {
+	display: table-cell;
+	padding: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	position: relative;
+	left: -30px;
+	z-index: -1;
+	cursor: pointer;
+}
+
+/* THE REST IS IN THE COMPATIBILITY CSS BELOW */
+/* END HEADER STYLES */
+
+/* BEGIN LAUNCHPAD STYLES*/
+#launchPad {
+	display: table;
+	width: 100%;
+	height: 169px;
+	-moz-box-shadow: inset 0 0 5px 5px #888;
+	-webkit-box-shadow: inset 0 0 5px 5px#888;
+	box-shadow: inset 0 0 5px 5px #888;
+}
+#lP_row {
+	display: table-row;	
+}
+#pad1, #pad2, #pad3, #pad4 {
+	display: table-cell;
+	width: 25%;
+	height: 100%;
+	cursor: pointer;
+}
+#pad1 {
+ background-image:url(images/pad1.png);
+ background-repeat: no-repeat;
+}
+#pad2 {
+ background-image:url(images/pad2.png);
+ background-repeat: no-repeat;
+}
+#pad3 {
+ background-image:url(images/pad3.png);
+ background-repeat: no-repeat;
+}
+#pad4 {
+ background-image:url(images/pad4.png);
+ background-repeat: no-repeat;
+}
+/* END LAUNCHPAD STYLES */
+
+#lpToggle {
+ font-size:48px; 
+ margin: 0 auto;
+ cursor: pointer;
+ background: url(images/mustache.png) no-repeat center center;
+}
+#lpToggle:hover {
+ font-size:48px; 
+ cursor: pointer;
+ background: url(images/mustache_over.png) no-repeat center center;
+}
+
+/* BEGIN NAVIGATION STYLES */
+#navigation {
+ padding: 0px 0px;
+ background: #AAAAAA;
+ margin: 0 auto;
+ line-height: 1.9em; /* FIX FOR NAV LOCATED A BIT LOWER THAN MUSTACHE, IMP AS OF v2.5 */
+ padding: 0;
+ color: white;
+ width: 100%;
+ height: 50px;
+}
+#nav-left {
+ width: 93%;
+ display: inline-block;
+}
+#nav-right {
+ width: 5%;
+ display: inline-block;
+ vertical-align:middle;
+}
+#navigation a {
+ color: white;
+ text-decoration: none;
+}
+/*#nav a:hover {
+ color: #297ACC;
+ text-decoration: none; 
+}*/
+#navigation ul {
+ margin: 0;
+ padding: 9px;
+}
+#navigation li {
+ display: inline;
+ margin: 0;
+ font-weight: bold;
+ cursor: pointer;
+ padding: 2% 3% 1.6% 3%;
+ margin-left: -9px; /* fix to make nav fill all the way left on hover; IMP as of v2.6 */
+ margin-right: 5px; /* fix to make nav fill all the way right on hover - no gaps; IMP as of v2.6 */
+}
+#navigation li:hover {
+ display: inline;
+ background: #777777;
+ font-weight: bold;
+}
+#navigation .active {
+ display: inline;
+ background: #777777;
+ font-weight: bold;
+}
+/* END NAVIGATION STYLES */
+
+.rounded-corners {
+    -moz-border-radius: 20px 20px 0px 20px;
+    -webkit-border-radius: 20px 20px 0px 20px;
+    -khtml-border-radius: 20px 20px 0px 20px;
+	border-radius: 20px 20px 0px 20px;
+	behavior: url(../nat4an/images/border-radius.htc);
+}
+
+.searchClass {
+	width: 220px;
+	height: 30px;
+	position: relative;
+	top: 15px;
+	background: #AAAAAA;
+	font-size:16px;
+	font-family:"Comic Sans MS", cursive;
+}
+.searchClass:hover {
+	background: #EAEAEA;
+}
+
+/* BEGIN TOP NAVIGATION STYLES */
+#topnavigation {
+ padding: 0px 0px;
+ /*background: #e14d42;*/
+ width: 100% !important;
+ margin: 0 auto;
+}
+#topnav {
+ width: 100%;
+ margin: 0 auto;
+ height: 48px;
+ line-height: 3em;
+ padding: 0;
+ color: black;
+}
+#topnav .left {
+ width auto:
+ float: left;
+ padding-left: 10px;
+ padding-right: 10px;
+}
+#topnav .right {
+ color: black;
+ float: right;
+}
+#topnav a {
+ color: black;
+ text-decoration: none;
+}
+#topnav a:hover {
+ text-decoration: underline;
+}
+#topnav #selected {
+ text-decoration: underline;
+}
+#topnav ul {
+ margin: 0;
+ padding: 0;
+ list-style:none;
+}
+#topnav li {
+ display: inline;
+ margin: 0;
+ padding-top: .938em;
+ padding-left: 1.5em;
+ padding-bottom: .938em;
+ padding-right: 1.5em;
+ font-weight: bold;
+ cursor: pointer;
+}
+#topnav li:hover {
+ display: inline;
+ margin: 0;
+ background: #248F24;
+ padding-top: .94em;
+ padding-left: 1.5em;
+ padding-bottom: .932em;
+ padding-right: 1.5em;
+ font-weight: bold;
+}
+#topnav .active {
+ display: inline;
+ margin: 0;
+ background: #248F24;
+ padding-top: .94em;
+ padding-left: 1.5em;
+ padding-bottom: .932em;
+ padding-right: 1.5em;
+ font-weight: bold;
+}
+/* END TOP NAVIGATION STYLES */
+
+.wrap {
+ position: relative;
+ margin: 0 auto;
+ width: 950px; 
+ height: 100%;
+}
+.wrap-bottom {
+ position: relative;
+ margin: 0 auto;
+ width: 1000px; 
+ height: 100%;
+}
+
+/* COMPATIBILITY CSS */
+
+/* HEADER STUFF */
+/* ALL FIREFOX SPECIFIC */
+@-moz-document url-prefix() {
+	#title #right-pad1 {
+		display: table-cell;
+		background: #317df0;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+	}
+	#title #right-pad2 {
+		display: table-cell;
+		background: #8c4a9d;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad3 {
+		display: table-cell;
+		background: #faca0e;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		position: relative;
+		color: black;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad4 {
+		display: table-cell;
+		background: #d6002d;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		color: black;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+}
+/* END ALL FIREFOX SPECIFIC */
+
+/* CHROME AND SAFARI SPECIFIC */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#title #right-pad1 {
+		display: table-cell;
+		background: #317df0;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad2 {
+		display: table-cell;
+		background: #8c4a9d;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad3 {
+		display: table-cell;
+		background: #faca0e;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		position: relative;
+		color: black;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad4 {
+		display: table-cell;
+		background: #d6002d;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		color: black;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+}
+/* END CHROME AND SAFARI SPECIFIC */
+
+/* IE SPECIFIC */
+/* INCLUDED IN THE INDEX.PHP */
+	
+}
+/* END IE SPECIFIC */
+
+/* OPERA SPECIFIC */
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
+	/* SHOULD NOT NEED TO BUT IF YOU HAVE TO PUT STUFF HERE */
+	#title #right-pad1 {
+		display: table-cell;
+		background: #317df0;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad2 {
+		display: table-cell;
+		background: #8c4a9d;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad3 {
+		display: table-cell;
+		background: #faca0e;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		position: relative;
+		color: black;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+	#title #right-pad4 {
+		display: table-cell;
+		background: #d6002d;
+		padding: 10px;
+		-moz-border-radius: 20px;
+		-webkit-border-radius: 20px;
+		border-radius: 20px; /* future proofing */
+		-khtml-border-radius: 20px; /* for old Konqueror browsers */
+		z-index: -1;
+		color: black;
+		cursor: pointer;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		left: -30px;
+	}
+}
+/* END OPERA SPECIFIC */
+/* END HEADER STUFF */
+
+/* END COMPATIBILITY CSS */
+
+/* PUT CSS FOR MODULES ON PAGE HERE */
+.pages-sidebar-title {
+	color: white;
+	background: #317df0;
+	padding: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	-moz-box-shadow: inset 0 0 8px #888;
+	-webkit-box-shadow: inset 0 0 8px #888;
+	box-shadow: inset 0 0 8px #888;
+	border: black thin solid;
+}
+.pages-sidebar-contents {
+	background: #EAEAEA;
+	color: black;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	-moz-box-shadow: inset 0 0 8px #888;
+	-webkit-box-shadow: inset 0 0 8px #888;
+	box-shadow: inset 0 0 8px #888;
+}
+.pages-sidebar-contents ul {
+ list-style: none;
+ padding-top: 10px;
+ padding-bottom: 10px;
+ left: -20px;
+ position: relative;
+}
+.pages-sidebar-contents li {
+ list-style: none;
+ left: -30px;
+ width: 100%;
+ font-family:Verdana, Geneva, sans-serif;
+ font-size:13px;
+}
+.pages-sidebar-contents li a {
+ color: black;
+ text-decoration: none;
+}
+.pages-sidebar-contents li a:hover {
+ color: black;
+ text-decoration: underline;
+}
+
+/* BEGIN FORMLAYOUT STYLES  */
+.formLayout {
+	background-color: #f3f3f3;
+    border: solid 1px #a1a1a1;
+    padding: 10px;
+    width: 97%;	
+}
+.formLayout label {
+	position: relative;
+	top: 20px;
+	display: block;
+	width: 160px;
+	float: left;
+	margin-bottom: 10px;	
+}
+.formLayout input {
+	display: block;
+	width: 160px;
+	float: left;
+	margin-bottom: 10px;
+	color: #EAEAEA;
+	font-style:italic;
+}
+.formLayout input:hover {
+	color: #777777;
+	font-style:normal;
+}
+.formLayout label {
+	text-align: right;
+	padding-right: 20px;	
+}
+input {
+	width: 220px;
+	height: 30px;
+	position: relative;
+	top: 15px;
+	background: #AAAAAA;
+}
+input:hover {
+	background: #FFF;
+}
+option {
+	width: 220px;
+	height: 30px;
+	position: relative;
+	top: 15px;
+	background: #EAEAEA;
+	color: #777777;
+}
+option:hover {
+	background: #FFF;
+}
+select {
+	height: 30px;
+	position: relative;
+	top: 15px;
+	background: #AAAAAA;
+	color: #EAEAEA;
+}
+select:hover {
+	background: #FFF;
+	color: #777777;
+}
+textarea {
+	position: relative;
+	top: 15px;
+	background: #AAAAAA;
+}
+textarea:hover {
+	background: #FFF;
+}
+/* END FORMLAYOUT STYLES  */
+
+/* IDK WHAT THIS IS AND INACITVE */
+.no-list-style {
+	display:inline;
+	list-style: none;
+	position: relative;
+	top: -22px;
+}
+
+/* PROPS FOR CONTENT */
+.props-var-body-wrap {
+ text-align: justify;
+ word-wrap: break-word;
+}
+.props-var-body-wrap h1 {
+ text-align: left;
+ font-size: 36px;
+}
+.props-var-body-wrap .h1-center {
+ text-align: center;
+ font-size: 36px;
+}
+.props-var-body-wrap h2 {
+ text-align: left;
+ font-size: 23px;
+}
+.props-var-body-wrap p {
+ text-align: justify;
+ word-wrap: break-word;
+ font-size: 16px;
+}
+.props-var-body-wrap .p-center {
+ text-align: center;
+ font-size: 16px;
+}
+.props-var-body-wrap ul {
+
+}
+.props-var-body-wrap ul li {
+	list-style: none;
+}
+.props-var-body-wrap ul li a {
+	text-decoration: none;
+	color: black;
+}
+.props-var-body-wrap ul li a:hover {
+	text-decoration: underline;
+}
+
+/*------------------------------------------ END OF MAIN STYLES FOR THE WIFE ----------------------------------------------*/

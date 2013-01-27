@@ -17,7 +17,7 @@
 
 //main non-class variables
 //GLOBAL VARIABLES THAT CAN BE CHANGED
-$globalvars_passpage_title			= "<h1 style=\"font-size:62px;text-align:center;position:relative;top:10px;\" class=\"header\" onclick=\"window.location.href='http://localhost/projects/witll-cms'\">WITLL.NET</h1>"; /* local: localhost/projects/witll-cms remote: witll.net */
+$globalvars_passpage_title			= "<h1 style=\"font-size:62px;text-align:center;position:relative;top:10px;\" class=\"header\" onclick=\"window.location.href='http://www.nat4an.com/projects/witll-cms'\">WITLL.NET</h1>"; /* local: localhost/projects/witll-cms remote: witll.net */
 $globalvars_passpage_slogan			= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">Welcome to Witllacity!</h2>";
 $globalvars_passpage_closed_st		= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed)</h2>";
 $globalvars_passpage_closedbeta_st	= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed BETA)</h2>";
@@ -42,8 +42,8 @@ class properties
 	public $WEBSITE_NAME 		 			 = 'WITLL';
 	public $WEBSITE_EXT 		 			 = '.NET';
 	public $WEBSITE_SLOGAN					 = 'A Web Interface To Learn &amp; to Love';
-	public $FULL_WURL						 = 'http://localhost/projects/witll-cms/';
-	public $WEBSITE_URL			 			 = 'http://localhost/projects/witll-cms/';
+	public $FULL_WURL						 = 'http://www.nat4an.com/projects/witll-cms/';
+	public $WEBSITE_URL			 			 = 'http://www.nat4an.com/projects/witll-cms/';
 	public $STYLESHEET						 = 'witllacity'; /* default: nat4an; alt: creativity */
 	public $TURN_ON_BOTTOM_NAV				 = 'yes'; /* DO NOT USE THIS ATM */
 	public $TURN_ON_TOP_NAV					 = 'yes'; /* DO NOT USE THIS ATM */
@@ -68,8 +68,8 @@ class properties
 	public $PROPS_VAR_BODYSB_WRAP_END		 = '</div>';
 	//database stuff
 	public $DB_HOST							 = 'localhost';
-	public $DB_USER							 = 'root'; //remote: "mrnat4an_master" or local: "root"
-	public $DB_PASS							 = ''; //remote: "T7VSRyk@pTn9" or local: ""
+	public $DB_USER							 = 'mrnat4an_master'; //remote: "mrnat4an_master" or local: "root"
+	public $DB_PASS							 = 'thecreation101'; //remote: "thecreation101" or local: ""
 	public $DB_NAME							 = 'mrnat4an_witll';
 	public $DB_PREFIX						 = 'h_';
 	

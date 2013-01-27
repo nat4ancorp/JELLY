@@ -1,9 +1,3 @@
-# Authentication for remote server; comment on local
-# AuthType Basic
-# AuthName "Nat4an.com BETA"
-# AuthUserFile "/home/mrnat4an/.htpasswds/public_html/beta/passwd"
-# require valid-user
-
 Options +FollowSymLinks
 RewriteEngine on
 
@@ -12,6 +6,10 @@ RewriteRule ^projects - [L,NC]
 RewriteRule ^cp - [L,NC]
 RewriteRule ^files - [L,NC]
 RewriteRule ^INSTALL - [L,NC]
+RewriteRule ^inthebeginning - [L,NC]
+RewriteRule ^TheKandyKraftChronicles - [L,NC]
+RewriteRule ^mobile - [L,NC]
+RewriteRule ^testing - [L,NC]
 
 # first-level rewriting (launchpad and page)
 RewriteRule ^([^/]+)/([^/]+)$ ?launchpad=$1&page=$2 [L]
@@ -20,7 +18,7 @@ RewriteRule ^([^/]+)/([^/]+)$ ?launchpad=$1&page=$2 [L]
 # RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ ?launchpad=$1&page=$2&subpage=$3 [L]
 
 # temp second-level rewriting
-RewriteRule ^witllacity/([^/]+)/search$ ?launchpad=witllacity&page=$2&meta=search [L]
+RewriteRule ^portfolio/([^/]+)/search$ ?launchpad=portfolio&page=$2&meta=search [L]
 
 # ----------------------------------------------------------------------------------------
 # ---------- CPANEL ----------------------------------------------------------------------
@@ -35,103 +33,269 @@ RewriteRule ^cp/([^/]+)/([^/]+)/$ ?page=$1&action=$2 [L]
 
 # SPECIFIC REWRITE STUFF FOR NAT4AN.COM
 # no page rule fix
-RewriteRule ^witllacity$ ?launchpad=witllacity&page=home [L]
+RewriteRule ^portfolio$ ?launchpad=portfolio&page=home [L]
 RewriteRule ^([^/]+)/$ ?launchpad=$1&page=home [L]
 
 # slash rule fix
 RewriteRule ^([^/]+)/([^/]+)/$ ?launchpad=$1&page=$2 [L]
 
 # blog user rule
-RewriteRule ^witllacity/blog/user$ ?launchpad=witllacity&page=blog&meta=users [L]
-RewriteRule ^witllacity/blog/user/$ ?launchpad=witllacity&page=blog&meta=users [L]
-RewriteRule ^witllacity/blog/user/([^/]+)$ ?launchpad=witllacity&page=blog&meta=users&user=$1 [L]
-RewriteRule ^witllacity/blog/user/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=users&user=$1 [L]
+RewriteRule ^portfolio/blog/user$ ?launchpad=portfolio&page=blog&meta=users [L]
+RewriteRule ^portfolio/blog/user/$ ?launchpad=portfolio&page=blog&meta=users [L]
+RewriteRule ^portfolio/blog/user/([^/]+)$ ?launchpad=portfolio&page=blog&meta=users&user=$1 [L]
+RewriteRule ^portfolio/blog/user/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=users&user=$1 [L]
 
 # blog category rule
-RewriteRule ^witllacity/blog/category/([^/]+)$ ?launchpad=witllacity&page=blog&meta=category&category=$1 [L]
+RewriteRule ^portfolio/blog/category/([^/]+)$ ?launchpad=portfolio&page=blog&meta=category&category=$1 [L]
 
 # blog permalink rule
-RewriteRule ^witllacity/blog/permalink$ ?launchpad=witllacity&page=blog&meta=permalink [L]
-RewriteRule ^witllacity/blog/permalink/$ ?launchpad=witllacity&page=blog&meta=permalink [L]
+RewriteRule ^portfolio/blog/permalink$ ?launchpad=portfolio&page=blog&meta=permalink [L]
+RewriteRule ^portfolio/blog/permalink/$ ?launchpad=portfolio&page=blog&meta=permalink [L]
 
-RewriteRule ^witllacity/blog/permalink/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1 [L]
-RewriteRule ^witllacity/blog/permalink/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1 [L]
-
-RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2 [L]
-RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2 [L]
-
-RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
-RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
-
-RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
-RewriteRule ^witllacity/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 
 # blog tag rule
-RewriteRule ^witllacity/blog/tag/([^/]+)$ ?launchpad=witllacity&page=blog&meta=tag&tag=$1 [L]
+RewriteRule ^portfolio/blog/tag/([^/]+)$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1 [L]
 
 # blog comment rule
-RewriteRule ^witllacity/blog/comment/([^/]+)$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1 [L]
-RewriteRule ^witllacity/blog/comment/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1 [L]
-RewriteRule ^witllacity/blog/comment/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
-RewriteRule ^witllacity/blog/comment$ ?launchpad=witllacity&page=blog&meta=comment [L]
-RewriteRule ^witllacity/blog/comment/$ ?launchpad=witllacity&page=blog&meta=comment [L]
-RewriteRule ^witllacity/blog/comment/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^portfolio/blog/comment/([^/]+)$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1 [L]
+RewriteRule ^portfolio/blog/comment/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1 [L]
+RewriteRule ^portfolio/blog/comment/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^portfolio/blog/comment$ ?launchpad=portfolio&page=blog&meta=comment [L]
+RewriteRule ^portfolio/blog/comment/$ ?launchpad=portfolio&page=blog&meta=comment [L]
+RewriteRule ^portfolio/blog/comment/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
 
 # blog archive (botr) rule
-RewriteRule ^witllacity/blog/botr$ ?launchpad=witllacity&page=blog&meta=botr [L]
-RewriteRule ^witllacity/blog/botr/$ ?launchpad=witllacity&page=blog&meta=botr [L]
-RewriteRule ^witllacity/blog/botr/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1 [L]
-RewriteRule ^witllacity/blog/botr/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1 [L]
-RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2 [L]
-RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^portfolio/blog/botr$ ?launchpad=portfolio&page=blog&meta=botr [L]
+RewriteRule ^portfolio/blog/botr/$ ?launchpad=portfolio&page=blog&meta=botr [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1 [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1 [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2 [L]
 
 # blog pagination rules
-RewriteRule ^witllacity/blog/category/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=category&category=$1&pagination=$2 [L]
-RewriteRule ^witllacity/blog/category/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/category/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/category/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=category&category=$1&pagination=$2 [L]
 
-RewriteRule ^witllacity/blog/user/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=users&user=$1&pagination=$2 [L]
-RewriteRule ^witllacity/blog/user/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/user/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/user/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/tag/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/tag/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/([^/]+)$ ?launchpad=portfolio&page=blog&pagination=$1 [L]
+RewriteRule ^portfolio/blog/([^/]+)/$ ?launchpad=portfolio&page=blog&pagination=$1 [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-RewriteRule ^witllacity/blog/tag/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=blog&meta=tag&tag=$1&pagination=$2 [L]
-RewriteRule ^witllacity/blog/tag/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=tag&tag=$1&pagination=$2 [L]
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-RewriteRule ^witllacity/blog/([^/]+)$ ?launchpad=witllacity&page=blog&pagination=$1 [L]
-RewriteRule ^witllacity/blog/([^/]+)/$ ?launchpad=witllacity&page=blog&pagination=$1 [L]
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-RewriteRule ^witllacity/blog/botr/([^/]+)/page/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&pagination=$2 [L]
-RewriteRule ^witllacity/blog/botr/([^/]+)/page/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&pagination=$2 [L]
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
-RewriteRule ^witllacity/blog/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=witllacity&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
 
-# witllacity contact send stuff
-RewriteRule ^witllacity/contact/([^/]+)$ ?launchpad=witllacity&page=contact&meta=$1 [L]
-RewriteRule ^witllacity/contact/([^/]+)/$ ?launchpad=witllacity&page=contact&meta=$1 [L]
-RewriteRule ^witllacity/contact/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=contact&meta=$1&ticketid=$2 [L]
-RewriteRule ^witllacity/contact/([^/]+)/([^/]+)/$ ?launchpad=witllacity&page=contact&meta=$1&ticketid=$2 [L]
+
+# a-z-list user rule
+RewriteRule ^af/a-z-list/user$ ?launchpad=af&page=a-z-list&meta=users [L]
+RewriteRule ^af/a-z-list/user/$ ?launchpad=af&page=a-z-list&meta=users [L]
+RewriteRule ^af/a-z-list/user/([^/]+)$ ?launchpad=af&page=a-z-list&meta=users&user=$1 [L]
+RewriteRule ^af/a-z-list/user/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=users&user=$1 [L]
+
+# a-z-list author rule
+RewriteRule ^af/a-z-list/authors$ ?launchpad=af&page=a-z-list&meta=authors [L]
+RewriteRule ^af/a-z-list/authors/$ ?launchpad=af&page=a-z-list&meta=authors [L]
+RewriteRule ^af/a-z-list/authors/([^/]+)$ ?launchpad=af&page=a-z-list&meta=authors&author=$1 [L]
+RewriteRule ^af/a-z-list/authors/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=authors&author=$1 [L]
+# a-z-list director rule
+RewriteRule ^af/a-z-list/directors$ ?launchpad=af&page=a-z-list&meta=directors [L]
+RewriteRule ^af/a-z-list/directors/$ ?launchpad=af&page=a-z-list&meta=directors [L]
+RewriteRule ^af/a-z-list/directors/([^/]+)$ ?launchpad=af&page=a-z-list&meta=directors&director=$1 [L]
+RewriteRule ^af/a-z-list/directors/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=directors&director=$1 [L]
+
+# a-z-list studio rule
+RewriteRule ^af/a-z-list/studios$ ?launchpad=af&page=a-z-list&meta=studios [L]
+RewriteRule ^af/a-z-list/studios/$ ?launchpad=af&page=a-z-list&meta=studios [L]
+RewriteRule ^af/a-z-list/studios/([^/]+)$ ?launchpad=af&page=a-z-list&meta=studios&studio=$1 [L]
+RewriteRule ^af/a-z-list/studios/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=studios&studio=$1 [L]
+
+# a-z-list network rule
+RewriteRule ^af/a-z-list/networks$ ?launchpad=af&page=a-z-list&meta=networks [L]
+RewriteRule ^af/a-z-list/networks/$ ?launchpad=af&page=a-z-list&meta=networks [L]
+RewriteRule ^af/a-z-list/networks/([^/]+)$ ?launchpad=af&page=a-z-list&meta=networks&network=$1 [L]
+RewriteRule ^af/a-z-list/networks/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=networks&network=$1 [L]
+
+# a-z-list category rule
+RewriteRule ^af/a-z-list/category/([^/]+)$ ?launchpad=af&page=a-z-list&meta=category&category=$1 [L]
+
+# a-z-list permalink rule
+RewriteRule ^af/a-z-list/permalink$ ?launchpad=af&page=a-z-list&meta=permalink [L]
+RewriteRule ^af/a-z-list/permalink/$ ?launchpad=af&page=a-z-list&meta=permalink [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1 [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1 [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+
+# a-z-list tag rule
+RewriteRule ^af/a-z-list/tag/([^/]+)$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1 [L]
+
+# a-z-list comment rule
+RewriteRule ^af/a-z-list/comment/([^/]+)$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1 [L]
+RewriteRule ^af/a-z-list/comment/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1 [L]
+RewriteRule ^af/a-z-list/comment/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^af/a-z-list/comment$ ?launchpad=af&page=a-z-list&meta=comment [L]
+RewriteRule ^af/a-z-list/comment/$ ?launchpad=af&page=a-z-list&meta=comment [L]
+RewriteRule ^af/a-z-list/comment/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1&commentticketid=$2 [L]
+
+# a-z-list archive (botr) rule
+RewriteRule ^af/a-z-list/botr$ ?launchpad=af&page=a-z-list&meta=botr [L]
+RewriteRule ^af/a-z-list/botr/$ ?launchpad=af&page=a-z-list&meta=botr [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1 [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1 [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2 [L]
+
+# a-z-list pagination rules
+RewriteRule ^af/a-z-list/category/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/category/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/user/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/user/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/authors/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=authors&author=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/authors/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=authors&author=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/tag/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/tag/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/([^/]+)$ ?launchpad=af&page=a-z-list&pagination=$1 [L]
+RewriteRule ^af/a-z-list/([^/]+)/$ ?launchpad=af&page=a-z-list&pagination=$1 [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2&pagination=$3 [L]
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# watchlist user rule
+RewriteRule ^af/watchlist/user$ ?launchpad=af&page=watchlist&meta=users [L]
+RewriteRule ^af/watchlist/user/$ ?launchpad=af&page=watchlist&meta=users [L]
+RewriteRule ^af/watchlist/user/([^/]+)$ ?launchpad=af&page=watchlist&meta=users&user=$1 [L]
+RewriteRule ^af/watchlist/user/([^/]+)/$ ?launchpad=af&page=watchlist&meta=users&user=$1 [L]
+
+# watchlist director rule
+RewriteRule ^af/watchlist/directors$ ?launchpad=af&page=watchlist&meta=directors [L]
+RewriteRule ^af/watchlist/directors/$ ?launchpad=af&page=watchlist&meta=directors [L]
+RewriteRule ^af/watchlist/directors/([^/]+)$ ?launchpad=af&page=watchlist&meta=directors&director=$1 [L]
+RewriteRule ^af/watchlist/directors/([^/]+)/$ ?launchpad=af&page=watchlist&meta=directors&director=$1 [L]
+
+# watchlist studio rule
+RewriteRule ^af/watchlist/studios$ ?launchpad=af&page=watchlist&meta=studios [L]
+RewriteRule ^af/watchlist/studios/$ ?launchpad=af&page=watchlist&meta=studios [L]
+RewriteRule ^af/watchlist/studios/([^/]+)$ ?launchpad=af&page=watchlist&meta=studios&studio=$1 [L]
+RewriteRule ^af/watchlist/studios/([^/]+)/$ ?launchpad=af&page=watchlist&meta=studios&studio=$1 [L]
+
+# watchlist network rule
+RewriteRule ^af/watchlist/networks$ ?launchpad=af&page=watchlist&meta=networks [L]
+RewriteRule ^af/watchlist/networks/$ ?launchpad=af&page=watchlist&meta=networks [L]
+RewriteRule ^af/watchlist/networks/([^/]+)$ ?launchpad=af&page=watchlist&meta=networks&network=$1 [L]
+RewriteRule ^af/watchlist/networks/([^/]+)/$ ?launchpad=af&page=watchlist&meta=networks&network=$1 [L]
+
+# watchlist category rule
+RewriteRule ^af/watchlist/category/([^/]+)$ ?launchpad=af&page=watchlist&meta=category&category=$1 [L]
+
+# watchlist permalink rule
+RewriteRule ^af/watchlist/permalink$ ?launchpad=af&page=watchlist&meta=permalink [L]
+RewriteRule ^af/watchlist/permalink/$ ?launchpad=af&page=watchlist&meta=permalink [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1 [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1 [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+
+# watchlist tag rule
+RewriteRule ^af/watchlist/tag/([^/]+)$ ?launchpad=af&page=watchlist&meta=tag&tag=$1 [L]
+
+# watchlist comment rule
+RewriteRule ^af/watchlist/comment/([^/]+)$ ?launchpad=af&page=watchlist&meta=comment&operand=$1 [L]
+RewriteRule ^af/watchlist/comment/([^/]+)/$ ?launchpad=af&page=watchlist&meta=comment&operand=$1 [L]
+RewriteRule ^af/watchlist/comment/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^af/watchlist/comment$ ?launchpad=af&page=watchlist&meta=comment [L]
+RewriteRule ^af/watchlist/comment/$ ?launchpad=af&page=watchlist&meta=comment [L]
+RewriteRule ^af/watchlist/comment/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=comment&operand=$1&commentticketid=$2 [L]
+
+# watchlist archive (botr) rule
+RewriteRule ^af/watchlist/botr$ ?launchpad=af&page=watchlist&meta=botr [L]
+RewriteRule ^af/watchlist/botr/$ ?launchpad=af&page=watchlist&meta=botr [L]
+RewriteRule ^af/watchlist/botr/([^/]+)$ ?launchpad=af&page=watchlist&meta=botr&year=$1 [L]
+RewriteRule ^af/watchlist/botr/([^/]+)/$ ?launchpad=af&page=watchlist&meta=botr&year=$1 [L]
+RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=botr&year=$1&month=$2 [L]
+
+# watchlist pagination rules
+RewriteRule ^af/watchlist/category/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^af/watchlist/category/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^af/watchlist/tag/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^af/watchlist/tag/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^af/watchlist/([^/]+)$ ?launchpad=af&page=watchlist&pagination=$1 [L]
+RewriteRule ^af/watchlist/([^/]+)/$ ?launchpad=af&page=watchlist&pagination=$1 [L]
+RewriteRule ^af/watchlist/botr/([^/]+)/page/([^/]+)$ ?launchpad=af&page=watchlist&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^af/watchlist/botr/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=watchlist&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=af&page=watchlist&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=watchlist&meta=botr&year=$1&month=$2&pagination=$3 [L]
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------ # -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# portfolio contact send stuff
+RewriteRule ^portfolio/contact/([^/]+)$ ?launchpad=portfolio&page=contact&meta=$1 [L]
+RewriteRule ^portfolio/contact/([^/]+)/$ ?launchpad=portfolio&page=contact&meta=$1 [L]
+RewriteRule ^portfolio/contact/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=contact&meta=$1&ticketid=$2 [L]
+RewriteRule ^portfolio/contact/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=contact&meta=$1&ticketid=$2 [L]
+RewriteRule ^tmm/contact/([^/]+)$ ?launchpad=tmm&page=contact&meta=$1 [L]
+RewriteRule ^tmm/contact/([^/]+)/$ ?launchpad=tmm&page=contact&meta=$1 [L]
+RewriteRule ^tmm/contact/([^/]+)/([^/]+)$ ?launchpad=tmm&page=contact&meta=$1&ticketid=$2 [L]
+RewriteRule ^tmm/contact/([^/]+)/([^/]+)/$ ?launchpad=tmm&page=contact&meta=$1&ticketid=$2 [L]
+RewriteRule ^portfolio/report/([^/]+)$ ?launchpad=portfolio&page=report&meta=$1 [L]
+RewriteRule ^portfolio/report/([^/]+)/$ ?launchpad=portfolio&page=report&meta=$1 [L]
+RewriteRule ^portfolio/report/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=report&meta=$1&ticketid=$2 [L]
+RewriteRule ^portfolio/report/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=report&meta=$1&ticketid=$2 [L]
+
+# tmm contact send stuff
+RewriteRule ^tmm/guestbook/([^/]+)$ ?launchpad=tmm&page=guestbook&meta=$1 [L]
+RewriteRule ^tmm/guestbook/([^/]+)/$ ?launchpad=tmm&page=guestbook&meta=$1 [L]
+RewriteRule ^tmm/guestbook/([^/]+)/([^/]+)$ ?launchpad=tmm&page=guestbook&meta=$1&ticketid=$2 [L]
+RewriteRule ^tmm/guestbook/([^/]+)/([^/]+)/$ ?launchpad=tmm&page=guestbook&meta=$1&ticketid=$2 [L]
 
 # work rule
-RewriteRule ^witllacity/work/([^/]+)$ ?launchpad=witllacity&page=work&meta=type&type=$1 [L]
-RewriteRule ^witllacity/work/([^/]+)/$ ?launchpad=witllacity&page=work&meta=type&type=$1 [L]
-RewriteRule ^witllacity/work/permalink/([^/]+)$ ?launchpad=witllacity&page=work&meta=permalink&name=$1 [L]
-RewriteRule ^witllacity/work/permalink/([^/]+)/$ ?launchpad=witllacity&page=work&meta=permalink&name=$1 [L]
-RewriteRule ^witllacity/work/tag/([^/]+)$ ?launchpad=witllacity&page=work&meta=tag&tag=$1 [L]
-RewriteRule ^witllacity/work/tag/([^/]+)/$ ?launchpad=witllacity&page=work&meta=tag&tag=$1 [L]
-RewriteRule ^witllacity/work/folio/([^/]+)$ ?launchpad=witllacity&page=work&meta=folio&folio=$1 [L]
-RewriteRule ^witllacity/work/folio/([^/]+)/$ ?launchpad=witllacity&page=work&meta=folio&folio=$1 [L]
+RewriteRule ^portfolio/work/([^/]+)$ ?launchpad=portfolio&page=work&meta=type&type=$1 [L]
+RewriteRule ^portfolio/work/([^/]+)/$ ?launchpad=portfolio&page=work&meta=type&type=$1 [L]
+RewriteRule ^portfolio/work/permalink/([^/]+)$ ?launchpad=portfolio&page=work&meta=permalink&name=$1 [L]
+RewriteRule ^portfolio/work/permalink/([^/]+)/$ ?launchpad=portfolio&page=work&meta=permalink&name=$1 [L]
+RewriteRule ^portfolio/work/tag/([^/]+)$ ?launchpad=portfolio&page=work&meta=tag&tag=$1 [L]
+RewriteRule ^portfolio/work/tag/([^/]+)/$ ?launchpad=portfolio&page=work&meta=tag&tag=$1 [L]
+RewriteRule ^portfolio/work/folio/([^/]+)$ ?launchpad=portfolio&page=work&meta=folio&folio=$1 [L]
+RewriteRule ^portfolio/work/folio/([^/]+)/$ ?launchpad=portfolio&page=work&meta=folio&folio=$1 [L]
 
 # changes rule
-RewriteRule ^witllacity/changes/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=witllacity&page=changes&year=$1&month=$2&day=$3 [L]
+RewriteRule ^portfolio/changes/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&year=$1&month=$2&day=$3 [L]
 
 # projects rule
-RewriteRule ^witllacity/work-projects/([^/]+)$ ?launchpad=witllacity&page=work-projects&meta=normal&projectname=$1 [L]
-RewriteRule ^witllacity/work-projects/([^/]+)/$ ?launchpad=witllacity&page=work-projects&meta=normal&projectname=$1 [L]
+RewriteRule ^portfolio/work-projects/([^/]+)$ ?launchpad=portfolio&page=work-projects&meta=normal&projectname=$1 [L]
+RewriteRule ^portfolio/work-projects/([^/]+)/$ ?launchpad=portfolio&page=work-projects&meta=normal&projectname=$1 [L]
 
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------- TO BE USED FOR EVERYTHING THAT IS CUSTOM IN THIS CMS -----------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------

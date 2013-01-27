@@ -1,6 +1,7 @@
 <?php
 //establish global vars
 @$PREFIX=$properties->DB_PREFIX;
+@$SESSIONID=tempSystem($properties,"getSESSION","");
 
 //determine what layout it is
 $GET_PAGE=mysql_query("SELECT * FROM {$PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'");
@@ -45,11 +46,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 						if(mysql_num_rows($GET_SUBPAGE)>0){
 							?>
 							
-							<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+							<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 							<div id="col1">
 							<!-- Column one start -->
 							<br />
-							<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_all.png" width="100%" title="Page Locked to all" /></center>
+							<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_all.png" width="100%" title="Page Locked to all" /></center>
 							<!-- Column one end -->
 							
 							</div>
@@ -79,7 +80,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									//building the page
 									?>
 									<?php if($layout == "single"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -95,7 +96,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "double"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -123,7 +124,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "triple"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -269,11 +270,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 							if(mysql_num_rows($GET_SUBPAGE)>0){
 								?>
 								
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<br />
-								<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_non_head_admins.png" width="100%" title="Page Locked to non head admins" /></center>
+								<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_non_head_admins.png" width="100%" title="Page Locked to non head admins" /></center>
 								<!-- Column one end -->
 								
 								</div>
@@ -304,7 +305,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									//building the page
 									?>
 									<?php if($layout == "single"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -320,7 +321,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "double"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -348,7 +349,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "triple"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -493,11 +494,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 						} else {
 							if(mysql_num_rows($GET_SUBPAGE)>0){
 								?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<br />
-								<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_non_admins.png" width="100%" title="Page Locked to non admins" /></center>
+								<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_non_admins.png" width="100%" title="Page Locked to non admins" /></center>
 								<!-- Column one end -->
 								
 								</div>
@@ -528,7 +529,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									//building the page
 									?>
 									<?php if($layout == "single"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -544,7 +545,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "double"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -572,7 +573,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "triple"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -718,11 +719,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 							if(mysql_num_rows($GET_SUBPAGE)>0){
 								?>
 								
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<br />
-								<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_non_amb.png" width="100%" title="Page Locked to non amb" /></center>
+								<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_non_amb.png" width="100%" title="Page Locked to non amb" /></center>
 								<!-- Column one end -->
 								
 								</div>
@@ -752,7 +753,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 								//building the page
 								?>
 								<?php if($layout == "single"){?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<?php 
@@ -768,7 +769,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 								<?php }?>
 								
 								<?php if($layout == "double"){?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<?php 
@@ -796,7 +797,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 								<?php }?>
 								
 								<?php if($layout == "triple"){?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<?php 
@@ -951,11 +952,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 						if(mysql_num_rows($GET_PAGE)>0){
 							?>
 							
-							<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+							<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 							<div id="col1">
 							<!-- Column one start -->
 							<br />
-							<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_all.png" width="100%" title="Page Locked to all" /></center>
+							<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_all.png" width="100%" title="Page Locked to all" /></center>
 							<!-- Column one end -->
 							
 							</div>
@@ -985,7 +986,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									//building the page
 									?>
 									<?php if($layout == "single"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1001,7 +1002,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "double"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1029,7 +1030,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "triple"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1175,11 +1176,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 							if(mysql_num_rows($GET_PAGE)>0){
 								?>
 								
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<br />
-								<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_non_head_admins.png" width="100%" title="Page Locked to non head admins" /></center>
+								<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_non_head_admins.png" width="100%" title="Page Locked to non head admins" /></center>
 								<!-- Column one end -->
 								
 								</div>
@@ -1210,7 +1211,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									//building the page
 									?>
 									<?php if($layout == "single"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1226,7 +1227,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "double"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1254,7 +1255,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "triple"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1399,11 +1400,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 						} else {
 							if(mysql_num_rows($GET_PAGE)>0){
 								?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<br />
-								<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_non_admins.png" width="100%" title="Page Locked to non admins" /></center>
+								<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_non_admins.png" width="100%" title="Page Locked to non admins" /></center>
 								<!-- Column one end -->
 								
 								</div>
@@ -1434,7 +1435,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									//building the page
 									?>
 									<?php if($layout == "single"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1450,7 +1451,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "double"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1478,7 +1479,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 									<?php }?>
 									
 									<?php if($layout == "triple"){?>
-									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+									<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 									<div id="col1">
 									<!-- Column one start -->
 									<?php 
@@ -1624,11 +1625,11 @@ if(mysql_num_rows($GET_PAGE)<1){
 							if(mysql_num_rows($GET_PAGE)>0){
 								?>
 								
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<br />
-								<center><img src="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/page_lock/locked_to_non_amb.png" width="100%" title="Page Locked to non amb" /></center>
+								<center><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/page_lock/locked_to_non_amb.png" width="100%" title="Page Locked to non amb" /></center>
 								<!-- Column one end -->
 								
 								</div>
@@ -1658,7 +1659,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 								//building the page
 								?>
 								<?php if($layout == "single"){?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<?php 
@@ -1674,7 +1675,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 								<?php }?>
 								
 								<?php if($layout == "double"){?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<?php 
@@ -1702,7 +1703,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 								<?php }?>
 								
 								<?php if($layout == "triple"){?>
-								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+								<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 								<div id="col1">
 								<!-- Column one start -->
 								<?php 

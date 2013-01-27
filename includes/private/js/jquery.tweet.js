@@ -94,7 +94,7 @@
             break;
           }
         }
-        return "<a href=tweet//""+escapeHTML(url)+"/">"+escapeHTML(text)+"</a>";
+        return "<a href=tweet//\""+escapeHTML(url)+"/">"+escapeHTML(text)+\"</a>";
       });
     }
 
@@ -227,7 +227,8 @@
         list.append($.map(tweets, function(o) { return "<li>" + t(s.template, o) + "</li>"; }).join('')).
           children('li:first').addClass('tweet_first').end().
           children('li:odd').addClass('tweet_even').end().
-          children('li:even').addClass('tweet_odd');
+          children('li:even').addClass('tweet_odd').
+		  children('li:last').addClass('tweet_last');
 
         $(widget).empty().append(list);
         if (s.intro_text) list.before(intro);

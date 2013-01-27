@@ -1,0 +1,79 @@
+#title #right-pad1 {
+	display: table-cell;
+	background: #317df0;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	z-index: -1;
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	left: -30px;
+}
+#title #right-pad2 {
+	display: table-cell;
+	background: #8c4a9d;
+	padding: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	z-index: -1;
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	left: -30px;
+}
+#title #right-pad3 {
+	display: table-cell;
+	background: #faca0e;
+	padding: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	z-index: -1;
+	position: relative;
+	color: black;
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	left: -30px;
+}
+#title #right-pad4 {
+	display: table-cell;
+	background: #d6002d;
+	padding: 10px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px; /* future proofing */
+	-khtml-border-radius: 20px; /* for old Konqueror browsers */
+	z-index: -1;
+	color: black;
+	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	left: -30px;
+}
+
+#pad1 {
+ background-image:url(../nat4an/images/pad1.png);
+ background-repeat: no-repeat;
+}
+#pad2 {
+ background-image:url(../nat4an/images/pad2.png);
+ background-repeat: no-repeat;
+}
+#pad3 {
+ background-image:url(../nat4an/images/pad3.png);
+ background-repeat: no-repeat;
+}
+#pad4 {
+ background-image:url(../nat4an/images/pad4.png);
+ background-repeat: no-repeat;
+}
