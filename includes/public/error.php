@@ -1,6 +1,8 @@
 <?php
+@$SESSIONID=tempSystem($properties,"getSESSION","");
+if(isset($_GET['n']) && ($_GET['n']!="")){$code=$_GET['n'];}
 //determine what layout it is
-$GET_PAGE=mysql_query("SELECT * FROM h_errorpages WHERE code='$code'");
+$GET_PAGE=mysql_query("SELECT * FROM {$properties->DB_PREFIX}errorpages WHERE code='$code'");
 if(mysql_num_rows($GET_PAGE)<1){
 		echo "An Error Occurred!";
 	} else {
@@ -47,7 +49,7 @@ if(mysql_num_rows($GET_PAGE)<1){
     <?php if($layout == "double"){?><div id="container2"><div id="container1"><?php }?>
         <?php if($layout == "single"){?><div id="container1"><?php }?>
         <?php
-        $GET_PAGE=mysql_query("SELECT * FROM h_errorpages WHERE code='$code'");
+        $GET_PAGE=mysql_query("SELECT * FROM {$properties->DB_PREFIX}errorpages WHERE code='$code'");
             if(mysql_num_rows($GET_PAGE)<1){
                 echo "An Error Occurred!";
             } else {
@@ -69,7 +71,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 					//building the page
 					?>
 					<?php if($layout == "single"){?>
-					<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/single.css" />
+					<link rel="stylesheet" type="text/css" href="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/single.css" />
 					<div id="col1">
 					<!-- Column one start -->
 					<?php 
@@ -85,7 +87,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 					<?php }?>
 					
 					<?php if($layout == "double"){?>
-					<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/double.css" />
+					<link rel="stylesheet" type="text/css" href="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/double.css" />
 					<div id="col1">
 					<!-- Column one start -->
 					<?php 
@@ -113,7 +115,7 @@ if(mysql_num_rows($GET_PAGE)<1){
 					<?php }?>
 					
 					<?php if($layout == "triple"){?>
-					<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/triple.css" />
+					<link rel="stylesheet" type="text/css" href="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/triple.css" />
 					<div id="col1">
 					<!-- Column one start -->
 					<?php 

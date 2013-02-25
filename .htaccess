@@ -1,3 +1,10 @@
+# setup error pages
+ErrorDocument 400 /includes/public/errors/400.html
+ErrorDocument 401 /includes/public/errors/401.html
+ErrorDocument 403 /includes/public/errors/403.html
+ErrorDocument 404 /includes/public/errors/404.html
+ErrorDocument 500 /includes/public/errors/405.html
+
 Options +FollowSymLinks
 RewriteEngine on
 
@@ -6,7 +13,7 @@ RewriteRule ^projects - [L,NC]
 RewriteRule ^cp - [L,NC]
 RewriteRule ^files - [L,NC]
 RewriteRule ^INSTALL - [L,NC]
-RewriteRule ^inthebeginning - [L,NC]
+RewriteRule ^other/inthebeginning - [L,NC]
 RewriteRule ^TheKandyKraftChronicles - [L,NC]
 RewriteRule ^mobile - [L,NC]
 RewriteRule ^testing - [L,NC]
@@ -18,7 +25,7 @@ RewriteRule ^([^/]+)/([^/]+)$ ?launchpad=$1&page=$2 [L]
 # RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ ?launchpad=$1&page=$2&subpage=$3 [L]
 
 # temp second-level rewriting
-RewriteRule ^portfolio/([^/]+)/search$ ?launchpad=portfolio&page=$2&meta=search [L]
+RewriteRule ^base/([^/]+)/search$ ?launchpad=base&page=$2&meta=search [L]
 
 # ----------------------------------------------------------------------------------------
 # ---------- CPANEL ----------------------------------------------------------------------
@@ -33,67 +40,67 @@ RewriteRule ^cp/([^/]+)/([^/]+)/$ ?page=$1&action=$2 [L]
 
 # SPECIFIC REWRITE STUFF FOR NAT4AN.COM
 # no page rule fix
-RewriteRule ^portfolio$ ?launchpad=portfolio&page=home [L]
+RewriteRule ^base$ ?launchpad=base&page=home [L]
 RewriteRule ^([^/]+)/$ ?launchpad=$1&page=home [L]
 
 # slash rule fix
 RewriteRule ^([^/]+)/([^/]+)/$ ?launchpad=$1&page=$2 [L]
 
 # blog user rule
-RewriteRule ^portfolio/blog/user$ ?launchpad=portfolio&page=blog&meta=users [L]
-RewriteRule ^portfolio/blog/user/$ ?launchpad=portfolio&page=blog&meta=users [L]
-RewriteRule ^portfolio/blog/user/([^/]+)$ ?launchpad=portfolio&page=blog&meta=users&user=$1 [L]
-RewriteRule ^portfolio/blog/user/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=users&user=$1 [L]
+RewriteRule ^base/blog/user$ ?launchpad=base&page=blog&meta=users [L]
+RewriteRule ^base/blog/user/$ ?launchpad=base&page=blog&meta=users [L]
+RewriteRule ^base/blog/user/([^/]+)$ ?launchpad=base&page=blog&meta=users&user=$1 [L]
+RewriteRule ^base/blog/user/([^/]+)/$ ?launchpad=base&page=blog&meta=users&user=$1 [L]
 
 # blog category rule
-RewriteRule ^portfolio/blog/category/([^/]+)$ ?launchpad=portfolio&page=blog&meta=category&category=$1 [L]
+RewriteRule ^base/blog/category/([^/]+)$ ?launchpad=base&page=blog&meta=category&category=$1 [L]
 
 # blog permalink rule
-RewriteRule ^portfolio/blog/permalink$ ?launchpad=portfolio&page=blog&meta=permalink [L]
-RewriteRule ^portfolio/blog/permalink/$ ?launchpad=portfolio&page=blog&meta=permalink [L]
+RewriteRule ^base/blog/permalink$ ?launchpad=base&page=blog&meta=permalink [L]
+RewriteRule ^base/blog/permalink/$ ?launchpad=base&page=blog&meta=permalink [L]
 
-RewriteRule ^portfolio/blog/permalink/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1 [L]
-RewriteRule ^portfolio/blog/permalink/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1 [L]
-RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2 [L]
-RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2 [L]
-RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
-RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
-RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
-RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^base/blog/permalink/([^/]+)$ ?launchpad=base&page=blog&meta=permalink&year=$1 [L]
+RewriteRule ^base/blog/permalink/([^/]+)/$ ?launchpad=base&page=blog&meta=permalink&year=$1 [L]
+RewriteRule ^base/blog/permalink/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^base/blog/permalink/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^base/blog/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^base/blog/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^base/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^base/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 
 # blog tag rule
-RewriteRule ^portfolio/blog/tag/([^/]+)$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1 [L]
+RewriteRule ^base/blog/tag/([^/]+)$ ?launchpad=base&page=blog&meta=tag&tag=$1 [L]
 
 # blog comment rule
-RewriteRule ^portfolio/blog/comment/([^/]+)$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1 [L]
-RewriteRule ^portfolio/blog/comment/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1 [L]
-RewriteRule ^portfolio/blog/comment/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
-RewriteRule ^portfolio/blog/comment$ ?launchpad=portfolio&page=blog&meta=comment [L]
-RewriteRule ^portfolio/blog/comment/$ ?launchpad=portfolio&page=blog&meta=comment [L]
-RewriteRule ^portfolio/blog/comment/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^base/blog/comment/([^/]+)$ ?launchpad=base&page=blog&meta=comment&operand=$1 [L]
+RewriteRule ^base/blog/comment/([^/]+)/$ ?launchpad=base&page=blog&meta=comment&operand=$1 [L]
+RewriteRule ^base/blog/comment/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^base/blog/comment$ ?launchpad=base&page=blog&meta=comment [L]
+RewriteRule ^base/blog/comment/$ ?launchpad=base&page=blog&meta=comment [L]
+RewriteRule ^base/blog/comment/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=comment&operand=$1&commentticketid=$2 [L]
 
 # blog archive (botr) rule
-RewriteRule ^portfolio/blog/botr$ ?launchpad=portfolio&page=blog&meta=botr [L]
-RewriteRule ^portfolio/blog/botr/$ ?launchpad=portfolio&page=blog&meta=botr [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1 [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1 [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2 [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^base/blog/botr$ ?launchpad=base&page=blog&meta=botr [L]
+RewriteRule ^base/blog/botr/$ ?launchpad=base&page=blog&meta=botr [L]
+RewriteRule ^base/blog/botr/([^/]+)$ ?launchpad=base&page=blog&meta=botr&year=$1 [L]
+RewriteRule ^base/blog/botr/([^/]+)/$ ?launchpad=base&page=blog&meta=botr&year=$1 [L]
+RewriteRule ^base/blog/botr/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^base/blog/botr/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=botr&year=$1&month=$2 [L]
 
 # blog pagination rules
-RewriteRule ^portfolio/blog/category/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=category&category=$1&pagination=$2 [L]
-RewriteRule ^portfolio/blog/category/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^base/blog/category/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^base/blog/category/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=category&category=$1&pagination=$2 [L]
 
-RewriteRule ^portfolio/blog/user/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=users&user=$1&pagination=$2 [L]
-RewriteRule ^portfolio/blog/user/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=users&user=$1&pagination=$2 [L]
-RewriteRule ^portfolio/blog/tag/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1&pagination=$2 [L]
-RewriteRule ^portfolio/blog/tag/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1&pagination=$2 [L]
-RewriteRule ^portfolio/blog/([^/]+)$ ?launchpad=portfolio&page=blog&pagination=$1 [L]
-RewriteRule ^portfolio/blog/([^/]+)/$ ?launchpad=portfolio&page=blog&pagination=$1 [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&pagination=$2 [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&pagination=$2 [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
-RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^base/blog/user/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^base/blog/user/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^base/blog/tag/([^/]+)/([^/]+)$ ?launchpad=base&page=blog&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^base/blog/tag/([^/]+)/([^/]+)/$ ?launchpad=base&page=blog&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^base/blog/([^/]+)$ ?launchpad=base&page=blog&pagination=$1 [L]
+RewriteRule ^base/blog/([^/]+)/$ ?launchpad=base&page=blog&pagination=$1 [L]
+RewriteRule ^base/blog/botr/([^/]+)/page/([^/]+)$ ?launchpad=base&page=blog&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^base/blog/botr/([^/]+)/page/([^/]+)/$ ?launchpad=base&page=blog&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^base/blog/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=base&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^base/blog/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=base&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -261,19 +268,19 @@ RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=af&page
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------ # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# portfolio contact send stuff
-RewriteRule ^portfolio/contact/([^/]+)$ ?launchpad=portfolio&page=contact&meta=$1 [L]
-RewriteRule ^portfolio/contact/([^/]+)/$ ?launchpad=portfolio&page=contact&meta=$1 [L]
-RewriteRule ^portfolio/contact/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=contact&meta=$1&ticketid=$2 [L]
-RewriteRule ^portfolio/contact/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=contact&meta=$1&ticketid=$2 [L]
+# base contact send stuff
+RewriteRule ^base/contact/([^/]+)$ ?launchpad=base&page=contact&meta=$1 [L]
+RewriteRule ^base/contact/([^/]+)/$ ?launchpad=base&page=contact&meta=$1 [L]
+RewriteRule ^base/contact/([^/]+)/([^/]+)$ ?launchpad=base&page=contact&meta=$1&ticketid=$2 [L]
+RewriteRule ^base/contact/([^/]+)/([^/]+)/$ ?launchpad=base&page=contact&meta=$1&ticketid=$2 [L]
 RewriteRule ^tmm/contact/([^/]+)$ ?launchpad=tmm&page=contact&meta=$1 [L]
 RewriteRule ^tmm/contact/([^/]+)/$ ?launchpad=tmm&page=contact&meta=$1 [L]
 RewriteRule ^tmm/contact/([^/]+)/([^/]+)$ ?launchpad=tmm&page=contact&meta=$1&ticketid=$2 [L]
 RewriteRule ^tmm/contact/([^/]+)/([^/]+)/$ ?launchpad=tmm&page=contact&meta=$1&ticketid=$2 [L]
-RewriteRule ^portfolio/report/([^/]+)$ ?launchpad=portfolio&page=report&meta=$1 [L]
-RewriteRule ^portfolio/report/([^/]+)/$ ?launchpad=portfolio&page=report&meta=$1 [L]
-RewriteRule ^portfolio/report/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=report&meta=$1&ticketid=$2 [L]
-RewriteRule ^portfolio/report/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=report&meta=$1&ticketid=$2 [L]
+RewriteRule ^base/report/([^/]+)$ ?launchpad=base&page=report&meta=$1 [L]
+RewriteRule ^base/report/([^/]+)/$ ?launchpad=base&page=report&meta=$1 [L]
+RewriteRule ^base/report/([^/]+)/([^/]+)$ ?launchpad=base&page=report&meta=$1&ticketid=$2 [L]
+RewriteRule ^base/report/([^/]+)/([^/]+)/$ ?launchpad=base&page=report&meta=$1&ticketid=$2 [L]
 
 # tmm contact send stuff
 RewriteRule ^tmm/guestbook/([^/]+)$ ?launchpad=tmm&page=guestbook&meta=$1 [L]
@@ -282,20 +289,20 @@ RewriteRule ^tmm/guestbook/([^/]+)/([^/]+)$ ?launchpad=tmm&page=guestbook&meta=$
 RewriteRule ^tmm/guestbook/([^/]+)/([^/]+)/$ ?launchpad=tmm&page=guestbook&meta=$1&ticketid=$2 [L]
 
 # work rule
-RewriteRule ^portfolio/work/([^/]+)$ ?launchpad=portfolio&page=work&meta=type&type=$1 [L]
-RewriteRule ^portfolio/work/([^/]+)/$ ?launchpad=portfolio&page=work&meta=type&type=$1 [L]
-RewriteRule ^portfolio/work/permalink/([^/]+)$ ?launchpad=portfolio&page=work&meta=permalink&name=$1 [L]
-RewriteRule ^portfolio/work/permalink/([^/]+)/$ ?launchpad=portfolio&page=work&meta=permalink&name=$1 [L]
-RewriteRule ^portfolio/work/tag/([^/]+)$ ?launchpad=portfolio&page=work&meta=tag&tag=$1 [L]
-RewriteRule ^portfolio/work/tag/([^/]+)/$ ?launchpad=portfolio&page=work&meta=tag&tag=$1 [L]
-RewriteRule ^portfolio/work/folio/([^/]+)$ ?launchpad=portfolio&page=work&meta=folio&folio=$1 [L]
-RewriteRule ^portfolio/work/folio/([^/]+)/$ ?launchpad=portfolio&page=work&meta=folio&folio=$1 [L]
+RewriteRule ^base/work/([^/]+)$ ?launchpad=base&page=work&meta=type&type=$1 [L]
+RewriteRule ^base/work/([^/]+)/$ ?launchpad=base&page=work&meta=type&type=$1 [L]
+RewriteRule ^base/work/permalink/([^/]+)$ ?launchpad=base&page=work&meta=permalink&name=$1 [L]
+RewriteRule ^base/work/permalink/([^/]+)/$ ?launchpad=base&page=work&meta=permalink&name=$1 [L]
+RewriteRule ^base/work/tag/([^/]+)$ ?launchpad=base&page=work&meta=tag&tag=$1 [L]
+RewriteRule ^base/work/tag/([^/]+)/$ ?launchpad=base&page=work&meta=tag&tag=$1 [L]
+RewriteRule ^base/work/folio/([^/]+)$ ?launchpad=base&page=work&meta=folio&folio=$1 [L]
+RewriteRule ^base/work/folio/([^/]+)/$ ?launchpad=base&page=work&meta=folio&folio=$1 [L]
 
 # changes rule
-RewriteRule ^portfolio/changes/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&year=$1&month=$2&day=$3 [L]
+RewriteRule ^base/changes/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=base&page=changes&year=$1&month=$2&day=$3 [L]
 
 # projects rule
-RewriteRule ^portfolio/work-projects/([^/]+)$ ?launchpad=portfolio&page=work-projects&meta=normal&projectname=$1 [L]
-RewriteRule ^portfolio/work-projects/([^/]+)/$ ?launchpad=portfolio&page=work-projects&meta=normal&projectname=$1 [L]
+RewriteRule ^base/work-projects/([^/]+)$ ?launchpad=base&page=work-projects&meta=normal&projectname=$1 [L]
+RewriteRule ^base/work-projects/([^/]+)/$ ?launchpad=base&page=work-projects&meta=normal&projectname=$1 [L]
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------

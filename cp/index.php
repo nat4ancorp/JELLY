@@ -1,5 +1,7 @@
 <?php
 ob_start(); //Initiate the output buffer
+
+error_reporting(0); /* IMPLEMENTED DUE TO WEIRD ISSUE WITH MYSQL_NUM_ROWS ARGUMENT THING IN 1.0.39 */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,39 +14,59 @@ $properties=new properties();
 include '../conf/connect.php';
 $CURRENT_MENU=$_GET['menu'];
 $CURRENT_PAGE=$_GET['page'];
+
+/* DETERMINE THE WEBSITE_URL */
+if($_SERVER['HTTP_HOST']=="localhost"){$WEBSITE_URL=$properties->WEBSITE_TEST_URL."cp";$WEBSITE_URL_ROOT=$properties->WEBSITE_TEST_URL;}else{$WEBSITE_URL=$properties->WEBSITE_REMO_URL."cp";$WEBSITE_URL_ROOT=$properties->WEBSITE_REMO_URL;}
 ?>
-<title><?php echo $properties->displayWName();?> - cPanel</title>
+<title><?php echo $properties->WEBSITE_NAME;?> - cPanel</title>
 
 <meta name="description" content="<?php echo $properties->SITE_DESCRIPTION;?>" />
-<meta name="keywords" content="<?php echo getPageKeywords($launchpadPN,$page,$properties);?>" />
+<meta name="keywords" content="<?php echo getPageKeywords(@$launchpadPN,@$page,$properties);?>" />
 <meta name="author" content="<?php echo $properties->SITE_AUTHOR;?>" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
 <!--[if IE 6]>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main_ie6.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL_ROOT;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>/main_ie6.css" />
 <![endif]-->
 
 <!--[if IE 7]>
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/main_ie7.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL_ROOT;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>/main_ie7.css" />
 <![endif]-->
 
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/ajax/all.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/general.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery.jcarousel.min.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/tweet/jquery.tweet.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/colorbox/jquery.colorbox-min.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/cycle/jquery.cycle.all.min.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jflickrfeed.min.js"></script>
-<script type="text/javascript" src="<?php echo $properties->WEBSITE_URL;?>includes/private/js/jquery-ui-min.js"></script>
-<link rel="shortcut icon" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/images/favicon.ico">
-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/colorbox/colorbox.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>cp/styles/all.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/tango/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/alpha/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/macho/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jc/ionius/skin.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $properties->WEBSITE_URL;?>styles/<?php echo $properties->STYLESHEET;?>/jquery-ui.css" />
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/ajax/all.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/general.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/c_config.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/c_smartmenus.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/tweet/jquery.tweet.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/colorbox/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/cycle/jquery.cycle.all.min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jflickrfeed.min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jquery-ui-min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jquery.countdown.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jquery.datepick.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jquery.bpopup-0.8.0.min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/jquery.orbit.min.js"></script>
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/ajaxupload.js"></script>
+<!-- markItUp! -->
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/markitup/jquery.markitup.js"></script>
+<!-- markItUp! toolbar settings -->
+<script type="text/javascript" src="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/markitup/sets/default/set.js"></script>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL_ROOT;?>cp/styles/all.css" />
+<link rel="shortcut icon" href="<?php echo $WEBSITE_URL_ROOT;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/favicon.ico">
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $WEBSITE_URL_ROOT;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/colorbox/colorbox.css" />
+<?php $GET_JC_SKINS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}jc_themes WHERE status='active'");
+if(mysql_num_rows($GET_JC_SKINS)<1){/* NONE */} else {while($FETCH_JC_SKINS=mysql_fetch_array($GET_JC_SKINS)){?><link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL.$properties->PATH_TO_THEME_ASSETS;?>jquery/jc/<?php echo $FETCH_JC_SKINS['name'];?>/skin.css" /><?php }}?>
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL_ROOT;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL_ROOT;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/datepick/jquery.datepick.css" />
+<link rel="stylesheet" href="<?php echo $WEBSITE_URL_ROOT;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/ajaxupload/classicTheme/style.css" type="text/css" media="all" />
+
+<!-- markItUp! skin -->
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/markitup/skins/markitup/style.css">
+<!--  markItUp! toolbar skin -->
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL_ROOT;?>includes/private/js/markitup/sets/default/style.css">
 </head>
 
 <body>
@@ -52,6 +74,7 @@ $CURRENT_PAGE=$_GET['page'];
 <?php
 /* DETECT IF LOGGED IN AND AGREED TO TOU */
 $ip=$_SERVER['REMOTE_ADDR'];
+$properties->setServerTime();
 include("../includes/private/attributes/logged_session.php");
 $CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='$ip' AND logged_session='$logged_session'");
 if(mysql_num_rows($CHECK_LOGIN)<1){
@@ -59,6 +82,7 @@ if(mysql_num_rows($CHECK_LOGIN)<1){
 } else {
 	$logged=1;
 	$FETCH_LOGIN=mysql_fetch_array($CHECK_LOGIN);
+	$user_id=$FETCH_LOGIN['id'];
 	$loggedin=$FETCH_LOGIN['loggedin'];
 	$tou_s=$FETCH_LOGIN['tou_status'];
 	$in_site=$FETCH_LOGIN['in_site'];
@@ -72,7 +96,7 @@ if(mysql_num_rows($CHECK_LOGIN)<1){
 if($logged==1){
 ?>
 <div id="top-bar">
-<a href="<?php echo $properties->WEBSITE_URL;?>" tabindex="-1"><?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?></a> | <a href="<?php echo $properties->WEBSITE_URL;?>cp/?menu=posts&page=add-new" tabindex="-1">New Post</a>
+<a href="<?php echo $WEBSITE_URL_ROOT;?>" tabindex="-1"><?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?></a> | <a href="<?php echo $WEBSITE_URL;?>?menu=posts&page=add-new" tabindex="-1">New Post</a>
 </div>
 <!-- BUILD THE PAGE HERE -->
 <div id="container2">
@@ -81,7 +105,7 @@ if($logged==1){
 			<ul id="adminmenu" role="navigation">
             	<?php
 				/* MAKE THE MENU MATRIX */
-				$GET_MENUS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}cp_adminmenu");
+				$GET_MENUS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}cp_adminmenu") or die(mysql_error());
 				if(mysql_num_rows($GET_MENUS)<1){
 					/* NO MENUS */
 					echo "No Menus :(";
@@ -183,8 +207,9 @@ if($logged==1){
 					/* MENU SET */
 					//check for page
 					if(isset($PAGE)){
-						/* PAGE SET; WITH A PAGE DISPLAY */
-						include("includes/pages/".$MENU."/".$PAGE.".php");
+						/* PAGE SET; WITH A PAGE DISPLAY */											
+						include("includes/pages/".$MENU."/".$PAGE.".php");?>
+                        <?php
 					} else {
 						/* NO PAGE SET; WITHOUT A PAGE DISPLAY */
 						switch($MENU){
@@ -206,16 +231,16 @@ if($logged==1){
 								
 								if($SPECIAL == "yes"){
 									/* NO REDIRECT */
-									printf("<script type=\"text/javascript\">location.href='".$properties->WEBSITE_URL."cp/?menu=".$MENU."&page=home'</script>");
+									printf("<script type=\"text/javascript\">location.href='".$WEBSITE_URL."?menu=".$MENU."&page=home'</script>");
 								} else if($SPECIAL == "no") {
-									printf("<script type=\"text/javascript\">location.href='".$properties->WEBSITE_URL."cp/?menu=".$MENU."&page=".$PAGE."'</script>");
+									printf("<script type=\"text/javascript\">location.href='".$WEBSITE_URL."?menu=".$MENU."&page=".$PAGE."'</script>");
 								}
 							break;
 						}
 					}
 				}				
 			} else {
-				printf("<script type=\"text/javascript\">location.href='".$properties->WEBSITE_URL."cp/?menu=dashboard'</script>");
+				printf("<script type=\"text/javascript\">location.href='".$WEBSITE_URL."?menu=dashboard'</script>");
 			}
 			?>
             <!-- END BUILD PAGE RIGHT SIDE SECTION : WHERE ALL THE CONTENT ARE -->
@@ -226,28 +251,6 @@ if($logged==1){
 <?php
 } else {
 	echo "<h1><center>You must be logged in to use this page!</center></h1>";	
-}
-?>
-
-<?php
-if($_SERVER['HTTP_HOST']=="localhost"){
-	/* DO NOT SEND GAUGES DATA */
-} else {
-?>
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '506f033c613f5d722900007e');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-<?php
 }
 ?>
 </body>

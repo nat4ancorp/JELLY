@@ -54,22 +54,15 @@ switch($MODE){
 					switch($status){				
 						case 'pending':
 						?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											include("includes/private/attributes/logged_session.php");
@@ -83,26 +76,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -132,98 +118,75 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}															
 														} 
 														else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<center>
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
 											?>
-											</center>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						break;
 						
 						case 'deleted':
 						?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											include("includes/private/attributes/logged_session.php");
@@ -237,25 +200,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -282,99 +239,75 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}
 															
 														} else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<center>
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
-											?>					
-											</center>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-	
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+											?>
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						break;
 						
 						case 'suspended':
 						?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											include("includes/private/attributes/logged_session.php");
@@ -388,25 +321,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -433,98 +360,75 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}
 															
 														} else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<center>
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
-											?>				
-											</center>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+											?>
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						break;
 						
 						case 'denied':
 						?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											include("includes/private/attributes/logged_session.php");
@@ -538,25 +442,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -583,78 +481,63 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}
 															
 														} else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<center>
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
-											?>			
-											</center>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+											?>
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						break;
 					}
 				}
@@ -662,14 +545,14 @@ switch($MODE){
 				//check for agree to tou
 				if($agreed==1){
 					/* AGREED */
-					?>					
-						<div class="wrap">
-							<?php
+					?>
+<div class="wrap">
+  <?php
 							if($properties->TURN_ON_TOP_NAV=="yes"){
 							?>
-							<div id="topnavigation">
-								<div id="topnav">
-									<?php
+  <div id="topnavigation">
+    <div id="topnav">
+      <?php
 									if(getGlobalVars($properties,'top_nav_use') == "toolkit"){
 									
 										include("includes/private/modules/toolkit.php");
@@ -683,115 +566,117 @@ switch($MODE){
 										include("includes/private/modules/topnavwithoutsearch.php");
 									}
 									?>
-								</div>
-							</div> <!-- end top navigation -->
-							<?php
+    </div>
+  </div>
+  <!-- end top navigation -->
+  <?php
 							} else if($properties->TURN_ON_TOP_NAV=="no") {
 								/* NO TOP NAV */	
 							}
 							?>
-						</div>
-						
-						<div id="container-header">
-							<div id="header">
-								<div id="header-row">
-									<div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $properties->displayWURL();?><?php echo $launchpad;?>/home'">
-										<div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
-											<div class="big"><?php echo $properties->displayMainTitle();?></div>
-											<?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?> 
-										</div> <!-- end of #left -->
-									</div> <!-- end of #header-leftcol -->
-												   
-									<div id="header-rightcol">
-										<div id="navigation">
-											<div id="nav-row">
-												<?php
+</div>
+<div id="container-header">
+  <div id="header">
+    <div id="header-row">
+      <div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $WEBSITE_URL;?><?php echo $launchpad;?>/home'">
+        <div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
+          <div class="big"><?php echo $properties->displayMainTitle();?></div>
+          <?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?>
+        </div>
+        <!-- end of #left --> 
+      </div>
+      <!-- end of #header-leftcol -->
+      
+      <div id="header-rightcol">
+        <div id="navigation">
+          <div id="nav-row">
+            <?php
 													/* PHP NAVIGATIN LIST MAKER FROM CLASS */
-													$wurl=$properties->getWURL();
+													$wurl=$WEBSITE_URL;
 													//determine launchpad constants
 													$launchpadNAME=$launchpad;
 													$launchpadID=GET_LP_ID($properties,$launchpad);
 													echo navigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 												?>
-											</div><!-- end of nav-row -->
-										</div> <!-- end of #navigation -->      
-									</div>
-								</div> <!-- end of #header-row -->
-							</div> <!-- end of #header -->
-						</div>
-						
-						<div id="container">
-							
-							<?php
-								include("includes/private/modules/featureslider.php");
-							?>
-							
-							<!-- start of PAGE CONTENTS -->
-								<?php getPageContents($launchpadID,$page,$subpage,$properties->WEBSITE_URL,$launchpadPN,$properties); ?>
-							<!-- end of PAGE CONTENTS --> 
-									
-						</div> <!-- end of #container -->
-						
-						<?php
-						include("includes/private/art/lower_left.php");
-						?>
-						
-						 
-						<?php
-						include("includes/private/art/lower_right.php");
-						?>
-						
-						<?php
-						if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
-						?>
-						<div id="bottomnavigation">
-							<div class="wrap-bottom">
-								<div id="bottomnav">
-									<div class="left">
-										<ul>
-										<?php
-										/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
-										$wurl=$properties->getWURL();
-										//determine launchpad constants
-										$launchpadNAME=$launchpad;
-										$launchpadID=GET_LP_ID($properties,$launchpad);
-										echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
-										?>
-										</ul>
-									</div><!-- end of #left --> 
-								</div> <!-- end of #bottomnav --> 
-							</div> <!-- end of .wrap -->
-						</div><!-- end of #bottomnavigation -->
-						<?php
+          </div>
+          <!-- end of nav-row --> 
+        </div>
+        <!-- end of #navigation --> 
+      </div>
+    </div>
+    <!-- end of #header-row --> 
+  </div>
+  <!-- end of #header --> 
+</div>
+<?php
+include("includes/private/art/top_left.php");
+?>
+<?php
+include("includes/private/art/top_right.php");
+?>
+<div id="container">
+<?php
+	include("includes/private/modules/featureslider.php");
+?>
+
+<!-- start of PAGE CONTENTS -->
+<?php getPageContents($launchpadID,$page,$subpage,$WEBSITE_URL,$launchpadPN,$properties); ?>
+<!-- end of PAGE CONTENTS --> 
+  
+</div>
+<!-- end of #container -->
+
+<?php
+include("includes/private/art/lower_left.php");
+?>
+<?php
+include("includes/private/art/lower_right.php");
+?>
+<?php
+if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
+?>
+<div id="bottomnavigation">
+  <div class="wrap-bottom">
+    <div id="bottomnav">
+      <div class="left">
+        <ul>
+        <?php
+			/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
+			$wurl=$WEBSITE_URL;
+			//determine launchpad constants
+			$launchpadNAME=$launchpad;
+			$launchpadID=GET_LP_ID($properties,$launchpad);
+			echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
+	 	?>
+        </ul>
+      </div>
+      <!-- end of #left --> 
+    </div>
+    <!-- end of #bottomnav --> 
+  </div>
+  <!-- end of .wrap --> 
+</div>
+<!-- end of #bottomnavigation -->
+<?php
 						} else if($properties->TURN_ON_BOTTOM_NAV == "no") {
 							/* LEAVE BOTTOM NAV OFF */
 						}
 						?>
-						
-						<?php
+<?php
 						include("includes/private/modules/footer.php");
 						?>
-					<?php
+<?php
 				} else if($agreed==0){
 					/* DISAGREED */
 					?>
-					
-					<div id="splash-container3">
-						<div id="splash-container2">
-							<div id="splash-container1">
-								<div id="splash-col1">
-									
-								</div>
-								
-								<div id="splash-col2">
-									<div id="top">
-											<?php echo $globalvars_passpage_title;?>
-                                            <?php echo $globalvars_passpage_slogan;?>
-                                            <?php echo $globalvars_passpage_closed_st;?>
-											
-									</div>
-									<div id="mid">
-										<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 										//get necessary stuff
 										$ip=$_SERVER['REMOTE_ADDR'];
 										include("includes/private/attributes/logged_session.php");
@@ -805,25 +690,19 @@ switch($MODE){
 										$type=$FETCH_LOGIN['type'];
 										$tou_status=$FETCH_LOGIN['tou_status'];
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Control Panel</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Control Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 													if(isset($_POST['set_tou'])){
 														/* POST ACTION FOR TOU */
 														//get post elements
@@ -850,76 +729,61 @@ switch($MODE){
 															/* PASSED */
 															//update user
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 														}
 														
 													} else {
 														/* TOU BAD */
 														?>
-														Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-														<br /><br />
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Your response</label>
-																	</div>
-																	<div class="formLayoutTableRowLeftCol">
-																		<input type="hidden" name="wtd" value="enter_site" />
-																		<input type="radio" name="tou" value="agree" /> I agree
-																		<input type="radio" name="tou" value="disagree" /> I disagree
-																		
-																	</div>
-																</div>                   
-																<br />
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" name="set_tou" value="Enter" class="submit" />
-																	</div>
-																</div>
-															</div>
-														</form>
-														<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="bottom">
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <?php
 										/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 										include("includes/private/attributes/splashlinks.php");
 										?>
-									</div>
-								</div>
-								
-								<div id="splash-col3">
-									
-								</div>
-							</div>
-						</div>
-					
-					</div> 
-					<?php
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 				}
 			}
 		} else {
@@ -930,22 +794,14 @@ switch($MODE){
 					switch($status){				
 						case 'pending':
 						?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											include("includes/private/attributes/logged_session.php");
@@ -959,25 +815,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -1004,97 +854,74 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}
 															
 														} else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
 											?>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						break;
 						
 						case 'deleted':
 						
 						break;?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											include("includes/private/attributes/logged_session.php");
@@ -1108,25 +935,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -1153,95 +974,72 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}
 															
 														} else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
 											?>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						
 						case 'suspended':
 						?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											$logged_session=$_COOKIE[$properties->_COOKIE_INIT_SESSION];
@@ -1255,25 +1053,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -1300,96 +1092,73 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}
 															
 														} else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
 											?>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						break;
 						
 						case 'denied':
 						?>
-						<div id="splash-container3">
-							<div id="splash-container2">
-								<div id="splash-container1">
-									<div id="splash-col1">
-										
-									</div>
-									
-									<div id="splash-col2">
-										<div id="top">
-												<?php echo $globalvars_passpage_title;?>
-                                                <?php echo $globalvars_passpage_slogan;?>
-	                                            <?php echo $globalvars_passpage_closed_st;?>
-												
-										</div>
-										<div id="mid">
-											<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 											//get necessary stuff
 											$ip=$_SERVER['REMOTE_ADDR'];
 											include("includes/private/attributes/logged_session.php");
@@ -1403,25 +1172,19 @@ switch($MODE){
 											$type=$FETCH_LOGIN['type'];
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Event Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 														if(isset($_POST['set_tou'])){
 															/* POST ACTION FOR TOU */
 															//get post elements
@@ -1448,123 +1211,94 @@ switch($MODE){
 																/* PASSED */
 																//update user
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+																echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 															}
 															
 														} else {
 															/* TOU BAD */
 															?>
-															Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-															<br /><br />
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Your response</label>
-																		</div>
-																		<div class="formLayoutTableRowLeftCol">
-																			<input type="hidden" name="wtd" value="enter_site" />
-																			<input type="radio" name="tou" value="agree" /> I agree
-																			<input type="radio" name="tou" value="disagree" /> I disagree
-																			
-																		</div>
-																	</div>                   
-																	<br />
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" name="set_tou" value="Enter" class="submit" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-															<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-										</div>
-										<div id="bottom">
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <?php
 											/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 											include("includes/private/attributes/splashlinks.php");
 											?>
-										</div>
-									</div>
-									
-									<div id="splash-col3">
-										
-									</div>
-								</div>
-							</div>
-						
-						</div> 
-						<?php
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 						break;
 					}
 				}
 			} else {
 				?>
-				<div id="splash-container3">
-					<div id="splash-container2">
-						<div id="splash-container1">
-							<div id="splash-col1">
-								
-							</div>
-							
-							<div id="splash-col2">
-								<div id="top">
-										<?php echo $globalvars_passpage_title;?>
-                                        <?php echo $globalvars_passpage_slogan;?>
-                                        <?php echo $globalvars_passpage_closed_st;?>
-										
-								</div>
-								<div id="mid">
-									
-									
-									<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 									if( (isset($_POST['login'])) || ($_GET['page']=="forgotusername") || ($_GET['page']=="forgotpassword") || ($_GET['page']=="request") || ($_GET['page']=="control") || (isset($_POST['logout'])) ){
 										if((isset($_POST['login'])) || (isset($_POST['logout']))){
 											if(isset($_POST['login'])){
 												/* LOGIN ACCESS */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"><br /><br /><br />Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															//get the $_POST variables
 															$username=$_POST['username'];
 															$password=$_POST['password'];
@@ -1640,50 +1374,38 @@ switch($MODE){
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='$lsessionid' WHERE uname='$username'");
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET dateandtime_lastlogin='$dateandtime' WHERE uname='$username'");
 																
-																echo "<br />You have been successfully logged in!<br />Click <a href=\"".$properties->WEBSITE_URL."\" class=\"white\">here</a> to go to your Admin Panel";
+																echo "<br />You have been successfully logged in!<br />Click <a href=\"".$WEBSITE_URL."\" class=\"white\">here</a> to go to your Admin Panel";
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											} else if(isset($_POST['logout'])){
 												/* LOGOUT ACCESS */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"><br /><br /><br /><br />Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php			
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php			
 															//get user
 															$username=$_POST['logoutusername'];
 															
@@ -1698,7 +1420,7 @@ switch($MODE){
 																/* PASSED */
 																
 																//FIX AS OF 3.5.1 - This clears the cookie for the new cookie in case something happens
-																include("includes/private/attributes/cookie_destroyer.php");
+																include("includes/private/attributes/cookie_destroyer_user.php");
 																					
 																//update the db
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET loggedin='no' WHERE uname='$username'");
@@ -1706,29 +1428,19 @@ switch($MODE){
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_ip='' WHERE uname='$username'");
 																mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='' WHERE uname='$username'");
 																												
-																echo "<br />You have been successfully logged out!<br /><a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Go home</a>";
+																echo "<br />You have been successfully logged out!<br /><a href=\"".$WEBSITE_URL."\" class=\"white\">Go home</a>";
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-				
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											}
 											
 										} else {
@@ -1743,68 +1455,53 @@ switch($MODE){
 													$CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='$ip' AND logged_session='$logged_session'");
 													if(mysql_num_rows($CHECK_LOGIN)<1){
 														?>
-															<div id="mid-table">
-																<div class="mid-table-row">
-																	<div id="mid-table-leftcol">
-																	
-																	</div>
-																	<div id="mid-table-midcol">
-																		<h1 class="top-sadminium"><br />Admin Access</h1>
-																		Use this form to login to the Admin Controls for this Flood Gate. Once logged in, you will be able to change everything about how this flood gate works.
-																		<br /><br />
-																	</div>
-																	<div id="mid-table-rightcol">
-																	
-																	</div>
-																</div>
-																
-																<div class="mid-table-row">
-																	<div id="mid-table-leftcol">
-																	
-																	</div>
-																	<div id="mid-table-midcol">
-																		<form action="" method="post">
-																			<div id="formLayoutTable">
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						<label>Username</label>
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="text" name="username" value="" />
-																					</div>
-																				</div>
-																			   
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						<label>Password</label>
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="password" name="password" value="" />
-																					</div>
-																				</div>
-																				
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="submit" class="submit" name="login" value="Login" />
-																					</div>
-																				</div>
-																			</div>
-																		</form>
-																	</div>
-																	<div id="mid-table-rightcol">
-																		
-																	</div>
-																</div>
-																
-																<div class="mid-table-row">
-																	<div id="mid-table-leftcol">
-																	
-																	</div>
-																	<div id="mid-table-midcol">
-																	   <?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="top-sadminium"><br />
+                  Admin Access</h1>
+                Use this form to login to the Admin Controls for this Flood Gate. Once logged in, you will be able to change everything about how this flood gate works. <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="login" value="Login" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																		$max_positions=getGlobalVars($properties,'max_admin_positions');
 																		//get the number of users
 																		$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' AND status='active'");
@@ -1812,60 +1509,53 @@ switch($MODE){
 																		$num_of_pos_left=$max_positions - $num_of_users;
 																		if($num_of_pos_left<0){$num_of_pos_left=0;}
 																		?>
-																		<br />
-																		<?php if($num_of_pos_left<1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open...:(</h1><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1><?php }else if($num_of_pos_left>1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1><?php }?>
-																		<a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <?php if($num_of_pos_left<1){?><a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a><?php }else{?><a class="white" href="request">Request Access</a><?php }?>
-                                                                        <br />
-                                                                        <br />
-																	</div>
-																	<div id="mid-table-rightcol">
-																	
-																	</div>
-																</div>
-															</div>
-															<?php
+                <br />
+                <?php if($num_of_pos_left<1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open...:(</h1>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1>
+                <?php }else if($num_of_pos_left>1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1>
+                <?php }?>
+                <a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> |
+                <?php if($num_of_pos_left<1){?>
+                <a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a>
+                <?php }else{?>
+                <a class="white" href="request">Request Access</a>
+                <?php }?>
+                <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													} else {
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<h1 class="top-sadminium"><br />Admin Access</h1>
-																	<br /><br />
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	YOU ARE CURRENTLY LOGGED IN
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																   <br />
-																   <a href="../" class="white">Go home</a>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="top-sadminium"><br />
+                  Admin Access</h1>
+                <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> YOU ARE CURRENTLY LOGGED IN </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a href="../" class="white">Go home</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													}
 												break;
 												case 'forgotusername':
@@ -1874,18 +1564,16 @@ switch($MODE){
 														/* RECOVERY GENERAL */
 														/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																//search for email in db
 																$FIND_EMAIL=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE email='".$_POST['email']."'");
 																?>
-																<h1 class="cbeta-top">
-																<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 																if(($_POST['email']=="") || (CHECK_EMAIL($_POST['email'])==false)){
 																	echo "<br /><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become an admin and we'll look it up for you.";
 																} else {
@@ -1895,19 +1583,15 @@ switch($MODE){
 																		echo "<br />Security Information<br />We found an email matching<br />&quot;".$_POST['email']."&quot;<br />Now answer your Security Question to obtain your username:";
 																	}
 																}															
-																	?></h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<?php
+																	?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																	//get $_POST data
 																	$email=$_POST['email'];												
 																	
@@ -1924,14 +1608,14 @@ switch($MODE){
 																		
 																		//check security
 																		?>
-																		<form action="" method="post">
-																			<div id="formLayoutTable">
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						<label>Security Question</label>
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																						$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																						if(mysql_num_rows($GET_SQS)<1){
 																							/* something went wrong */
@@ -1942,46 +1626,40 @@ switch($MODE){
 																							echo $sqvalue."?";
 																						}
 																						?>
-																					</div>
-																				</div>
-																				
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																						if($is_auto_q == "yes"){
 																							/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																							?>
-																							<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																							<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																							<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																							<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																							<input type="hidden" name="email" value="<?php echo $email;?>" />
-																							<input type="hidden" name="is_auto_q" value="yes" />
-																							<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																						} else {
 																							?>
-																							<input type="text" name="theanswervalue" value="" />
-																							<input type="hidden" name="email" value="<?php echo $email;?>" />
-																							<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <?php
 																						}
 																						?>
-																					</div>
-																				</div>
-																				
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="submit" name="theanswer" value="Answer" class="submit" />
-																					</div>
-																				</div>
-																			</div>
-																		</form>
-																		<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																	}
 																	
 																	//check for valid email
@@ -2000,38 +1678,27 @@ switch($MODE){
 																		/* PASSED */
 																	}
 																	?>
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<br />
-																	
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q']))){
 														/* CHECKING SECURITY */
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																
-																<h1 class="cbeta-top"><br />Security Information
-																<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php
 																//get $_POST variables
 																$is_auto_q=$_POST['is_auto_q'];
 																	
@@ -2086,27 +1753,24 @@ switch($MODE){
 																
 																if($error_console!=""){
 																	?>
-																	<br />Bad authentication!
-																	<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 																} else {
 																	?>
-																	<br />Successfully authenticated!
-																	<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 																}
 																?>
-																</h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 																	//check error_console
 																	if($error_console!=""){
 																		/*FAILED*/
@@ -2118,88 +1782,66 @@ switch($MODE){
 																		echo "<br /><br /><br /><br /><br /><br /><h1>Your username is: ".$username."</h1>";
 																	}
 																	?>
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<br />
-																	<?php if($error_console==""){?><a href="../" class="white">Go Home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go Home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													}
 												} else {
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 class="cbeta-top"><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become an admin and we'll look it up for you.</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Email</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="email" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" class="submit" name="recover" value="Recover" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															   <br />
-															   <a class="white" href="javascript:history.go(-1)">Back</a>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your username? No problem! Fill out the form with the email you used when you registered to become an admin and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												}
 												break;
 												
@@ -2209,18 +1851,16 @@ switch($MODE){
 														/* RECOVERY GENERAL */
 														/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																//search for email in db
 																$FIND_USERNAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE uname='".$_POST['username']."'");
 																?>
-																<h1 class="cbeta-top">
-																<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 																if($_POST['username']==""){
 																	echo "<br /><br />Forget your password? No problem! Fill out the form with the your username and we'll look it up for you.";
 																} else {
@@ -2230,20 +1870,15 @@ switch($MODE){
 																		echo "<br />Security Information<br />We found a username matching<br />&quot;".$_POST['username']."&quot;<br />Now answer your Security Question to reset your password:";
 																	}
 																}															
-																	?></h1>
-																</div>
-																<div id="mid-table-rightcol">
-				
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<?php
+																	?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																	//get $_POST data
 																	$username=$_POST['username'];												
 																	
@@ -2260,14 +1895,14 @@ switch($MODE){
 																		
 																		//check security
 																		?>
-																		<form action="" method="post">
-																			<div id="formLayoutTable">
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						<label>Security Question</label>
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																						$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																						if(mysql_num_rows($GET_SQS)<1){
 																							/* something went wrong */
@@ -2278,46 +1913,40 @@ switch($MODE){
 																							echo $sqvalue."?";
 																						}
 																						?>
-																					</div>
-																				</div>
-																				
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																						if($is_auto_q == "yes"){
 																							/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																							?>
-																							<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																							<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																							<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																							<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																							<input type="hidden" name="username" value="<?php echo $username;?>" />
-																							<input type="hidden" name="is_auto_q" value="yes" />
-																							<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																						} else {
 																							?>
-																							<input type="text" name="theanswervalue" value="" />
-																							<input type="hidden" name="username" value="<?php echo $username;?>" />
-																							<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <?php
 																						}
 																						?>
-																					</div>
-																				</div>
-																				
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="submit" name="theanswer" value="Answer" class="submit" />
-																					</div>
-																				</div>
-																			</div>
-																		</form>
-																		<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																	}
 																														
 																	//check for blank fields
@@ -2333,38 +1962,27 @@ switch($MODE){
 																		/* PASSED */
 																	}
 																	?>
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<br />
-																	<a class="white" href="javascript:history.go(-1)">Back</a>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q'])) || (isset($_POST['savenewpassword']))){
 														/* CHECKING SECURITY */
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																
-																<h1 class="cbeta-top"><br />Security Information
-																<?php	
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php	
 																//get $_POST variables
 																$is_auto_q=$_POST['is_auto_q'];
 																
@@ -2421,27 +2039,24 @@ switch($MODE){
 																
 																if($error_console!=""){
 																	?>
-																	<br />Bad authentication!
-																	<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 																} else {
 																	?>
-																	<br />Successfully authenticated!
-																	<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 																}
 																?>
-																</h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 																	//check error_console
 																	if($error_console!=""){
 																		/*FAILED*/
@@ -2502,125 +2117,99 @@ switch($MODE){
 																			}
 																		} else {
 																		?>
-																		Now create your new password
-																		<br /><br />
-																		<form action="" method="post">
-																			<div id="formLayoutTable">
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						<label>New Password</label>
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="password" name="newpassword" value="" />
-																						<input type="hidden" name="username" value="<?php echo $username;?>" />
-																					</div>
-																				</div>
-																				
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						<label>Confirm Password</label>
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="password" name="cnewpassword" value="" />
-																					</div>
-																				</div>
-																				
-																				<div class="formLayoutTableRow">
-																					<div class="formLayoutTableRowLeftCol">
-																						
-																					</div>
-																					<div class="formLayoutTableRowRightCol">
-																						<input type="submit" class="submit" name="savenewpassword" value="Save" />
-																					</div>
-																				</div>
-																			</div>
-																		</form>
-																		<?php
+                Now create your new password <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>New Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="newpassword" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cnewpassword" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="savenewpassword" value="Save" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																		}
 																	}
 																	?>
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<br />
-																	<?php if($error_console==""){?><a href="../" class="white">Go home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-																</div> 
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													}
 												} else {
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 class="cbeta-top"><br />Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Username</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="username" value="" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" class="submit" name="recover" value="Recover" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															   <br />
-															   <a class="white" href="javascript:history.go(-1)">Back</a>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												}
 												break;
 												
@@ -2628,25 +2217,18 @@ switch($MODE){
 												if(isset($_POST['request'])){
 													/* DO REQUEST PROCESS */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 class="cbeta-top"></h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																/* CHECK CONTENT */
 																
 																//get $_POST data
@@ -2744,25 +2326,16 @@ switch($MODE){
 																	CENTRALIZED_EMAIL_RESPONSE_SYSTEM($properties,'towebadmin_beta_admin_registration',$to,$PADINFO,$pname_uri);
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												} else {
 													$max_positions=getGlobalVars($properties,'max_admin_positions');
 													//get the number of users
@@ -2772,154 +2345,116 @@ switch($MODE){
 													if($num_of_pos_left<0){$num_of_pos_left=0;}
 													if($num_of_pos_left<1){
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<h1 style="font-size:28px;line-height: 1em;"><br /><br /><br /><br />Well this is embarrassing...</h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :)
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																   <br />
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 style="font-size:28px;line-height: 1em;"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Well this is embarrassing...</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :) </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													} else {
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<h1 class="cbeta-top">Want to be an admin? Fill out form.</h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<form action="" method="post">
-																		<div id="formLayoutTable">
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Username</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="text" name="username" />
-																				</div>
-																			</div>
-																													
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Password</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="password" name="password" />
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Confirm Password</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="password" name="cpassword" />
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Email</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="text" name="email" />
-																				</div>
-																			</div>      
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Why?</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="text" name="why" />
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					&nbsp;&nbsp;
-																					<input type="text" name="pin_1" class="pin" maxlength=1 /> 
-																					<input type="text" name="pin_2" class="pin" maxlength=1 /> 
-																					<input type="text" name="pin_3" class="pin" maxlength=1 /> 
-																					<input type="text" name="pin_4" class="pin" maxlength=1 /> 
-																				</div>
-																			</div>                         
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="submit" class="submit" name="request" value="Request" />
-																				</div>
-																			</div>
-																		</div>
-																	</form>
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																   <br />
-		                                                           <a class="white" href="javascript:history.go(-1)">Back</a>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php	
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top">Want to be an admin? Fill out form.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cpassword" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Why?</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="why" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol"> &nbsp;&nbsp;
+                        <input type="text" name="pin_1" class="pin" maxlength=1 />
+                        <input type="text" name="pin_2" class="pin" maxlength=1 />
+                        <input type="text" name="pin_3" class="pin" maxlength=1 />
+                        <input type="text" name="pin_4" class="pin" maxlength=1 />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="request" value="Request" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php	
 													}
 												}
 												break;
@@ -2933,57 +2468,34 @@ switch($MODE){
 													if(mysql_num_rows($CHECK_LOGIN)<1){
 														/* USER NOT LOGGED */
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-                                                                	<!-- [CODE-HELPER: MESSAGE_TOP] -->
-																	<h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-                                                                    <?php include("includes/private/attributes/guts_of_constr.php");?>
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> 
+                <!-- [CODE-HELPER: MESSAGE_TOP] -->
+                <h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/guts_of_constr.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													} else {
 														/* USER LOGGED IN */
 														$FETCH_LOGIN=mysql_fetch_array($CHECK_LOGIN);
@@ -2994,56 +2506,36 @@ switch($MODE){
 														$tou_status=$FETCH_LOGIN['tou_status'];
 														$head_admin=$FETCH_LOGIN['head_admin'];
 														?>
-														<div id="mid-table">
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Control Panel</h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	<?php include("includes/private/attributes/sadminium/mainall.php");?>
-																</div>
-																<div id="mid-table-rightcol">
-																	
-																</div>
-															</div>
-															
-															<div class="mid-table-row">
-																<div id="mid-table-leftcol">
-																
-																</div>
-																<div id="mid-table-midcol">
-																	
-																</div>
-																<div id="mid-table-rightcol">
-																
-																</div>
-															</div>
-														</div>
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Control Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/sadminium/mainall.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 													}
 												break;
 												}	
@@ -3058,57 +2550,34 @@ switch($MODE){
 										if(mysql_num_rows($CHECK_LOGIN)<1){
 											/* USER NOT LOGGED */
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-                                                    	<!-- [CODE-HELPER: MESSAGE_TOP] -->
-														<h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-                                                    	<?php include("includes/private/attributes/guts_of_constr.php");?>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> 
+                <!-- [CODE-HELPER: MESSAGE_TOP] -->
+                <h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/guts_of_constr.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										} else {
 											/* USER LOGGED IN */
 											$FETCH_LOGIN=mysql_fetch_array($CHECK_LOGIN);
@@ -3119,127 +2588,87 @@ switch($MODE){
 											$tou_status=$FETCH_LOGIN['tou_status'];
 											$head_admin=$FETCH_LOGIN['head_admin'];
 											?>
-	
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Control Panel</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php include("includes/private/attributes/sadminium/mainall.php");?>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Control Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/sadminium/mainall.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										}
 										}
 								?>
-									
-									
-									
-								</div>
-								<div id="bottom">
-									<?php
+        </div>
+        <div id="bottom">
+          <?php
 									/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 									include("includes/private/attributes/splashlinks.php");
 									?>
-								</div>
-							</div>
-							
-							<div id="splash-col3">
-								
-							</div>
-						</div>
-					</div>
-				
-				</div>    
-				<?php
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 			}
 		
 		}
 	} else if($logged==0) {
 		/* NOT LOGGED */
 		?>
-		<div id="splash-container3">
-			<div id="splash-container2">
-				<div id="splash-container1">
-					<div id="splash-col1">
-						
-					</div>
-					
-					<div id="splash-col2">
-						<div id="top">
-								<?php echo $globalvars_passpage_title;?>
-                               	<?php echo $globalvars_passpage_slogan;?>
-                                <?php echo $globalvars_passpage_closed_st;?>
-								
-						</div>
-						<div id="mid">
-							<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closed_st;?> </div>
+        <div id="mid">
+          <?php
 							if( (isset($_POST['login'])) || ($_GET['page']=="forgotusername") || ($_GET['page']=="forgotpassword") || ($_GET['page']=="request") || ($_GET['page']=="control") || (isset($_POST['logout'])) ){
 								if((isset($_POST['login'])) || (isset($_POST['logout']))){
 									if(isset($_POST['login'])){
 										
 										/* LOGIN ACCESS */
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="cbeta-top"><br /><br /><br />Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 													//get the $_POST variables
 													$username=$_POST['username'];
 													$password=$_POST['password'];
@@ -3320,52 +2749,40 @@ switch($MODE){
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='$lsessionid' WHERE uname='$username'");
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET dateandtime_lastlogin='$dateandtime' WHERE uname='$username'");
 														
-														echo "<br />You have been successfully logged in!<br />Click <a href=\"".$properties->WEBSITE_URL."\" class=\"white\">here</a> to go to your Admin Panel";
+														echo "<br />You have been successfully logged in!<br />Click <a href=\"".$WEBSITE_URL."\" class=\"white\">here</a> to go to your Admin Panel";
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-													
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 									
 									} else if(isset($_POST['logout'])){
 										
 										/* LOGOUT ACCESS */
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="cbeta-top"><br /><br /><br /><br />Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php			
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Admin Access Panel!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php			
 													//get user
 													$username=$_POST['logoutusername'];
 													
@@ -3380,7 +2797,7 @@ switch($MODE){
 														/* PASSED */
 														
 														//FIX AS OF 3.5.1 - This clears the cookie for the new cookie in case something happens
-														include("includes/private/attributes/cookie_destroyer.php");
+														include("includes/private/attributes/cookie_destroyer_user.php");
 																					
 														//update the db
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET loggedin='no' WHERE uname='$username'");
@@ -3388,29 +2805,19 @@ switch($MODE){
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_ip='' WHERE uname='$username'");
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='' WHERE uname='$username'");
 																										
-														echo "<br />You have been successfully logged out!<br /><a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Go home</a>";
+														echo "<br />You have been successfully logged out!<br /><a href=\"".$WEBSITE_URL."\" class=\"white\">Go home</a>";
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-													
-												</div>
-											</div>
-											
-	
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 									
 									}
 									
@@ -3426,68 +2833,53 @@ switch($MODE){
 											if(mysql_num_rows($CHECK_LOGIN)<1){
 												
 												?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 class="top-sadminium"><br />Admin Access</h1>
-																Use this form to login to the Admin Controls for this Flood Gate. Once logged in, you will be able to change everything about how this flood gate works.
-																<br /><br />
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Username</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="username" value="" />
-																			</div>
-																		</div>
-																	   
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Password</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="password" name="password" value="" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" class="submit" name="login" value="Login" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															   <?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="top-sadminium"><br />
+                  Admin Access</h1>
+                Use this form to login to the Admin Controls for this Flood Gate. Once logged in, you will be able to change everything about how this flood gate works. <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="login" value="Login" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																$max_positions=getGlobalVars($properties,'max_admin_positions');
 																//get the number of users
 																$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' AND status='active'");
@@ -3495,59 +2887,53 @@ switch($MODE){
 																$num_of_pos_left=$max_positions - $num_of_users;
 																if($num_of_pos_left<0){$num_of_pos_left=0;}
 																?>
-																<?php if($num_of_pos_left<1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open...:(</h1><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1><?php }else if($num_of_pos_left>1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1><?php }?>
-																<a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <?php if($num_of_pos_left<1){?><a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a><?php }else{?><a class="white" href="request">Request Access</a><?php }?>
-                                                                <br /><br />
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+                <?php if($num_of_pos_left<1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open...:(</h1>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1>
+                <?php }else if($num_of_pos_left>1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1>
+                <?php }?>
+                <a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> |
+                <?php if($num_of_pos_left<1){?>
+                <a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a>
+                <?php }else{?>
+                <a class="white" href="request">Request Access</a>
+                <?php }?>
+                <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											
 											} else {
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="top-sadminium"><br />Admin Access</h1>
-															<br /><br />
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															YOU ARE CURRENTLY LOGGED IN
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														   <br />
-														   <a href="../" class="white">Go home</a>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="top-sadminium"><br />
+                  Admin Access</h1>
+                <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> YOU ARE CURRENTLY LOGGED IN </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a href="../" class="white">Go home</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											
 											
 											}
@@ -3560,18 +2946,16 @@ switch($MODE){
 													/* RECOVERY GENERAL */
 													/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															//search for email in db
 															$FIND_EMAIL=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE email='".$_POST['email']."'");
 															?>
-															<h1 class="cbeta-top">
-															<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 															if(($_POST['email']=="") || (CHECK_EMAIL($_POST['email'])==false)){
 																echo "<br /><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become an admin and we'll look it up for you.";
 															} else {
@@ -3581,19 +2965,15 @@ switch($MODE){
 																	echo "<br />Security Information<br />We found an email matching<br />&quot;".$_POST['email']."&quot;<br />Now answer your Security Question to obtain your username:";
 																}
 															}															
-																?></h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php
+																?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																//get $_POST data
 																$email=$_POST['email'];												
 																
@@ -3610,14 +2990,14 @@ switch($MODE){
 																	
 																	//check security
 																	?>
-																	<form action="" method="post">
-																		<div id="formLayoutTable">
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Security Question</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																					if(mysql_num_rows($GET_SQS)<1){
 																						/* something went wrong */
@@ -3628,46 +3008,40 @@ switch($MODE){
 																						echo $sqvalue."?";
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					if($is_auto_q == "yes"){
 																						/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																						?>
-																						<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																						<input type="hidden" name="email" value="<?php echo $email;?>" />
-																						<input type="hidden" name="is_auto_q" value="yes" />
-																						<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																					} else {
 																						?>
-																						<input type="text" name="theanswervalue" value="" />
-																						<input type="hidden" name="email" value="<?php echo $email;?>" />
-																						<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <?php
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="submit" name="theanswer" value="Answer" class="submit" />
-																				</div>
-																			</div>
-																		</div>
-																	</form>
-																	<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																}
 																
 																//check for valid email
@@ -3686,40 +3060,29 @@ switch($MODE){
 																	/* PASSED */
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<br />
-																
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												
 												} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q']))){
 													
 													/* CHECKING SECURITY */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															
-															<h1 class="cbeta-top"><br />Security Information
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php
 															//get $_POST variables
 															$is_auto_q=$_POST['is_auto_q'];
 																
@@ -3773,27 +3136,24 @@ switch($MODE){
 															
 															if($error_console!=""){
 																?>
-																<br />Bad authentication!
-																<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 															} else {
 																?>
-																<br />Successfully authenticated!
-																<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 															}
 															?>
-															</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 																//check error_console
 																if($error_console!=""){
 																	/*FAILED*/
@@ -3805,90 +3165,68 @@ switch($MODE){
 																	echo "<br /><br /><br /><br /><br /><br /><h1>Your username is: ".$username."</h1>";
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<br />
-																<?php if($error_console==""){?><a href="../" class="white">Go Home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go Home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												
 												}
 											} else {
 												
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become an admin and we'll look it up for you.</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Email</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="text" name="email" />
-																		</div>
-																	</div>
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" class="submit" name="recover" value="Recover" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														   <br />
-														   <a class="white" href="javascript:history.go(-1)">Back</a>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your username? No problem! Fill out the form with the email you used when you registered to become an admin and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											
 											}
 										break;
@@ -3900,18 +3238,16 @@ switch($MODE){
 													/* RECOVERY GENERAL */
 													/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															//search for email in db
 															$FIND_USERNAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE uname='".$_POST['username']."'");
 														  ?>
-															<h1 class="cbeta-top">
-															<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 															if($_POST['username']==""){
 																echo "<br /><br />Forget your password? No problem! Fill out the form with the your username and we'll look it up for you.";
 															} else {
@@ -3921,19 +3257,15 @@ switch($MODE){
 																	echo "<br />Security Information<br />We found a username matching<br />&quot;".$_POST['username']."&quot;<br />Now answer your Security Question to reset your password:";
 																}
 															}															
-																?></h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php
+																?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																//get $_POST data
 																$username=$_POST['username'];												
 																
@@ -3950,14 +3282,14 @@ switch($MODE){
 																	
 																	//check security
 																	?>
-																	<form action="" method="post">
-																		<div id="formLayoutTable">
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Security Question</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																					if(mysql_num_rows($GET_SQS)<1){
 																						/* something went wrong */
@@ -3968,46 +3300,40 @@ switch($MODE){
 																						echo $sqvalue."?";
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					if($is_auto_q == "yes"){
 																						/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																						?>
-																						<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																						<input type="hidden" name="username" value="<?php echo $username;?>" />
-																						<input type="hidden" name="is_auto_q" value="yes" />
-																						<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																					} else {
 																						?>
-																						<input type="text" name="theanswervalue" value="" />
-																						<input type="hidden" name="username" value="<?php echo $username;?>" />
-																						<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <?php
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="submit" name="theanswer" value="Answer" class="submit" />
-																				</div>
-																			</div>
-																		</div>
-																	</form>
-																	<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																}
 																													
 																//check for blank fields
@@ -4023,40 +3349,29 @@ switch($MODE){
 																	/* PASSED */
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<br />
-																<a class="white" href="javascript:history.go(-1)">Back</a>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												
 												} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q'])) || (isset($_POST['savenewpassword']))){
 													
 													/* CHECKING SECURITY */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															
-															<h1 class="cbeta-top"><br />Security Information
-															<?php	
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php	
 															//get $_POST variables
 															$is_auto_q=$_POST['is_auto_q'];
 															
@@ -4112,27 +3427,24 @@ switch($MODE){
 															
 															if($error_console!=""){
 																?>
-																<br />Bad authentication!
-																<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 															} else {
 																?>
-																<br />Successfully authenticated!
-																<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 															}
 															?>
-															</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 																//check error_console
 																if($error_console!=""){
 																	/*FAILED*/
@@ -4196,127 +3508,101 @@ switch($MODE){
 																		}
 																	} else {
 																	?>
-																	Now create your new password
-																	<br /><br />
-																	<form action="" method="post">
-																		<div id="formLayoutTable">
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>New Password</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="password" name="newpassword" value="" />
-																					<input type="hidden" name="username" value="<?php echo $username;?>" />
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Confirm Password</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="password" name="cnewpassword" value="" />
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="submit" class="submit" name="savenewpassword" value="Save" />
-																				</div>
-																			</div>
-																		</div>
-																	</form>
-																	<?php
+                Now create your new password <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>New Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="newpassword" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cnewpassword" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="savenewpassword" value="Save" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																	}
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<br />
-																<?php if($error_console==""){?><a href="../" class="white">Go home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-															</div> 
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												
 												}
 											} else {
 												
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"><br />Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Username</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="text" name="username" value="" />
-																		</div>
-																	</div>
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" class="submit" name="recover" value="Recover" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														   <br />
-														   <a class="white" href="javascript:history.go(-1)">Back</a>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											
 											}
 										break;
@@ -4325,25 +3611,18 @@ switch($MODE){
 											if(isset($_POST['request'])){
 												/* DO REQUEST PROCESS */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"></h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															/* CHECK CONTENT */
 															
 															//get $_POST data
@@ -4440,25 +3719,16 @@ switch($MODE){
 																CENTRALIZED_EMAIL_RESPONSE_SYSTEM($properties,'towebadmin_beta_admin_registration',$to,$PADINFO,$pname_uri);
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											} else {
 												$max_positions=getGlobalVars($properties,'max_admin_positions');
 												//get the number of users
@@ -4468,154 +3738,116 @@ switch($MODE){
 												if($num_of_pos_left<0){$num_of_pos_left=0;}
 												if($num_of_pos_left<1){
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 style="font-size:28px;line-height: 1em;"><br /><br /><br /><br />Well this is embarrassing...</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :)
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															   <br />
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 style="font-size:28px;line-height: 1em;"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Well this is embarrassing...</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :) </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												} else {
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 class="cbeta-top">Want to be an admin? Fill out form.</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Username</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="username" />
-																			</div>
-																		</div>
-																												
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Password</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="password" name="password" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Confirm Password</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="password" name="cpassword" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Email</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="email" />
-																			</div>
-																		</div>      
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Why?</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="why" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				&nbsp;&nbsp;
-																				<input type="text" name="pin_1" class="pin" maxlength=1 /> 
-																				<input type="text" name="pin_2" class="pin" maxlength=1 /> 
-																				<input type="text" name="pin_3" class="pin" maxlength=1 /> 
-																				<input type="text" name="pin_4" class="pin" maxlength=1 /> 
-																			</div>
-																		</div>                         
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" class="submit" name="request" value="Request" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															   <br />
-															   <a class="white" href="javascript:history.go(-1)">Back</a>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php	
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top">Want to be an admin? Fill out form.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cpassword" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Why?</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="why" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol"> &nbsp;&nbsp;
+                        <input type="text" name="pin_1" class="pin" maxlength=1 />
+                        <input type="text" name="pin_2" class="pin" maxlength=1 />
+                        <input type="text" name="pin_3" class="pin" maxlength=1 />
+                        <input type="text" name="pin_4" class="pin" maxlength=1 />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="request" value="Request" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php	
 												}
 											}
 										break;
@@ -4631,57 +3863,34 @@ switch($MODE){
 												
 												/* USER NOT LOGGED */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-                                                        	<!-- [CODE-HELPER: MESSAGE_TOP] -->
-															<h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php include("includes/private/attributes/guts_of_constr.php");?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> 
+                <!-- [CODE-HELPER: MESSAGE_TOP] -->
+                <h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/guts_of_constr.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											
 											} else {												
 												/* USER LOGGED IN */
@@ -4690,56 +3899,36 @@ switch($MODE){
 												$username=$FETCH_LOGIN['uname'];
 												$lname=$FETCH_LOGIN['lname'];
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Control Panel</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php include("includes/private/attributes/sadminium/mainall.php");?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Control Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/sadminium/mainall.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											
 											}
 										break;
@@ -4757,57 +3946,34 @@ switch($MODE){
 									
 									/* USER NOT LOGGED */
 									?>
-									<div id="mid-table">
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-                                            	<!-- [CODE-HELPER: MESSAGE_TOP] -->
-												<h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-                                            	<?php include("includes/private/attributes/guts_of_constr.php");?>
-											</div>
-											<div id="mid-table-rightcol">
-												
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-											
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-									</div>
-									<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> 
+                <!-- [CODE-HELPER: MESSAGE_TOP] -->
+                <h1 class="message-top"><?php echo getGlobalVars($properties,'closed_message_top');?></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/guts_of_constr.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 								
 								} else {
 									
@@ -4819,77 +3985,53 @@ switch($MODE){
 									$type=$FETCH_LOGIN['type'];
 									$tou_status=$FETCH_LOGIN['tou_status'];
 									?>
-									<div id="mid-table">
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Admin Access Control Panel</h1>
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<?php include("includes/private/attributes/sadminium/mainall.php");?>
-											</div>
-											<div id="mid-table-rightcol">
-												
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-									</div>
-									<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Admin Access Control Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-using">Using this panel gives you full access to control this site as an admin. You may not abuse your special powers or else you will be terminated without warning.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/sadminium/mainall.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 								
 								}
 							}
 							?>
-						</div>
-						<div id="bottom">
-						   <?php
+        </div>
+        <div id="bottom">
+          <?php
 							/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 							include("includes/private/attributes/splashlinks.php");
 							?>
-						</div>
-					</div>
-					
-					<div id="splash-col3">
-						
-					</div>
-				</div>
-			</div>
-		
-		</div>    
-		<?php
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 	}
 	
 	/* -------------------------------------------------  END MODE: CLOSED ------------------------------------------------- */
@@ -4913,15 +4055,14 @@ switch($MODE){
 	if(($_SERVER['REMOTE_ADDR'] == "localhost") || ($_SERVER['REMOTE_ADDR'] == "127.0.0.1"))
 	{
 		?>
-		<div id="topmessage">THIS SITE IS CURRENTLY RUNNING IN ALPHA MODE. ONLY THOSE ON LOCALHOST CAN SEE THIS SITE.</div>
-		
-		<div class="wrap">
-			<?php
+<div id="topmessage">THIS SITE IS CURRENTLY RUNNING IN ALPHA MODE. ONLY THOSE ON LOCALHOST CAN SEE THIS SITE.</div>
+<div class="wrap">
+  <?php
 			if($properties->TURN_ON_TOP_NAV=="yes"){
 			?>
-			<div id="topnavigation">
-				<div id="topnav">
-					<?php
+  <div id="topnavigation">
+    <div id="topnav">
+      <?php
 					if(getGlobalVars($properties,'top_nav_use') == "toolkit"){
 					
 						include("includes/private/modules/toolkit.php");
@@ -4935,128 +4076,141 @@ switch($MODE){
 						include("includes/private/modules/topnavwithoutsearch.php");
 					}
 					?>
-				</div>
-			</div> <!-- end top navigation -->
-			<?php
+    </div>
+  </div>
+  <!-- end top navigation -->
+  <?php
 			} else if($properties->TURN_ON_TOP_NAV=="no") {
 				/* NO TOP NAV */	
 			}
 			?>
-		</div>
-		
-		<div id="container-header">
-		<div id="header">
-				<div id="header-row">
-					<div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $properties->displayWURL();?><?php echo $launchpad;?>/home'">
-						<div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
-							<div class="big"><?php echo $properties->displayMainTitle();?></div>
-							<?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?> 
-						</div> <!-- end of #left -->
-					</div> <!-- end of #header-leftcol -->
-								   
-					<div id="header-rightcol">
-						<div id="navigation">
-							<div id="nav-row">
-								<?php
+</div>
+<div id="container-header">
+  <div id="header">
+    <div id="header-row">
+      <div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $WEBSITE_URL;?><?php echo $launchpad;?>/home'">
+        <div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
+          <div class="big"><?php echo $properties->displayMainTitle();?></div>
+          <?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?>
+        </div>
+        <!-- end of #left --> 
+      </div>
+      <!-- end of #header-leftcol -->
+      
+      <div id="header-rightcol">
+        <div id="navigation">
+          <div id="nav-row">
+            <?php
 									/* PHP NAVIGATIN LIST MAKER FROM CLASS */
-									$wurl=$properties->getWURL();
+									$wurl=$WEBSITE_URL;
 									//determine launchpad constants
 									$launchpadNAME=$launchpad;
 									$launchpadID=GET_LP_ID($properties,$launchpad);
 									echo navigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 								?>
-							</div><!-- end of nav-row -->
-						</div> <!-- end of #navigation -->      
-					</div>
-				</div> <!-- end of #header-row -->
-			</div> <!-- end of #header -->
-		</div>
-		
-		<div id="container">
-			
-			<?php 
+          </div>
+          <!-- end of nav-row --> 
+        </div>
+        <!-- end of #navigation --> 
+      </div>
+    </div>
+    <!-- end of #header-row --> 
+  </div>
+  <!-- end of #header --> 
+</div>
+<?php
+include("includes/private/art/top_left.php");
+?>
+
+ 
+<?php
+include("includes/private/art/top_right.php");
+?>
+<div id="container">
+  <?php 
 			//check to see if feature is toggled
 			$CHECK_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 			$FETCH_FEAT=mysql_fetch_array($CHECK_FEAT);
 			@$toggle=$FETCH_FEAT['toggle_feat'];
 			if($toggle == "on"){
 			?>
-				<div id="featured-works">
-					<div id="inner">            	
-						<?php require("includes/private/attributes/featured.php");?>
-                        <?php featured($properties,"full");?>
-					</div>
-				</div>
-			<?php
+  <div id="featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 			}
 			?>
-			
-			<?php
+  <?php
 			//check to see if mini feature is toggled
 			$CHECK_MINI_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 			$FETCH_MINI_FEAT=mysql_fetch_array($CHECK_MINI_FEAT);
 			@$toggle=$FETCH_MINI_FEAT['toggle_minifeat'];
 			if($toggle == "on"){
-				?>			
-				<div id="mini-featured-works">
-					<div id="inner">            	
-						<?php require("includes/private/attributes/featured.php");?>
-                        <?php featured($properties,"full");?>
-					</div>
-				</div>
-				<?php
+				?>
+  <div id="mini-featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 			}
 			?>
-			
-			<!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
-			<!-- start of PAGE CONTENTS -->
-				<?php getPageContents($launchpadID,$page,$subpage,$properties->WEBSITE_URL,$launchpadPN,$properties); ?>
-			<!-- end of PAGE CONTENTS --> 
-					
-		</div> <!-- end of #container -->
-		<?php
+  
+  <!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
+  <!-- start of PAGE CONTENTS -->
+  <?php getPageContents($launchpadID,$page,$subpage,$WEBSITE_URL,$launchpadPN,$properties); ?>
+  <!-- end of PAGE CONTENTS --> 
+  
+</div>
+<!-- end of #container -->
+<?php
 		include("includes/private/art/lower_left.php");
 		?>
-		
-		<?php
+<?php
 		include("includes/private/art/lower_right.php");
 		?>
-		
-		<?php
+<?php
 		if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
 		?>
-		<div id="bottomnavigation">
-			<div class="wrap-bottom">
-				<div id="bottomnav">
-					<div class="left">
-						<ul>
-						<?php
+<div id="bottomnavigation">
+  <div class="wrap-bottom">
+    <div id="bottomnav">
+      <div class="left">
+        <ul>
+          <?php
 						/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
-						$wurl=$properties->getWURL();
+						$wurl=$WEBSITE_URL;
 						//determine launchpad constants
 						$launchpadNAME=$launchpad;
 						$launchpadID=GET_LP_ID($properties,$launchpad);
 						echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 						?>
-						</ul>
-					</div><!-- end of #left --> 
-				</div> <!-- end of #bottomnav --> 
-			</div> <!-- end of .wrap -->
-		</div><!-- end of #bottomnavigation -->
-		<?php
+        </ul>
+      </div>
+      <!-- end of #left --> 
+    </div>
+    <!-- end of #bottomnav --> 
+  </div>
+  <!-- end of .wrap --> 
+</div>
+<!-- end of #bottomnavigation -->
+<?php
 		} else if($properties->TURN_ON_BOTTOM_NAV == "no") {
 			/* LEAVE BOTTOM NAV OFF */
 		}
 		?>
-		
-		<?php
+<?php
 			include("includes/private/modules/footer.php");
 		?>
-		<?php
+<?php
 	} else {
 		?>
-		<h1 style="text-align:center;">This website is running in alpha mode and you are not authorized to view this website!</h1>
-		<?php
+<h1 style="text-align:center;">This website is running in alpha mode and you are not authorized to view this website!</h1>
+<?php
 	}
 	
 	/* ------------------------------------------------ END MODE: ALPHA MODE ----------------------------------------------- */
@@ -5106,22 +4260,14 @@ switch($MODE){
 				switch($status){				
 					case 'pending':
 					?>
-					<div id="splash-container3">
-						<div id="splash-container2">
-							<div id="splash-container1">
-								<div id="splash-col1">
-									
-								</div>
-								
-								<div id="splash-col2">
-									<div id="top">
-											<?php echo $globalvars_passpage_title;?>
-                                            <?php echo $globalvars_passpage_slogan;?>
-                                            <?php echo $globalvars_passpage_closedbeta_st;?>
-											
-									</div>
-									<div id="mid">
-										<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closedbeta_st;?> </div>
+        <div id="mid">
+          <?php
 										//get necessary stuff
 										$ip=$_SERVER['REMOTE_ADDR'];
 										include("includes/private/attributes/logged_session.php");
@@ -5135,25 +4281,19 @@ switch($MODE){
 										$type=$FETCH_LOGIN['type'];
 										$tou_status=$FETCH_LOGIN['tou_status'];
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Closed BETA Member Access Event Panel</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Closed BETA Member Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 													if(isset($_POST['set_tou'])){
 														/* POST ACTION FOR TOU */
 														//get post elements
@@ -5180,99 +4320,75 @@ switch($MODE){
 															/* PASSED */
 															//update user
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 														}
 														
 													} else {
 														/* TOU BAD */
 														?>
-														Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-														<br /><br />
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Your response</label>
-																	</div>
-																	<div class="formLayoutTableRowLeftCol">
-																		<input type="hidden" name="wtd" value="enter_site" />
-																		<input type="radio" name="tou" value="agree" /> I agree
-																		<input type="radio" name="tou" value="disagree" /> I disagree
-																		
-																	</div>
-																</div>                   
-																<br />
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" name="set_tou" value="Enter" class="submit" />
-																	</div>
-																</div>
-															</div>
-														</form>
-														<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="bottom">
-										<br />
-										<center>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom"> <br />
+          <center>
+            <?php
 										/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 										include("includes/private/attributes/splashlinks.php");
 										?>
-										</center>
-									</div>
-								</div>
-								
-								<div id="splash-col3">
-									
-								</div>
-							</div>
-						</div>
-					
-					</div> 
-					<?php
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 					break;
 					
 					case 'deleted':
 					?>
-					<div id="splash-container3">
-						<div id="splash-container2">
-							<div id="splash-container1">
-								<div id="splash-col1">
-									
-								</div>
-								
-								<div id="splash-col2">
-									<div id="top">
-											<?php echo $globalvars_passpage_title;?>
-                                            <?php echo $globalvars_passpage_slogan;?>
-                                            <?php echo $globalvars_passpage_closedbeta_st;?>
-											
-									</div>
-									<div id="mid">
-										<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closedbeta_st;?> </div>
+        <div id="mid">
+          <?php
 										//get necessary stuff
 										$ip=$_SERVER['REMOTE_ADDR'];
 										include("includes/private/attributes/logged_session.php");
@@ -5286,25 +4402,19 @@ switch($MODE){
 										$type=$FETCH_LOGIN['type'];
 										$tou_status=$FETCH_LOGIN['tou_status'];
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Closed BETA Member Access Event Panel</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Closed BETA Member Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 													if(isset($_POST['set_tou'])){
 														/* POST ACTION FOR TOU */
 														//get post elements
@@ -5331,98 +4441,75 @@ switch($MODE){
 															/* PASSED */
 															//update user
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 														}
 														
 													} else {
 														/* TOU BAD */
 														?>
-														Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-														<br /><br />
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Your response</label>
-																	</div>
-																	<div class="formLayoutTableRowLeftCol">
-																		<input type="hidden" name="wtd" value="enter_site" />
-																		<input type="radio" name="tou" value="agree" /> I agree
-																		<input type="radio" name="tou" value="disagree" /> I disagree
-																		
-																	</div>
-																</div>                   
-																<br />
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" name="set_tou" value="Enter" class="submit" />
-																	</div>
-																</div>
-															</div>
-														</form>
-														<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="bottom">
-										<center>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 										/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 										include("includes/private/attributes/splashlinks.php");
-										?>			
-										</center>
-									</div>
-								</div>
-								
-								<div id="splash-col3">
-									
-								</div>
-							</div>
-						</div>
-					
-					</div> 
-					<?php
+										?>
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 					break;
 					
 					case 'suspended':
 					?>
-					<div id="splash-container3">
-						<div id="splash-container2">
-							<div id="splash-container1">
-								<div id="splash-col1">
-									
-								</div>
-								
-								<div id="splash-col2">
-									<div id="top">
-											<?php echo $globalvars_passpage_title;?>
-                                            <?php echo $globalvars_passpage_slogan;?>
-                                            <?php echo $globalvars_passpage_closedbeta_st;?>
-											
-									</div>
-									<div id="mid">
-										<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closedbeta_st;?> </div>
+        <div id="mid">
+          <?php
 										//get necessary stuff
 										$ip=$_SERVER['REMOTE_ADDR'];
 										include("includes/private/attributes/logged_session.php");
@@ -5436,25 +4523,19 @@ switch($MODE){
 										$type=$FETCH_LOGIN['type'];
 										$tou_status=$FETCH_LOGIN['tou_status'];
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Closed BETA Member Access Event Panel</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Closed BETA Member Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 													if(isset($_POST['set_tou'])){
 														/* POST ACTION FOR TOU */
 														//get post elements
@@ -5481,92 +4562,77 @@ switch($MODE){
 															/* PASSED */
 															//update user
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 														}
 														
 													} else {
 														/* TOU BAD */
 														?>
-														Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-														<br /><br />
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Your response</label>
-																	</div>
-																	<div class="formLayoutTableRowLeftCol">
-																		<input type="hidden" name="wtd" value="enter_site" />
-																		<input type="radio" name="tou" value="agree" /> I agree
-																		<input type="radio" name="tou" value="disagree" /> I disagree
-																		
-																	</div>
-																</div>                   
-																<br />
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" name="set_tou" value="Enter" class="submit" />
-																	</div>
-																</div>
-															</div>
-														</form>
-														<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="bottom">
-										<center>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 										/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 										include("includes/private/attributes/splashlinks.php");
-										?>			
-										</center>
-									</div>
-								</div>
-								
-								<div id="splash-col3">
-									
-								</div>
-							</div>
-						</div>
-					
-					</div> 
-					<?php
+										?>
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 					break;
 				}
 			} else {
 				//check for agree to tou
 				if($agreed==1){
 					/* AGREED */
-					?>					
-						<div class="wrap">
-							<?php
+					?>
+<div class="wrap">
+  <?php
 							if($properties->TURN_ON_TOP_NAV=="yes"){
 							?>
-							<div id="topnavigation">
-								<div id="topnav">
-									<?php
+  <div id="topnavigation">
+    <div id="topnav">
+      <?php
 									if(getGlobalVars($properties,'top_nav_use') == "toolkit"){
 									
 										include("includes/private/modules/toolkit.php");
@@ -5580,113 +4646,115 @@ switch($MODE){
 										include("includes/private/modules/topnavwithoutsearch.php");
 									}
 									?>
-								</div>
-							</div> <!-- end top navigation -->
-							<?php
+    </div>
+  </div>
+  <!-- end top navigation -->
+  <?php
 							} else if($properties->TURN_ON_TOP_NAV=="no") {
 								/* NO TOP NAV */	
 							}
 							?>
-						</div>
-						
-						<div id="container-header">
-						<div id="header">
-								<div id="header-row">
-									<div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $properties->displayWURL();?><?php echo $launchpad;?>/home'">
-										<div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
-											<div class="big"><?php echo $properties->displayMainTitle();?></div>
-											<?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?> 
-										</div> <!-- end of #left -->
-									</div> <!-- end of #header-leftcol -->
-												   
-									<div id="header-rightcol">
-										<div id="navigation">
-											<div id="nav-row">
-												<?php
+</div>
+<div id="container-header">
+  <div id="header">
+    <div id="header-row">
+      <div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $WEBSITE_URL;?><?php echo $launchpad;?>/home'">
+        <div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
+          <div class="big"><?php echo $properties->displayMainTitle();?></div>
+          <?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?>
+        </div>
+        <!-- end of #left --> 
+      </div>
+      <!-- end of #header-leftcol -->
+      
+      <div id="header-rightcol">
+        <div id="navigation">
+          <div id="nav-row">
+            <?php
 													/* PHP NAVIGATIN LIST MAKER FROM CLASS */
-													$wurl=$properties->getWURL();
+													$wurl=$WEBSITE_URL;
 													//determine launchpad constants
 													$launchpadNAME=$launchpad;
 													$launchpadID=GET_LP_ID($properties,$launchpad);
 													echo navigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 												?>
-											</div><!-- end of nav-row -->
-										</div> <!-- end of #navigation -->      
-									</div>
-								</div> <!-- end of #header-row -->
-							</div> <!-- end of #header -->
-						</div>
-						
-						<div id="container">
-							
-							<?php
+          </div>
+          <!-- end of nav-row --> 
+        </div>
+        <!-- end of #navigation --> 
+      </div>
+    </div>
+    <!-- end of #header-row --> 
+  </div>
+  <!-- end of #header --> 
+</div>
+<?php
+include("includes/private/art/top_left.php");
+?> 
+<?php
+include("includes/private/art/top_right.php");
+?>
+<div id="container">
+  <?php
 								include("includes/private/modules/featureslider.php");
 							?>
-							
-							<?php getPageContents($launchpadID,$page,$subpage,$properties->WEBSITE_URL,$launchpadPN,$properties); ?>
-							<!-- end of PAGE CONTENTS --> 
-									
-						</div> <!-- end of #container -->
-						
-						<?php
+  <?php getPageContents($launchpadID,$page,$subpage,$WEBSITE_URL,$launchpadPN,$properties); ?>
+  <!-- end of PAGE CONTENTS --> 
+  
+</div>
+<!-- end of #container -->
+
+<?php
 						include("includes/private/art/lower_left.php");
 						?>
-						
-						 
-						<?php
+<?php
 						include("includes/private/art/lower_right.php");
 						?>
-						
-						<?php
+<?php
 						if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
 						?>
-						<div id="bottomnavigation">
-							<div class="wrap-bottom">
-								<div id="bottomnav">
-									<div class="left">
-										<ul>
-										<?php
+<div id="bottomnavigation">
+  <div class="wrap-bottom">
+    <div id="bottomnav">
+      <div class="left">
+        <ul>
+          <?php
 										/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
-										$wurl=$properties->getWURL();
+										$wurl=$WEBSITE_URL;
 										//determine launchpad constants
 										$launchpadNAME=$launchpad;
 										$launchpadID=GET_LP_ID($properties,$launchpad);
 										echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 										?>
-										</ul>
-									</div><!-- end of #left --> 
-								</div> <!-- end of #bottomnav --> 
-							</div> <!-- end of .wrap -->
-						</div><!-- end of #bottomnavigation -->
-						<?php
+        </ul>
+      </div>
+      <!-- end of #left --> 
+    </div>
+    <!-- end of #bottomnav --> 
+  </div>
+  <!-- end of .wrap --> 
+</div>
+<!-- end of #bottomnavigation -->
+<?php
 						} else if($properties->TURN_ON_BOTTOM_NAV == "no") {
 							/* LEAVE BOTTOM NAV OFF */
 						}
 						?>
-						
-						<?php
+<?php
 						include("includes/private/modules/footer.php");
 						?>
-					<?php
+<?php
 				} else if($agreed==0){
 					/* DISAGREED */
 					?>
-					<div id="splash-container3">
-						<div id="splash-container2">
-							<div id="splash-container1">
-								<div id="splash-col1">
-									
-								</div>
-								
-								<div id="splash-col2">
-									<div id="top">
-											<?php echo $globalvars_passpage_title;?>
-                                            <?php echo $globalvars_passpage_slogan;?>
-                                            <?php echo $globalvars_passpage_closedbeta_st;?>
-											
-									</div>
-									<div id="mid">
-										<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closedbeta_st;?> </div>
+        <div id="mid">
+          <?php
 										//get necessary stuff
 										$ip=$_SERVER['REMOTE_ADDR'];
 										include("includes/private/attributes/logged_session.php");
@@ -5700,25 +4768,19 @@ switch($MODE){
 										$type=$FETCH_LOGIN['type'];
 										$tou_status=$FETCH_LOGIN['tou_status'];
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Closed BETA Member Access Event Panel</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php											
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Closed BETA Member Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php											
 													if(isset($_POST['set_tou'])){
 														/* POST ACTION FOR TOU */
 														//get post elements
@@ -5745,122 +4807,96 @@ switch($MODE){
 															/* PASSED */
 															//update user
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET tou_status='".$set_tou."' WHERE uname='$username'");
-															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
+															echo "Thank you for agreeing with us, you may now enter this site.<br /><h2>[<a href=\"".$WEBSITE_URL."\" class=\"white\">Enter ".$properties->WEBSITE_NAME.$properties->WEBSITE_EXT."</a>]</h2>";
 														}
 														
 													} else {
 														/* TOU BAD */
 														?>
-														Before entering this site, you must agree to the <a onclick="window.open('<?php echo $properties->WEBSITE_URL;?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE
-														<br /><br />
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Your response</label>
-																	</div>
-																	<div class="formLayoutTableRowLeftCol">
-																		<input type="hidden" name="wtd" value="enter_site" />
-																		<input type="radio" name="tou" value="agree" /> I agree
-																		<input type="radio" name="tou" value="disagree" /> I disagree
-																		
-																	</div>
-																</div>                   
-																<br />
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" name="set_tou" value="Enter" class="submit" />
-																	</div>
-																</div>
-															</div>
-														</form>
-														<?php
+                Before entering this site, you must agree to the <a onclick="window.open('<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>/termsofuse.php?type=<?php echo $type;?>','','width=400','height=400')" class="white" style="cursor:pointer;">Terms of Use</a>, this includes but not limited to your acknowledge of the purpose for this website, in this event testing phase. PLEASE READ THE TERMS OF USE BEFORE AGREEING AS YOU WILL BE HELD ACCOUNTABLE <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Your response</label>
+                      </div>
+                      <div class="formLayoutTableRowLeftCol">
+                        <input type="hidden" name="wtd" value="enter_site" />
+                        <input type="radio" name="tou" value="agree" />
+                        I agree
+                        <input type="radio" name="tou" value="disagree" />
+                        I disagree </div>
+                    </div>
+                    <br />
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="set_tou" value="Enter" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-									</div>
-									<div id="bottom">
-										<center>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 										/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 										include("includes/private/attributes/splashlinks.php");
-										?>			
-										</center>
-									</div>
-								</div>
-								
-								<div id="splash-col3">
-									
-								</div>
-							</div>
-						</div>
-					
-					</div> 
-					<?php
+										?>
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 				}
 			}
 		} else {
 			?>
-			<div id="splash-container3">
-				<div id="splash-container2">
-					<div id="splash-container1">
-						<div id="splash-col1">
-							
-						</div>
-						
-						<div id="splash-col2">
-							<div id="top">
-									<?php echo $globalvars_passpage_title;?>
-                                    <?php echo $globalvars_passpage_slogan;?>
-                                    <?php echo $globalvars_passpage_closedbeta_st;?>
-									
-							</div>
-							<div id="mid">
-								<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closedbeta_st;?> </div>
+        <div id="mid">
+          <?php
 								if( (isset($_POST['login'])) || ($_GET['page']=="forgotusername") || ($_GET['page']=="forgotpassword") || ($_GET['page']=="request") || ($_GET['page']=="control") || (isset($_POST['logout'])) ){
 									if((isset($_POST['login'])) || (isset($_POST['logout']))){
 										if(isset($_POST['login'])){
 											/* LOGIN ACCESS */
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="cbeta-top"><br /><br /><br /><br />Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 														//get the $_POST variables
 														$username=$_POST['username'];
 														$password=$_POST['password'];
@@ -5938,51 +4974,38 @@ switch($MODE){
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='$lsessionid' WHERE uname='$username'");
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET dateandtime_lastlogin='$dateandtime' WHERE uname='$username'");
 															
-															echo "<br />You have been successfully logged in!<br />Click <a href=\"".$properties->WEBSITE_URL."\" class=\"white\">here</a> to go to your Event Panel";
+															echo "<br />You have been successfully logged in!<br />Click <a href=\"".$WEBSITE_URL."\" class=\"white\">here</a> to go to your Event Panel";
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										} else if(isset($_POST['logout'])){
 											/* LOGOUT ACCESS */
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="cbeta-top"><br /><br /><br /><br />Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php			
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php			
 														//get user
 														$username=$_POST['logoutusername'];
 														
@@ -5998,35 +5021,26 @@ switch($MODE){
 															//update the db
 															
 															//FIX AS OF 3.5.1 - This clears the cookie for the new cookie in case something happens
-															include("includes/private/attributes/cookie_destroyer.php");
+															include("includes/private/attributes/cookie_destroyer_user.php");
 															
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET loggedin='no' WHERE uname='$username'");
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET in_site='no' WHERE uname='$username'");
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_ip='' WHERE uname='$username'");
 															mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='' WHERE uname='$username'");
 																											
-															echo "<br />You have been successfully logged out!<br /><a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Go home</a>";
+															echo "<br />You have been successfully logged out!<br /><a href=\"".$WEBSITE_URL."\" class=\"white\">Go home</a>";
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										}
 										
 									} else {
@@ -6037,18 +5051,16 @@ switch($MODE){
 													/* RECOVERY GENERAL */
 													/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															//search for email in db
 															$FIND_EMAIL=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE email='".$_POST['email']."'");
 															?>
-															<h1 class="cbeta-top">
-															<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 															if(($_POST['email']=="") || (CHECK_EMAIL($_POST['email'])==false)){
 																echo "<br /><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become a BETA member and we'll look it up for you.";
 															} else {
@@ -6058,19 +5070,15 @@ switch($MODE){
 																	echo "<br />Security Information<br />We found an email matching<br />&quot;".$_POST['email']."&quot;<br />Now answer your Security Question to obtain your username:";
 																}
 															}															
-																?></h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php
+																?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																//get $_POST data
 																$email=$_POST['email'];												
 																
@@ -6087,14 +5095,14 @@ switch($MODE){
 																	
 																	//check security
 																	?>
-																	<form action="" method="post">
-																		<div id="formLayoutTable">
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Security Question</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																					if(mysql_num_rows($GET_SQS)<1){
 																						/* something went wrong */
@@ -6105,46 +5113,40 @@ switch($MODE){
 																						echo $sqvalue."?";
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					if($is_auto_q == "yes"){
 																						/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																						?>
-																						<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																						<input type="hidden" name="email" value="<?php echo $email;?>" />
-																						<input type="hidden" name="is_auto_q" value="yes" />
-																						<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																					} else {
 																						?>
-																						<input type="text" name="theanswervalue" value="" />
-																						<input type="hidden" name="email" value="<?php echo $email;?>" />
-																						<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <?php
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="submit" name="theanswer" value="Answer" class="submit" />
-																				</div>
-																			</div>
-																		</div>
-																	</form>
-																	<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																}
 																
 																//check for valid email
@@ -6163,37 +5165,26 @@ switch($MODE){
 																	/* PASSED */
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q']))){
 													/* CHECKING SECURITY */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															
-															<h1 class="cbeta-top"><br />Security Information
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php
 															//get $_POST variables
 															$is_auto_q=$_POST['is_auto_q'];
 																
@@ -6247,27 +5238,24 @@ switch($MODE){
 															
 															if($error_console!=""){
 																?>
-																<br />Bad authentication!
-																<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 															} else {
 																?>
-																<br />Successfully authenticated!
-																<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 															}
 															?>
-															</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 																//check error_console
 																if($error_console!=""){
 																	/*FAILED*/
@@ -6279,87 +5267,66 @@ switch($MODE){
 																	echo "<br /><br /><br /><br /><br /><br /><h1>Your username is: ".$username."</h1>";
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php if($error_console==""){?><a href="../" class="white">Go Home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go Home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												}
 											} else {
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become a BETA member and we'll look it up for you.</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Email</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="text" name="email" />
-																		</div>
-																	</div>
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" class="submit" name="recover" value="Recover" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														   <br />
-														   <a class="white" href="javascript:history.go(-1)">Back</a>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your username? No problem! Fill out the form with the email you used when you registered to become a BETA member and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											}
 											break;
 											
@@ -6369,18 +5336,16 @@ switch($MODE){
 													/* RECOVERY GENERAL */
 													/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															//search for email in db
 															$FIND_USERNAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE uname='".$_POST['username']."'");
 															?>
-															<h1 class="cbeta-top">
-															<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 															if($_POST['username']==""){
 																echo "<br /><br />Forget your password? No problem! Fill out the form with the your username and we'll look it up for you.";
 															} else {
@@ -6390,19 +5355,15 @@ switch($MODE){
 																	echo "<br />Security Information<br />We found a username matching<br />&quot;".$_POST['username']."&quot;<br />Now answer your Security Question to reset your password:";
 																}
 															}															
-																?></h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php
+																?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 																//get $_POST data
 																$username=$_POST['username'];												
 																
@@ -6419,14 +5380,14 @@ switch($MODE){
 																	
 																	//check security
 																	?>
-																	<form action="" method="post">
-																		<div id="formLayoutTable">
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Security Question</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																					if(mysql_num_rows($GET_SQS)<1){
 																						/* something went wrong */
@@ -6437,46 +5398,40 @@ switch($MODE){
 																						echo $sqvalue."?";
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																					if($is_auto_q == "yes"){
 																						/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																						?>
-																						<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																						<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																						<input type="hidden" name="username" value="<?php echo $username;?>" />
-																						<input type="hidden" name="is_auto_q" value="yes" />
-																						<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																					} else {
 																						?>
-																						<input type="text" name="theanswervalue" value="" />
-																						<input type="hidden" name="username" value="<?php echo $username;?>" />
-																						<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <?php
 																					}
 																					?>
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="submit" name="theanswer" value="Answer" class="submit" />
-																				</div>
-																			</div>
-																		</div>
-																	</form>
-																	<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																}
 																													
 																//check for blank fields
@@ -6492,38 +5447,27 @@ switch($MODE){
 																	/* PASSED */
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<br />
-                                                                <a class="white" href="javascript:history.go(-1)">Back</a>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q'])) || (isset($_POST['savenewpassword']))){
 													/* CHECKING SECURITY */
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															
-															<h1 class="cbeta-top"><br />Security Information
-															<?php	
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php	
 															//get $_POST variables
 															$is_auto_q=$_POST['is_auto_q'];
 															
@@ -6578,27 +5522,24 @@ switch($MODE){
 															
 															if($error_console!=""){
 																?>
-																<br />Bad authentication!
-																<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 															} else {
 																?>
-																<br />Successfully authenticated!
-																<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 															}
 															?>
-															</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 																//check error_console
 																if($error_console!=""){
 																	/*FAILED*/
@@ -6660,125 +5601,99 @@ switch($MODE){
 																		}
 																	} else {
 																	?>
-																	Now create your new password
-																	<br /><br />
-																	<form action="" method="post">
-																		<div id="formLayoutTable">
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>New Password</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="password" name="newpassword" value="" />
-																					<input type="hidden" name="username" value="<?php echo $username;?>" />
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					<label>Confirm Password</label>
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="password" name="cnewpassword" value="" />
-																				</div>
-																			</div>
-																			
-																			<div class="formLayoutTableRow">
-																				<div class="formLayoutTableRowLeftCol">
-																					
-																				</div>
-																				<div class="formLayoutTableRowRightCol">
-																					<input type="submit" class="submit" name="savenewpassword" value="Save" />
-																				</div>
-																			</div>
-																		</div>
-																	</form>
-																	<?php
+                Now create your new password <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>New Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="newpassword" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cnewpassword" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="savenewpassword" value="Save" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																	}
 																}
 																?>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<?php if($error_console==""){?><a href="../" class="white">Go home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-															</div> 
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												}
 											} else {
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"><br />Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Username</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="text" name="username" value="" />
-																		</div>
-																	</div>
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="submit" class="submit" name="recover" value="Recover" />
-																		</div>
-																	</div>
-	
-																</div>
-															</form>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														   <br />
-														   <a class="white" href="javascript:history.go(-1)">Back</a>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											}
 											break;
 											
@@ -6786,25 +5701,18 @@ switch($MODE){
 											if(isset($_POST['request'])){
 												/* DO REQUEST PROCESS */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top"></h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															/* CHECK CONTENT */
 															
 															//get $_POST data
@@ -6901,25 +5809,16 @@ switch($MODE){
 																CENTRALIZED_EMAIL_RESPONSE_SYSTEM($properties,'towebadmin_beta_closedbeta_registration',$to,$PADINFO,$pname_uri);
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											} else {
 												$max_positions=getGlobalVars($properties,'max_closed_beta_positions');
 												//get the number of users
@@ -6938,220 +5837,165 @@ switch($MODE){
 												
 												if($num_of_pos_left<1){
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 style="font-size:28px;line-height: 1em;"><br /><br /><br /><br />Well this is embarrassing...</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :)
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															   
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 style="font-size:28px;line-height: 1em;"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Well this is embarrassing...</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :) </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 												} else {
 													?>
-													<div id="mid-table">
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<h1 class="cbeta-top">Want BETA Membership? Fill out form.</h1>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Username</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="username" />
-																			</div>
-																		</div>
-																												
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Password</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="password" name="password" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Confirm Password</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="password" name="cpassword" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Email</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="email" />
-																			</div>
-																		</div>      
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Why?</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="text" name="why" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				&nbsp;&nbsp;
-																				<input type="text" name="pin_1" class="pin" maxlength=1 /> 
-																				<input type="text" name="pin_2" class="pin" maxlength=1 /> 
-																				<input type="text" name="pin_3" class="pin" maxlength=1 /> 
-																				<input type="text" name="pin_4" class="pin" maxlength=1 /> 
-																			</div>
-																		</div>                         
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" class="submit" name="request" value="Request" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-															</div>
-															<div id="mid-table-rightcol">
-																
-															</div>
-														</div>
-														
-														<div class="mid-table-row">
-															<div id="mid-table-leftcol">
-															
-															</div>
-															<div id="mid-table-midcol">
-															   <br />
-																<a class="white" href="javascript:history.go(-1)">Back</a>
-															</div>
-															<div id="mid-table-rightcol">
-															
-															</div>
-														</div>
-													</div>
-													<?php	
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top">Want BETA Membership? Fill out form.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cpassword" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Why?</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="why" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol"> &nbsp;&nbsp;
+                        <input type="text" name="pin_1" class="pin" maxlength=1 />
+                        <input type="text" name="pin_2" class="pin" maxlength=1 />
+                        <input type="text" name="pin_3" class="pin" maxlength=1 />
+                        <input type="text" name="pin_4" class="pin" maxlength=1 />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="request" value="Request" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php	
 												}
 											}
 											break;
 											
 											default:
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Username</label>
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="text" name="username" value="" />
-																	</div>
-																</div>
-															   
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Password</label>
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="password" name="password" value="" />
-																	</div>
-																</div>
-																
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" class="submit" name="login" value="Login" />
-																	</div>
-																</div>
-															</div>
-														</form>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="login" value="Login" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 														$max_positions=getGlobalVars($properties,'max_closed_beta_positions');
 														//get the number of users
 														$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type != 'admin' AND status='active'");
@@ -7159,10 +6003,15 @@ switch($MODE){
 														$num_of_pos_left=$max_positions - $num_of_users;
 														if($num_of_pos_left<0){$num_of_pos_left=0;}
 														?>
-														<br />
-														<?php if($num_of_pos_left<1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1><?php }else if($num_of_pos_left>1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1><?php }?>
-														
-														<?php
+                <br />
+                <?php if($num_of_pos_left<1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1>
+                <?php }else if($num_of_pos_left>1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1>
+                <?php }?>
+                <?php
 														$max_positions=getGlobalVars($properties,'max_admin_positions');
 														//get the number of users
 														$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' AND status='active'");
@@ -7170,16 +6019,20 @@ switch($MODE){
 														$num_of_pos_left=$max_positions - $num_of_users;
 														if($num_of_pos_left<0){$num_of_pos_left=0;}
 														?>
-														<?php if($num_of_pos_left<1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p><?php }else if($num_of_pos_left>1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p><?php }?>
-														<a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <a class="white" href="request">Request Access</a> 
-                                                        <br /><br />
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+                <?php if($num_of_pos_left<1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p>
+                <?php }else if($num_of_pos_left>1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p>
+                <?php }?>
+                <a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <a class="white" href="request">Request Access</a> <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											break;
 										}
 									}
@@ -7193,67 +6046,51 @@ switch($MODE){
 									if(mysql_num_rows($CHECK_LOGIN)<1){
 										/* USER NOT LOGGED */
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-                                                	<!-- [CODE-HELPER: CLOSED_BETA_TOP_MESSAGE -->
-													<h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<form action="" method="post">
-														<div id="formLayoutTable">
-															<div class="formLayoutTableRow">
-																<div class="formLayoutTableRowLeftCol">
-																	<label>Username</label>
-																</div>
-																<div class="formLayoutTableRowRightCol">
-																	<input type="text" name="username" value="" />
-																</div>
-															</div>
-														   
-															<div class="formLayoutTableRow">
-																<div class="formLayoutTableRowLeftCol">
-																	<label>Password</label>
-																</div>
-																<div class="formLayoutTableRowRightCol">
-																	<input type="password" name="password" value="" />
-																</div>
-															</div>
-															
-															<div class="formLayoutTableRow">
-																<div class="formLayoutTableRowLeftCol">
-																	
-																</div>
-																<div class="formLayoutTableRowRightCol">
-																	<input type="submit" class="submit" name="login" value="Login" />
-																</div>
-															</div>
-														</div>
-													</form>
-												</div>
-												<div id="mid-table-rightcol">
-													
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> 
+                <!-- [CODE-HELPER: CLOSED_BETA_TOP_MESSAGE -->
+                <h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="login" value="Login" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 													$max_positions=getGlobalVars($properties,'max_closed_beta_positions');
 													//get the number of users
 													$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type != 'admin' AND status='active'");
@@ -7261,10 +6098,15 @@ switch($MODE){
 													$num_of_pos_left=$max_positions - $num_of_users;
 													if($num_of_pos_left<0){$num_of_pos_left=0;}
 													?>
-													<br />
-													<?php if($num_of_pos_left<1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1><?php }else if($num_of_pos_left>1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1><?php }?>
-													
-													<?php
+                <br />
+                <?php if($num_of_pos_left<1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1>
+                <?php }else if($num_of_pos_left>1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1>
+                <?php }?>
+                <?php
 													$max_positions=getGlobalVars($properties,'max_admin_positions');
 													$max_positions=$max_positions+getGlobalVars($properties,'max_closed_beta_positions');
 													//get the number of users
@@ -7273,17 +6115,26 @@ switch($MODE){
 													$num_of_pos_left=$max_positions - $num_of_users;
 													if($num_of_pos_left<0){$num_of_pos_left=0;}
 													?>
-													<?php if($num_of_pos_left<1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p><?php }else if($num_of_pos_left>1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p><?php }?>
-													
-													<a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <?php if($num_of_pos_left<1){?><a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a><?php }else{?><a class="white" href="request">Request Access</a><?php }?>
-                                                    <br /><br />
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-										<?php
+                <?php if($num_of_pos_left<1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p>
+                <?php }else if($num_of_pos_left>1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p>
+                <?php }?>
+                <a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> |
+                <?php if($num_of_pos_left<1){?>
+                <a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a>
+                <?php }else{?>
+                <a class="white" href="request">Request Access</a>
+                <?php }?>
+                <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 									} else {
 										/* USER LOGGED IN */
 										$FETCH_LOGIN=mysql_fetch_array($CHECK_LOGIN);
@@ -7294,121 +6145,87 @@ switch($MODE){
 										$tou_status=$FETCH_LOGIN['tou_status'];
 										$head_admin=$FETCH_LOGIN['head_admin'];
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Closed BETA Member Access Event Panel</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="panel-using">Using this panel gives you full access to this site to be able to test it out</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php include("includes/private/attributes/sadminium/mainall.php");?>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-												
-												</div>
-												<div id="mid-table-rightcol">
-											
-												</div>
-											</div>
-										</div>
-										<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Closed BETA Member Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-using">Using this panel gives you full access to this site to be able to test it out</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/sadminium/mainall.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 									}
 								}
 								?>
-							</div>
-							<div id="bottom">
-								<center>
-								<?php
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 								/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 								include("includes/private/attributes/splashlinks.php");
 								?>
-								</center>
-							</div>
-						</div>
-						
-						<div id="splash-col3">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			<?php
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 		}
 	} else if($logged==0) {
 		/* NOT LOGGED */
 		?>
-		<div id="splash-container3">
-			<div id="splash-container2">
-				<div id="splash-container1">
-					<div id="splash-col1">
-						
-					</div>
-					
-					<div id="splash-col2">
-						<div id="top">
-								<?php echo $globalvars_passpage_title;?>
-                                <?php echo $globalvars_passpage_slogan;?>
-                                <?php echo $globalvars_passpage_closedbeta_st;?>
-								
-						</div>
-						<div id="mid">
-							<?php
+<div id="splash-container3">
+  <div id="splash-container2">
+    <div id="splash-container1">
+      <div id="splash-col1"> </div>
+      <div id="splash-col2">
+        <div id="top"> <?php echo $globalvars_passpage_title;?> <?php echo $globalvars_passpage_slogan;?> <?php echo $globalvars_passpage_closedbeta_st;?> </div>
+        <div id="mid">
+          <?php
 							if( (isset($_POST['login'])) || ($_GET['page']=="forgotusername") || ($_GET['page']=="forgotpassword") || ($_GET['page']=="request") || ($_GET['page']=="control") || (isset($_POST['logout'])) ){
 								if((isset($_POST['login'])) || (isset($_POST['logout']))){
 									if(isset($_POST['login'])){
 										/* LOGIN ACCESS */
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="cbeta-top"><br /><br /><br /><br />Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Logging in to <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 													//get the $_POST variables
 													$username=$_POST['username'];
 													$password=$_POST['password'];
@@ -7487,50 +6304,38 @@ switch($MODE){
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='$lsessionid' WHERE uname='$username'");
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET dateandtime_lastlogin='$dateandtime' WHERE uname='$username'");
 														
-														echo "<br />You have been successfully logged in!<br />Click <a href=\"".$properties->WEBSITE_URL."\" class=\"white\">here</a> to go to your Event Panel";
+														echo "<br />You have been successfully logged in!<br />Click <a href=\"".$WEBSITE_URL."\" class=\"white\">here</a> to go to your Event Panel";
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-													
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 									} else if(isset($_POST['logout'])){
 										/* LOGOUT ACCESS */
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="cbeta-top"><br /><br /><br /><br />Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php			
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Logging out of <?php echo $properties->WEBSITE_NAME.$properties->WEBSITE_EXT;?> Closed BETA Event!</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php			
 													//get user
 													$username=$_POST['logoutusername'];
 													
@@ -7546,35 +6351,26 @@ switch($MODE){
 														//update the db
 														
 														//FIX AS OF 3.5.1 - This clears the cookie for the new cookie in case something happens
-														include("includes/private/attributes/cookie_destroyer.php");
+														include("includes/private/attributes/cookie_destroyer_user.php");
 														
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET loggedin='no' WHERE uname='$username'");
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET in_site='no' WHERE uname='$username'");
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_ip='' WHERE uname='$username'");
 														mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='' WHERE uname='$username'");
 																										
-														echo "<br />You have been successfully logged out!<br /><a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Go home</a>";
+														echo "<br />You have been successfully logged out!<br /><a href=\"".$WEBSITE_URL."\" class=\"white\">Go home</a>";
 													}
 													?>
-												</div>
-												<div id="mid-table-rightcol">
-													
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-										<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 									}
 									
 								} else {
@@ -7585,18 +6381,16 @@ switch($MODE){
 												/* RECOVERY GENERAL */
 												/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 														//search for email in db
 														$FIND_EMAIL=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE email='".$_POST['email']."'");
 														?>
-														<h1 class="cbeta-top">
-														<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 														if(($_POST['email']=="") || (CHECK_EMAIL($_POST['email'])==false)){
 															echo "<br /><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become a BETA member and we'll look it up for you.";
 														} else {
@@ -7606,19 +6400,15 @@ switch($MODE){
 																echo "<br />Security Information<br />We found an email matching<br />&quot;".$_POST['email']."&quot;<br />Now answer your Security Question to obtain your username:";
 															}
 														}															
-															?></h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php
+															?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															//get $_POST data
 															$email=$_POST['email'];												
 															
@@ -7635,14 +6425,14 @@ switch($MODE){
 																
 																//check security
 																?>
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Security Question</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																				$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																				if(mysql_num_rows($GET_SQS)<1){
 																					/* something went wrong */
@@ -7653,46 +6443,40 @@ switch($MODE){
 																					echo $sqvalue."?";
 																				}
 																				?>
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																				if($is_auto_q == "yes"){
 																					/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																					?>
-																					<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																					<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																					<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																					<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																					<input type="hidden" name="email" value="<?php echo $email;?>" />
-																					<input type="hidden" name="is_auto_q" value="yes" />
-																					<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																				} else {
 																					?>
-																					<input type="text" name="theanswervalue" value="" />
-																					<input type="hidden" name="email" value="<?php echo $email;?>" />
-																					<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="email" value="<?php echo $email;?>" />
+                        <?php
 																				}
 																				?>
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" name="theanswer" value="Answer" class="submit" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-																<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 															}
 															
 															//check for valid email
@@ -7711,37 +6495,26 @@ switch($MODE){
 																/* PASSED */
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q']))){
 												/* CHECKING SECURITY */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														
-														<h1 class="cbeta-top"><br />Security Information
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php
 														//get $_POST variables
 														$is_auto_q=$_POST['is_auto_q'];
 															
@@ -7795,27 +6568,24 @@ switch($MODE){
 														
 														if($error_console!=""){
 															?>
-															<br />Bad authentication!
-															<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 														} else {
 															?>
-															<br />Successfully authenticated!
-															<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 														}
 														?>
-														</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 															//check error_console
 															if($error_console!=""){
 																/*FAILED*/
@@ -7827,87 +6597,66 @@ switch($MODE){
 																echo "<br /><br /><br /><br /><br /><br /><h1>Your username is: ".$username."</h1>";
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php if($error_console==""){?><a href="../" class="white">Go Home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go Home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											}
 										} else {
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="cbeta-top"><br />Forget your username? No problem! Fill out the form with the email you used when you registered to become a BETA member and we'll look it up for you.</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Email</label>
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="text" name="email" />
-																	</div>
-																</div>
-																
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" class="submit" name="recover" value="Recover" />
-																	</div>
-																</div>
-															</div>
-														</form>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-													   <br />
-													   <a class="white" href="javascript:history.go(-1)">Back</a>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your username? No problem! Fill out the form with the email you used when you registered to become a BETA member and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										}
 										break;
 										
@@ -7917,18 +6666,16 @@ switch($MODE){
 												/* RECOVERY GENERAL */
 												/* DO LOGIN RECOVERY PROCESS BY GETTING THE SECURTIY QUESTION AND TELLING USER THE USERNAME */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 														//search for email in db
 														$FIND_USERNAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE uname='".$_POST['username']."'");
 														?>
-														<h1 class="cbeta-top">
-														<?php 
+                <h1 class="cbeta-top">
+                  <?php 
 														if($_POST['username']==""){
 															echo "<br /><br />Forget your password? No problem! Fill out the form with the your username and we'll look it up for you.";
 														} else {
@@ -7938,19 +6685,15 @@ switch($MODE){
 																echo "<br />Security Information<br />We found a username matching<br />&quot;".$_POST['username']."&quot;<br />Now answer your Security Question to reset your password:";
 															}
 														}															
-															?></h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php
+															?>
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 															//get $_POST data
 															$username=$_POST['username'];												
 															
@@ -7967,14 +6710,14 @@ switch($MODE){
 																
 																//check security
 																?>
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Security Question</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<?php
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Security Question</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																				$GET_SQS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}security_questions WHERE id='$sqid'");
 																				if(mysql_num_rows($GET_SQS)<1){
 																					/* something went wrong */
@@ -7985,46 +6728,40 @@ switch($MODE){
 																					echo $sqvalue."?";
 																				}
 																				?>
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <?php
 																				if($is_auto_q == "yes"){
 																					/* SQ NOT ASSIGNED; USED DEFAULT PIN */
 																					?>
-																					<input type="text" name="sapin_1" class="pin" maxlength=1 /> 
-																					<input type="text" name="sapin_2" class="pin" maxlength=1 /> 
-																					<input type="text" name="sapin_3" class="pin" maxlength=1 /> 
-																					<input type="text" name="sapin_4" class="pin" maxlength=1 /> 
-																					<input type="hidden" name="username" value="<?php echo $username;?>" />
-																					<input type="hidden" name="is_auto_q" value="yes" />
-																					<?php
+                        <input type="text" name="sapin_1" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_2" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_3" class="pin" maxlength=1 />
+                        <input type="text" name="sapin_4" class="pin" maxlength=1 />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <input type="hidden" name="is_auto_q" value="yes" />
+                        <?php
 																				} else {
 																					?>
-																					<input type="text" name="theanswervalue" value="" />
-																					<input type="hidden" name="username" value="<?php echo $username;?>" />
-																					<?php
+                        <input type="text" name="theanswervalue" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                        <?php
 																				}
 																				?>
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" name="theanswer" value="Answer" class="submit" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-																<?php
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" name="theanswer" value="Answer" class="submit" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 															}
 																												
 															//check for blank fields
@@ -8040,38 +6777,27 @@ switch($MODE){
 																/* PASSED */
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<br />
-                                                            <a class="white" href="javascript:history.go(-1)">Back</a>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											} else if((isset($_POST['theanswer'])) || (isset($_POST['is_auto_q'])) || (isset($_POST['savenewpassword']))){
 												/* CHECKING SECURITY */
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														
-														<h1 class="cbeta-top"><br />Security Information
-														<?php	
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Security Information
+                  <?php	
 														//get $_POST variables
 														$is_auto_q=$_POST['is_auto_q'];
 														
@@ -8126,27 +6852,24 @@ switch($MODE){
 														
 														if($error_console!=""){
 															?>
-															<br />Bad authentication!
-															<?php	
+                  <br />
+                  Bad authentication!
+                  <?php	
 														} else {
 															?>
-															<br />Successfully authenticated!
-															<?php
+                  <br />
+                  Successfully authenticated!
+                  <?php
 														}
 														?>
-														</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php													
+                </h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php													
 															//check error_console
 															if($error_console!=""){
 																/*FAILED*/
@@ -8207,123 +6930,98 @@ switch($MODE){
 																	}
 																} else {
 																?>
-																Now create your new password
-																<br /><br />
-																<form action="" method="post">
-																	<div id="formLayoutTable">
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>New Password</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="password" name="newpassword" value="" />
-																				<input type="hidden" name="username" value="<?php echo $username;?>" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				<label>Confirm Password</label>
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="password" name="cnewpassword" value="" />
-																			</div>
-																		</div>
-																		
-																		<div class="formLayoutTableRow">
-																			<div class="formLayoutTableRowLeftCol">
-																				
-																			</div>
-																			<div class="formLayoutTableRowRightCol">
-																				<input type="submit" class="submit" name="savenewpassword" value="Save" />
-																			</div>
-																		</div>
-																	</div>
-																</form>
-																<?php
+                Now create your new password <br />
+                <br />
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>New Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="newpassword" value="" />
+                        <input type="hidden" name="username" value="<?php echo $username;?>" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cnewpassword" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="savenewpassword" value="Save" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <?php
 																}
 															}
 															?>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<?php if($error_console==""){?><a href="../" class="white">Go home</a><?php }else{?><a class="white" href="javascript:history.go(-1)">Back</a><?php }?>
-														</div> 
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php if($error_console==""){?>
+                <a href="../" class="white">Go home</a>
+                <?php }else{?>
+                <a class="white" href="javascript:history.go(-1)">Back</a>
+                <?php }?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											}
 										} else {
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="cbeta-top"><br />Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<form action="" method="post">
-															<div id="formLayoutTable">
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		<label>Username</label>
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="text" name="username" value="" />
-																	</div>
-																</div>
-																
-																<div class="formLayoutTableRow">
-																	<div class="formLayoutTableRowLeftCol">
-																		
-																	</div>
-																	<div class="formLayoutTableRowRightCol">
-																		<input type="submit" class="submit" name="recover" value="Recover" />
-																	</div>
-																</div>
-															</div>
-														</form>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-													   <a class="white" href="javascript:history.go(-1)">Back</a>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"><br />
+                  Forget your password? No problem! Fill out the form with your username and we'll look it up for you.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="recover" value="Recover" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										}
 										break;
 										
@@ -8331,25 +7029,18 @@ switch($MODE){
 										if(isset($_POST['request'])){
 											/* DO REQUEST PROCESS */
 											?>
-											<div id="mid-table">
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<h1 class="cbeta-top"></h1>
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top"></h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 														/* CHECK CONTENT */
 														
 														//get $_POST data
@@ -8465,25 +7156,16 @@ switch($MODE){
 															}
 														}
 														?>
-													</div>
-													<div id="mid-table-rightcol">
-														
-													</div>
-												</div>
-												
-												<div class="mid-table-row">
-													<div id="mid-table-leftcol">
-													
-													</div>
-													<div id="mid-table-midcol">
-														
-													</div>
-													<div id="mid-table-rightcol">
-													
-													</div>
-												</div>
-											</div>
-											<?php
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										} else {
 											$max_positions=getGlobalVars($properties,'max_closed_beta_positions');
 											//get the number of users
@@ -8501,132 +7183,102 @@ switch($MODE){
 											if($num_of_pos_left<0){$num_of_pos_left=0;}
 											if($num_of_pos_left<1){
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 style="font-size:28px;line-height: 1em;"><br /><br /><br /><br />Well this is embarrassing...</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :)
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-														   
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 style="font-size:28px;line-height: 1em;"><br />
+                  <br />
+                  <br />
+                  <br />
+                  Well this is embarrassing...</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> Sorry...there are no positions available and the fact that you are here let's us know you are trying to get around the system and that is not going to look good if you want to work for us since we monitor all activity on this website. :) </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 											} else {
 												?>
-												<div id="mid-table">
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<h1 class="cbeta-top">Want to be an admin or BETA Member? Fill out form.</h1>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<form action="" method="post">
-																<div id="formLayoutTable">
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Username</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="text" name="username" />
-																		</div>
-																	</div>
-																											
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Password</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="password" name="password" />
-																		</div>
-																	</div>
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Confirm Password</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="password" name="cpassword" />
-																		</div>
-																	</div>
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Email</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="text" name="email" />
-																		</div>
-																	</div>      
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Why?</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<input type="text" name="why" />
-																		</div>
-																	</div>
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			<label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			&nbsp;&nbsp;
-																			<input type="text" name="pin_1" class="pin" maxlength=1 /> 
-																			<input type="text" name="pin_2" class="pin" maxlength=1 /> 
-																			<input type="text" name="pin_3" class="pin" maxlength=1 /> 
-																			<input type="text" name="pin_4" class="pin" maxlength=1 /> 
-																		</div>
-																	</div>                         
-																	
-																	<div class="formLayoutTableRow">
-																		<div class="formLayoutTableRowLeftCol">
-																			
-																		</div>
-																		<div class="formLayoutTableRowRightCol">
-																			<select name="typeofrequest" class="select-small">
-																				<option value="" class="option-small">-- TYPE--</option>
-																				<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top">Want to be an admin or BETA Member? Fill out form.</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Confirm Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="cpassword" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Email</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="email" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Why?</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="why" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Create a PIN [<a style="cursor:pointer;" class="white" title="This is for extra security; Plus it is used to recover your username or password if you have not set up a Security Question and Answer">?</a>]</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol"> &nbsp;&nbsp;
+                        <input type="text" name="pin_1" class="pin" maxlength=1 />
+                        <input type="text" name="pin_2" class="pin" maxlength=1 />
+                        <input type="text" name="pin_3" class="pin" maxlength=1 />
+                        <input type="text" name="pin_4" class="pin" maxlength=1 />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <select name="typeofrequest" class="select-small">
+                          <option value="" class="option-small">-- TYPE--</option>
+                          <?php
 																				//check to see if any beta or admin positions open
 																				$max_positions=getGlobalVars($properties,'max_admin_positions');
 																				$max_positions=$max_positions+getGlobalVars($properties,'max_closed_beta_positions');
@@ -8636,7 +7288,9 @@ switch($MODE){
 																				$num_of_pos_left=$max_positions - $num_of_users;
 																				if($num_of_pos_left<0){$num_of_pos_left=0;}
 																				
-																				if($num_of_pos_left<1){/* NO POSITIONS FOR ADMIN*/}else{?><option value="admin" class="option-small">Admin</option><?php }
+																				if($num_of_pos_left<1){/* NO POSITIONS FOR ADMIN*/}else{?>
+                          <option value="admin" class="option-small">Admin</option>
+                          <?php }
 																				$max_positions=getGlobalVars($properties,'max_closed_beta_positions');
 																				//get the number of users
 																				$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type != 'admin' AND status='active'");
@@ -8644,100 +7298,77 @@ switch($MODE){
 																				$num_of_pos_left=$max_positions - $num_of_users;
 																				if($num_of_pos_left<0){$num_of_pos_left=0;}
 																				
-																				if($num_of_pos_left<1){/* NO POSITIONS FOR BETA*/}else{?><option value="beta" class="option-small">BETA</option><?php }
+																				if($num_of_pos_left<1){/* NO POSITIONS FOR BETA*/}else{?>
+                          <option value="beta" class="option-small">BETA</option>
+                          <?php }
 																				?>
-																			</select>
-																			<input type="submit" class="submit" name="request" value="Request" />
-																		</div>
-																	</div>
-																</div>
-															</form>
-														</div>
-														<div id="mid-table-rightcol">
-															
-														</div>
-													</div>
-													
-													<div class="mid-table-row">
-														<div id="mid-table-leftcol">
-														
-														</div>
-														<div id="mid-table-midcol">
-															<br />
-															<a class="white" href="javascript:history.go(-1)">Back</a>
-														</div>
-														<div id="mid-table-rightcol">
-														
-														</div>
-													</div>
-												</div>
-												<?php	
+                        </select>
+                        <input type="submit" class="submit" name="request" value="Request" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> <br />
+                <a class="white" href="javascript:history.go(-1)">Back</a> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php	
 											}
 										}
 										break;
 										
 										default:
 										?>
-										<div id="mid-table">
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<form action="" method="post">
-														<div id="formLayoutTable">
-															<div class="formLayoutTableRow">
-																<div class="formLayoutTableRowLeftCol">
-																	<label>Username</label>
-																</div>
-																<div class="formLayoutTableRowRightCol">
-																	<input type="text" name="username" value="" />
-																</div>
-															</div>
-														   
-															<div class="formLayoutTableRow">
-																<div class="formLayoutTableRowLeftCol">
-																	<label>Password</label>
-																</div>
-																<div class="formLayoutTableRowRightCol">
-																	<input type="password" name="password" value="" />
-																</div>
-															</div>
-															
-															<div class="formLayoutTableRow">
-																<div class="formLayoutTableRowLeftCol">
-																	
-																</div>
-																<div class="formLayoutTableRowRightCol">
-																	<input type="submit" class="submit" name="login" value="Login" />
-																</div>
-															</div>
-														</div>
-													</form>
-												</div>
-												<div id="mid-table-rightcol">
-													
-												</div>
-											</div>
-											
-											<div class="mid-table-row">
-												<div id="mid-table-leftcol">
-												
-												</div>
-												<div id="mid-table-midcol">
-													<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="login" value="Login" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 													$max_positions=getGlobalVars($properties,'max_closed_beta_positions');
 													//get the number of users
 													$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type != 'admin' AND status='active'");
@@ -8745,9 +7376,14 @@ switch($MODE){
 													$num_of_pos_left=$max_positions - $num_of_users;
 													if($num_of_pos_left<0){$num_of_pos_left=0;}
 													?>
-													<?php if($num_of_pos_left<1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1><?php }else if($num_of_pos_left>1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1><?php }?>
-													
-													<?php
+                <?php if($num_of_pos_left<1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1>
+                <?php }else if($num_of_pos_left>1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1>
+                <?php }?>
+                <?php
 													$max_positions=getGlobalVars($properties,'max_admin_positions');
 													//get the number of users
 													$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' AND status='active'");
@@ -8755,17 +7391,20 @@ switch($MODE){
 													$num_of_pos_left=$max_positions - $num_of_users;
 													if($num_of_pos_left<0){$num_of_pos_left=0;}
 													?>
-													<?php if($num_of_pos_left<1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p><?php }else if($num_of_pos_left>1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p><?php }?>
-													
-													<a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <a class="white" href="request">Request Access</a> 
-                                                    <br /><br />
-												</div>
-												<div id="mid-table-rightcol">
-												
-												</div>
-											</div>
-										</div>
-										<?php
+                <?php if($num_of_pos_left<1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p>
+                <?php }else if($num_of_pos_left>1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p>
+                <?php }?>
+                <a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <a class="white" href="request">Request Access</a> <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 										break;
 									}
 								}
@@ -8779,66 +7418,50 @@ switch($MODE){
 								if(mysql_num_rows($CHECK_LOGIN)<1){
 									/* USER NOT LOGGED */
 									?>
-									<div id="mid-table">
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<form action="" method="post">
-													<div id="formLayoutTable">
-														<div class="formLayoutTableRow">
-															<div class="formLayoutTableRowLeftCol">
-																<label>Username</label>
-															</div>
-															<div class="formLayoutTableRowRightCol">
-																<input type="text" name="username" value="" />
-															</div>
-														</div>
-													   
-														<div class="formLayoutTableRow">
-															<div class="formLayoutTableRowLeftCol">
-																<label>Password</label>
-															</div>
-															<div class="formLayoutTableRowRightCol">
-																<input type="password" name="password" value="" />
-															</div>
-														</div>
-														
-														<div class="formLayoutTableRow">
-															<div class="formLayoutTableRowLeftCol">
-																
-															</div>
-															<div class="formLayoutTableRowRightCol">
-																<input type="submit" class="submit" name="login" value="Login" />
-															</div>
-														</div>
-													</div>
-												</form>
-											</div>
-											<div id="mid-table-rightcol">
-												
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="cbeta-top">I'm sorry but this website is open to a limited number of people. If you are a BETA member please login below to use this site</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <form action="" method="post">
+                  <div id="formLayoutTable">
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Username</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="text" name="username" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol">
+                        <label>Password</label>
+                      </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="password" name="password" value="" />
+                      </div>
+                    </div>
+                    <div class="formLayoutTableRow">
+                      <div class="formLayoutTableRowLeftCol"> </div>
+                      <div class="formLayoutTableRowRightCol">
+                        <input type="submit" class="submit" name="login" value="Login" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php
 												$max_positions=getGlobalVars($properties,'max_closed_beta_positions');
 												//get the number of users
 												$GET_USERS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type != 'admin' AND status='active'");
@@ -8846,9 +7469,14 @@ switch($MODE){
 												$num_of_pos_left=$max_positions - $num_of_users;
 												if($num_of_pos_left<0){$num_of_pos_left=0;}
 												?>
-												<?php if($num_of_pos_left<1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1><?php }else if($num_of_pos_left>1){?><h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1><?php }?>
-												
-												<?php
+                <?php if($num_of_pos_left<1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open :(</h1>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> position open!</h1>
+                <?php }else if($num_of_pos_left>1){?>
+                <h1 class="cbeta-mid">We have <?php echo $num_of_pos_left;?> positions open!!!</h1>
+                <?php }?>
+                <?php
 												$max_positions=getGlobalVars($properties,'max_admin_positions');
 												$max_positions=$max_positions+getGlobalVars($properties,'max_closed_beta_positions');
 												//get the number of users
@@ -8857,17 +7485,26 @@ switch($MODE){
 												$num_of_pos_left=$max_positions - $num_of_users;
 												if($num_of_pos_left<0){$num_of_pos_left=0;}
 												?>
-												<?php if($num_of_pos_left<1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p><?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p><?php }else if($num_of_pos_left>1){?><p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p><?php }?>
-												
-												<a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> | <?php if($num_of_pos_left<1){?><a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a><?php }else{?><a class="white" href="request">Request Access</a><?php }?>
-                                                <br /><br />
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-									</div>
-									<?php
+                <?php if($num_of_pos_left<1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open :(</p>
+                <?php }else if(($num_of_pos_left>0) && ($num_of_pos_left<2)){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin position open!</p>
+                <?php }else if($num_of_pos_left>1){?>
+                <p class="cbeta-mid">We have <?php echo $num_of_pos_left;?> Admin positions open!!!</p>
+                <?php }?>
+                <a class="white" href="forgotusername">Forget Username?</a> | <a class="white" href="forgotpassword">Forget Password?</a> |
+                <?php if($num_of_pos_left<1){?>
+                <a class="white" style="text-decoration:line-through;cursor:help;" title="There are no positions open so this link is not accessible">Request Access</a>
+                <?php }else{?>
+                <a class="white" href="request">Request Access</a>
+                <?php }?>
+                <br />
+                <br />
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 								} else {
 									/* USER LOGGED IN */
 									$FETCH_LOGIN=mysql_fetch_array($CHECK_LOGIN);
@@ -8877,77 +7514,54 @@ switch($MODE){
 									$type=$FETCH_LOGIN['type'];
 									$tou_status=$FETCH_LOGIN['tou_status'];
 									?>
-									<div id="mid-table">
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />Welcome to the Closed BETA Member Access Event Panel</h1>
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<h1 class="panel-using">Using this panel gives you full access to this site to be able to test it out</h1>
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-												<?php include("includes/private/attributes/sadminium/mainall.php");?>
-											</div>
-											<div id="mid-table-rightcol">
-												
-											</div>
-										</div>
-										
-										<div class="mid-table-row">
-											<div id="mid-table-leftcol">
-											
-											</div>
-											<div id="mid-table-midcol">
-											
-											</div>
-											<div id="mid-table-rightcol">
-											
-											</div>
-										</div>
-									</div>
-									<?php
+          <div id="mid-table">
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-top">Hello <?php echo $fname." ".$lname;?>!<br />
+                  Welcome to the Closed BETA Member Access Event Panel</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <h1 class="panel-using">Using this panel gives you full access to this site to be able to test it out</h1>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol">
+                <?php include("includes/private/attributes/sadminium/mainall.php");?>
+              </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+            <div class="mid-table-row">
+              <div id="mid-table-leftcol"> </div>
+              <div id="mid-table-midcol"> </div>
+              <div id="mid-table-rightcol"> </div>
+            </div>
+          </div>
+          <?php
 								}
 							}
 							?>
-						</div>
-						<div id="bottom">
-							<center>
-							<?php
+        </div>
+        <div id="bottom">
+          <center>
+            <?php
 							/* LOAD DYNAMICALLY-UPDATED LINK FILE */
 							include("includes/private/attributes/splashlinks.php");
 							?>
-							</center>
-						</div>
-					</div>
-					
-					<div id="splash-col3">
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php
+          </center>
+        </div>
+      </div>
+      <div id="splash-col3"> </div>
+    </div>
+  </div>
+</div>
+<?php
 	}
 	
 	/* -----------------------------------------------  END MODE: CLOSED BETA ---------------------------------------------- */
@@ -8968,14 +7582,15 @@ switch($MODE){
 	/* --------------------------------------------------------------------------------------------------------------------- */
 	/* --------------------------------------------------- MODE: OPEN BETA ------------------------------------------------- */
 	
-	?><div id="topmessage">THIS SITE IS CURRENTLY RUNNING AS AN OPEN BETA. IF YOU SEE A BUG, PLEASE REPORT IT <a href="<?php echo $properties->WEBSITE_URL.$properties->PADMAIN."/contact";?>">HERE</a>. THANK YOU! MGMNT</div>
-	<div class="wrap">
-		<?php
+	?>
+<div id="topmessage">THIS SITE IS CURRENTLY RUNNING AS AN OPEN BETA. IF YOU SEE A BUG, PLEASE REPORT IT <a href="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL.$properties->PADMAIN."/contact";}else{echo $properties->WEBSITE_REMO_URL.$properties->PADMAIN."/contact";}?>">HERE</a>. THANK YOU! MGMNT</div>
+<div class="wrap">
+  <?php
 		if($properties->TURN_ON_TOP_NAV=="yes"){
 		?>
-		<div id="topnavigation">
-			<div id="topnav">
-				<?php
+  <div id="topnavigation">
+    <div id="topnav">
+      <?php
 				if(getGlobalVars($properties,'top_nav_use') == "toolkit"){
 				
 					include("includes/private/modules/toolkit.php");
@@ -8989,116 +7604,128 @@ switch($MODE){
 					include("includes/private/modules/topnavwithoutsearch.php");
 				}
 				?>
-			</div>
-		</div> <!-- end top navigation -->
-		<?php
+    </div>
+  </div>
+  <!-- end top navigation -->
+  <?php
 		} else if($properties->TURN_ON_TOP_NAV=="no") {
 			/* NO TOP NAV */	
 		}
 		?>
-	</div>
-	
-	<div id="container-header">
-	<div id="header">
-			<div id="header-row">
-				<div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $properties->displayWURL();?><?php echo $launchpad;?>/home'">
-					<div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
-						<div class="big"><?php echo $properties->displayMainTitle();?></div>
-						<?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?> 
-					</div> <!-- end of #left -->
-				</div> <!-- end of #header-leftcol -->
-							   
-				<div id="header-rightcol">
-					<div id="navigation">
-						<div id="nav-row">
-							<?php
+</div>
+<div id="container-header">
+  <div id="header">
+    <div id="header-row">
+      <div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $WEBSITE_URL;?><?php echo $launchpad;?>/home'">
+        <div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
+          <div class="big"><?php echo $properties->displayMainTitle();?></div>
+          <?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?>
+        </div>
+        <!-- end of #left --> 
+      </div>
+      <!-- end of #header-leftcol -->
+      
+      <div id="header-rightcol">
+        <div id="navigation">
+          <div id="nav-row">
+            <?php
 								/* PHP NAVIGATIN LIST MAKER FROM CLASS */
-								$wurl=$properties->getWURL();
+								$wurl=$WEBSITE_URL;
 								//determine launchpad constants
 								$launchpadNAME=$launchpad;
 								$launchpadID=GET_LP_ID($properties,$launchpad);
 								echo navigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 							?>
-						</div><!-- end of nav-row -->
-					</div> <!-- end of #navigation -->      
-				</div>
-			</div> <!-- end of #header-row -->
-		</div> <!-- end of #header -->
-	</div>
-	
-	<div id="container">
-		
-		<?php 
+          </div>
+          <!-- end of nav-row --> 
+        </div>
+        <!-- end of #navigation --> 
+      </div>
+    </div>
+    <!-- end of #header-row --> 
+  </div>
+  <!-- end of #header --> 
+</div>
+<?php
+include("includes/private/art/top_left.php");
+?> 
+<?php
+include("includes/private/art/top_right.php");
+?>
+<div id="container">
+  <?php 
 		//check to see if feature is toggled
 		$CHECK_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 		$FETCH_FEAT=mysql_fetch_array($CHECK_FEAT);
 		@$toggle=$FETCH_FEAT['toggle_feat'];
 		if($toggle == "on"){
 		?>
-			<div id="featured-works">
-				<div id="inner">            	
-					<?php require("includes/private/attributes/featured.php");?>
-                    <?php featured($properties,"full");?>
-				</div>
-			</div>
-		<?php
+  <div id="featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 		}
 		?>
-		
-		<?php
+  <?php
 		//check to see if mini feature is toggled
 		$CHECK_MINI_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 		$FETCH_MINI_FEAT=mysql_fetch_array($CHECK_MINI_FEAT);
 		@$toggle=$FETCH_MINI_FEAT['toggle_minifeat'];
 		if($toggle == "on"){
-			?>			
-			<div id="mini-featured-works">
-				<div id="inner">            	
-					<?php require("includes/private/attributes/featured.php");?>
-                    <?php featured($properties,"full");?>
-				</div>
-			</div>
-			<?php
+			?>
+  <div id="mini-featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 		}
 		?>
-		
-		<!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
-		<!-- start of PAGE CONTENTS -->
-			<?php getPageContents($launchpadID,$page,$subpage,$properties->WEBSITE_URL,$launchpadPN,$properties); ?>
-		<!-- end of PAGE CONTENTS --> 
-				
-	</div> <!-- end of #container -->
-	
-	<?php
+  
+  <!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
+  <!-- start of PAGE CONTENTS -->
+  <?php getPageContents($launchpadID,$page,$subpage,$WEBSITE_URL,$launchpadPN,$properties); ?>
+  <!-- end of PAGE CONTENTS --> 
+  
+</div>
+<!-- end of #container -->
+
+<?php
 	include("includes/private/art/lower_left.php");
 	?>
-	 
-	<?php
+<?php
 	include("includes/private/art/lower_right.php");
 	?>
-	
-	<?php
+<?php
 	if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
 	?>
-	<div id="bottomnavigation">
-		<div class="wrap-bottom">
-			<div id="bottomnav">
-				<div class="left">
-					<ul>
-					<?php
+<div id="bottomnavigation">
+  <div class="wrap-bottom">
+    <div id="bottomnav">
+      <div class="left">
+        <ul>
+          <?php
 					/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
-					$wurl=$properties->getWURL();
+					$wurl=$WEBSITE_URL;
 					//determine launchpad constants
 					$launchpadNAME=$launchpad;
 					$launchpadID=GET_LP_ID($properties,$launchpad);
 					echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 					?>
-					</ul>
-				</div><!-- end of #left --> 
-			</div> <!-- end of #bottomnav --> 
-		</div> <!-- end of .wrap -->
-	</div><!-- end of #bottomnavigation -->
-	<?php
+        </ul>
+      </div>
+      <!-- end of #left --> 
+    </div>
+    <!-- end of #bottomnav --> 
+  </div>
+  <!-- end of .wrap --> 
+</div>
+<!-- end of #bottomnavigation -->
+<?php
 	} else if($properties->TURN_ON_BOTTOM_NAV == "no") {
 		/* LEAVE BOTTOM NAV OFF */
 	}
@@ -9147,13 +7774,13 @@ switch($MODE){
 		switch($status){
 			case 'active':
 				?>
-				<div class="wrap">
-					<?php
+<div class="wrap">
+  <?php
 					if($properties->TURN_ON_TOP_NAV=="yes"){
 					?>
-					<div id="topnavigation">
-						<div id="topnav">
-							<?php
+  <div id="topnavigation">
+    <div id="topnav">
+      <?php
 							if(getGlobalVars($properties,'top_nav_use') == "toolkit"){
 							
 								include("includes/private/modules/toolkit.php");
@@ -9167,123 +7794,133 @@ switch($MODE){
 								include("includes/private/modules/topnavwithoutsearch.php");
 							}
 							?>
-						</div>
-					</div> <!-- end top navigation -->
-					<?php
+    </div>
+  </div>
+  <!-- end top navigation -->
+  <?php
 					} else if($properties->TURN_ON_TOP_NAV=="no") {
 						/* NO TOP NAV */	
 					}
 					?>
-				</div>
-				
-				<div id="container-header">
-				<div id="header">
-						<div id="header-row">
-							<div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $properties->displayWURL();?><?php echo $launchpad;?>/home'">
-								<div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
-									<div class="big"><?php echo $properties->displayMainTitle();?></div>
-									<?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?> 
-								</div> <!-- end of #left -->
-							</div> <!-- end of #header-leftcol -->
-										   
-							<div id="header-rightcol">
-								<div id="navigation">
-									<div id="nav-row">
-										<?php
+</div>
+<div id="container-header">
+  <div id="header">
+    <div id="header-row">
+      <div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $WEBSITE_URL;?><?php echo $launchpad;?>/home'">
+        <div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
+          <div class="big"><?php echo $properties->displayMainTitle();?></div>
+          <?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?>
+        </div>
+        <!-- end of #left --> 
+      </div>
+      <!-- end of #header-leftcol -->
+      
+      <div id="header-rightcol">
+        <div id="navigation">
+          <div id="nav-row">
+            <?php
 											/* PHP NAVIGATIN LIST MAKER FROM CLASS */
-											$wurl=$properties->getWURL();
+											$wurl=$WEBSITE_URL;
 											//determine launchpad constants
 											$launchpadNAME=$launchpad;
 											$launchpadID=GET_LP_ID($properties,$launchpad);
 											echo navigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 										?>
-									</div><!-- end of nav-row -->
-								</div> <!-- end of #navigation -->      
-							</div>
-						</div> <!-- end of #header-row -->
-					</div> <!-- end of #header -->
-				</div>
-				
-				<div id="container">
-					
-					<?php 
+          </div>
+          <!-- end of nav-row --> 
+        </div>
+        <!-- end of #navigation --> 
+      </div>
+    </div>
+    <!-- end of #header-row --> 
+  </div>
+  <!-- end of #header --> 
+</div>
+<?php
+include("includes/private/art/top_left.php");
+?> 
+<?php
+include("includes/private/art/top_right.php");
+?>
+<div id="container">
+  <?php 
 					//check to see if feature is toggled
 					$CHECK_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 					$FETCH_FEAT=mysql_fetch_array($CHECK_FEAT);
 					@$toggle=$FETCH_FEAT['toggle_feat'];
 					if($toggle == "on"){
 					?>
-						<div id="featured-works">
-							<div id="inner">            	
-								<?php require("includes/private/attributes/featured.php");?>
-                        		<?php featured($properties,"full");?>
-							</div>
-						</div>
-					<?php
+  <div id="featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 					}
 					?>
-					
-					<?php
+  <?php
 					//check to see if mini feature is toggled
 					$CHECK_MINI_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 					$FETCH_MINI_FEAT=mysql_fetch_array($CHECK_MINI_FEAT);
 					@$toggle=$FETCH_MINI_FEAT['toggle_minifeat'];
 					if($toggle == "on"){
-						?>			
-						<div id="mini-featured-works">
-							<div id="inner">            	
-								<?php require("includes/private/attributes/featured.php");?>
-                        		<?php featured($properties,"full");?>
-							</div>
-						</div>
-						<?php
+						?>
+  <div id="mini-featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 					}
 					?>
-					
-					<!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
-					<!-- start of PAGE CONTENTS -->
-						<?php getPageContents($launchpadID,$page,$subpage,$properties->WEBSITE_URL,$launchpadPN,$properties); ?>
-					<!-- end of PAGE CONTENTS --> 
-							
-				</div> <!-- end of #container -->
-				
-				<?php
+  
+  <!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
+  <!-- start of PAGE CONTENTS -->
+  <?php getPageContents($launchpadID,$page,$subpage,$WEBSITE_URL,$launchpadPN,$properties); ?>
+  <!-- end of PAGE CONTENTS --> 
+  
+</div>
+<!-- end of #container -->
+
+<?php
 				include("includes/private/art/lower_left.php");
 				?>
-				 
-				<?php
+<?php
 				include("includes/private/art/lower_right.php");
 				?>
-				
-				<?php
+<?php
 				if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
 				?>
-				<div id="bottomnavigation">
-		
-					<div class="wrap-bottom">
-						<div id="bottomnav">
-							<div class="left">
-								<ul>
-								<?php
+<div id="bottomnavigation">
+  <div class="wrap-bottom">
+    <div id="bottomnav">
+      <div class="left">
+        <ul>
+          <?php
 								/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
-								$wurl=$properties->getWURL();
+								$wurl=$WEBSITE_URL;
 								//determine launchpad constants
 								$launchpadNAME=$launchpad;
 								$launchpadID=GET_LP_ID($properties,$launchpad);
 								echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 								?>
-								</ul>
-							</div><!-- end of #left --> 
-						</div> <!-- end of #bottomnav --> 
-					</div> <!-- end of .wrap -->
-				</div><!-- end of #bottomnavigation -->
-				<?php
+        </ul>
+      </div>
+      <!-- end of #left --> 
+    </div>
+    <!-- end of #bottomnav --> 
+  </div>
+  <!-- end of .wrap --> 
+</div>
+<!-- end of #bottomnavigation -->
+<?php
 				} else if($properties->TURN_ON_BOTTOM_NAV == "no") {
 					/* LEAVE BOTTOM NAV OFF */
 				}
 				?>
-				
-				<?php
+<?php
 				include("includes/private/modules/footer.php");
 			break;
 			
@@ -9302,13 +7939,13 @@ switch($MODE){
 	} else {
 		/* NOT LOGGED IN */
 		?>
-		<div class="wrap">
-			<?php
+<div class="wrap">
+  <?php
 			if($properties->TURN_ON_TOP_NAV=="yes"){
 			?>
-			<div id="topnavigation">
-				<div id="topnav">
-					<?php
+  <div id="topnavigation">
+    <div id="topnav">
+      <?php
 					if(getGlobalVars($properties,'top_nav_use') == "toolkit"){
 					
 						include("includes/private/modules/toolkit.php");
@@ -9322,122 +7959,133 @@ switch($MODE){
 						include("includes/private/modules/topnavwithoutsearch.php");
 					}
 					?>
-				</div>
-			</div> <!-- end top navigation -->
-			<?php
+    </div>
+  </div>
+  <!-- end top navigation -->
+  <?php
 			} else if($properties->TURN_ON_TOP_NAV=="no") {
 				/* NO TOP NAV */	
 			}
 			?>
-		</div>
-		
-		<div id="container-header">
-		<div id="header">
-				<div id="header-row">
-					<div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $properties->displayWURL();?><?php echo $launchpad;?>/home'">
-						<div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
-							<div class="big"><?php echo $properties->displayMainTitle();?></div>
-							<?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?> 
-						</div> <!-- end of #left -->
-					</div> <!-- end of #header-leftcol -->
-								   
-					<div id="header-rightcol">
-						<div id="navigation">
-							<div id="nav-row">
-								<?php
+</div>
+<div id="container-header">
+  <div id="header">
+    <div id="header-row">
+      <div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $WEBSITE_URL;?><?php echo $launchpad;?>/home'">
+        <div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
+          <div class="big"><?php echo $properties->displayMainTitle();?></div>
+          <?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?>
+        </div>
+        <!-- end of #left --> 
+      </div>
+      <!-- end of #header-leftcol -->
+      
+      <div id="header-rightcol">
+        <div id="navigation">
+          <div id="nav-row">
+            <?php
 									/* PHP NAVIGATIN LIST MAKER FROM CLASS */
-									$wurl=$properties->getWURL();
+									$wurl=$WEBSITE_URL;
 									//determine launchpad constants
 									$launchpadNAME=$launchpad;
 									$launchpadID=GET_LP_ID($properties,$launchpad);
 									echo navigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 								?>
-							</div><!-- end of nav-row -->
-						</div> <!-- end of #navigation -->      
-					</div>
-				</div> <!-- end of #header-row -->
-			</div> <!-- end of #header -->
-		</div>
-		
-		<div id="container">
-			
-			<?php 
+          </div>
+          <!-- end of nav-row --> 
+        </div>
+        <!-- end of #navigation --> 
+      </div>
+    </div>
+    <!-- end of #header-row --> 
+  </div>
+  <!-- end of #header --> 
+</div>
+<?php
+include("includes/private/art/top_left.php");
+?> 
+<?php
+include("includes/private/art/top_right.php");
+?>
+<div id="container">
+  <?php 
 			//check to see if feature is toggled
 			$CHECK_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 			$FETCH_FEAT=mysql_fetch_array($CHECK_FEAT);
 			@$toggle=$FETCH_FEAT['toggle_feat'];
 			if($toggle == "on"){
 			?>
-				<div id="featured-works">
-					<div id="inner">            	
-						<?php require("includes/private/attributes/featured.php");?>
-                        <?php featured($properties,"full");?>
-					</div>
-				</div>
-			<?php
+  <div id="featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 			}
 			?>
-			
-			<?php
+  <?php
 			//check to see if mini feature is toggled
 			$CHECK_MINI_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 			$FETCH_MINI_FEAT=mysql_fetch_array($CHECK_MINI_FEAT);
 			@$toggle=$FETCH_MINI_FEAT['toggle_minifeat'];
 			if($toggle == "on"){
-				?>			
-				<div id="mini-featured-works">
-					<div id="inner">            	
-						<?php require("includes/private/attributes/featured.php");?>
-                        <?php featured($properties,"full");?>
-					</div>
-				</div>
-				<?php
+				?>
+  <div id="mini-featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 			}
 			?>
-			
-			<!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
-			<!-- start of PAGE CONTENTS -->
-				<?php getPageContents($launchpadID,$page,$subpage,$properties->WEBSITE_URL,$launchpadPN,$properties); ?>
-			<!-- end of PAGE CONTENTS --> 
-					
-		</div> <!-- end of #container -->
-		
-		<?php
+  
+  <!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
+  <!-- start of PAGE CONTENTS -->
+  <?php getPageContents($launchpadID,$page,$subpage,$WEBSITE_URL,$launchpadPN,$properties); ?>
+  <!-- end of PAGE CONTENTS --> 
+  
+</div>
+<!-- end of #container -->
+
+<?php
 		include("includes/private/art/lower_left.php");
 		?>
-		 
-		<?php
+<?php
 		include("includes/private/art/lower_right.php");
 		?>
-		
-		<?php
+<?php
 		if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
 		?>
-		<div id="bottomnavigation">
-			<div class="wrap-bottom">
-				<div id="bottomnav">
-					<div class="left">
-						<ul>
-						<?php
+<div id="bottomnavigation">
+  <div class="wrap-bottom">
+    <div id="bottomnav">
+      <div class="left">
+        <ul>
+          <?php
 						/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
-						$wurl=$properties->getWURL();
+						$wurl=$WEBSITE_URL;
 						//determine launchpad constants
 						$launchpadNAME=$launchpad;
 						$launchpadID=GET_LP_ID($properties,$launchpad);
 						echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 						?>
-						</ul>
-					</div><!-- end of #left --> 
-				</div> <!-- end of #bottomnav --> 
-			</div> <!-- end of .wrap -->
-		</div><!-- end of #bottomnavigation -->
-		<?php
+        </ul>
+      </div>
+      <!-- end of #left --> 
+    </div>
+    <!-- end of #bottomnav --> 
+  </div>
+  <!-- end of .wrap --> 
+</div>
+<!-- end of #bottomnavigation -->
+<?php
 		} else if($properties->TURN_ON_BOTTOM_NAV == "no") {
 			/* LEAVE BOTTOM NAV OFF */
 		}
 		?>
-		
-		<?php
+<?php
 		include("includes/private/modules/footer.php");
 	}	
 	
@@ -9459,14 +8107,15 @@ switch($MODE){
 	/* --------------------------------------------------------------------------------------------------------------------- */
 	/* -------------------------------------------------- MODE: MAINTENANCE ------------------------------------------------ */
 	
-	?><div id="topmessage">THIS WEBSITE IS RUNNING IN MAINTENANCE MODE. BE CAREFUL ON THIS SITE AS THINGS ARE ABOUT TO GET HAIRY. :)</div>
-	<div class="wrap">
-		<?php
+	?>
+<div id="topmessage">THIS WEBSITE IS RUNNING IN MAINTENANCE MODE. BE CAREFUL ON THIS SITE AS THINGS ARE ABOUT TO GET HAIRY. :)</div>
+<div class="wrap">
+  <?php
 		if($properties->TURN_ON_TOP_NAV=="yes"){
 		?>
-		<div id="topnavigation">
-			<div id="topnav">
-				<?php
+  <div id="topnavigation">
+    <div id="topnav">
+      <?php
 				if(getGlobalVars($properties,'top_nav_use') == "toolkit"){
 				
 					include("includes/private/modules/toolkit.php");
@@ -9480,122 +8129,133 @@ switch($MODE){
 					include("includes/private/modules/topnavwithoutsearch.php");
 				}
 				?>
-			</div>
-		</div> <!-- end top navigation -->
-		<?php
+    </div>
+  </div>
+  <!-- end top navigation -->
+  <?php
 		} else if($properties->TURN_ON_TOP_NAV=="no") {
 			/* NO TOP NAV */	
 		}
 		?>
-	</div>
-	
-	<div id="container-header">
-	<div id="header">
-			<div id="header-row">
-				<div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $properties->displayWURL();?><?php echo $launchpad;?>/home'">
-					<div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
-						<div class="big"><?php echo $properties->displayMainTitle();?></div>
-						<?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?> 
-					</div> <!-- end of #left -->
-				</div> <!-- end of #header-leftcol -->
-							   
-				<div id="header-rightcol">
-					<div id="navigation">
-						<div id="nav-row">
-							<?php
+</div>
+<div id="container-header">
+  <div id="header">
+    <div id="header-row">
+      <div id="header-leftcol-<?php echo $launchpadID;?><?php if($page=="home"){?>-selected<?php }?>" onclick="window.location.href='<?php echo $WEBSITE_URL;?><?php echo $launchpad;?>/home'">
+        <div id="<?php if($properties->MAIN_TITLE_ALIGN == "l"){?>left<?php }else if($properties->MAIN_TITLE_ALIGN == "c"){?>center<?php }else if($properties->MAIN_TITLE_ALIGN == "r"){?>right<?php } ?>">
+          <div class="big"><?php echo $properties->displayMainTitle();?></div>
+          <?php if($launchpad == $properties->PADMAIN){echo $properties->displayMainSlogan($properties,$launchpad,'main');}else{echo $properties->displayMainSlogan($properties,$launchpad,'extra');}?>
+        </div>
+        <!-- end of #left --> 
+      </div>
+      <!-- end of #header-leftcol -->
+      
+      <div id="header-rightcol">
+        <div id="navigation">
+          <div id="nav-row">
+            <?php
 								/* PHP NAVIGATIN LIST MAKER FROM CLASS */
-								$wurl=$properties->getWURL();
+								$wurl=$WEBSITE_URL;
 								//determine launchpad constants
 								$launchpadNAME=$launchpad;
 								$launchpadID=GET_LP_ID($properties,$launchpad);
 								echo navigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 							?>
-						</div><!-- end of nav-row -->
-					</div> <!-- end of #navigation -->      
-				</div>
-			</div> <!-- end of #header-row -->
-		</div> <!-- end of #header -->
-	</div>
-	
-	<div id="container">
-		
-		<?php 
+          </div>
+          <!-- end of nav-row --> 
+        </div>
+        <!-- end of #navigation --> 
+      </div>
+    </div>
+    <!-- end of #header-row --> 
+  </div>
+  <!-- end of #header --> 
+</div>
+<?php
+include("includes/private/art/top_left.php");
+?> 
+<?php
+include("includes/private/art/top_right.php");
+?>
+<div id="container">
+  <?php 
 		//check to see if feature is toggled
 		$CHECK_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 		$FETCH_FEAT=mysql_fetch_array($CHECK_FEAT);
 		@$toggle=$FETCH_FEAT['toggle_feat'];
 		if($toggle == "on"){
 		?>
-			<div id="featured-works">
-				<div id="inner">            	
-					<?php //require("includes/private/attributes/featured.php");?>
-                        <?php //featured($properties,"full");?>
-				</div>
-			</div>
-		<?php
+  <div id="featured-works">
+    <div id="inner">
+      <?php //require("includes/private/attributes/featured.php");?>
+      <?php //featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 		}
 		?>
-		
-		<?php
+  <?php
 		//check to see if mini feature is toggled
 		$CHECK_MINI_FEAT=mysql_query("SELECT * FROM {$properties->DB_PREFIX}pages WHERE lp='$launchpadPN' AND page='$page'"); 
 		$FETCH_MINI_FEAT=mysql_fetch_array($CHECK_MINI_FEAT);
 		@$toggle=$FETCH_MINI_FEAT['toggle_minifeat'];
 		if($toggle == "on"){
-			?>			
-			<div id="mini-featured-works">
-				<div id="inner">            	
-					<?php require("includes/private/attributes/featured.php");?>
-                    <?php featured($properties,"full");?>
-				</div>
-			</div>
-			<?php
+			?>
+  <div id="mini-featured-works">
+    <div id="inner">
+      <?php require("includes/private/attributes/featured.php");?>
+      <?php featured($properties,"full");?>
+    </div>
+  </div>
+  <?php
 		}
 		?>
-		
-		<!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
-		<!-- start of PAGE CONTENTS -->
-			<?php getPageContents($launchpadID,$page,$subpage,$properties->WEBSITE_URL,$launchpadPN,$properties); ?>
-		<!-- end of PAGE CONTENTS --> 
-				
-	</div> <!-- end of #container -->
-	
-	<?php
+  
+  <!--<form action="search" method="POST"><input type="search" value="Search" onfocus="if(this.value==\'Search\'){this.value=\'\';}" onblur="if(this.value==\'\'){this.value=\'Search\';}" class="searchClass" /></form>--> 
+  <!-- start of PAGE CONTENTS -->
+  <?php getPageContents($launchpadID,$page,$subpage,$WEBSITE_URL,$launchpadPN,$properties); ?>
+  <!-- end of PAGE CONTENTS --> 
+  
+</div>
+<!-- end of #container -->
+
+<?php
 	include("includes/private/art/lower_left.php");
 	?>
-	
-	<?php
+<?php
 	include("includes/private/art/lower_right.php");
 	?>
-	
-	<?php
+<?php
 	if(($properties->TURN_ON_BOTTOM_NAV=="yes") && ($launchpad == $properties->PAD3)){
 	?>
-	<div id="bottomnavigation">
-		<div class="wrap-bottom">
-			<div id="bottomnav">
-				<div class="left">
-					<ul>
-					<?php
+<div id="bottomnavigation">
+  <div class="wrap-bottom">
+    <div id="bottomnav">
+      <div class="left">
+        <ul>
+          <?php
 					/* PHP BOTTOM NAVIGATIN LIST MAKER FROM CLASS */
-					$wurl=$properties->getWURL();
+					$wurl=$WEBSITE_URL;
 					//determine launchpad constants
 					$launchpadNAME=$launchpad;
 					$launchpadID=GET_LP_ID($properties,$launchpad);
 					echo bottomnavigation($wurl,$launchpadNAME,$launchpadID,$page,$properties,$subpage);
 					?>
-					</ul>
-				</div><!-- end of #left --> 
-			</div> <!-- end of #bottomnav --> 
-		</div> <!-- end of .wrap -->
-	</div><!-- end of #bottomnavigation -->
-	<?php
+        </ul>
+      </div>
+      <!-- end of #left --> 
+    </div>
+    <!-- end of #bottomnav --> 
+  </div>
+  <!-- end of .wrap --> 
+</div>
+<!-- end of #bottomnavigation -->
+<?php
 	} else if($properties->TURN_ON_BOTTOM_NAV == "no") {
 		/* LEAVE BOTTOM NAV OFF */
 	}
 	?>
-	
-	<?php
+<?php
 	include("includes/private/modules/footer.php");
 	
 	/* ----------------------------------------------- END MODE: MAINTENANCE ----------------------------------------------- */

@@ -26,7 +26,7 @@ class properties
 	public $WEBSITE_NAME 		 			 = 'Nat4an';
 	public $WEBSITE_SLOGAN					 = 'Modular Ticketing System';	
 	public $FORM_TITLE						 = 'Modular Ticket System using FormLayout CSS';
-	public $WURL							 = 'http://www.nat4an.com/projects/modular-ticketing-system/';
+	public $WURL							 = 'http:/localhost/WITLL/Nat4andotcom/Versions/3.9/projects/modular-ticketing-system/';
 	//SEO STUFF
 	public $SITE_DESCRIPTION				 = 'A PHP Ticketing System that you can use to slap into your current site to be used as a contact page or a comment form or what ever else you want to use a ticketing system for. This ticketing system is completely modular, meaning all you have to do is slap it on and change the parameters to fix your configuration. It comes with a generic formLayout CSS Style that can be change via a console into any theme placed in the themes folder, delivers nice autoresponse email notifications to the email of your choice, and you can supply any number and any values of inputs/selects/options/buttons/labels. If you need an autoresponder and don\'t wanna build one, use MTS! If you need a nice comment form for your blog, use MTS! If you need to allow people to contact you, use MTS! MTS also allows users who submit a ticket to have a unique ticket number that they get in an email and they can use to check the status of a ticket. Don\'t remember your ticket number? No worries! MTS also accepts emails as a method of checking the status. There is no limit to what you can do with MTS!';
 	public $SITE_AUTHOR					 	 = 'Nathan Smyth';
@@ -39,8 +39,8 @@ class properties
 	public $PROPS_VAR_BODYSB_WRAP_END		 = '</div>';
 	//database stuff
 	public $DB_HOST							 = 'localhost';
-	public $DB_USER							 = 'mrnat4an_project'; //remote: "mrnat4an_project" or local: "root"
-	public $DB_PASS							 = 'T7VSRyk@pTn9'; //remote: "T7VSRyk@pTn9" or local: ""
+	public $DB_USER							 = 'root'; //remote: "mrnat4an_project" or local: "root"
+	public $DB_PASS							 = ''; //remote: "T7VSRyk@pTn9" or local: ""
 	public $DB_NAME							 = 'mrnat4an_mts';
 	public $DB_PREFIX						 = 't_';
 	
@@ -81,41 +81,6 @@ class properties
 //----------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------
 		
-	//method declaration
-	//title
-	public function displayCName(){
-		echo $this->COMPANY_NAME;
-	}
-	public function displayPlatform(){
-		echo $this->PLATFORM;
-	}
-	public function displayTitleB4Platform(){
-		echo $this->TITLE_B4_PLATFORM;
-	}
-	public function displayTitleAfterPlatform(){
-		echo $this->TITLE_AFTER_PLATFORM;
-	}
-	public function displayVersion(){
-		echo $this->VERSION_CTRL;
-	}	
-	public function displayWName(){
-		echo $this->WEBSITE_NAME;
-	}
-	public function displayWURL(){
-		echo $this->WEBSITE_URL;
-	}
-	public function getWURL(){
-		return $this->WEBSITE_URL;
-	}
-	public function getFULLWURL(){
-		return $this->FULL_WURL;
-	}
-	public function getFULLCURL(){
-		return $this->FULL_CURL;
-	}
-	
-	//main-page-elements
-	
 	//main-page-title
 	public function displayMainTitle(){
 		if($this->MAIN_TITLE_ALIGN=="l"){

@@ -44,7 +44,7 @@ function doAction(action,username,themeToID){
 			var KeyVals = { username : username };
 			var request = $.ajax({
 				type: "POST",
-				url: "<?php echo $properties->WEBSITE_URL;?>includes/private/bin/doAction.php?action="+action+"",
+				url: "<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>includes/private/bin/doAction.php?action="+action+"",
 				data: KeyVals,
 				dataType: "text",
 				success: function(data){
@@ -78,7 +78,7 @@ function doAction(action,username,themeToID){
 			var KeyVals = { username : username };
 			var request = $.ajax({
 				type: "POST",
-				url: "<?php echo $properties->WEBSITE_URL;?>includes/private/bin/doAction.php?action="+action+"",
+				url: "<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>includes/private/bin/doAction.php?action="+action+"",
 				data: KeyVals,
 				dataType: "text",
 				success: function(data){
@@ -112,7 +112,7 @@ function doAction(action,username,themeToID){
 			var KeyVals = { username : username };
 			var request = $.ajax({
 				type: "POST",
-				url: "<?php echo $properties->WEBSITE_URL;?>includes/private/bin/doAction.php?action="+action+"",
+				url: "<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>includes/private/bin/doAction.php?action="+action+"",
 				data: KeyVals,
 				dataType: "text",
 				success: function(data){
@@ -146,7 +146,7 @@ function doAction(action,username,themeToID){
 			var KeyVals = { username : username, themeToID : themeToID };
 			var request = $.ajax({
 				type: "POST",
-				url: "<?php echo $properties->WEBSITE_URL;?>includes/private/bin/doAction.php?action="+action+"",
+				url: "<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>includes/private/bin/doAction.php?action="+action+"",
 				data: KeyVals,
 				dataType: "text",
 				success: function(data){
@@ -172,7 +172,7 @@ function doAction(action,username,themeToID){
 				$PADCLASSES_LIST=explode(",",$PADCLASSES);
 				for($ipadamount=0; $ipadamount<$PADAMOUNT; $ipadamount++){					
 					?>
-					<?php if($PADSOFI_LIST[$ipadamount] == $launchpad){?><a class="<?php echo $PADCLASSES_LIST[$ipadamount];?>-a-selected" href="<?php echo $properties->getWURL();?><?php echo $PADSOFI_LIST[$ipadamount];?>/home"><?php echo $PADSOFI_LIST[$ipadamount];?></a><?php }else{?><a href="<?php echo $properties->getWURL();?><?php echo $PADSOFI_LIST[$ipadamount];?>/home" class="<?php echo $PADCLASSES_LIST[$ipadamount];?>-a"><?php echo $PADSOFI_LIST[$ipadamount];?></a><?php }
+					<?php if($PADSOFI_LIST[$ipadamount] == $launchpad){?><a class="<?php echo $PADCLASSES_LIST[$ipadamount];?>-a-selected" href="<?php echo $WEBSITE_URL;?><?php echo $PADSOFI_LIST[$ipadamount];?>/home"><?php echo $PADSOFI_LIST[$ipadamount];?></a><?php }else{?><a href="<?php echo $WEBSITE_URL;?><?php echo $PADSOFI_LIST[$ipadamount];?>/home" class="<?php echo $PADCLASSES_LIST[$ipadamount];?>-a"><?php echo $PADSOFI_LIST[$ipadamount];?></a><?php }
 				}
 				?>
 	            </div>
@@ -181,40 +181,50 @@ function doAction(action,username,themeToID){
                 <?php
 				switch($launchpad){
 					case $properties->PADMAIN:
-						echo "<form action=\"".$properties->WEBSITE_URL.$launchpad."/search\" method=\"POST\">" .
-							 "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
+						?>
+						<form action="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL.$launchpad."/search";}else{echo $properties->WEBSITE_REMO_URL.$launchpad."/search";}?>" method="POST">
+                        <?php
+						echo "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
 							 " value=\"".$properties->DEFAULT_SEARCH_TEXT_PADMAIN."\" " .
 							 "onfocus=\"if(this.value == '".$properties->DEFAULT_SEARCH_TEXT_PADMAIN."')" .
 							 "{this.value=''}\" onblur=\"if(this.value == ''){" .
 							 "this.value='".$properties->DEFAULT_SEARCH_TEXT_PADMAIN."'}\" /></form>";
 					break;
 					case $properties->PAD1:
-						echo "<form action=\"".$properties->WEBSITE_URL.$launchpad."/search\" method=\"POST\">" .
-							 "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
+						?>
+						<form action="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL.$launchpad."/search";}else{echo $properties->WEBSITE_REMO_URL.$launchpad."/search";}?>" method="POST">
+                        <?php
+							 echo "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
 							 " value=\"".$properties->DEFAULT_SEARCH_TEXT_PAD1."\" " .
 							 "onfocus=\"if(this.value == '".$properties->DEFAULT_SEARCH_TEXT_PAD1."')" .
 							 "{this.value=''}\" onblur=\"if(this.value == ''){" .
 							 "this.value='".$properties->DEFAULT_SEARCH_TEXT_PAD1."'}\" /></form>";
 					break;
 					case $properties->PAD2:
-						echo "<form action=\"".$properties->WEBSITE_URL.$launchpad."/search\" method=\"POST\">" .
-							 "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
+						?>
+						<form action="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL.$launchpad."/search";}else{echo $properties->WEBSITE_REMO_URL.$launchpad."/search";}?>" method="POST">
+                        <?php						
+							 echo "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
 							 " value=\"".$properties->DEFAULT_SEARCH_TEXT_PAD2."\" " .
 							 "onfocus=\"if(this.value == '".$properties->DEFAULT_SEARCH_TEXT_PAD2."')" .
 							 "{this.value=''}\" onblur=\"if(this.value == ''){" .
 							 "this.value='".$properties->DEFAULT_SEARCH_TEXT_PAD2."'}\" /></form>";
 					break;
 					case $properties->PAD3:
-						echo "<form action=\"".$properties->WEBSITE_URL.$launchpad."/search\" method=\"POST\">" .
-							 "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
+						?>
+						<form action="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL.$launchpad."/search";}else{echo $properties->WEBSITE_REMO_URL.$launchpad."/search";}?>" method="POST">
+                        <?php
+							 echo "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
 							 " value=\"".$properties->DEFAULT_SEARCH_TEXT_PAD3."\" " .
 							 "onfocus=\"if(this.value == '".$properties->DEFAULT_SEARCH_TEXT_PAD3."')" .
 							 "{this.value=''}\" onblur=\"if(this.value == ''){" .
 							 "this.value='".$properties->DEFAULT_SEARCH_TEXT_PAD3."'}\" /></form>";
 					break;
 					case $properties->PAD4:
-						echo "<form action=\"".$properties->WEBSITE_URL.$launchpad."/search\" method=\"POST\">" .
-							 "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
+						?>
+						<form action="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL.$launchpad."/search";}else{echo $properties->WEBSITE_REMO_URL.$launchpad."/search";}?>" method="POST">
+                        <?php
+							 echo "<input type=\"search\" name=\"search\" class=\"searchClass\"" .
 							 " value=\"".$properties->DEFAULT_SEARCH_TEXT_PAD4."\" " .
 							 "onfocus=\"if(this.value == '".$properties->DEFAULT_SEARCH_TEXT_PAD4."')" .
 							 "{this.value=''}\" onblur=\"if(this.value == ''){" .
@@ -232,13 +242,16 @@ function doAction(action,username,themeToID){
 		?>
 		<div id="logmod">			
 			<div class="cell">
-			<ul id="ThemeMenu" class="MM">
-			  <li id="paint" style="cursor:pointer;"><a class="NOLINK" style="width:10px;"><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/paint.png" width="17" height="18" /></a>
+			<?php
+			if(getGlobalVars($properties,"tm_toggle")=="on"){
+				?>
+                <ul id="ThemeMenu" class="MM">
+			  <li id="paint" style="cursor:pointer;"><a class="NOLINK" style="width:10px;"><img src="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/paint.png" width="17" height="18" /></a>
                 <script type="text/javascript">
 					$('#paint img').hover(function(){
-						$(this).attr('src','<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/paint_over.png');
+						$(this).attr('src','<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/paint_over.png');
 					}, function(){
-						$(this).attr('src','<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/paint.png');	
+						$(this).attr('src','<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/paint.png');	
 					});
 				</script>
 				<ul>
@@ -263,25 +276,30 @@ function doAction(action,username,themeToID){
 			<!-- Please leave at least one new line or white space symbol after the closing </ul>
 				 tag of the root ul element of the menu tree. This will allow the browsers to init
 				 the menu tree as soon as it is loaded and not wait for the page load event. -->
+                <?php
+			} else {
+				/* THEME MANAGER IS OFF */
+			}
+			?>
             
 			<ul id="ActionMenu" class="MM">        
-			  <li id="gear" style="cursor:pointer;"><a class="NOLINK" style="width:10px;"><img src="<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/gear.png" width="17" height="18" /></a>
+			  <li id="gear" style="cursor:pointer;"><a class="NOLINK" style="width:10px;"><img src="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/gear.png" width="17" height="18" /></a>
                 <script type="text/javascript">
 					$('#gear img').hover(function(){
-						$(this).attr('src','<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/gear_over.png');
+						$(this).attr('src','<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/gear_over.png');
 					}, function(){
-						$(this).attr('src','<?php echo $properties->WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/gear.png');	
+						$(this).attr('src','<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/gear.png');	
 					});
 				</script>
 				<ul>
 				  <li><a>Logged in as:</a></li>
 				  <li><a><?php echo $username;?> [<?php if($head_admin=="yes"){echo "Head Admin";}else{echo $type;}?></a></li>
                   <hr />
-				  <li><a href="<?php echo $properties->WEBSITE_URL;?>account">Account Settings</a></li>
+				  <li><a href="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL;}else{echo $properties->WEBSITE_REMO_URL;};?>account">Account Settings</a></li>
 				   <?php
 					if($head_admin=="yes"){
 					?>
-						<li><a href="<?php echo $properties->WEBSITE_URL."cp";?>">cPanel</a></li>
+						<li><a href="<?php if($_SERVER['HTTP_HOST']=="localhost"){echo $properties->WEBSITE_TEST_URL."cp";}else{echo $properties->WEBSITE_REMO_URL."cp";}?>">cPanel</a></li>
 					<?php	
 					}
 					?>
@@ -355,7 +373,7 @@ function doAction(action,username,themeToID){
 					//check if user is logged in
 					$CHECK_USERNAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE uname='$username'");
 					$FETCH_IP=mysql_fetch_array($CHECK_USERNAME);
-					if($FETCH_IP['loggedin']=="yes"){/*USER IS LOGGED IN*/$error_console="<b>{$username}</b> is already logged in. <a onclick=\"window.open('".$properties->WEBSITE_URL."help.php','the_why_of_not_login', 'width=500,height=500')\" style=\"cursor:pointer;\">Why?</a>";}	
+					if($FETCH_IP['loggedin']=="yes"){/*USER IS LOGGED IN*/$error_console="<b>{$username}</b> is already logged in. <a onclick=\"window.open('".$WEBSITE_URL."help.php','the_why_of_not_login', 'width=500,height=500')\" style=\"cursor:pointer;\">Why?</a>";}	
 					
 					//check for blanks
 					if($password==""){$error_console="Password is missing";}
@@ -383,7 +401,7 @@ function doAction(action,username,themeToID){
 						mysql_query("UPDATE {$properties->DB_PREFIX}users SET logged_session='$lsessionid' WHERE uname='$username'");
 						mysql_query("UPDATE {$properties->DB_PREFIX}users SET dateandtime_lastlogin='$dateandtime' WHERE uname='$username'");
 						
-						echo "<span class=\"cell\">You have been successfully logged in! <a href=\"".$properties->WEBSITE_URL."\" class=\"white\">Reload</a></span>";
+						echo "<span class=\"cell\">You have been successfully logged in! <a href=\"".$WEBSITE_URL."\" class=\"white\">Reload</a></span>";
 					}								
 				}
 			} else {

@@ -1,7 +1,7 @@
 <div class="left">
     <?php
     /* PHP TOP NAVIGATIN LIST MAKER FROM CLASS */
-    $wurl=$properties->getWURL();
+    $wurl=$WEBSITE_URL;
     //determine launchpad constants
     $launchpadNAME=$launchpad;
     $launchpadID=GET_LP_ID($properties,$launchpad);

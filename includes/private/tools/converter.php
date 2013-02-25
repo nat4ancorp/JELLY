@@ -2,6 +2,7 @@
 function converter($properties,$content,$type,$operand){
 	@$ip=$_SERVER['REMOTE_ADDR'];
 	@$SESSIONID=tempSystem($properties,"getSESSION","");
+	if($_SERVER['HTTP_HOST']=="localhost"){$WEBSITE_URL=$properties->WEBSITE_TEST_URL;}else{$WEBSITE_URL=$properties->WEBSITE_REMO_URL;};
 	switch($operand){
 		case 'to':
 			switch($type){
@@ -14,6 +15,7 @@ function converter($properties,$content,$type,$operand){
 					$content=str_replace(".","~",$content);
 					$content=str_replace("#","+",$content);
 					$content=str_replace("+","[PLUS]",$content);
+					$content=str_replace(":","[colon]",$content);
 				break;
 				case 'article';
 					/* INSERT NOTION HERE */
@@ -32,8 +34,16 @@ function converter($properties,$content,$type,$operand){
 					
 					/* PREVIEW */					
 					$content=substr($content,0,200);
+					$content=str_replace("<h1>","<strong>",$content);
+					$content=str_replace("</h1>","</strong><br />",$content);
 					$content=str_replace("<h2>","",$content);
 					$content=str_replace("</h2>","",$content);
+					$content=str_replace("<h3>","",$content);
+					$content=str_replace("</h3>","",$content);
+					$content=str_replace("<h4>","",$content);
+					$content=str_replace("</h4>","",$content);
+					$content=str_replace("<h5>","",$content);
+					$content=str_replace("</h5>","",$content);
 					$content=str_replace("<p>","",$content);
 					$content=str_replace("</p>","",$content);
 					$content=str_replace("[!--more--]","",$content);
@@ -46,7 +56,7 @@ function converter($properties,$content,$type,$operand){
 				case 'basic';
 					/* INSERT NOTION HERE */			
 					@$launchpad=$_GET['launchpad'];
-					$content=str_replace("(baseurl)",$properties->WEBSITE_URL,$content);
+					$content=str_replace("(baseurl)",$WEBSITE_URL,$content);
 					$content=str_replace("(homelp)",$properties->PADMAIN,$content);
 					$content=str_replace("(currentlp)",$launchpad,$content);
 					$content=str_replace("(stylesheet)",Theme($properties,"getCurrThemeName",$ip,$SESSIONID),$content);

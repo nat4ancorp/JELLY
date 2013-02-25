@@ -1,5 +1,5 @@
 <br />
-<center>
+<center class="splashlinks">
 <?php
 if($_SERVER['HTTP_HOST']=="localhost"){
 ?>
@@ -27,30 +27,6 @@ if(getGlobalVars($properties,'mode') == "closed" || "closedbeta"){/* ON A PAGE W
 <?php
 if($_SERVER['HTTP_HOST']=="localhost"){
 ?>
-[ <a href="/inthebeginning/" target="_new" title="While you wait for the REAL Nat4an.com to appear, check out our starter site!">InTheBeginning</a> ]
-<?php
-} else {
-?>
-[ <a href="/inthebeginning/" target="_new" title="While you wait for the REAL Nat4an.com to appear, check out our starter site!">InTheBeginning</a> ]
-<?php	
-}
-?>
-
-<?php
-if($_SERVER['HTTP_HOST']=="localhost"){
-?>
-[ <a href="http://localhost/TheKandyKraftChronicles" target="_new" title="The Official Blog of The KandyKraft Minecraft Server!!">The KKC Minecraft (MC) Blog</a> ]
-<?php
-} else {
-?>
-[ <a href="http://thekkc.nat4an.com" target="_new" title="The Official Blog of The KandyKraft Minecraft Server!!">The KKC Minecraft (MC) Blog</a> ]
-<?php	
-}
-?>
-
-<?php
-if($_SERVER['HTTP_HOST']=="localhost"){
-?>
 [ <a href="/library.php" target="_new" title="A library of my works in HTML/CSS/PHP/ETC">Library</a> ]
 <?php
 }
@@ -71,34 +47,8 @@ if($_SERVER['HTTP_HOST']=="localhost"){
 
 <?php
 if($_SERVER['HTTP_HOST']=="localhost"){
-?>
-
-<h2>Projects</h2>
-[ <a href="http://localhost/projects/witll-cms/" target="_blank" title="An on-going project that was created to be a Web Interface to Learn &amp; to Love. This is my first official attempt at creating a CMS that everyone will love!">WITLL</a> ]
-<?php	
-} else {
-?>
-
-<?php	
-}
-?>
-
-<?php
-if($_SERVER['HTTP_HOST']=="localhost"){
 
 } else {
-?>
-<h2>ProjPages</h2>
-<?php
-if($_SERVER['HTTP_HOST']=="localhost"){
-?>
-
-<?php	
-} else {
-?>
-[ <a href="http://www.witll.net" target="_blank" title="An on-going project that was created to be a Web Interface to Learn &amp; to Love. This is my first official attempt at creating a CMS that everyone will love!">WITLL</a> ]
-<?php	
-}
 ?>
 <h2>Repositories</h2>
 <?php

@@ -146,14 +146,14 @@ switch($search_type){
 					for($icl=0; $icl<=count($category_list)-1; $icl++){
 						$GET_PNAME_CATEGORY_INFO=mysql_query("SELECT * FROM {$properties->DB_PREFIX}".$pname."_categories WHERE id='{$category_list[$icl]}'") or die('uh oh! '.mysql_error());
 						while($FETCH_PNAME_CATEGORY_INFO=mysql_fetch_array($GET_PNAME_CATEGORY_INFO)){
-						 if($i==count($category_list)-1){$category.="<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";}else{$category.="<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>, ";}
+						 if($i==count($category_list)-1){$category.="<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";}else{$category.="<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>, ";}
 						}
 					}
 				} else {
 					$GET_PNAME_CATEGORY_INFO=mysql_query("SELECT * FROM {$properties->DB_PREFIX}".$pname."_categories WHERE id='{$category}'") or die('uh oh! '.mysql_error());
 					while($FETCH_PNAME_CATEGORY_INFO=mysql_fetch_array($GET_PNAME_CATEGORY_INFO)){
 					 $category=$FETCH_PNAME_CATEGORY_INFO['name'];
-					 $category="<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";
+					 $category="<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";
 					}	
 				}
 			}
@@ -167,14 +167,14 @@ switch($search_type){
 				for($icl=0; $icl<=count($category_list)-1; $icl++){
 					$GET_PNAME_CATEGORY_INFO=mysql_query("SELECT * FROM {$properties->DB_PREFIX}".$pname."_categories WHERE id='{$category_list[$icl]}'") or die('uh oh! '.mysql_error());
 					while($FETCH_PNAME_CATEGORY_INFO=mysql_fetch_array($GET_PNAME_CATEGORY_INFO)){
-					 if($i==count($category_list)-1){$category.="<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";}else{$category.="<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>, ";}
+					 if($i==count($category_list)-1){$category.="<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";}else{$category.="<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>, ";}
 					}
 				}
 			} else {
 				$GET_PNAME_CATEGORY_INFO=mysql_query("SELECT * FROM {$properties->DB_PREFIX}".$pname."_categories WHERE id='{$category}'") or die('uh oh! '.mysql_error());
 				while($FETCH_PNAME_CATEGORY_INFO=mysql_fetch_array($GET_PNAME_CATEGORY_INFO)){
 				 $category=$FETCH_PNAME_CATEGORY_INFO['name'];
-				 $category="<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";
+				 $category="<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".converter($properties,$FETCH_PNAME_CATEGORY_INFO['name'],'url','to')."\">" . $FETCH_PNAME_CATEGORY_INFO['name'] . "</a>";
 				}	
 			}
 		}
@@ -289,18 +289,18 @@ switch($search_type){
 					
 					//the author or director
 					echo "<div id=\"module-full-a-container-author\">";
-						if($display_user===false){/*CUSTOM DISPLAY*/echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/directors/".$director_shortname."\" title=\"the director\">" . $director_name . "</a>";}else{echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/user/".$uname."\">" . $author_name . "</a>";}
+						if($display_user===false){/*CUSTOM DISPLAY*/echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/directors/".$director_shortname."\" title=\"the director\">" . $director_name . "</a>";}else{echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/user/".$uname."\">" . $author_name . "</a>";}
 					echo "</div>";
 					
 					if($display_user===false){
 						//the studio
 						echo "<div id=\"module-full-a-container-studio\">";
-							echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/studios/".$studio_shortname."\" title=\"the studio\">" . $studio_name . "</a>";
+							echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/studios/".$studio_shortname."\" title=\"the studio\">" . $studio_name . "</a>";
 						echo "</div>";
 						
 						//the network
 						echo "<div id=\"module-full-a-container-network\">";
-							echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/networks/".$network_shortname."\" title=\"the network\">" . $network_name . "</a>";
+							echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/networks/".$network_shortname."\" title=\"the network\">" . $network_name . "</a>";
 						echo "</div>";
 					} else if($display_user===true) {
 						/* NONE */	
@@ -311,17 +311,17 @@ switch($search_type){
 						if($pname=="work_projects"){
 							//the TYPE
 							echo "<div id=\"module-a-container-comments\">";
-								echo "Type: " . "<a href=\"".$properties->WEBSITE_URL.$properties->PADMAIN."/work/".converter($properties,$TYPE,'url','to')."\">" . $TYPE . "</a>";
+								echo "Type: " . "<a href=\"".$WEBSITE_URL.$properties->PADMAIN."/work/".converter($properties,$TYPE,'url','to')."\">" . $TYPE . "</a>";
 							echo "</div>";
 							
 							//the PORT
 							echo "<div id=\"module-a-container-category\">";
-								echo "Work / " . "<a href=\"".$properties->WEBSITE_URL.$properties->PADMAIN."/work/folio/".converter($properties,$PORT,'url','to')."\">" . $PORT . "</a>";
+								echo "Work / " . "<a href=\"".$WEBSITE_URL.$properties->PADMAIN."/work/folio/".converter($properties,$PORT,'url','to')."\">" . $PORT . "</a>";
 							echo "</div>";
 						} else {
 							//the comments
 							echo "<div id=\"module-full-a-container-comments\">";
-								echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."#comments"."\">".$comments_count."</a>";
+								echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."#comments"."\">".$comments_count."</a>";
 							echo "</div>";
 							
 							//the category
@@ -332,7 +332,7 @@ switch($search_type){
 					} else {
 						//the comments
 						echo "<div id=\"module-full-a-container-comments\">";
-							echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."#comments"."\">".$comments_count."</a>";
+							echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."#comments"."\">".$comments_count."</a>";
 						echo "</div>";
 						
 						//the category
@@ -349,12 +349,12 @@ switch($search_type){
 					echo "<div id=\"module-full-a-container-title\">";
 						if($display_user===true){
 							if($pname=="work_projects"){
-								echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".converter($properties,$projectname,'url','to')."\">".$projectname."</a>";
+								echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".converter($properties,$projectname,'url','to')."\">".$projectname."</a>";
 							} else {
-								echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."\">".$title."</a>";	
+								echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."\">".$title."</a>";	
 							}
 						} else {
-							echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."\">".$title."</a>";	
+							echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title,'url','to')."\">".$title."</a>";	
 						}
 					echo "</div>";
 					
@@ -373,7 +373,7 @@ switch($search_type){
 						$tags="";
 						$itl=0;
 						for($itl=0; $itl<count($tagslist); $itl++){
-							$tags.="<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/tag/".converter($properties,$tagslist[$itl],'url','to')."\">".$tagslist[$itl]."</a> ";
+							$tags.="<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/tag/".converter($properties,$tagslist[$itl],'url','to')."\">".$tagslist[$itl]."</a> ";
 						}
 				
 						echo "Tags: " . $tags;
@@ -457,7 +457,7 @@ switch($search_type){
 					}
 					
 					echo "<div id=\"module-full-a-container-title\">";
-						echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title_of_entry,'url','to')."#{$id}\">".$title."</a>";
+						echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/permalink/".$pname_entry_year."/".$pname_entry_month."/".$pname_entry_day."/".converter($properties,$title_of_entry,'url','to')."#{$id}\">".$title."</a>";
 					echo "</div>";
 					
 					//the content
@@ -495,12 +495,12 @@ switch($search_type){
 							$GET_LPM=mysql_query("SELECT * FROM {$properties->DB_PREFIX}launchpads WHERE id='$lpm'");
 							$FETCH_LPM=mysql_fetch_array($GET_LPM);
 							$lpm=$FETCH_LPM['short'];
-							echo "<a href=\"".$properties->WEBSITE_URL.$lpm."/".$page."\">" . $pageNAME . "</a>";
+							echo "<a href=\"".$WEBSITE_URL.$lpm."/".$page."\">" . $pageNAME . "</a>";
 						} else {
 							if($display_user===true){
-								echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/folio/".converter($properties,$name,'url','to')."\">" . $name . "</a>";
+								echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/folio/".converter($properties,$name,'url','to')."\">" . $name . "</a>";
 							} else {
-								echo "<a href=\"".$properties->WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".$shortname."\">" . $name . "</a>";	
+								echo "<a href=\"".$WEBSITE_URL.$PADINFO."/".$pname_uri."/category/".$shortname."\">" . $name . "</a>";	
 							}	
 						}
 					echo "</div>";																	

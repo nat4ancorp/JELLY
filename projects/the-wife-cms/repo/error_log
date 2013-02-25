@@ -1,1 +1,0 @@
-[27-Nov-2012 10:24:22] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'localhost' (using password: NO) in /home/mrnat4an/public_html/projects/the-wife-cms/repo/conf/connect.php on line 2
