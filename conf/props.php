@@ -15,142 +15,94 @@
 
 /* ---------------------------- END OWNERSHIP INFO ------------------------------------------ */
 
-//main non-class variables
-//GLOBAL VARIABLES THAT CAN BE CHANGED
-$globalvars_passpage_title			= "<h1 style=\"font-size:62px;text-align:center;position:relative;top:10px;\" class=\"header\" onclick=\"window.location.href='http://www.nat4an.com'\">Nat4an.com</h1>";
-$globalvars_passpage_slogan			= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">Freelance Web Designer</h2>";
-$globalvars_passpage_closed_st		= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed)</h2>";
-$globalvars_passpage_closedbeta_st	= "<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed BETA)</h2>";
 
-//main variables
-class properties 
-{
-//-------------------------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------------------------
-//       MindPower v. 3.7 - Editables - These are all what you need to customize this website to your liking
-//-------------------------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------------------------
-	//property declaration	
-	//main variables
-	public $COMPANY_NAME 		 			 = 'Nat4an Corp';
-	public $PLATFORM 			 			 = 'Mind Power';
-	public $TITLE_B4_PLATFORM 	 			 = " - powered by "; //item found before the platform on title
-	public $TITLE_AFTER_PLATFORM 			 = " v. "; //item found after the platform on title
-	public $VERSION_CTRL 		 			 = '3.7';
-	public $WEBSITE_NAME 		 			 = 'Nat4an';
-	public $WEBSITE_EXT 		 			 = '.com';
-	public $WEBSITE_SLOGAN					 = 'Freelance Web Designer in San Antonio, TX Area';
-	public $FULL_WURL						 = 'http://localhost/portfolio/home';
-	public $WEBSITE_URL			 			 = 'http://localhost/';
-	public $STYLESHEET						 = 'nat4an'; /* default: nat4an; alt: creativity */
-	public $TURN_ON_BOTTOM_NAV				 = 'yes'; /* DO NOT USE THIS ATM */
-	public $TURN_ON_TOP_NAV					 = 'yes'; /* DO NOT USE THIS ATM */
-	public $DEFAULT_SEARCH_TEXT_PADMAIN		 = 'Search Nat4an.com...';
-	public $DEFAULT_SEARCH_TEXT_PAD1		 = 'Search The Anime Fanatic...';
-	public $DEFAULT_SEARCH_TEXT_PAD2		 = 'Search The Gamer Freak...';
-	public $DEFAULT_SEARCH_TEXT_PAD3		 = 'Search The Musik Maker...';
-	public $DEFAULT_SEARCH_TEXT_PAD4		 = 'Search The Linux Nerd...';
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/*                                          DO NOT EDIT BELOW THIS OR ELSE YOU WILL BREAK IT!!! :                                                      */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------------------------------------------------------- */
+include("constants.inc.php");
+
+//CHECK AS OF 3.9.1
+if($_SERVER['HTTP_HOST']==CONSTANTS::HTTP_HOST){/* ON LOCAL */$ONLY_ON_LOCAL=CONSTANTS::HTTP_HOST_LOCAL_ONLY;} else {/* ON REMOTE */}
+
+if($_SERVER['HTTP_HOST']==CONSTANTS::HTTP_HOST){
+	/* ON LOCAL */
+	$globalvars_passpage_title					 = "<h1 style=\"font-size:62px;text-align:center;position:relative;top:10px;\" class=\"header\" onclick=\"window.location.href='".$ONLY_ON_LOCAL."".CONSTANTS::HTTP_HOST."/".CONSTANTS::APP_NAME.CONSTANTS::BRANCH.CONSTANTS::VERSION."/'\">".CONSTANTS::MAIN_TITLE.CONSTANTS::WEBSITE_EXT."</h1>";
+
+} else {
+	/* ON REMOTE */
+	$globalvars_passpage_title					 = "<h1 style=\"font-size:62px;text-align:center;position:relative;top:10px;\" class=\"header\" onclick=\"window.location.href='".CONSTANTS::HTTP_HOST_REMOTE."/".CONSTANTS::APP_NAME_REMOTE.CONSTANTS::BRANCH_REMOTE.CONSTANTS::VERSION_REMOTE."/'\">Nat4an.com</h1>";
+}
+
+$globalvars_passpage_slogan					 = ""; //<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">".CONSTANTS::WEBSITE_SLOGAN_SHORT."</h2>
+$globalvars_passpage_closed_st				 = ""; //<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed)</h2>
+$globalvars_passpage_closedbeta_st			 = ""; //<h2 style=\"font-size:48px;text-align:center;position:relative;top:10px;\">(Closed BETA)</h2>
+
+class properties extends CONSTANTS
+{	
+	public $COMPANY_NAME 		 			 = CONSTANTS::COMPANY_NAME;
+	public $PLATFORM 			 			 = CONSTANTS::PLATFORM;
+	public $PLATFORM_WEBSITE				 = CONSTANTS::PLATFORM_WEBSITE;
+	public $TITLE_B4_PLATFORM 	 			 = CONSTANTS::TITLE_B4_PLATFORM;
+	public $TITLE_AFTER_PLATFORM 			 = CONSTANTS::TITLE_AFTER_PLATFORM;
+	public $VERSION_CTRL 		 			 = CONSTANTS::VERSION_NUMBER;
+	public $WEBSITE_NAME 		 			 = CONSTANTS::WEBSITE_NAME;
+	public $WEBSITE_EXT 		 			 = CONSTANTS::WEBSITE_EXT;
+	public $WEBSITE_SLOGAN					 = CONSTANTS::WEBSITE_SLOGAN;
 	
-	public $SERVER_LOCATION					 = 'America/Mexico_City'; /* for a list of locations, see here -> 
-																	     http://www.php.net/manual/en/timezones.php */
+	public $HTTP_HOST						 = CONSTANTS::HTTP_HOST;	
 	
-	//SEO STUFF
-	public $SITE_DESCRIPTION				 = 'Nat4an is a Freelance Web Designer of CSS, PHP, JavaScript, and User Experience (UX) who lives and operates mainly in the San Antonio, TX Area. Nat4an is also an Anime Fanatic, a Gamer Freak, The Musik Maker, and a Linux Nerd. Nat4an is a self-motivated child of the code who wants to become the impossible in Web Design. I make Smart, Friendly, Fast websites that are SEO-Friendly, UX-Optimized, Search Engine Spider-able, and Eye-Catching-ly Amazing.';
-	public $SITE_AUTHOR					 	 = 'Nathan Smyth';
-	public $SITE_KEYWORDS					 = 'web design,nathan smyth,freelance web developer,web site design,web design san antonio tx,anime,gaming,musik,linux,nerd,portfolio,HTML,Javascript,PHP,UX'; 
-											   /* THIS IS FOR THE DEFAULT KEYWORDS THAT LOAD INTO THE HOME PAGES. IN ORDER */
-											   /* TO CUSTOMIZE THE INDIVIDUAL PAGE KEYWORDS PUT IT INTO THE DB. */
-											   /* DO NOT END THIS WITH A "," OR ELSE YOU WILL BREAK IT! */
-	//Variable Properties for MP
-	public $PROPS_VAR_BODYSB_WRAP_START		 = '<div class="props-var-body-wrap">';
-	public $PROPS_VAR_BODYSB_WRAP_END		 = '</div>';
-	//database stuff
-	public $DB_HOST							 = 'localhost';
-	public $DB_USER							 = 'root'; //remote: "mrnat4an_master" or local: "root"
-	public $DB_PASS							 = ''; //remote: "thecreation101" or local: ""
-	public $DB_NAME							 = 'mrnat4an_nat4an';
-	public $DB_PREFIX						 = 'h_';
+	public $FULL_WEBSITE_TEST_URL			 = CONSTANTS::FULL_WEBSITE_TEST_URL;
+	public $FULL_WEBSITE_REMO_URL			 = CONSTANTS::FULL_WEBSITE_REMO_URL;
 	
-	//main-page-elements
+	public $WEBSITE_TEST_URL	 			 = CONSTANTS::WEBSITE_TEST_URL;
+	public $WEBSITE_REMO_URL	 			 = CONSTANTS::WEBSITE_REMO_URL;
 	
-	//main-page-title
-	public $MAIN_TITLE			 			 = 'Nat4an';
-	public $MAIN_TITLE_ALIGN	 			 = 'l'; //l = left; c = center; r = right
-	
-	//main-page-slogan
-	public $MAIN_SLOGAN			 			 = 'Freelance Web Designer';
-	public $MAIN_SLOGAN_EXTRA_PAD1 			 = 'a Righteous, Dedicated, and Intrigued Anime Fanatic';
-	public $MAIN_SLOGAN_EXTRA_PAD2 			 = 'a Hardcore Gamer Freak who Lives for Kill-Joys...:P';
-	public $MAIN_SLOGAN_EXTRA_PAD3 			 = 'is a Kid from TX who makes Epic Dance Music 4 U';
-	public $MAIN_SLOGAN_EXTRA_PAD4 			 = 'is a Super Linux Nerd who Lives in the Terminal $ su';
-	public $MAIN_SLOGAN_ALIGN	 			 = 'l'; //l = left; c = center; r = right
-	
-	//header-right-side-content
-	public $HEADER_RIGHT_SIDE_CONTENT 		 = '';
-	public $HEADER_RIGHT_SIDE_CONTENT_ALIGN	 = 'c'; //l = left; c = center; r = right
-	
-	//topnav-right-side-content
-	public $TN_RIGHT_SIDE_CONTENT	 		 = ''; /* THIS IS NOT USED ATM */
-	public $TN_RIGHT_SIDE_CONTENT_ALIGN		 = 'l'; //l = left; c = center; r = right
-	
-	//specify pad amount
-	public $PAD_AMOUNT						 = 5;
-	
-	//define pad names
-	public $PADMAIN							= 'portfolio'; /* YOU CAN CHANGE THE OTHER PADS EXCEPT THIS ONE; WILL  */
-	public $PAD1							= 'af';
-	public $PAD2							= 'gf';
-	public $PAD3							= 'tmm';
-	public $PAD4							= 'ln';
-	
-	//session variable names
-	public $_COOKIE_INIT_SESSION			 = 'nat4an_beta_session';
-	
-//----------------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------------
-//       DO NOT EDIT BELOW THIS OR ELSE YOU WILL BREAK IT!!! :)
-//----------------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------------
-		
-	//method declaration
-	//title
-	public function displayCName(){
-		echo $this->COMPANY_NAME;
-	}
-	public function displayPlatform(){
-		echo $this->PLATFORM;
-	}
-	public function displayTitleB4Platform(){
-		echo $this->TITLE_B4_PLATFORM;
-	}
-	public function displayTitleAfterPlatform(){
-		echo $this->TITLE_AFTER_PLATFORM;
-	}
-	public function displayVersion(){
-		echo $this->VERSION_CTRL;
-	}	
-	public function displayWName(){
-		echo $this->WEBSITE_NAME;
-	}
-	public function displayWURL(){
-		echo $this->WEBSITE_URL;
-	}
-	public function getWURL(){
-		return $this->WEBSITE_URL;
-	}
-	public function getFULLWURL(){
-		return $this->FULL_WURL;
-	}
-	public function getFULLCURL(){
-		return $this->FULL_CURL;
-	}
-	
-	//main-page-elements
-	
+	public $PATH_TO_THEME_ASSETS			 = CONSTANTS::PATH_TO_THEME_ASSETS;	
+	public $TURN_ON_BOTTOM_NAV				 = CONSTANTS::TURN_ON_BOTTOM_NAV;
+	public $TURN_ON_TOP_NAV					 = CONSTANTS::TURN_ON_TOP_NAV;
+	public $DEFAULT_SEARCH_TEXT_PADMAIN		 = CONSTANTS::DEFAULT_SEARCH_TEXT_PADMAIN;
+	public $DEFAULT_SEARCH_TEXT_PAD1		 = CONSTANTS::DEFAULT_SEARCH_TEXT_PAD1;
+	public $DEFAULT_SEARCH_TEXT_PAD2		 = CONSTANTS::DEFAULT_SEARCH_TEXT_PAD2;
+	public $DEFAULT_SEARCH_TEXT_PAD3		 = CONSTANTS::DEFAULT_SEARCH_TEXT_PAD3;
+	public $DEFAULT_SEARCH_TEXT_PAD4		 = CONSTANTS::DEFAULT_SEARCH_TEXT_PAD4;
+	public $SERVER_LOCATION					 = CONSTANTS::SERVER_LOCATION;		
+	public $SITE_DESCRIPTION				 = CONSTANTS::SITE_DESCRIPTION;
+	public $SITE_AUTHOR					 	 = CONSTANTS::SITE_AUTHOR;
+	public $SITE_KEYWORDS					 = CONSTANTS::SITE_KEYWORDS; 
+	public $PROPS_VAR_BODYSB_WRAP_START		 = CONSTANTS::PROPS_VAR_BODYSB_WRAP_START;
+	public $PROPS_VAR_BODYSB_WRAP_END		 = CONSTANTS::PROPS_VAR_BODYSB_WRAP_END;
+	public $DB_HOST							 = CONSTANTS::DB_HOST;
+	public $DB_USER							 = CONSTANTS::DB_USER;
+	public $DB_PASS							 = CONSTANTS::DB_PASS;
+	public $DB_NAME							 = CONSTANTS::DB_NAME;
+	public $DB_PREFIX						 = CONSTANTS::DB_PREFIX;
+	public $MAIN_TITLE			 			 = CONSTANTS::MAIN_TITLE;
+	public $MAIN_TITLE_ALIGN	 			 = CONSTANTS::MAIN_TITLE_ALIGN;
+	public $MAIN_SLOGAN			 			 = CONSTANTS::MAIN_SLOGAN;
+	public $MAIN_SLOGAN_EXTRA_PAD1 			 = CONSTANTS::MAIN_SLOGAN_EXTRA_PAD1;
+	public $MAIN_SLOGAN_EXTRA_PAD2 			 = CONSTANTS::MAIN_SLOGAN_EXTRA_PAD2;
+	public $MAIN_SLOGAN_EXTRA_PAD3 			 = CONSTANTS::MAIN_SLOGAN_EXTRA_PAD3;
+	public $MAIN_SLOGAN_EXTRA_PAD4 			 = CONSTANTS::MAIN_SLOGAN_EXTRA_PAD4;
+	public $MAIN_SLOGAN_ALIGN	 			 = CONSTANTS::MAIN_SLOGAN_ALIGN;	
+	public $HEADER_RIGHT_SIDE_CONTENT 		 = CONSTANTS::HEADER_RIGHT_SIDE_CONTENT;
+	public $HEADER_RIGHT_SIDE_CONTENT_ALIGN	 = CONSTANTS::HEADER_RIGHT_SIDE_CONTENT_ALIGN;
+	public $TN_RIGHT_SIDE_CONTENT	 		 = CONSTANTS::TN_RIGHT_SIDE_CONTENT;
+	public $TN_RIGHT_SIDE_CONTENT_ALIGN		 = CONSTANTS::TN_RIGHT_SIDE_CONTENT_ALIGN;	
+	public $PAD_AMOUNT						 = CONSTANTS::PAD_AMOUNT;
+	public $PADMAIN							 = CONSTANTS::NAME_PADMAIN;
+	public $PAD1							 = CONSTANTS::NAME_PAD1;
+	public $PAD2							 = CONSTANTS::NAME_PAD2;
+	public $PAD3							 = CONSTANTS::NAME_PAD3;
+	public $PAD4							 = CONSTANTS::NAME_PAD4;
+	public $_COOKIE_INIT_LOCAL_SESSION		 = CONSTANTS::_COOKIE_INIT_LOCAL_SESSION;
+	public $_COOKIE_INIT_REMOTE_SESSION		 = CONSTANTS::_COOKIE_INIT_REMOTE_SESSION;
+	public $_COOKIE_INIT_TEMP_LOCAL_SESSION	 = CONSTANTS::_COOKIE_INIT_TEMP_LOCAL_SESSION;
+	public $_COOKIE_INIT_TEMP_REMOTE_SESSION = CONSTANTS::_COOKIE_INIT_TEMP_REMOTE_SESSION;
+
 	//main-page-title
 	public function displayMainTitle(){
 		if($this->MAIN_TITLE_ALIGN=="l"){
@@ -336,7 +288,11 @@ class properties
 //get the page of the site
 function getPageContents($launchpadID,$page,$subpage,$wurl,$launchpadPN,$properties){
 	$ip=$_SERVER['REMOTE_ADDR'];
-	$logged_session=$_COOKIE['nat4an_beta_session'];
+	if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){
+		$logged_session=$_COOKIE[$properties->_COOKIE_INIT_TEMP_LOCAL_SESSION];
+	} else {
+		$logged_session=$_COOKIE[$properties->_COOKIE_INIT_TEMP_REMOTE_SESSION];
+	}
 	$CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='$ip' AND logged_session='$logged_session'");
 	if(mysql_num_rows($CHECK_LOGIN)<1){
 		$logged=0;
@@ -607,13 +563,39 @@ function tempSystem($properties,$operand,$setValue){
 		case 'getIP':
 			return $_SERVER['REMOTE_ADDR'];
 		break;
+		case 'getSESSION':
+			if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){
+				$SESSIONID=$_COOKIE[$properties->_COOKIE_INIT_TEMP_LOCAL_SESSION];
+			} else {
+				$SESSIONID=$_COOKIE[$properties->_COOKIE_INIT_TEMP_REMOTE_SESSION];
+			}
+			return $SESSIONID;
+		break;
 		case '_INIT':
 			$ipaddress=$_SERVER['REMOTE_ADDR'];
 			include 'conf/connect.php';
-			$GET_TEMP_BY_IP=mysql_query("SELECT * FROM {$properties->DB_PREFIX}tempsystem WHERE ip=\"".$ipaddress."\"");
+			if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){
+				$SESSIONID=$_COOKIE[$properties->_COOKIE_INIT_TEMP_LOCAL_SESSION];
+			} else {
+				$SESSIONID=$_COOKIE[$properties->_COOKIE_INIT_TEMP_REMOTE_SESSION];
+			}
+			$GET_TEMP_BY_IP=mysql_query("SELECT * FROM {$properties->DB_PREFIX}tempsystem WHERE ip='".$ipaddress."' AND temp_session='".$SESSIONID."'");
 			if(mysql_num_rows($GET_TEMP_BY_IP)<1){
 				/* Temp User is not found; put a temp user in */				
-				mysql_query("INSERT INTO h_tempsystem(ip,lptoggle) VALUES('".$ipaddress."', '1')") or die(mysql_error());
+				//make logged session id
+				$lsessionid=str_shuffle($ipaddress.rand("000000000000","999999999999"));
+															
+				//set session cookie that will expire in 20 years (it's ok)
+				if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){
+					setcookie($properties->_COOKIE_INIT_TEMP_LOCAL_SESSION,$lsessionid,(time() + (20 * 365 * 24 * 60 * 60)),"/");
+				} else {
+					setcookie($properties->_COOKIE_INIT_TEMP_REMOTE_SESSION,$lsessionid,(time() + (20 * 365 * 24 * 60 * 60)),"/");
+				}
+
+				// set the defaulted theme in their temp user system table and update the rest
+				$defaultTheme=Theme($properties,"getDefaultThemeID","","");
+				mysql_query("INSERT INTO {$properties->DB_PREFIX}tempsystem(ip,lptoggle,is_searchable,fb_like,temp_session,themeID) VALUES('".$ipaddress."', '1','no','no','".$lsessionid."','".$defaultTheme."')") or die(mysql_error());
+				
 			} else {
 				while($FETCH_TEMP_BY_IP=mysql_fetch_array($GET_TEMP_BY_IP)){
 					/* GET DATA */
@@ -627,7 +609,7 @@ function tempSystem($properties,$operand,$setValue){
 			if($setValue!=""){
 				/* set a new lptoggle value */
 				//if($setValue==1){$setValue="on";}else if($setValue==0){$setValue="off";}
-				mysql_query("UPDATE h_tempsystem SET lptoggle='".$setValue."' WHERE ip='".$ipaddress."'") or die(mysql_error());
+				mysql_query("UPDATE {$properties->DB_PREFIX}tempsystem SET lptoggle='".$setValue."' WHERE ip='".$ipaddress."'") or die(mysql_error());
 			} else {
 				$GET_TEMP_BY_IP=mysql_query("SELECT * FROM {$properties->DB_PREFIX}tempsystem WHERE ip=\"".$ipaddress."\"") or die(mysql_error());
 				while($FETCH_TEMP_BY_IP=mysql_fetch_array($GET_TEMP_BY_IP)){
@@ -703,10 +685,10 @@ function SEARCH($properties,$searchQuery){
 	
 	if($not_allowed == 1){
 		echo "<h2>Hey! You're not allow to search for &quot;{$searchQuery}&quot;!</h2>";
-		echo "<p><u>Why am I seeing this?</u><br />Because our system is built to store pages (HTML/PHP) in a database and load them in dynamically. These pages have regular HTML (and some PHP) markup on them. This is a much more secure way to store info and it is a heck of a lot easier way to manipulate this website.<br /><br />However, this method comes at a cost and that cost is the search-ability of words, symbols, or phrases, like &quot;{$searchQuery}&quot;. The reason we do this is because this is one more way to prevent hacking on this website. What could I do if I search something that pulled up a page with markup language on it? You could be able to know where pages are (structures), find the ends and outs of this site, and may even be able to hack us. :(<br /><br />If you believe this is a mistake, or you don't like the way we do things on this site, you could turn around and leave this site (which we highly recommend not doing...:)) or contact us <a href=\"".$properties->WEBSITE_URL.$properties->PADMAIN."/contact\" class=\"black-url\">here</a>.</p>";
+		echo "<p><u>Why am I seeing this?</u><br />Because our system is built to store pages (HTML/PHP) in a database and load them in dynamically. These pages have regular HTML (and some PHP) markup on them. This is a much more secure way to store info and it is a heck of a lot easier way to manipulate this website.<br /><br />However, this method comes at a cost and that cost is the search-ability of words, symbols, or phrases, like &quot;{$searchQuery}&quot;. The reason we do this is because this is one more way to prevent hacking on this website. What could I do if I search something that pulled up a page with markup language on it? You could be able to know where pages are (structures), find the ends and outs of this site, and may even be able to hack us. :(<br /><br />If you believe this is a mistake, or you don't like the way we do things on this site, you could turn around and leave this site (which we highly recommend not doing...:)) or contact us ";?><a href="<?php if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){echo $properties->WEBSITE_TEST_URL.$properties->PADMAIN;}else{echo $properties->WEBSITE_REMO_URL.$properties->PADMAIN;}?>contact"<?php echo "class=\"black-url\">here</a>.</p>";
 	} else if($o_not_allowed == 1){
 		echo "<h2>Hey! You're not allow to search for &quot;{$searchQuery}&quot;!</h2>";
-		echo "<p><u>Why am I seeing this?</u><br />Because the word or phrase &quot;{$searchQuery}&quot; you search for is not a nice word and it directly violates our Terms of Service.<br /><br />If you believe this is a mistake, or you don't like the way we do things on this site, you could turn around and leave this site (which we highly recommend not doing...:)) or contact us <a href=\"".$properties->WEBSITE_URL.$properties->PADMAIN."/contact\" class=\"black-url\">here</a>.</p>";
+		echo "<p><u>Why am I seeing this?</u><br />Because the word or phrase &quot;{$searchQuery}&quot; you search for is not a nice word and it directly violates our Terms of Service.<br /><br />If you believe this is a mistake, or you don't like the way we do things on this site, you could turn around and leave this site (which we highly recommend not doing...:)) or contact us ";?><a href="<?php if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){echo $properties->WEBSITE_TEST_URL.$properties->PADMAIN;}else{echo $properties->WEBSITE_REMO_URL.$properties->PADMAIN;}?>contact" <?php echo "class=\"black-url\">here</a>.</p>";
 	} else {
 		/* DYNAMICALLY LOAD IN THE SEARCH CHAPTERS */
 		//check for launchpad
@@ -900,7 +882,10 @@ function CENTRALIZED_EMAIL_RESPONSE_SYSTEM($properties,$message_indicator,$to,$P
 	//interpret message
 	$message=str_replace("(FNAME)",$fname,$message);
 	$message=str_replace("(LNAME)",$lname,$message);
-	$message=str_replace("(WEBSITE_URL)",$properties->WEBSITE_URL,$message);
+	//special implementation as of 3.9.1
+	if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){$WEBSITE_URL=$properties->WEBSITE_TEST_URL;}else{$WEBSITE_URL=$properties->WEBSITE_REMO_URL;}	
+	$message=str_replace("(WEBSITE_URL)",$WEBSITE_URL,$message);
+	$message=str_replace("(WEBSITE_URL_NAME)",$properties->WEBSITE_NAME.$properties->WEBSITE_EXT,$message);
 	$message=str_replace("(TO_WHOM_IT_MAY_CONCERN)",$yname,$message);
 	$message=str_replace("(PNAME_URI)",$pname_uri,$message);
 	$message=str_replace("(PADINFO)",$PADINFO,$message);
@@ -947,6 +932,129 @@ function CENTRALIZED_EMAIL_RESPONSE_SYSTEM($properties,$message_indicator,$to,$P
 			 "Reply-To: ".getGlobalVars($properties,'webmaster_email') . "\r\n" .
 			 "X-Mailer: PHP/" . phpversion();
 			 									 
-	if($_SERVER['HTTP_HOST']=="localhost"){/* on localhost; do not send because i have no email system set up on localhost and it will give errors */echo "<b>[OUTPUT MESSAGE]</b> Due to the type of system being used (localhost) we have shut off the email sending function because of lack of ability to send emails on this server. Instead, here is the outputted message of the email you just &quot;Sent&quot;:<br /><br />To: {$to}<br />Subject: {$subject}<br />Message: {$message}<br />Headers: {$headers}<br /><b>[/OUTPUT MESSAGE]</b>";}else{mail($to,$subject,$message,$headers);}
+	if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){/* on localhost; do not send because i have no email system set up on localhost and it will give errors */echo "<b>[OUTPUT MESSAGE]</b> Due to the type of system being used (localhost) we have shut off the email sending function because of lack of ability to send emails on this server. Instead, here is the outputted message of the email you just &quot;Sent&quot;:<br /><br />To: {$to}<br />Subject: {$subject}<br />Message: {$message}<br />Headers: {$headers}<br /><b>[/OUTPUT MESSAGE]</b>";}else{mail($to,$subject,$message,$headers);}
+}
+
+function Theme($properties,$action,$ip,$SESSIONID){
+	require("includes/private/attributes/logged_session.php");
+	include("conf/connect.php");
+	switch($action){
+		case 'getDefaultThemeID':
+			return getGlobalVars($properties,'defaultThemeID');
+		break;
+		
+		case 'getCurrThemeNameTemp':
+			$GET_CURRENT_THEME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}tempsystem WHERE ip='$ip' AND temp_session='$SESSIONID'") or die(mysql_error());
+			if(mysql_num_rows($GET_CURRENT_THEME)<1){
+				/* UM...SOME INJECTION THING IS HAPPENING...HACKERS */	
+			} else {
+				while($FETCH_CURRENT_THEME=mysql_fetch_array($GET_CURRENT_THEME)){
+					$themeID=$FETCH_CURRENT_THEME['themeID'];
+					// now go to themes and select the name
+					$GET_THEME_NAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}themes WHERE id='$themeID'");
+					if(mysql_num_rows($GET_THEME_NAME)<1){
+						/* UM...SOME INJECTION THING IS HAPPENING...HACKERS */
+					} else {
+						while($FETCH_THEME_NAME=mysql_fetch_array($GET_THEME_NAME)){
+							$themeNAME=$FETCH_THEME_NAME['name'];
+							return $themeNAME;
+						}
+						
+					}
+				}				
+			}
+		break;
+		
+		case 'getCurrThemeNameUser':
+			$GET_CURRENT_THEME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='$ip' AND logged_session='$logged_session'") or die(mysql_error());
+			if(mysql_num_rows($GET_CURRENT_THEME)<1){
+				/* UM...SOME INJECTION THING IS HAPPENING...HACKERS */	
+			} else {
+				while($FETCH_CURRENT_THEME=mysql_fetch_array($GET_CURRENT_THEME)){
+					$themeID=$FETCH_CURRENT_THEME['themeID'];
+					// now go to themes and select the name
+					$GET_THEME_NAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}themes WHERE id='$themeID'");
+					if(mysql_num_rows($GET_THEME_NAME)<1){
+						/* UM...SOME INJECTION THING IS HAPPENING...HACKERS */
+					} else {
+						while($FETCH_THEME_NAME=mysql_fetch_array($GET_THEME_NAME)){
+							$themeNAME=$FETCH_THEME_NAME['name'];
+							return $themeNAME;
+						}
+						
+					}
+				}				
+			}
+		break;
+		
+		case 'getThemeID':
+		
+		break;
+		
+		case 'checkNewlyInstalled':
+			/* REGULAR CHECK FOR THEMES */
+			if(file_exists("themes/")){
+				/* GOOD TO GO; CHECK FOR FOLDERS */
+				$directories=array_diff(scandir("themes"),array('.', '..','.DS_STORE','exempt','setup')); // this specifies what to get and what not to get
+				foreach($directories as $directory){
+					//check to see if there are any changes to the themes/ folder and db (make sure they match)
+					//get the list of themes in an array
+					$GET_ALL_THEMES=mysql_query("SELECT * FROM {$properties->DB_PREFIX}themes ORDER BY id");
+					if(mysql_num_rows($GET_ALL_THEMES)<1){
+						//no themes
+						$error_console="There are no themes";
+					} else {
+						//normal
+						@$themesList="";
+						while($FETCH_ALL_THEMES=mysql_fetch_array($GET_ALL_THEMES)){
+							$themesList.=",".$FETCH_ALL_THEMES['name'];
+						}
+						//explode the themesList
+						$themesListList=explode(",",$themesList);
+						for($i=0; $i<count($themesListList); $i++){
+							if(file_exists("themes/".$themesListList[$i])){
+								/* THEME @ $i EXISTS */
+								continue;				
+							} else {
+								/* THEME @ $i DOES NOT EXIST; DELETE FROM DB */
+								mysql_query("DELETE FROM {$properties->DB_PREFIX}themes WHERE name='".$themesListList[$i]."'");
+							}
+						}
+					}
+					
+					/* SEE IF DIRECTORY EXISTS IN THEMES TABLE */
+					$CHECK_FOR_THEME_IN_TABLE=mysql_query("SELECT * FROM {$properties->DB_PREFIX}themes WHERE name='".$directory."'");
+					if(mysql_num_rows($CHECK_FOR_THEME_IN_TABLE)<1){
+						/* THEME DOES NOT EXIST; NEW THEME; PUT IN TABLE */
+						$directory_pretty_name=str_replace(" ","_",$directory);
+						//read the n4ml file for the properties of the theme
+						if(file_exists("themes/".$directory."/props.n4ml")){
+							/* FILE IS PRESENT */
+							/* NOW READ THE CONTENTS */
+							$props_filename="themes/".$directory."/props.n4ml";
+							$props_handle=fopen($props_filename, "r");
+							$props_contents=fread($props_handle,filesize($props_filename));
+							
+							/* NOW INTERPRET */
+							$param_type=substr($props_contents,0,strpos($props_contents,":"));
+							$param_endrun=substr($props_contents,strpos($props_contents,":")+1);
+						} else {
+							/* NOT THERE */	
+						}
+						$type=$param_type;
+						$endrun=$param_endrun;
+						mysql_query("INSERT INTO {$properties->DB_PREFIX}themes (name,pretty_name,type,endrun) VALUES ('".$directory."','".$directory_pretty_name."','".$type."','".$endrun."')") or die(mysql_error());
+						return;
+					} else {
+						/* THEME EXISTS; DONT DO ANYTHING */
+						continue;
+					}
+				}
+			} else {
+				/* UM...WHY IS THE THEMES/ DIRECTORY NOT THERE?; DONT DO ANYTHING */
+				continue;
+			}
+		break;
+	}
 }
 ?>

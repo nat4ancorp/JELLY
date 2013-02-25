@@ -1,0 +1,56 @@
+INSTRUCTIONS FOR WITLL THEMEING
+-------------------------------
+
+Why use this theme system? Well it is the only way to theme on WITLL and we use a popular system called SASS (Syntactically Awesome Style Sheet) that basically allows the use of $ variables in code to make color themeing easier so that you don't have to track down ever single thing. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+When you want to change the CSS with style and ease ability, just do the following:
+
+IF YOU HAVE RUBY INSTALLED, SKIP TO STEP 2
+
+FOR THE MAIN.SCSS STYLES
+Step 1. Make sure Command Prompt with Ruby is installed on your machine (this assumes you have Windows, if you have OSX or Linux you should be able to do this natively) if it isn't installed then go download it from here http://rubyinstaller.org/downloads/, follow the tutorial provided here -> http://sass-lang.com/tutorial.html or once you have Ruby installed, just open command prompt and type "gem install sass".
+
+Step 2. Now we got to setup SASS to watch for any changes to our main.scss file so type (this assumes you are in the directory where WITLL is)
+
+First direct your command prompt to your WITLL directory by using cd.
+
+Then type:
+
+sass --watch themes/(INSERT_THEME_NAME_HERE)/setup/main.scss:includes/private/bin/tm-assets/mainall/main.css
+
+NOTE: Replace the (INSERT_THEME_NAME_HERE) with the actual theme name (Eg. my theme name is "Royal_Wisdom" so it would be something like ".../themes/Royal_Wisdom...". Got it?
+
+Step 3. Hit Enter to start watching the file. Now open up your main.scss file in your theme directory and edit as much as you like. 
+
+NOTE: For editing colors (like backgrounds and color) refer to the colors.scss because that is where all the colors are stored and then SASS translates them to the main.css file. Clever, I know. I wish I invented it. But sadly I didn't. :(
+
+BIG NOTE: DO NOT EDIT YOUR ACTUAL MAIN.CSS WITH ANY EDITOR OR ELSE WHEN YOU EDIT YOUR MAIN.SCSS IT WILL OVERWRITE ANY CHANGES YOU MADE TO YOUR MAIN.CSS FILE.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FOR THE MODE STYLES (double,single,triple,modes .scss) FILES
+Step 1. Make sure Command Prompt with Ruby is installed on your machine (this assumes you have Windows, if you have OSX or Linux you should be able to do this natively) if it isn't installed then go download it from here http://rubyinstaller.org/downloads/, follow the tutorial provided here -> http://sass-lang.com/tutorial.html or once you have Ruby installed, just open command prompt and type "gem install sass".
+
+Step 2. Now we got to setup SASS to watch for any changes to our individual mode .scss files so type (this assumes you are in the directory where WITLL is)
+
+First direct your command prompt to your WITLL directory by using cd.
+
+Then type:
+
+sass --watch themes/(INSERT_THEME_NAME_HERE)/setup/mode/(THE MODE).scss:includes/private/bin/tm-assets/mode/(THE MODE).css
+THE MODE refers to each of the 4 files (double,single,triple,modes), regardless of which layout you are using you MUST do each of these.
+
+NOTE: Replace the (INSERT_THEME_NAME_HERE) with the actual theme name (Eg. my theme name is "Royal_Wisdom" so it would be something like ".../themes/Royal_Wisdom...". Got it?
+
+Step 3. Hit Enter to start watching the file. Now open up each of the mode .scss files in your theme directory and edit as much as you like. 
+
+NOTE: For editing colors (like backgrounds and color) refer to the colors.scss because that is where all the colors are stored and then SASS translates them to the coordinating .css file. Clever, I know. I wish I invented it. But sadly I didn't. :(
+
+BIG NOTE: DO NOT EDIT YOUR ACTUAL .CSS WITH ANY EDITOR OR ELSE WHEN YOU EDIT YOUR .SCSS IT WILL OVERWRITE ANY CHANGES YOU MADE TO YOUR .CSS FILE.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+VERY IMPORTANT!!!
+
+DONT MIND THE EXCEMPT/ DIRECTORY AS IT IS FOR SYSTEM STUFF (NOT TO BE TOUCHED). INSIDE THE DIRECTORY THERE ARE 2 FOLDERS (MAINALL - THE MAIN THEME LINKAGE) AND MODE (THE THEME LINKAGE FOR MODES). DO NOT MESS WITH THE FILES!

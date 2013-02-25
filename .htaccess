@@ -1,8 +1,9 @@
-# Authentication for remote server; comment on local
-# AuthType Basic
-# AuthName "Nat4an.com BETA"
-# AuthUserFile "/home/mrnat4an/.htpasswds/public_html/beta/passwd"
-# require valid-user
+# setup error pages
+ErrorDocument 400 /includes/public/errors/400.html
+ErrorDocument 401 /includes/public/errors/401.html
+ErrorDocument 403 /includes/public/errors/403.html
+ErrorDocument 404 /includes/public/errors/404.html
+ErrorDocument 500 /includes/public/errors/405.html
 
 Options +FollowSymLinks
 RewriteEngine on
@@ -12,6 +13,10 @@ RewriteRule ^projects - [L,NC]
 RewriteRule ^cp - [L,NC]
 RewriteRule ^files - [L,NC]
 RewriteRule ^INSTALL - [L,NC]
+RewriteRule ^other/inthebeginning - [L,NC]
+RewriteRule ^TheKandyKraftChronicles - [L,NC]
+RewriteRule ^mobile - [L,NC]
+RewriteRule ^testing - [L,NC]
 
 # first-level rewriting (launchpad and page)
 RewriteRule ^([^/]+)/([^/]+)$ ?launchpad=$1&page=$2 [L]
@@ -56,13 +61,10 @@ RewriteRule ^portfolio/blog/permalink/$ ?launchpad=portfolio&page=blog&meta=perm
 
 RewriteRule ^portfolio/blog/permalink/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1 [L]
 RewriteRule ^portfolio/blog/permalink/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1 [L]
-
 RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2 [L]
 RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2 [L]
-
 RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
 RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3 [L]
-
 RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 RewriteRule ^portfolio/blog/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 
@@ -91,23 +93,23 @@ RewriteRule ^portfolio/blog/category/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page
 
 RewriteRule ^portfolio/blog/user/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=users&user=$1&pagination=$2 [L]
 RewriteRule ^portfolio/blog/user/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=users&user=$1&pagination=$2 [L]
-
 RewriteRule ^portfolio/blog/tag/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1&pagination=$2 [L]
 RewriteRule ^portfolio/blog/tag/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=tag&tag=$1&pagination=$2 [L]
-
 RewriteRule ^portfolio/blog/([^/]+)$ ?launchpad=portfolio&page=blog&pagination=$1 [L]
 RewriteRule ^portfolio/blog/([^/]+)/$ ?launchpad=portfolio&page=blog&pagination=$1 [L]
-
 RewriteRule ^portfolio/blog/botr/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&pagination=$2 [L]
 RewriteRule ^portfolio/blog/botr/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&pagination=$2 [L]
-
 RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
 RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=blog&meta=botr&year=$1&month=$2&pagination=$3 [L]
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 # a-z-list user rule
 RewriteRule ^af/a-z-list/user$ ?launchpad=af&page=a-z-list&meta=users [L]
@@ -120,7 +122,6 @@ RewriteRule ^af/a-z-list/authors$ ?launchpad=af&page=a-z-list&meta=authors [L]
 RewriteRule ^af/a-z-list/authors/$ ?launchpad=af&page=a-z-list&meta=authors [L]
 RewriteRule ^af/a-z-list/authors/([^/]+)$ ?launchpad=af&page=a-z-list&meta=authors&author=$1 [L]
 RewriteRule ^af/a-z-list/authors/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=authors&author=$1 [L]
-
 # a-z-list director rule
 RewriteRule ^af/a-z-list/directors$ ?launchpad=af&page=a-z-list&meta=directors [L]
 RewriteRule ^af/a-z-list/directors/$ ?launchpad=af&page=a-z-list&meta=directors [L]
@@ -145,16 +146,12 @@ RewriteRule ^af/a-z-list/category/([^/]+)$ ?launchpad=af&page=a-z-list&meta=cate
 # a-z-list permalink rule
 RewriteRule ^af/a-z-list/permalink$ ?launchpad=af&page=a-z-list&meta=permalink [L]
 RewriteRule ^af/a-z-list/permalink/$ ?launchpad=af&page=a-z-list&meta=permalink [L]
-
 RewriteRule ^af/a-z-list/permalink/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1 [L]
 RewriteRule ^af/a-z-list/permalink/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1 [L]
-
 RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2 [L]
 RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2 [L]
-
 RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3 [L]
 RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3 [L]
-
 RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 
@@ -180,29 +177,22 @@ RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta
 # a-z-list pagination rules
 RewriteRule ^af/a-z-list/category/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=category&category=$1&pagination=$2 [L]
 RewriteRule ^af/a-z-list/category/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=category&category=$1&pagination=$2 [L]
-
 RewriteRule ^af/a-z-list/user/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=users&user=$1&pagination=$2 [L]
 RewriteRule ^af/a-z-list/user/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=users&user=$1&pagination=$2 [L]
-
 RewriteRule ^af/a-z-list/authors/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=authors&author=$1&pagination=$2 [L]
 RewriteRule ^af/a-z-list/authors/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=authors&author=$1&pagination=$2 [L]
-
 RewriteRule ^af/a-z-list/tag/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1&pagination=$2 [L]
 RewriteRule ^af/a-z-list/tag/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1&pagination=$2 [L]
-
 RewriteRule ^af/a-z-list/([^/]+)$ ?launchpad=af&page=a-z-list&pagination=$1 [L]
 RewriteRule ^af/a-z-list/([^/]+)/$ ?launchpad=af&page=a-z-list&pagination=$1 [L]
-
 RewriteRule ^af/a-z-list/botr/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&pagination=$2 [L]
 RewriteRule ^af/a-z-list/botr/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&pagination=$2 [L]
-
 RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2&pagination=$3 [L]
 RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2&pagination=$3 [L]
-
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # watchlist user rule
 RewriteRule ^af/watchlist/user$ ?launchpad=af&page=watchlist&meta=users [L]
@@ -234,16 +224,12 @@ RewriteRule ^af/watchlist/category/([^/]+)$ ?launchpad=af&page=watchlist&meta=ca
 # watchlist permalink rule
 RewriteRule ^af/watchlist/permalink$ ?launchpad=af&page=watchlist&meta=permalink [L]
 RewriteRule ^af/watchlist/permalink/$ ?launchpad=af&page=watchlist&meta=permalink [L]
-
 RewriteRule ^af/watchlist/permalink/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1 [L]
 RewriteRule ^af/watchlist/permalink/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1 [L]
-
 RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2 [L]
 RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2 [L]
-
 RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3 [L]
 RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3 [L]
-
 RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 RewriteRule ^af/watchlist/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 
@@ -269,34 +255,32 @@ RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&me
 # watchlist pagination rules
 RewriteRule ^af/watchlist/category/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=category&category=$1&pagination=$2 [L]
 RewriteRule ^af/watchlist/category/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=category&category=$1&pagination=$2 [L]
-
 RewriteRule ^af/watchlist/tag/([^/]+)/([^/]+)$ ?launchpad=af&page=watchlist&meta=tag&tag=$1&pagination=$2 [L]
 RewriteRule ^af/watchlist/tag/([^/]+)/([^/]+)/$ ?launchpad=af&page=watchlist&meta=tag&tag=$1&pagination=$2 [L]
-
 RewriteRule ^af/watchlist/([^/]+)$ ?launchpad=af&page=watchlist&pagination=$1 [L]
 RewriteRule ^af/watchlist/([^/]+)/$ ?launchpad=af&page=watchlist&pagination=$1 [L]
-
 RewriteRule ^af/watchlist/botr/([^/]+)/page/([^/]+)$ ?launchpad=af&page=watchlist&meta=botr&year=$1&pagination=$2 [L]
 RewriteRule ^af/watchlist/botr/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=watchlist&meta=botr&year=$1&pagination=$2 [L]
-
 RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=af&page=watchlist&meta=botr&year=$1&month=$2&pagination=$3 [L]
 RewriteRule ^af/watchlist/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=watchlist&meta=botr&year=$1&month=$2&pagination=$3 [L]
 
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------ # -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # portfolio contact send stuff
 RewriteRule ^portfolio/contact/([^/]+)$ ?launchpad=portfolio&page=contact&meta=$1 [L]
 RewriteRule ^portfolio/contact/([^/]+)/$ ?launchpad=portfolio&page=contact&meta=$1 [L]
 RewriteRule ^portfolio/contact/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=contact&meta=$1&ticketid=$2 [L]
 RewriteRule ^portfolio/contact/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=contact&meta=$1&ticketid=$2 [L]
-
 RewriteRule ^tmm/contact/([^/]+)$ ?launchpad=tmm&page=contact&meta=$1 [L]
 RewriteRule ^tmm/contact/([^/]+)/$ ?launchpad=tmm&page=contact&meta=$1 [L]
 RewriteRule ^tmm/contact/([^/]+)/([^/]+)$ ?launchpad=tmm&page=contact&meta=$1&ticketid=$2 [L]
 RewriteRule ^tmm/contact/([^/]+)/([^/]+)/$ ?launchpad=tmm&page=contact&meta=$1&ticketid=$2 [L]
+RewriteRule ^portfolio/report/([^/]+)$ ?launchpad=portfolio&page=report&meta=$1 [L]
+RewriteRule ^portfolio/report/([^/]+)/$ ?launchpad=portfolio&page=report&meta=$1 [L]
+RewriteRule ^portfolio/report/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=report&meta=$1&ticketid=$2 [L]
+RewriteRule ^portfolio/report/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=report&meta=$1&ticketid=$2 [L]
 
 # tmm contact send stuff
 RewriteRule ^tmm/guestbook/([^/]+)$ ?launchpad=tmm&page=guestbook&meta=$1 [L]
@@ -321,4 +305,4 @@ RewriteRule ^portfolio/changes/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&pag
 RewriteRule ^portfolio/work-projects/([^/]+)$ ?launchpad=portfolio&page=work-projects&meta=normal&projectname=$1 [L]
 RewriteRule ^portfolio/work-projects/([^/]+)/$ ?launchpad=portfolio&page=work-projects&meta=normal&projectname=$1 [L]
 
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------

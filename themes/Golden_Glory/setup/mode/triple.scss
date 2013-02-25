@@ -1,0 +1,87 @@
+/* WEB INTERFACE TO LEARN & TO LOVE (WITLL) TRIPLE LAYOUT CORE CSS */
+/* WITLL WAS DEVELOPED AND DEBUGGED BY NATHAN SMYTH AND IS AVAILABLE TO BE USED AS A FREEWARE */
+/* SOFTWARE BY ANYONE WHO CAN DECYFER THE CODE. HA JK. ALL YOU NEED TO DO IS RUN THE INSTALL  */
+/* AND USE IT JUST LIKE YOU WOULD WORDPRESS                                                   */
+
+/* PLEASE LEAVE THIS COPYRIGHT OWNERSHIP INFO INTACT AS YOU USE THIS PIECE OF WEB SOFTWARE    */
+/* YOU CAN ALWAYS GET PLUGINS, THEMES, AND MODULES FROM WITLL.NET!!!                          */
+
+/* ---------------------------- END OWNERSHIP INFO ------------------------------------------ */
+
+/* ------------ YOU DO NOT NEED TO EDIT IHIS DOCUMENT BELOW THIS LINE THAT IS --------------- */
+/* ------------- UNLESS YOU WANT TO ADD TO THE CSS. IF YOU WOULD LIKE TO JUST --------------- */
+/* -------------- CHANGE THE COLOR SCHEME, THEN CHANGE IT IN COLORS.SCSS -------------------- */
+/* --------------- THEN RUN THE RUBY SCRIPT (AND SAVE THIS FILE) TO UPDATE ------------------ */
+/* ----------------------------------- THE .CSS FILE. ----------------------------------- */
+/* DO NOT UNDER ANY CIRCUMSTANCES UPDATE THE .CSS DIRECTLY (EG. GOING INTO THE TM-ASSETS  */
+/* DIRECTORY AND CHANGING ANYTHING THERE OR YOU WILL BREAK THE SCSS SYSTEM THAT I HAVE SO     */
+/* NICELY SETUP HERE FOR YOU. ONLY EDIT THE .SCSS FILE FOR THE CORRESPONDING FILE. THANKS.    */
+
+@import "../colors";
+#container {
+	overflow: hidden;
+	width: 950px;
+	margin: 0 auto;
+}
+#container-header {
+	width: 950px;
+	margin: 0 auto;
+}
+#container3 { /* sidebar - column 2 */
+    float:left;
+    width:100%;
+    background:$container-triple-sidebar2-background;
+    position:relative;
+    left:10%;
+	min-height: auto;
+	
+}
+#container2 { /* sidebar - column 1 */
+    float:left;
+    width:100%;
+    background:$container-triple-sidebar1-background;
+    position:relative;
+    left:10%;
+	min-height: auto;
+	
+}
+#container1 { /* main content */
+    float:left;
+    width:100%;
+    background:$container-triple-main-content-background;
+    position:relative;
+    right:40%;
+	min-height: auto;
+	padding-bottom: 120px;
+}
+#col1 { /* main content */
+    float:left;
+    width:50%;
+	position: relative;
+	left: 22%;
+	overflow:hidden;
+}
+#col2 { /* sidebar content col 1*/
+    float:left;
+    width:21%;
+	position: relative;
+	left: 24%;
+	overflow:hidden;
+}
+#col3 { /* sidebar content col 2 */
+    float:left;
+    width:21%;
+	position: relative;
+	left: 26%;
+	overflow:hidden;
+}
+
+#content-special { /* main content area for special 100% pages */
+	float:left;
+	width:100%;
+	padding-left: 2%;
+	padding-right: 2%;
+	background:$container-triple-special-background;
+	z-index:1;
+	position:relative;
+}

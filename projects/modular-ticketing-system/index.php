@@ -16,7 +16,6 @@ $properties=new properties();
 include 'conf/connect.php';
 ?>
 <meta name="description" content="<?php echo $properties->SITE_DESCRIPTION;?>" />
-<meta name="keywords" content="<?php echo getPageKeywords($launchpadPN,$page,$properties);?>" />
 <meta name="author" content="<?php echo $properties->SITE_AUTHOR;?>" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -100,7 +99,7 @@ if(isset($_GET['meta'])){
 									</div>
 									<div class=\"formLayoutTableRowRightCol\">
 										";
-										$GET_POC=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type='admin' AND poc_code='$poc'") or die('uh oh! '.mysql_error());
+										$GET_POC=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type='admin' AND isIncludedInMTS='yes' AND poc_code='$poc'") or die('uh oh! '.mysql_error());
 										$FETCH_POC=mysql_fetch_array($GET_POC);
 										//get the staff title
 										@$staff_type=$FETCH_POC['staff_type'];
@@ -222,7 +221,7 @@ if(isset($_GET['meta'])){
 									</div>
 									<div class=\"formLayoutTableRowRightCol\">
 										";
-										$GET_POC=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type='admin' AND poc_code='$poc'") or die('uh oh! '.mysql_error());
+										$GET_POC=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type='admin' AND isIncludedInMTS='yes' AND poc_code='$poc'") or die('uh oh! '.mysql_error());
 										$FETCH_POC=mysql_fetch_array($GET_POC);
 										//get the staff title
 										@$staff_type=$FETCH_POC['staff_type'];
@@ -559,7 +558,7 @@ if(isset($_GET['meta'])){
 					</div>
 					<div class=\"formLayoutTableRowRightCol\">
 						<select name=\"contact_poc\" id=\"contact_poc\" disabled=\"disabled\">";
-							$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type='admin' ORDER BY uname") or die('uh oh! '.mysql_error());
+							$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type='admin' AND isIncludedInMTS='yes' ORDER BY uname") or die('uh oh! '.mysql_error());
 							if(mysql_num_rows($GET_STAFF)<1){
 								echo "<option value=\"na\">---- no staff members avail ----</option>";
 							} else {
@@ -684,7 +683,7 @@ if(isset($_GET['meta'])){
 				</div>
 				<div class=\"formLayoutTableRowRightCol\">
 					<select name=\"contact_poc\" id=\"contact_poc\">";
-						$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' ORDER BY uname") or die('uh oh! '.mysql_error());
+						$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type='admin' AND isIncludedInMTS='yes' ORDER BY uname") or die('uh oh! '.mysql_error());
 						if(mysql_num_rows($GET_STAFF)<1){
 							echo "<option value=\"na\">---- no staff members avail ----</option>";
 						} else {

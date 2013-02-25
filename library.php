@@ -381,7 +381,7 @@ body {
 	letter-spacing: -500em;
 	text-indent: -500em;
 	height: 125px;
-	background: url(index.php5?img=gifLogo) 0 0 no-repeat;
+	background: url(index.php?img=gifLogo) 0 0 no-repeat;
 }
 .utility {
 	position: absolute;
@@ -414,16 +414,16 @@ ul.vhosts, ul.aliases, ul.projects, ul.tools {
 }
 ul.vhosts a, ul.aliases a, ul.projects a, ul.tools a {
 	padding-left: 22px;
-	background: url(index.php5?img=pngFolder) 0 100% no-repeat;
+	background: url(index.php?img=pngFolder) 0 100% no-repeat;
 }
 ul.tools a {
-	background: url(index.php5?img=pngWrench) 0 100% no-repeat;
+	background: url(index.php?img=pngWrench) 0 100% no-repeat;
 }
 ul.aliases a {
-	background: url(index.php5?img=pngFolderGo) 0 100% no-repeat;
+	background: url(index.php?img=pngFolderGo) 0 100% no-repeat;
 }
 ul.vhosts a {
-	background: url(index.php5?img=pngFolderGo) 0 100% no-repeat;
+	background: url(index.php?img=pngFolderGo) 0 100% no-repeat;
 }
 dl {
 	margin: 0;
@@ -446,7 +446,7 @@ dd ul li {
 	width: 16.5%;
 	margin: 0;
 	padding: 0 0 0 20px;
-	background: url(index.php5?img=pngPlugin) 2px 50% no-repeat;
+	background: url(index.php?img=pngPlugin) 2px 50% no-repeat;
 	line-height: 1.6;
 }
 a {
@@ -465,9 +465,9 @@ a:hover {
 	padding-top: 1em;
 	font-size: 0.85em;
 }
-    </style>
+</style>
     
-	<link rel="shortcut icon" href="index.php5?img=favicon" type="image/ico" />
+	<link rel="shortcut icon" href="index.php?img=favicon" type="image/ico" />
 </head>
 
 <body>

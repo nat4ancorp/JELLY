@@ -11,3 +11,7 @@
 [30-Sep-2012 10:42:43] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'localhost' (using password: NO) in /home/mrnat4an/public_html/projects/modular-ticketing-system/conf/connect.php on line 2
 [30-Sep-2012 10:44:04] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/mrnat4an/public_html/projects/modular-ticketing-system/conf/props.php on line 340
 [30-Sep-2012 10:45:44] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/mrnat4an/public_html/projects/modular-ticketing-system/conf/props.php on line 340
+[09-Jan-2013 15:58:18] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/mrnat4an/public_html/projects/modular-ticketing-system/conf/props.php on line 347
+[14-Jan-2013 12:50:57] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/mrnat4an/public_html/projects/modular-ticketing-system/conf/props.php on line 347
+[14-Jan-2013 12:51:15] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/mrnat4an/public_html/projects/modular-ticketing-system/conf/props.php on line 347
+[14-Jan-2013 12:51:17] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/mrnat4an/public_html/projects/modular-ticketing-system/conf/props.php on line 347
