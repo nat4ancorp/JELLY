@@ -389,32 +389,32 @@ if(isset($_GET['meta'])){
 						";
 						if($error_console == "poc missing"){
 							echo "<select name=\"contact_poc\" id=\"contact_poc\" disabled=\"disabled\">";
-							$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' ORDER BY uname") or die('uh oh! '.mysql_error());
+							$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' AND isIncludedInMTS='yes' ORDER BY uname") or die('uh oh! '.mysql_error());
 							if(mysql_num_rows($GET_STAFF)<1){
 								echo "<option value=\"na\">---- no staff members avail ----</option>";
 							} else {
 								echo "<option value=\"na\">---- choose a staff member ----</option>";
 								while($FETCH_STAFF=mysql_fetch_array($GET_STAFF)){
 									if($poc === $FETCH_STAFF['poc_code']){
-										echo "<option value=\"".$FETCH_STAFF['poc_code']."\" selected=\"selected\">".$FETCH_STAFF['name']." (".$FETCH_STAFF['title'].")"."</option>";
+										echo "<option value=\"".$FETCH_STAFF['poc_code']."\" selected=\"selected\">".$FETCH_STAFF['fname']." ".$FETCH_STAFF['lname']." (".$FETCH_STAFF['title'].")"."</option>";
 									} else {
-										echo "<option value=\"".$FETCH_STAFF['poc_code']."\">".$FETCH_STAFF['name']." (".$FETCH_STAFF['title'].")"."</option>";	
+										echo "<option value=\"".$FETCH_STAFF['poc_code']."\">".$FETCH_STAFF['fname']." ".$FETCH_STAFF['lname']." (".$FETCH_STAFF['title'].")"."</option>";	
 									}
 								}
 							}				
 							echo "</select> <span style=\"color: red; font-weight: bold;\">Missing</span>";
 						} else {
 							echo "<select name=\"contact_poc\" id=\"contact_poc\" disabled=\"disabled\">";
-							$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' ORDER BY uname") or die('uh oh! '.mysql_error());
+							$GET_STAFF=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE type = 'admin' AND isIncludedInMTS='yes' ORDER BY uname") or die('uh oh! '.mysql_error());
 							if(mysql_num_rows($GET_STAFF)<1){
 								echo "<option value=\"na\">---- no staff members avail ----</option>";
 							} else {
 								echo "<option value=\"na\">---- choose a staff member ----</option>";
 								while($FETCH_STAFF=mysql_fetch_array($GET_STAFF)){
 									if($poc === $FETCH_STAFF['poc_code']){
-										echo "<option value=\"".$FETCH_STAFF['poc_code']."\" selected=\"selected\">".$FETCH_STAFF['name']." (".$FETCH_STAFF['title'].")"."</option>";
+										echo "<option value=\"".$FETCH_STAFF['poc_code']."\" selected=\"selected\">".$FETCH_STAFF['fname']." ".$FETCH_STAFF['lname']." (".$FETCH_STAFF['title'].")"."</option>";
 									} else {
-										echo "<option value=\"".$FETCH_STAFF['poc_code']."\">".$FETCH_STAFF['name']." (".$FETCH_STAFF['title'].")"."</option>";	
+										echo "<option value=\"".$FETCH_STAFF['poc_code']."\">".$FETCH_STAFF['fname']." ".$FETCH_STAFF['lname']." (".$FETCH_STAFF['title'].")"."</option>";	
 									}
 								}
 							}				
@@ -565,9 +565,9 @@ if(isset($_GET['meta'])){
 								echo "<option value=\"na\">---- choose a staff member ----</option>";
 								while($FETCH_STAFF=mysql_fetch_array($GET_STAFF)){
 									if($FETCH_STAFF['poc_code'] == $poc){
-										echo "<option value=\"".$FETCH_STAFF['poc_code']."\" selected=\"selected\">".$FETCH_STAFF['name']." (".$FETCH_STAFF['title'].")"."</option>";
+										echo "<option value=\"".$FETCH_STAFF['poc_code']."\" selected=\"selected\">".$FETCH_STAFF['fname']." ".$FETCH_STAFF['lname']." (".$FETCH_STAFF['title'].")"."</option>";
 									} else {
-										echo "<option value=\"".$FETCH_STAFF['poc_code']."\">".$FETCH_STAFF['name']." (".$FETCH_STAFF['title'].")"."</option>";	
+										echo "<option value=\"".$FETCH_STAFF['poc_code']."\">".$FETCH_STAFF['fname']." ".$FETCH_STAFF['lname']." (".$FETCH_STAFF['title'].")"."</option>";	
 									}
 								}
 							}				

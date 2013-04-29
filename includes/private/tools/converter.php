@@ -60,7 +60,7 @@ function converter($properties,$content,$type,$operand){
 					$content=str_replace("(homelp)",$properties->PADMAIN,$content);
 					$content=str_replace("(currentlp)",$launchpad,$content);
 					$content=str_replace("(stylesheet)",Theme($properties,"getCurrThemeName",$ip,$SESSIONID),$content);
-					$content=str_replace("(entry_name)",@$title,$content);
+					$content=str_replace("(entry_name)",@$title,$content);					
 					
 					/* READ MORE FUNCTIONAL */
 					if(strstr($content,"[!--more--]")!=""){
@@ -91,14 +91,14 @@ function converter($properties,$content,$type,$operand){
 						/* multiple youtubes */
 						for($i=1; $i<=$num_of_a_youtube; $i++){
 							$y_id=substr($content,(strpos($content,"[youtube id={$i}")+14),11);
-							$content=str_replace("[youtube id=".$i."]".$y_id."[/youtube]","<br /><br /><center><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/".$y_id."\" frameborder=\"0\" allowfullscreen></iframe></center><br /><br />",$content);
+							$content=str_replace("[youtube id=".$i."]".$y_id."[/youtube]","<br /><br /><center><iframe width=\"100%\" height=\"175%\" src=\"http://www.youtube.com/embed/".$y_id."\" frameborder=\"0\" allowfullscreen></iframe></center><br /><br />",$content);
 						}
 					} else {
 						/* one youtube */
 						//$y_id="UYrkQL1bX4A";
 						$id_of_youtube=substr($content,(strpos($content,"[youtube id=")+12),1);
 						$y_id=substr($content,(strpos($content,"[youtube id=")+14),11);
-						$content=str_replace("[youtube id=".$id_of_youtube."]".$y_id."[/youtube]","<br /><br /><center><iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/".$y_id."\" frameborder=\"0\" allowfullscreen></iframe></center><br /><br />",$content);
+						$content=str_replace("[youtube id=".$id_of_youtube."]".$y_id."[/youtube]","<br /><br /><center><iframe width=\"100%\" height=\"175%\" src=\"http://www.youtube.com/embed/".$y_id."\" frameborder=\"0\" allowfullscreen></iframe></center><br /><br />",$content);
 					}
 				break;
 			}

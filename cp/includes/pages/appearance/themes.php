@@ -4,6 +4,7 @@ if(isset($_POST['save'])){
 	/* SITE UPDATES */
 	/* STEP 1: GET ALL DATA */
 	$data_tm_toggle=$_POST['tm_toggle'];
+	$data_tm_cbc=$_POST['tm_cbc'];
 	$data_defaultThemeID=$_POST['defaultThemeID'];	
 	
 	/* STEP 2: CHECK DATA FOR ACCURACY */
@@ -15,6 +16,7 @@ if(isset($_POST['save'])){
 	} else {
 		/* STEP 3: POST TO DATABASE */
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET tm_toggle = '$data_tm_toggle'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET tm_cbc = '$data_tm_cbc'");
 		
 		/* SPECIAL FOR INPUT */
 		if($data_tm_toggle == "off"){/* SET ALL USERS AND TEMP TO DEFAULTED THEME */mysql_query("UPDATE {$properties->DB_PREFIX}users SET themeID='".$data_defaultThemeID."'");mysql_query("UPDATE {$properties->DB_PREFIX}tempsystem SET themeID='".$data_defaultThemeID."'");}
@@ -36,6 +38,15 @@ if(isset($_POST['save'])){
 					</div>
 					<div class="formLayoutTableRowMainAllRightCol">
 						<input type="radio" name="tm_toggle" value="on" <?php if(getGlobalVars($properties,'tm_toggle') == "on"){?>checked="checked"<?php }?> class="radio" /> Yes <input type="radio" name="tm_toggle" value="off" <?php if(getGlobalVars($properties,'tm_toggle') == "off"){?>checked="checked"<?php }?> class="radio" /> No
+					</div>
+				</div>
+                
+                <div class="formLayoutTableRowMainAll">
+					<div class="formLayoutTableRowMainAllLeftCol">
+						Allow Theme to be Changed?
+					</div>
+					<div class="formLayoutTableRowMainAllRightCol">
+						<input type="radio" name="tm_cbc" value="on" <?php if(getGlobalVars($properties,'tm_cbc') == "on"){?>checked="checked"<?php }?> class="radio" /> Yes <input type="radio" name="tm_cbc" value="off" <?php if(getGlobalVars($properties,'tm_cbc') == "off"){?>checked="checked"<?php }?> class="radio" /> No
 					</div>
 				</div>
 				

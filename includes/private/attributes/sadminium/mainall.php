@@ -58,12 +58,12 @@ if(isset($_POST['change_']) || isset($_POST['change_mode']) || isset($_POST['adj
 <h2 style="line-height:.5em;">What do you want to do?</h2>
 <form action="" method="post">
 	<input type="hidden" name="logoutusername" value="<?php echo $username?>" />
-	<div id="formLayoutTable">
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+	<div id="formLayoutTableConstruction">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				<label>Choose a command</label>
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<select name="wtd">
 					<option value="">--- choose what you want to do ---</option>
 					<?php if($type=="admin" && $head_admin=="yes"){?><option value="adjust_mar">Adjust Max Admins Rate</option><?php }?>
@@ -80,11 +80,11 @@ if(isset($_POST['change_']) || isset($_POST['change_mode']) || isset($_POST['adj
 			</div>
 		</div>                   
 		
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="submit" name="change_" value="Go" class="submit" /> 
 				<input type="submit" name="logout" value="Logout" class="submit" />
 			</div>

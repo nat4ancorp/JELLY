@@ -62,9 +62,15 @@ if($_SERVER['HTTP_HOST']=="localhost"){$WEBSITE_URL=$properties->WEBSITE_TEST_UR
 $ip=$_SERVER['REMOTE_ADDR'];
 include("includes/private/attributes/logged_session.php");
 $CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logged_ip='$ip' AND logged_session='$logged_session'");if(mysql_num_rows($CHECK_LOGIN)<1){$logged=0;}else{$logged=1;}
+
+/* THEME CHANGING IN ASSETS SETUP */
+$THEME_ASSETS_STRING=$properties->PATH_TO_THEME_ASSETS;
+if($logged==1){$REPLACEMENT_THE_ACTION="getCurrThemeNameUser";}else if($logged==0){$REPLACEMENT_THE_ACTION="getCurrThemeNameTemp";}
+$NEW_PATH_TO_THEME_ASSETS=str_replace("(THEME_NAME)",Theme($properties,$REPLACEMENT_THE_ACTION,$ip,$SESSIONID),$THEME_ASSETS_STRING);
+
 ?>
 <title><?php echo $properties->WEBSITE_NAME?> - <?php echo $properties->WEBSITE_SLOGAN;?><?php echo getPageName($launchpadPN,$page,$properties);?></title>
-<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/main.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/main.css" media="screen" />
 <?php if(@$launchpadPN=="pad1"){?>
 <link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/pad1.css" />
 <?php }if(@$launchpadPN=="pad2"){?>
@@ -82,6 +88,7 @@ $CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logg
 <meta name="keywords" content="<?php echo getPageKeywords($launchpadPN,$page,$properties);?>" />
 <meta name="author" content="<?php echo $properties->SITE_AUTHOR;?>" />
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mainall/main_ie6.css" />
@@ -109,10 +116,31 @@ $CHECK_LOGIN=mysql_query("SELECT * FROM {$properties->DB_PREFIX}users WHERE logg
 <script type="text/javascript" src="<?php echo $WEBSITE_URL;?>includes/private/js/backstretch.js"></script>
 <script type="text/javascript" src="<?php echo $WEBSITE_URL;?>includes/private/js/hover.transitions.js"></script>
 
-<link rel="shortcut icon" href="<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/favicon.ico">
+<script type="text/javascript">
+$(function(){	
+	$(window).scroll(function(){
+		if($(this).scrollTop() != 0){
+			$('#toTop').fadeIn();
+			$('input#search').fadeOut();
+		} else {
+			$('#toTop').fadeOut();
+			$('input#search').fadeIn();
+		}		
+	});
+	
+	$('#toTop').click(function(){
+		$('body,html').animate({scrollTop:0},800);
+	});
+	$('#searchToggle').click(function(){
+		$('input#search').fadeOut();
+	});
+});
+</script>
+
+<link rel="shortcut icon" href="<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>images/favicon.ico">
 
 <link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?>themes/<?php if($logged==1){/* LOGGED IN */echo Theme($properties,"getCurrThemeNameUser",$ip,$SESSIONID);}else if($logged==0){/* NOT LOGGED IN */echo Theme($properties,"getCurrThemeNameTemp",$ip,$SESSIONID);}?>/exempt/mode/modes.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/colorbox/colorbox.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>jquery/colorbox/colorbox.css" />
 <?php
 $GET_JC_SKINS=mysql_query("SELECT * FROM {$properties->DB_PREFIX}jc_themes WHERE status='active'");
 if(mysql_num_rows($GET_JC_SKINS)<1){
@@ -120,16 +148,16 @@ if(mysql_num_rows($GET_JC_SKINS)<1){
 } else {
 	while($FETCH_JC_SKINS=mysql_fetch_array($GET_JC_SKINS)){
 		?>
-        <link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL.$properties->PATH_TO_THEME_ASSETS;?>jquery/jc/<?php echo $FETCH_JC_SKINS['name'];?>/skin.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL.$NEW_PATH_TO_THEME_ASSETS;?>jquery/jc/<?php echo $FETCH_JC_SKINS['name'];?>/skin.css" />
         <?php
 	}
 }
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jquery-ui.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/jquery.countdown.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/datepick/jquery.datepick.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/orbit/orbit.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>jquery/sparkles.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>jquery/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>jquery/jquery.countdown.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>jquery/datepick/jquery.datepick.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>jquery/orbit/orbit.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>jquery/sparkles.css" />
 </head>
 
 <body>
@@ -142,7 +170,7 @@ if(mysql_num_rows($GET_JC_SKINS)<1){
 		<?php
 		for($i=0; $i<count($wall_list); $i++){
 			?>
-			"<?php echo $WEBSITE_URL;?><?php echo $properties->PATH_TO_THEME_ASSETS;?>images/walls/<?php echo $wall_list[$i];?>/bg.png",
+			"<?php echo $WEBSITE_URL;?><?php echo $NEW_PATH_TO_THEME_ASSETS;?>images/walls/<?php echo $wall_list[$i];?>/bg.png",
 			<?php
 		}
 		?>
@@ -152,7 +180,7 @@ if(mysql_num_rows($GET_JC_SKINS)<1){
 	//include a mobile detection script
 	include("includes/private/tools/detectmobile.php");
 
-	if(@$is_mobile=="yes"){
+	/*if(@$is_mobile=="yes"){
 		?>
         <script type="text/javascript">
 		<!--
@@ -160,7 +188,7 @@ if(mysql_num_rows($GET_JC_SKINS)<1){
 		//-->
 		</script>
         <?php
-	} else {
+	} else {*/
 		//check for INSTALLATION LOCK
 		if(file_exists("INSTALL.LOCK")){$FILE_LOCK="yes";}else{$FILE_LOCK="no";}
 		
@@ -168,7 +196,7 @@ if(mysql_num_rows($GET_JC_SKINS)<1){
 			/* INSTALLATION HAS BEEN DONE AND THE INSTALL DIRECTORY HAS BEEN LOCKED */
 			/* determine the mode the site is running in */
 			$MODE=getGlobalVars($properties,'mode');			
-			include("includes/private/tools/mode.php");
+			include("includes/private/tools/mode.php");			
 			if(($MODE=="closed") || ($MODE=="closed beta")){
 				/* MODE requires login before seeing site */
 				if(($logged==1) && ($in_site=="yes")){
@@ -224,7 +252,7 @@ if(mysql_num_rows($GET_JC_SKINS)<1){
 		} else {
 			echo "<center><h1 style=\"line-height: 1.2em;\">Please run the installation by going to <a href=\"".$WEBSITE_URL."INSTALL/\" class=\"black-url\">INSTALL/</a> or rename the &quot;INSTALL&quot; directory to &quot;INSTALL.LOCK&quot; (if you have already ran the installation and the INSTALL directory did not get auto-magically changed to &quot;INSTALL.LOCK&quot;</h1></center>";
 		}	
-	}
+	//}
 	?>
 </body>
 </html>

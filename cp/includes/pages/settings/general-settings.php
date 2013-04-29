@@ -5,9 +5,13 @@ if(isset($_POST['save'])){
 	/* STEP 1: GET ALL DATA */
 	$data_autoresponder_closing_line=mysql_real_escape_string($_POST['autoresponder_closing_line']);
 	$data_is_searchable=mysql_real_escape_string($_POST['is_searchable']);
+	$data_default_webmaster_u=mysql_real_escape_string($_POST['default_webmaster_u']);
 	$data_mode=mysql_real_escape_string($_POST['mode']);
 	$data_top_nav_use=mysql_real_escape_string($_POST['top_nav_use']);
 	$data_webmaster_email=mysql_real_escape_string($_POST['webmaster_email']);
+	
+	$data_BlogFlickrID=mysql_real_escape_string($_POST['BlogFlickrID']);
+	$data_BlogFlickrName=mysql_real_escape_string($_POST['BlogFlickrName']);
 	
 	$data_main_twitter_avatar_size=mysql_real_escape_string($_POST['main_twitter_avatar_size']);
 	$data_main_twitter_loading_text=mysql_real_escape_string($_POST['main_twitter_loading_text']);
@@ -25,6 +29,67 @@ if(isset($_POST['save'])){
 	$data_sociallinks_jcarousel_scrollamt=mysql_real_escape_string($_POST['sociallinks_jcarousel_scrollamt']);
 	$data_sociallinks_theme=mysql_real_escape_string($_POST['sociallinks_theme']);
 	$data_sociallinks_type=mysql_real_escape_string($_POST['sociallinks_type']);
+	
+	$data_plugins_whatido_tagline_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_1']);
+	$data_plugins_whatido_tagline_extra_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_extra_1']);
+	$data_plugins_whatido_tagline_extended_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_extended_1']);
+	
+	$data_plugins_whatido_tagline_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_2']);
+	$data_plugins_whatido_tagline_extra_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_extra_2']);
+	$data_plugins_whatido_tagline_extended_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_extended_2']);
+	
+	$data_plugins_whatido_tagline_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_3']);
+	$data_plugins_whatido_tagline_extra_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_extra_3']);
+	$data_plugins_whatido_tagline_extended_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_extended_3']);
+	
+	$data_plugins_whatido_tagline_af_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_1']);
+	$data_plugins_whatido_tagline_af_extra_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_extra_1']);
+	$data_plugins_whatido_tagline_af_extended_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_extended_1']);
+	
+	$data_plugins_whatido_tagline_af_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_2']);
+	$data_plugins_whatido_tagline_af_extra_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_extra_2']);
+	$data_plugins_whatido_tagline_af_extended_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_extended_2']);
+	
+	$data_plugins_whatido_tagline_af_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_3']);
+	$data_plugins_whatido_tagline_af_extra_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_extra_3']);
+	$data_plugins_whatido_tagline_af_extended_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_af_extended_3']);
+	
+	$data_plugins_whatido_tagline_gf_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_1']);
+	$data_plugins_whatido_tagline_gf_extra_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_extra_1']);
+	$data_plugins_whatido_tagline_gf_extended_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_extended_1']);
+	
+	$data_plugins_whatido_tagline_gf_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_2']);
+	$data_plugins_whatido_tagline_gf_extra_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_extra_2']);
+	$data_plugins_whatido_tagline_gf_extended_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_extended_2']);
+	
+	$data_plugins_whatido_tagline_gf_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_3']);
+	$data_plugins_whatido_tagline_gf_extra_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_extra_3']);
+	$data_plugins_whatido_tagline_gf_extended_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_gf_extended_3']);
+	
+	$data_plugins_whatido_tagline_tmm_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_1']);
+	$data_plugins_whatido_tagline_tmm_extra_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_extra_1']);
+	$data_plugins_whatido_tagline_tmm_extended_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_extended_1']);
+	
+	$data_plugins_whatido_tagline_tmm_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_2']);
+	$data_plugins_whatido_tagline_tmm_extra_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_extra_2']);
+	$data_plugins_whatido_tagline_tmm_extended_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_extended_2']);
+	
+	$data_plugins_whatido_tagline_tmm_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_3']);
+	$data_plugins_whatido_tagline_tmm_extra_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_extra_3']);
+	$data_plugins_whatido_tagline_tmm_extended_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_tmm_extended_3']);
+	
+	$data_plugins_whatido_tagline_ln_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_1']);
+	$data_plugins_whatido_tagline_ln_extra_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_extra_1']);
+	$data_plugins_whatido_tagline_ln_extended_1=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_extended_1']);
+	
+	$data_plugins_whatido_tagline_ln_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_2']);
+	$data_plugins_whatido_tagline_ln_extra_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_extra_2']);
+	$data_plugins_whatido_tagline_ln_extended_2=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_extended_2']);
+	
+	$data_plugins_whatido_tagline_ln_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_3']);
+	$data_plugins_whatido_tagline_ln_extra_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_extra_3']);
+	$data_plugins_whatido_tagline_ln_extended_3=mysql_real_escape_string($_POST['plugins_whatido_tagline_ln_extended_3']);
+	
 	$data_tagcloud_count=mysql_real_escape_string($_POST['tagcloud_count']);
 	
 	$data_closed_message_top=mysql_real_escape_string($_POST['closed_message_top']);
@@ -35,6 +100,8 @@ if(isset($_POST['save'])){
 	
 	$data_percent_complete=mysql_real_escape_string($_POST['percent_complete']);
 	$data_status_update=mysql_real_escape_string($_POST['status_update']);
+	
+	$data_o_ani=mysql_real_escape_string($_POST['o-ani']);
 	
 	/* STEP 2: CHECK DATA FOR ACCURACY */
 	if($data_autoresponder_closing_line == ""){$error_console.="Autoresponder Closing Line is blank; cannot be blank.<br />";}
@@ -53,9 +120,13 @@ if(isset($_POST['save'])){
 		/* STEP 3: POST TO DATABASE */
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET autoresponder_closing_line = '$data_autoresponder_closing_line'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET is_searchable = '$data_is_searchable'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET default_webmaster_u = '$data_default_webmaster_u'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET mode = '$data_mode'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET top_nav_use = '$data_top_nav_use'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET webmaster_email = '$data_webmaster_email'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET BlogFlickrID = '$data_BlogFlickrID'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET BlogFlickrName = '$data_BlogFlickrName'");
 		
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET main_twitter_avatar_size = '$data_main_twitter_avatar_size'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET main_twitter_loading_text = '$data_main_twitter_loading_text'");
@@ -73,6 +144,67 @@ if(isset($_POST['save'])){
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET sociallinks_jcarousel_wrap = '$data_sociallinks_jcarousel_wrap'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET sociallinks_theme = '$data_sociallinks_theme'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET sociallinks_type = '$data_sociallinks_type'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_1 = '$data_plugins_whatido_tagline_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_extra_1 = '$data_plugins_whatido_tagline_extra_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_extended_1 = '$data_plugins_whatido_tagline_extended_1'");
+
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_2 = '$data_plugins_whatido_tagline_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_extra_2 = '$data_plugins_whatido_tagline_extra_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_extended_2 = '$data_plugins_whatido_tagline_extended_2'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_3 = '$data_plugins_whatido_tagline_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_extra_3 = '$data_plugins_whatido_tagline_extra_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_extended_3 = '$data_plugins_whatido_tagline_extended_3'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_1 = '$data_plugins_whatido_tagline_af_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_extra_1 = '$data_plugins_whatido_tagline_af_extra_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_extended_1 = '$data_plugins_whatido_tagline_af_extended_1'");
+
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_2 = '$data_plugins_whatido_tagline_af_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_extra_2 = '$data_plugins_whatido_tagline_af_extra_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_extended_2 = '$data_plugins_whatido_tagline_af_extended_2'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_3 = '$data_plugins_whatido_tagline_af_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_extra_3 = '$data_plugins_whatido_tagline_af_extra_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_af_extended_3 = '$data_plugins_whatido_tagline_af_extended_3'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_1 = '$data_plugins_whatido_tagline_gf_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_extra_1 = '$data_plugins_whatido_tagline_gf_extra_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_extended_1 = '$data_plugins_whatido_tagline_gf_extended_1'");
+
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_2 = '$data_plugins_whatido_tagline_gf_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_extra_2 = '$data_plugins_whatido_tagline_gf_extra_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_extended_2 = '$data_plugins_whatido_tagline_gf_extended_2'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_3 = '$data_plugins_whatido_tagline_gf_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_extra_3 = '$data_plugins_whatido_tagline_gf_extra_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_gf_extended_3 = '$data_plugins_whatido_tagline_gf_extended_3'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_1 = '$data_plugins_whatido_tagline_tmm_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_extra_1 = '$data_plugins_whatido_tagline_tmm_extra_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_extended_1 = '$data_plugins_whatido_tagline_tmm_extended_1'");
+
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_2 = '$data_plugins_whatido_tagline_tmm_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_extra_2 = '$data_plugins_whatido_tagline_tmm_extra_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_extended_2 = '$data_plugins_whatido_tagline_tmm_extended_2'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_3 = '$data_plugins_whatido_tagline_tmm_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_extra_3 = '$data_plugins_whatido_tagline_tmm_extra_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_tmm_extended_3 = '$data_plugins_whatido_tagline_tmm_extended_3'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_1 = '$data_plugins_whatido_tagline_ln_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_extra_1 = '$data_plugins_whatido_tagline_ln_extra_1'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_extended_1 = '$data_plugins_whatido_tagline_ln_extended_1'");
+
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_2 = '$data_plugins_whatido_tagline_ln_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_extra_2 = '$data_plugins_whatido_tagline_ln_extra_2'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_extended_2 = '$data_plugins_whatido_tagline_ln_extended_2'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_3 = '$data_plugins_whatido_tagline_ln_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_extra_3 = '$data_plugins_whatido_tagline_ln_extra_3'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET plugins_whatido_tagline_ln_extended_3 = '$data_plugins_whatido_tagline_ln_extended_3'") or die(mysql_error());
+		
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET tagcloud_count = '$data_tagcloud_count'");
 		
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET closed_message_top = '$data_closed_message_top'");
@@ -83,6 +215,8 @@ if(isset($_POST['save'])){
 		
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET percent_complete = '$data_percent_complete'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET status_update = '$data_status_update'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET oani = '$data_o_ani'") or die(mysql_error());
 				
 		/* STEP 4: RETURN SUCCESS */
 		echo "Successfully saved! <a href=\"?menu=settings\">Refresh</a>";
@@ -94,6 +228,24 @@ if(isset($_POST['save'])){
 		<legend>Global Variables</legend>
 			<fieldset>
 			<legend>Basic Properties</legend>
+            	<fieldset>
+					<legend>Featured Slider Properties</legend>
+					<div class="formLayoutTableMainAll">
+						<div class="formLayoutTableRowMainAll">
+							<div class="formLayoutTableRowMainAllLeftCol">
+								Animation Type
+							</div>
+							<div class="formLayoutTableRowMainAllRightCol">
+								<select name="o-ani">
+									<?php if(getGlobalVars($properties,'oani')=="fade"){?><option value="fade" selected="selected">Fade</option><?php } else {?><option value="fade">Fade</option><?php }?>
+									<?php if(getGlobalVars($properties,'oani')=="horizontal-slide"){?><option value="horizontal-slide" selected="selected">Horizontal Slide</option><?php } else {?><option value="horizontal-slide">Horizontal Slide</option><?php }?>
+									<?php if(getGlobalVars($properties,'oani')=="vertical-slide"){?><option value="vertical-slide" selected="selected">Vertical Slide</option><?php } else {?><option value="vertical-slide">Vertical Slide</option><?php }?>
+									<?php if(getGlobalVars($properties,'oani')=="horizontal-push"){?><option value="horizontal-push" selected="selected">Horizontal Push</option><?php } else {?><option value="horizontal-push">Horizontal Push</option><?php }?>
+								</select>
+							</div>
+						</div>
+					</div>
+				</fieldset>
 				<fieldset>
 					<legend>Main</legend>
 					<div class="formLayoutTableMainAll">                    
@@ -103,6 +255,15 @@ if(isset($_POST['save'])){
 							</div>
 							<div class="formLayoutTableRowMainAllRightCol">
 								<input type="text" name="autoresponder_closing_line" value="<?php echo getGlobalVars($properties,'autoresponder_closing_line');?>" />
+							</div>
+						</div>
+                        
+                        <div class="formLayoutTableRowMainAll">
+							<div class="formLayoutTableRowMainAllLeftCol">
+								Default Webmaster
+							</div>
+							<div class="formLayoutTableRowMainAllRightCol">
+								<input type="text" name="default_webmaster_u" value="<?php echo getGlobalVars($properties,'default_webmaster_u');?>" /> * this can be the user's ID or username
 							</div>
 						</div>
 						
@@ -158,6 +319,29 @@ if(isset($_POST['save'])){
 				<fieldset>
 					<legend>Social Feeds</legend>
 						<fieldset>
+						<legend>Flickr Integration</legend>
+							<div class="formLayoutTableMainAll">
+							<div class="formLayoutTableRowMainAll">
+								<div class="formLayoutTableRowMainAllLeftCol">
+									Blog Flickr ID
+								</div>
+								<div class="formLayoutTableRowMainAllRightCol">
+									<input type="text" name="BlogFlickrID" value="<?php echo getGlobalVars($properties,'BlogFlickrID');?>" /> * This is to be used by the Flickr Addon Module; it is your Flickr ID.
+								</div>
+							</div>
+							
+							<div class="formLayoutTableRowMainAll">
+								<div class="formLayoutTableRowMainAllLeftCol">
+									Blog Flickr Name
+								</div>
+								<div class="formLayoutTableRowMainAllRightCol">
+									<input type="text" name="BlogFlickrName" value="<?php echo getGlobalVars($properties,'BlogFlickrName');?>" /> * This is to be used by the Flickr Addon Module; it is the name you want to display for your Flickr Account - it can be your Instagram Name if you have Flickr tied to Instagram.
+								</div>
+							</div>														
+						</div>
+					</fieldset>
+                        
+                        <fieldset>
 						<legend>Twitter Integration</legend>
 							<div class="formLayoutTableMainAll">
 							<div class="formLayoutTableRowMainAll">
@@ -322,6 +506,522 @@ if(isset($_POST['save'])){
 					</div>
 				</fieldset>
 			</fieldset>
+            <br />
+				<fieldset>
+					<legend>PLUGIN: Whatido Settings (PAD MAIN)</legend>
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_extra_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_extra_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #1 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_extended_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_extended_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_extra_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_extra_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #2 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_extended_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_extended_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_extra_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_extra_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #3 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_extended_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_extended_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                                                
+				</fieldset>                
+                <br />
+                <fieldset>
+					<legend>PLUGIN: Whatido Settings (PAD 1)</legend>
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_extra_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_extra_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #1 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_extended_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_extended_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_extra_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_extra_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #2 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_extended_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_extended_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_extra_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_extra_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #3 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_af_extended_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_af_extended_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                                                
+				</fieldset>
+                <br />
+                <fieldset>
+					<legend>PLUGIN: Whatido Settings (PAD 2)</legend>
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_extra_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_extra_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #1 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_extended_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_extended_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_extra_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_extra_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #2 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_extended_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_extended_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_extra_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_extra_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #3 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_gf_extended_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_gf_extended_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                                                
+				</fieldset>
+                <br />
+                <fieldset>
+					<legend>PLUGIN: Whatido Settings (PAD 3)</legend>
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_extra_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_extra_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #1 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_extended_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_extended_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_extra_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_extra_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #2 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_extended_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_extended_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_extra_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_extra_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #3 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_tmm_extended_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_tmm_extended_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                                                
+				</fieldset>
+                <br />
+                <fieldset>
+					<legend>PLUGIN: Whatido Settings (PAD 4)</legend>
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #1 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_extra_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_extra_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #1 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_extended_1" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_extended_1');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #2 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_extra_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_extra_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #2 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_extended_2" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_extended_2');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                        	Tagline #3 (small text)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_extra_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_extra_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                        
+                        <div class="formLayoutTableMainAll">
+                            <div class="formLayoutTableRowMainAll">
+	                            <div class="formLayoutTableRowMainAllLeftCol">
+    	                            Tagline #3 (extended)
+        	                    </div>
+            	                <div class="formLayoutTableRowMainAllRightCol">
+                	                <input type="text" name="plugins_whatido_tagline_ln_extended_3" value="<?php echo getGlobalVars($properties,'plugins_whatido_tagline_ln_extended_3');?>" />
+                    	        </div>
+                        	</div>
+                        </div>
+                                                
+				</fieldset>
+			</fieldset>            
 			<br />
 			<fieldset>
 			<legend>Tag Cloud (footer) Properties</legend>

@@ -19,12 +19,12 @@ if($error_console!=""){
 ?>
 This will change the Launch Day Date that displays on the closed page. The format is XX/XX/XXXX where X's can represent Question Marks (?).
 <form action="" method="post">
-<div id="formLayoutTable">
-    <div class="formLayoutTableRow">
-        <div class="formLayoutTableRowLeftCol">
+<div id="formLayoutTableConstruction">
+    <div class="formLayoutTableConstructionRow">
+        <div class="formLayoutTableConstructionRowLeftCol">
             <label>Launch Day Date</label>
         </div>
-        <div class="formLayoutTableRowRightCol">
+        <div class="formLayoutTableConstructionRowRightCol">
             <input type="hidden" name="wtd" value="change_ldd" />
             <script type="text/javascript">
             $(function() {
@@ -37,11 +37,11 @@ This will change the Launch Day Date that displays on the closed page. The forma
         </div>
     </div>                   
     
-    <div class="formLayoutTableRow">
-        <div class="formLayoutTableRowLeftCol">
+    <div class="formLayoutTableConstructionRow">
+        <div class="formLayoutTableConstructionRowLeftCol">
             
         </div>
-        <div class="formLayoutTableRowRightCol">
+        <div class="formLayoutTableConstructionRowRightCol">
             <input type="submit" name="postldd" value="Save" class="submit" />
         </div>
     </div>

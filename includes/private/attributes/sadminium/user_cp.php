@@ -1,9 +1,9 @@
 Welcome to your User CP! Here is where you can change all the attributes of your online profile here. 
 <form action="" method="post">
     <input type="hidden" name="wtd" value="user_cp" />
-    <div id="formLayoutTable">
-        <div class="formLayoutTableRow">
-            <div class="formLayoutTableRowLeftCol">
+    <div id="formLayoutTableConstruction">
+        <div class="formLayoutTableConstructionRow">
+            <div class="formLayoutTableConstructionRowLeftCol">
                 <label>First Name</label>
                 <br />
                 <label>Last Name</label>
@@ -13,16 +13,16 @@ Welcome to your User CP! Here is where you can change all the attributes of your
                 <label>Password</label>
                 
             </div>
-            <div class="formLayoutTableRowRightCol">
+            <div class="formLayoutTableConstructionRowRightCol">
                 <input type="text" name="ucp_" value="" />
             </div>
         </div>
         
-        <div class="formLayoutTableRow">
-            <div class="formLayoutTableRowLeftCol">
+        <div class="formLayoutTableConstructionRow">
+            <div class="formLayoutTableConstructionRowLeftCol">
                 
             </div>
-            <div class="formLayoutTableRowRightCol">
+            <div class="formLayoutTableConstructionRowRightCol">
                 <input type="submit" name="user_cp_save" value="Save" class="submit" />
             </div>
         </div>

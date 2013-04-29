@@ -17,23 +17,23 @@ if(isset($_POST['adjust_mbr'])){
 ?>
 Use of this form is to allow you as an admin to change the amount of positions open for Closed BETA Members
 <form action="" method="post">
-    <div id="formLayoutTable">
-        <div class="formLayoutTableRow">
-            <div class="formLayoutTableRowLeftCol">
+    <div id="formLayoutTableConstruction">
+        <div class="formLayoutTableConstructionRow">
+            <div class="formLayoutTableConstructionRowLeftCol">
                 <label>Max BETA Member Rate</label>
             </div>
-            <div class="formLayoutTableRowRightCol">
+            <div class="formLayoutTableConstructionRowRightCol">
                 <input type="hidden" name="wtd" value="adjust_mbr" />
                 <input type="number" name="mbr" style="width:150px;" min="0" max="1000" value="<?php echo getGlobalVars($properties,'max_closed_beta_positions');?>" />
             </div>
         </div>                   
 
         
-        <div class="formLayoutTableRow">
-            <div class="formLayoutTableRowLeftCol">
+        <div class="formLayoutTableConstructionRow">
+            <div class="formLayoutTableConstructionRowLeftCol">
                 
             </div>
-            <div class="formLayoutTableRowRightCol">
+            <div class="formLayoutTableConstructionRowRightCol">
                 <input type="submit" name="adjust_mbr" value="Save" class="submit" />
             </div>
         </div>

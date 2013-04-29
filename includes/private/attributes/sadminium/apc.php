@@ -17,22 +17,22 @@ if(isset($_POST['postapc'])){
 ?>
 This form will change the mode of this entire site. Be careful when doing so, as some options might unleash this site to the public prematurely and/or take you away from this place.
 <form action="" method="post">
-	<div id="formLayoutTable">
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+	<div id="formLayoutTableConstruction">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				<label>Completion</label>
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="hidden" name="wtd" value="apc" />
 				<input type="number" step=".01" min="0" max="100" name="percent" value="<?php echo getGlobalVars($properties,'percent_complete');?>" />
 			</div>
 		</div>                   
 		
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="submit" name="postapc" value="Save" class="submit" />
 			</div>
 		</div>

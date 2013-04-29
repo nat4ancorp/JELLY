@@ -17,22 +17,22 @@ if(isset($_POST['adjust_mar'])){
 ?>
 Use of this form is to allow you as an admin to change the amount of positions open for admins
 <form action="" method="post">
-	<div id="formLayoutTable">
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+	<div id="formLayoutTableConstruction">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				<label>Max Admin Rate</label>
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="hidden" name="wtd" value="adjust_mar" />
 				<input type="number" name="mar" style="width:150px;" min="0" max="1000" value="<?php echo getGlobalVars($properties,'max_admin_positions');?>" />
 			</div>
 		</div>                   
 		
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="submit" name="adjust_mar" value="Save" class="submit" />
 			</div>
 		</div>

@@ -39,6 +39,48 @@ if(isset($_POST['save'])){
 	$data_posts_special_item=mysql_real_escape_string($_POST['posts_special_item']);
 	$data_posts_default_order=mysql_real_escape_string($_POST['posts_default_order']);
 	
+	$data_pages_pad=mysql_real_escape_string($_POST['pages_pad']);
+	$data_pages_page=mysql_real_escape_string($_POST['pages_page']);
+	$data_pages_list=mysql_real_escape_string($_POST['pages_list']);
+	$data_pages_defaults=mysql_real_escape_string($_POST['pages_defaults']);
+	$data_pages_sublist=mysql_real_escape_string($_POST['pages_sublist']);
+	$data_pages_names=mysql_real_escape_string($_POST['pages_names']);
+	$data_pages_special=mysql_real_escape_string($_POST['pages_special']);
+	$data_pages_special_item=mysql_real_escape_string($_POST['pages_special_item']);
+	$data_pages_default_order=mysql_real_escape_string($_POST['pages_default_order']);
+	
+	$data_pages_modules_pad=mysql_real_escape_string($_POST['pages_modules_pad']);
+	$data_pages_modules_page=mysql_real_escape_string($_POST['pages_modules_page']);
+	$data_pages_modules_list=mysql_real_escape_string($_POST['pages_modules_list']);
+	$data_pages_modules_defaults=mysql_real_escape_string($_POST['pages_modules_defaults']);
+	$data_pages_modules_sublist=mysql_real_escape_string($_POST['pages_modules_sublist']);
+	$data_pages_modules_names=mysql_real_escape_string($_POST['pages_modules_names']);
+	$data_pages_modules_special=mysql_real_escape_string($_POST['pages_modules_special']);
+	$data_pages_modules_special_item=mysql_real_escape_string($_POST['pages_modules_special_item']);
+	$data_pages_modules_default_order=mysql_real_escape_string($_POST['pages_modules_default_order']);
+	
+	$data_comments_pad=mysql_real_escape_string($_POST['comments_pad']);
+	$data_comments_page=mysql_real_escape_string($_POST['comments_page']);
+	$data_comments_list=mysql_real_escape_string($_POST['comments_list']);
+	$data_comments_defaults=mysql_real_escape_string($_POST['comments_defaults']);
+	$data_comments_sublist=mysql_real_escape_string($_POST['comments_sublist']);
+	$data_comments_names=mysql_real_escape_string($_POST['comments_names']);
+	$data_comments_special=mysql_real_escape_string($_POST['comments_special']);
+	$data_comments_special_item=mysql_real_escape_string($_POST['comments_special_item']);
+	$data_comments_default_order=mysql_real_escape_string($_POST['comments_default_order']);
+	
+	$data_queries_pad=mysql_real_escape_string($_POST['queries_pad']);
+	$data_queries_page=mysql_real_escape_string($_POST['queries_page']);
+	$data_queries_list=mysql_real_escape_string($_POST['queries_list']);
+	$data_queries_defaults=mysql_real_escape_string($_POST['queries_defaults']);
+	$data_queries_sublist=mysql_real_escape_string($_POST['queries_sublist']);
+	$data_queries_names=mysql_real_escape_string($_POST['queries_names']);
+	$data_queries_special=mysql_real_escape_string($_POST['queries_special']);
+	$data_queries_special_item=mysql_real_escape_string($_POST['queries_special_item']);
+	$data_queries_default_order=mysql_real_escape_string($_POST['queries_default_order']);
+	$data_queries_poctable=mysql_real_escape_string($_POST['queries_poctable']);
+	$data_queries_reasontable=mysql_real_escape_string($_POST['queries_reasontable']);
+	
 	/* STEP 2: CHECK DATA FOR ACCURACY */
 	//if($data_ == ""){$error_console.="<br />";}
 	
@@ -60,8 +102,10 @@ if(isset($_POST['save'])){
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET html_in_comments = '$data_html_in_comments'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET N_TAGs_in_comments = '$data_N_TAGs_in_comments'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET blog_entries_in_sets_of = '$data_blog_entries_in_sets_of'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET changelog_entries_in_sets_of = '$data_blog_entries_in_sets_of'");
 		
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET blog_entries_limit = '$data_blog_entries_limit'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET changelog_entries_limit = '$data_blog_entries_limit'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET blog_time_format = '$data_blog_time_format'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET post_action_for_comments = '$data_post_action_for_comments'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET blog_show_seconds = '$data_blog_show_seconds'");
@@ -82,6 +126,48 @@ if(isset($_POST['save'])){
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET posts_special = '$data_posts_special'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET posts_special_item = '$data_posts_special_item'");
 		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET posts_default_order = '$data_posts_default_order'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_pad = '$data_pages_pad'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_page = '$data_pages_page'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_list = '$data_pages_list'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_defaults = '$data_pages_defaults'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_sublist = '$data_pages_sublist'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_names = '$data_pages_names'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_special = '$data_pages_special'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_special_item = '$data_pages_special_item'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_default_order = '$data_pages_default_order'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_pad = '$data_pages_modules_pad'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_page = '$data_pages_modules_page'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_list = '$data_pages_modules_list'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_defaults = '$data_pages_modules_defaults'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_sublist = '$data_pages_modules_sublist'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_names = '$data_pages_modules_names'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_special = '$data_pages_modules_special'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_special_item = '$data_pages_modules_special_item'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET pages_modules_default_order = '$data_pages_modules_default_order'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_pad = '$data_comments_pad'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_page = '$data_comments_page'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_list = '$data_comments_list'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_defaults = '$data_comments_defaults'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_sublist = '$data_comments_sublist'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_names = '$data_comments_names'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_special = '$data_comments_special'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_special_item = '$data_comments_special_item'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET comments_default_order = '$data_comments_default_order'");
+		
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_pad = '$data_queries_pad'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_page = '$data_queries_page'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_list = '$data_queries_list'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_defaults = '$data_queries_defaults'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_sublist = '$data_queries_sublist'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_names = '$data_queries_names'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_special = '$data_queries_special'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_special_item = '$data_queries_special_item'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_default_order = '$data_queries_default_order'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_poctable = '$data_queries_poctable'");
+		mysql_query("UPDATE {$properties->DB_PREFIX}globalvars SET queries_reasontable = '$data_queries_reasontable'");
 				
 		/* STEP 4: RETURN SUCCESS */
 		echo "Successfully saved! <a href=\"?menu=settings&page=writing\">Refresh</a>";
@@ -360,7 +446,7 @@ if(isset($_POST['save'])){
             <div class="formLayoutTableMainAllLong">
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Pad(s)
+                        Pad(s) *the pad name the post is on
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_pad" value="<?php echo getGlobalVars($properties,'posts_pad');?>" />
@@ -369,7 +455,7 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Page(s)
+                        Page(s) *the page name itself the post is on
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_page" value="<?php echo getGlobalVars($properties,'posts_page');?>" />
@@ -378,7 +464,7 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        List(s)
+                        List(s) *the name of the table after the prefix you set
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_list" value="<?php echo getGlobalVars($properties,'posts_list');?>" />
@@ -387,7 +473,7 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Default(s)
+                        Default(s) *no - the display of the item
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_defaults" value="<?php echo getGlobalVars($properties,'posts_defaults');?>" />
@@ -396,7 +482,7 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Sublist(s)
+                        Sublist(s) *this is the part after the _ in the table name
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_sublist" value="<?php echo getGlobalVars($properties,'posts_sublist');?>" />
@@ -405,7 +491,7 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Name(s)
+                        Name(s) *name of the post item
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_names" value="<?php echo getGlobalVars($properties,'posts_names');?>" />
@@ -414,7 +500,7 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Special(s)
+                        Special(s) *not used; so put "0" for each
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_special" value="<?php echo getGlobalVars($properties,'posts_special');?>" />
@@ -423,7 +509,7 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Special(s) Item(s)
+                        Special(s) Item(s) *not used; so put "none" for each
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_special_item" value="<?php echo getGlobalVars($properties,'posts_special_item');?>" />
@@ -432,14 +518,385 @@ if(isset($_POST['save'])){
                 
                 <div class="formLayoutTableRowMainAllLong">
                     <div class="formLayoutTableRowMainAllLongLeftCol">
-                        Default Order
+                        Default Order *the order of the tables
                     </div>
                     <div class="formLayoutTableRowMainAllLongRightCol">
                         <input type="text" name="posts_default_order" value="<?php echo getGlobalVars($properties,'posts_default_order');?>" />
                     </div>
                 </div>               
             </div>
+            </fieldset>
+            <br />
+            <fieldset>
+            <a name="pcp"></a>
+            <legend>Page Creation Properties</legend>
+            <p>These are specifically designed to moderate the Pages section on this cPanel. The content found in each of them are items that the pages section loads and allows you to edit/view/delete/whatever. Make sure to separate each item with a comma and follow the end with a trailing comma.</p>
+            <div class="formLayoutTableMainAllLong">
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Pad(s) *the pad name the page is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_pad" value="<?php echo getGlobalVars($properties,'pages_pad');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Page(s) *the page name itself the page is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_page" value="<?php echo getGlobalVars($properties,'pages_page');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        List(s) *the name of the table after the prefix you set
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_list" value="<?php echo getGlobalVars($properties,'pages_list');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default(s) *no - the display of the item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_defaults" value="<?php echo getGlobalVars($properties,'pages_defaults');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Sublist(s) *this is the part after the _ in the table name
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_sublist" value="<?php echo getGlobalVars($properties,'pages_sublist');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Name(s) *name of the page item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_names" value="<?php echo getGlobalVars($properties,'pages_names');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) *not used; so put "0" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_special" value="<?php echo getGlobalVars($properties,'pages_special');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) Item(s) *not used; so put "none" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_special_item" value="<?php echo getGlobalVars($properties,'pages_special_item');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default Order *the order of the tables
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_default_order" value="<?php echo getGlobalVars($properties,'pages_default_order');?>" />
+                    </div>
+                </div>               
+            </div>
+            </fieldset>
+            <br />
+            <fieldset>
+            <a name="pmp"></a>
+            <legend>Page Modules Creatin Properties</legend>
+            <p>These are specifically designed to moderate the Page Modules section on this cPanel. The content found in each of them are items that the page modules section loads and allows you to edit/view/delete/whatever. Make sure to separate each item with a comma and follow the end with a trailing comma.</p>
+            <div class="formLayoutTableMainAllLong">
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Pad(s) *the pad name the page is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_pad" value="<?php echo getGlobalVars($properties,'pages_modules_pad');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Page(s) *the page name itself the page is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_page" value="<?php echo getGlobalVars($properties,'pages_modules_page');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        List(s) *the name of the table after the prefix you set
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_list" value="<?php echo getGlobalVars($properties,'pages_modules_list');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default(s) *no - the display of the item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_defaults" value="<?php echo getGlobalVars($properties,'pages_modules_defaults');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Sublist(s) *this is the part after the _ in the table name
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_sublist" value="<?php echo getGlobalVars($properties,'pages_modules_sublist');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Name(s) *name of the page item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_names" value="<?php echo getGlobalVars($properties,'pages_modules_names');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) *not used; so put "0" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_special" value="<?php echo getGlobalVars($properties,'pages_modules_special');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) Item(s) *not used; so put "none" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_special_item" value="<?php echo getGlobalVars($properties,'pages_modules_special_item');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default Order *the order of the tables
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="pages_modules_default_order" value="<?php echo getGlobalVars($properties,'pages_modules_default_order');?>" />
+                    </div>
+                </div>               
+            </div>
+            </fieldset>
+            <br />
+            <fieldset>
+            <a name="cs"></a>
+            <legend>Comments Properties</legend>
+            <p>These are specifically designed to moderate the Comments section on this cPanel. The content found in each of them are items that the comments section loads and allows you to edit/view/delete/whatever. Make sure to separate each item with a comma and follow the end with a trailing comma.</p>
+            <div class="formLayoutTableMainAllLong">
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Pad(s) *the pad name the comment is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_pad" value="<?php echo getGlobalVars($properties,'comments_pad');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Page(s) *the page name itself the comment is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_page" value="<?php echo getGlobalVars($properties,'comments_page');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        List(s) *the name of the table after the prefix you set
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_list" value="<?php echo getGlobalVars($properties,'comments_list');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default(s) *no - the display of the item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_defaults" value="<?php echo getGlobalVars($properties,'comments_defaults');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Sublist(s) *this is the part after the _ in the table name
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_sublist" value="<?php echo getGlobalVars($properties,'comments_sublist');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Name(s) *name of the comment item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_names" value="<?php echo getGlobalVars($properties,'comments_names');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) *not used; so put "0" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_special" value="<?php echo getGlobalVars($properties,'comments_special');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) Item(s) *not used; so put "none" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_special_item" value="<?php echo getGlobalVars($properties,'comments_special_item');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default Order *the order of the tables
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="comments_default_order" value="<?php echo getGlobalVars($properties,'comments_default_order');?>" />
+                    </div>
+                </div>               
+            </div>
+            </fieldset>        
+            <br />
+            <fieldset>
+            <a name="pps"></a>
+            <legend>Queries Properties</legend>
+            <p>These are specifically designed to moderate the Queries section on this cPanel. The content found in each of them are items that the comments section loads and allows you to edit/view/delete/whatever. Make sure to separate each item with a comma and follow the end with a trailing comma.</p>
+            <div class="formLayoutTableMainAllLong">
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Pad(s) *the pad name the comment is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_pad" value="<?php echo getGlobalVars($properties,'queries_pad');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Page(s) *the page name itself the comment is on
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_page" value="<?php echo getGlobalVars($properties,'queries_page');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        List(s) *the name of the table after the prefix you set
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_list" value="<?php echo getGlobalVars($properties,'queries_list');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default(s) *no - the display of the item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_defaults" value="<?php echo getGlobalVars($properties,'queries_defaults');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Sublist(s) *this is the part after the _ in the table name
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_sublist" value="<?php echo getGlobalVars($properties,'queries_sublist');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Name(s) *name of the comment item
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_names" value="<?php echo getGlobalVars($properties,'queries_names');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) *not used; so put "0" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_special" value="<?php echo getGlobalVars($properties,'queries_special');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Special(s) Item(s) *not used; so put "none" for each
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_special_item" value="<?php echo getGlobalVars($properties,'queries_special_item');?>" />
+                    </div>
+                </div>
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Default Order *the order of the tables
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_default_order" value="<?php echo getGlobalVars($properties,'queries_default_order');?>" />
+                    </div>
+                </div>       
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        POC Table(s) *what table name to look for pocs
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_poctable" value="<?php echo getGlobalVars($properties,'queries_poctable');?>" />
+                    </div>
+                </div>       
+                
+                <div class="formLayoutTableRowMainAllLong">
+                    <div class="formLayoutTableRowMainAllLongLeftCol">
+                        Reason Table(s) *what table name to look for reasons
+                    </div>
+                    <div class="formLayoutTableRowMainAllLongRightCol">
+                        <input type="text" name="queries_reasontable" value="<?php echo getGlobalVars($properties,'queries_reasontable');?>" />
+                    </div>
+                </div>               
+            </div>
             </fieldset>           
+		</fieldset>   
 		</fieldset>
     <br />
     <center><input type="submit" name="save" value="Save" /></center>

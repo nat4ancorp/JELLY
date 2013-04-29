@@ -48,17 +48,17 @@ if(isset($_POST['rapplicant'])){
 	Use this place to review applicants for positions
 	<form action="" method="post">
 		<input type="hidden" name="wtd" value="review_applicants" />
-		<div id="formLayoutTableSpecialBig">
+		<div id="formLayoutTableConstructionSpecialBig">
 			<?php
 			if($num_of_applicants<1){
 				/* NO APPLICANTS */
 			} else {
 			?>
-			<div class="formLayoutTableRow">
-				<div class="formLayoutTableRowLeftCol">
+			<div class="formLayoutTableConstructionRow">
+				<div class="formLayoutTableConstructionRowLeftCol">
 					<label># Applicants</label>
 				</div>
-				<div class="formLayoutTableRowRightCol">
+				<div class="formLayoutTableConstructionRowRightCol">
 					<?php echo $num_of_applicants;?>
 				</div>
 			</div>
@@ -69,11 +69,11 @@ if(isset($_POST['rapplicant'])){
 			//get all the applicants
 			if($num_of_applicants<1){
 				?>
-				<div class="formLayoutTableRow">
-					<div class="formLayoutTableRowLeftCol">
+				<div class="formLayoutTableConstructionRow">
+					<div class="formLayoutTableConstructionRowLeftCol">
 											
 					</div>
-					<div class="formLayoutTableRowRightCol">
+					<div class="formLayoutTableConstructionRowRightCol">
 						No Applicants
 					</div>
 				</div>
@@ -88,39 +88,39 @@ if(isset($_POST['rapplicant'])){
 					$why=$FETCH_APPLICANTS['why'];
 					?>
 					<input type="hidden" name="applicant_id" value="<?php echo $id;?>" />
-					<div class="formLayoutTableRow">
-						<div class="formLayoutTableRowLeftCol">
+					<div class="formLayoutTableConstructionRow">
+						<div class="formLayoutTableConstructionRowLeftCol">
 							<label>Name</label>
 						</div>
-						<div class="formLayoutTableRowRightCol">
+						<div class="formLayoutTableConstructionRowRightCol">
 							<?php echo $fname." ".$lname;?>
 						</div>
 					</div>
 					
-					<div class="formLayoutTableRow">
-						<div class="formLayoutTableRowLeftCol">
+					<div class="formLayoutTableConstructionRow">
+						<div class="formLayoutTableConstructionRowLeftCol">
 							<label>Type</label>
 						</div>
-						<div class="formLayoutTableRowRightCol">
+						<div class="formLayoutTableConstructionRowRightCol">
 							<?php echo $type;?>
 						</div>
 					</div>
 					
-					<div class="formLayoutTableRow">
-						<div class="formLayoutTableRowLeftCol">
+					<div class="formLayoutTableConstructionRow">
+						<div class="formLayoutTableConstructionRowLeftCol">
 							<label>Why</label>
 						</div>
-						<div class="formLayoutTableRowRightCol">
+						<div class="formLayoutTableConstructionRowRightCol">
 							<?php if(strlen($why)>35){$ending="...";}else{$ending="";}?>
 							<?php echo substr($why,0,32).$ending;?>
 						</div>
 					</div>
 					<br />
-					<div class="formLayoutTableRow">
-						<div class="formLayoutTableRowLeftCol">
+					<div class="formLayoutTableConstructionRow">
+						<div class="formLayoutTableConstructionRowLeftCol">
 							<label>Respond</label>
 						</div>
-						<div class="formLayoutTableRowRightCol">
+						<div class="formLayoutTableConstructionRowRightCol">
 							<select name="response">
 								<option value="">--------------- your response ---------------</option>
 								<option value="approve">Approve</option>
@@ -138,11 +138,11 @@ if(isset($_POST['rapplicant'])){
 				/* NO APPLICANTS */
 			} else {
 			?>
-			<div class="formLayoutTableRow">
-				<div class="formLayoutTableRowLeftCol">
+			<div class="formLayoutTableConstructionRow">
+				<div class="formLayoutTableConstructionRowLeftCol">
 					
 				</div>
-				<div class="formLayoutTableRowRightCol">
+				<div class="formLayoutTableConstructionRowRightCol">
 					<input type="submit" name="rapplicant" value="Save" class="submit" />
 				</div>
 			</div>

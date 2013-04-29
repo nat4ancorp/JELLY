@@ -17,6 +17,7 @@ RewriteRule ^other/inthebeginning - [L,NC]
 RewriteRule ^TheKandyKraftChronicles - [L,NC]
 RewriteRule ^mobile - [L,NC]
 RewriteRule ^testing - [L,NC]
+RewriteRule ^feed - [L,NC]
 
 # first-level rewriting (launchpad and page)
 RewriteRule ^([^/]+)/([^/]+)$ ?launchpad=$1&page=$2 [L]
@@ -105,90 +106,147 @@ RewriteRule ^portfolio/blog/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=portf
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+# changes user rule
+RewriteRule ^portfolio/changes/user$ ?launchpad=portfolio&page=changes&meta=users [L]
+RewriteRule ^portfolio/changes/user/$ ?launchpad=portfolio&page=changes&meta=users [L]
+RewriteRule ^portfolio/changes/user/([^/]+)$ ?launchpad=portfolio&page=changes&meta=users&user=$1 [L]
+RewriteRule ^portfolio/changes/user/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=users&user=$1 [L]
+
+# changes category rule
+RewriteRule ^portfolio/changes/category/([^/]+)$ ?launchpad=portfolio&page=changes&meta=category&category=$1 [L]
+
+# changes permalink rule
+RewriteRule ^portfolio/changes/permalink$ ?launchpad=portfolio&page=changes&meta=permalink [L]
+RewriteRule ^portfolio/changes/permalink/$ ?launchpad=portfolio&page=changes&meta=permalink [L]
+
+RewriteRule ^portfolio/changes/permalink/([^/]+)$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1 [L]
+RewriteRule ^portfolio/changes/permalink/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1 [L]
+RewriteRule ^portfolio/changes/permalink/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^portfolio/changes/permalink/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^portfolio/changes/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^portfolio/changes/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^portfolio/changes/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^portfolio/changes/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+
+# changes tag rule
+RewriteRule ^portfolio/changes/tag/([^/]+)$ ?launchpad=portfolio&page=changes&meta=tag&tag=$1 [L]
+
+# changes comment rule
+RewriteRule ^portfolio/changes/comment/([^/]+)$ ?launchpad=portfolio&page=changes&meta=comment&operand=$1 [L]
+RewriteRule ^portfolio/changes/comment/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=comment&operand=$1 [L]
+RewriteRule ^portfolio/changes/comment/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^portfolio/changes/comment$ ?launchpad=portfolio&page=changes&meta=comment [L]
+RewriteRule ^portfolio/changes/comment/$ ?launchpad=portfolio&page=changes&meta=comment [L]
+RewriteRule ^portfolio/changes/comment/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=comment&operand=$1&commentticketid=$2 [L]
+
+# changes archive (botr) rule
+RewriteRule ^portfolio/changes/botr$ ?launchpad=portfolio&page=changes&meta=botr [L]
+RewriteRule ^portfolio/changes/botr/$ ?launchpad=portfolio&page=changes&meta=botr [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)$ ?launchpad=portfolio&page=changes&meta=botr&year=$1 [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=botr&year=$1 [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=botr&year=$1&month=$2 [L]
+
+# changes pagination rules
+RewriteRule ^portfolio/changes/category/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^portfolio/changes/category/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=category&category=$1&pagination=$2 [L]
+
+RewriteRule ^portfolio/changes/user/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^portfolio/changes/user/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^portfolio/changes/tag/([^/]+)/([^/]+)$ ?launchpad=portfolio&page=changes&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^portfolio/changes/tag/([^/]+)/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^portfolio/changes/([^/]+)$ ?launchpad=portfolio&page=changes&pagination=$1 [L]
+RewriteRule ^portfolio/changes/([^/]+)/$ ?launchpad=portfolio&page=changes&pagination=$1 [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=changes&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=portfolio&page=changes&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^portfolio/changes/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=portfolio&page=changes&meta=botr&year=$1&month=$2&pagination=$3 [L]
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-# a-z-list user rule
-RewriteRule ^af/a-z-list/user$ ?launchpad=af&page=a-z-list&meta=users [L]
-RewriteRule ^af/a-z-list/user/$ ?launchpad=af&page=a-z-list&meta=users [L]
-RewriteRule ^af/a-z-list/user/([^/]+)$ ?launchpad=af&page=a-z-list&meta=users&user=$1 [L]
-RewriteRule ^af/a-z-list/user/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=users&user=$1 [L]
 
-# a-z-list author rule
-RewriteRule ^af/a-z-list/authors$ ?launchpad=af&page=a-z-list&meta=authors [L]
-RewriteRule ^af/a-z-list/authors/$ ?launchpad=af&page=a-z-list&meta=authors [L]
-RewriteRule ^af/a-z-list/authors/([^/]+)$ ?launchpad=af&page=a-z-list&meta=authors&author=$1 [L]
-RewriteRule ^af/a-z-list/authors/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=authors&author=$1 [L]
-# a-z-list director rule
-RewriteRule ^af/a-z-list/directors$ ?launchpad=af&page=a-z-list&meta=directors [L]
-RewriteRule ^af/a-z-list/directors/$ ?launchpad=af&page=a-z-list&meta=directors [L]
-RewriteRule ^af/a-z-list/directors/([^/]+)$ ?launchpad=af&page=a-z-list&meta=directors&director=$1 [L]
-RewriteRule ^af/a-z-list/directors/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=directors&director=$1 [L]
+# a-z-list-reviews-reviews user rule
+RewriteRule ^af/a-z-list-reviews-reviews/user$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=users [L]
+RewriteRule ^af/a-z-list-reviews-reviews/user/$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=users [L]
+RewriteRule ^af/a-z-list-reviews-reviews/user/([^/]+)$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=users&user=$1 [L]
+RewriteRule ^af/a-z-list-reviews-reviews/user/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=users&user=$1 [L]
 
-# a-z-list studio rule
-RewriteRule ^af/a-z-list/studios$ ?launchpad=af&page=a-z-list&meta=studios [L]
-RewriteRule ^af/a-z-list/studios/$ ?launchpad=af&page=a-z-list&meta=studios [L]
-RewriteRule ^af/a-z-list/studios/([^/]+)$ ?launchpad=af&page=a-z-list&meta=studios&studio=$1 [L]
-RewriteRule ^af/a-z-list/studios/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=studios&studio=$1 [L]
+# a-z-list-reviews-reviews author rule
+RewriteRule ^af/a-z-list-reviews-reviews/authors$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=authors [L]
+RewriteRule ^af/a-z-list-reviews-reviews/authors/$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=authors [L]
+RewriteRule ^af/a-z-list-reviews-reviews/authors/([^/]+)$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=authors&author=$1 [L]
+RewriteRule ^af/a-z-list-reviews-reviews/authors/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=authors&author=$1 [L]
+# a-z-list-reviews-reviews director rule
+RewriteRule ^af/a-z-list-reviews-reviews/directors$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=directors [L]
+RewriteRule ^af/a-z-list-reviews-reviews/directors/$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=directors [L]
+RewriteRule ^af/a-z-list-reviews-reviews/directors/([^/]+)$ ?launchpad=af&page=a-z-list-reviews-reviews&meta=directors&director=$1 [L]
+RewriteRule ^af/a-z-list-reviews/directors/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=directors&director=$1 [L]
 
-# a-z-list network rule
-RewriteRule ^af/a-z-list/networks$ ?launchpad=af&page=a-z-list&meta=networks [L]
-RewriteRule ^af/a-z-list/networks/$ ?launchpad=af&page=a-z-list&meta=networks [L]
-RewriteRule ^af/a-z-list/networks/([^/]+)$ ?launchpad=af&page=a-z-list&meta=networks&network=$1 [L]
-RewriteRule ^af/a-z-list/networks/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=networks&network=$1 [L]
+# a-z-list-reviews studio rule
+RewriteRule ^af/a-z-list-reviews/studios$ ?launchpad=af&page=a-z-list-reviews&meta=studios [L]
+RewriteRule ^af/a-z-list-reviews/studios/$ ?launchpad=af&page=a-z-list-reviews&meta=studios [L]
+RewriteRule ^af/a-z-list-reviews/studios/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=studios&studio=$1 [L]
+RewriteRule ^af/a-z-list-reviews/studios/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=studios&studio=$1 [L]
 
-# a-z-list category rule
-RewriteRule ^af/a-z-list/category/([^/]+)$ ?launchpad=af&page=a-z-list&meta=category&category=$1 [L]
+# a-z-list-reviews network rule
+RewriteRule ^af/a-z-list-reviews/networks$ ?launchpad=af&page=a-z-list-reviews&meta=networks [L]
+RewriteRule ^af/a-z-list-reviews/networks/$ ?launchpad=af&page=a-z-list-reviews&meta=networks [L]
+RewriteRule ^af/a-z-list-reviews/networks/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=networks&network=$1 [L]
+RewriteRule ^af/a-z-list-reviews/networks/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=networks&network=$1 [L]
 
-# a-z-list permalink rule
-RewriteRule ^af/a-z-list/permalink$ ?launchpad=af&page=a-z-list&meta=permalink [L]
-RewriteRule ^af/a-z-list/permalink/$ ?launchpad=af&page=a-z-list&meta=permalink [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1 [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1 [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2 [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2 [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3 [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3 [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
-RewriteRule ^af/a-z-list/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+# a-z-list-reviews category rule
+RewriteRule ^af/a-z-list-reviews/category/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=category&category=$1 [L]
 
-# a-z-list tag rule
-RewriteRule ^af/a-z-list/tag/([^/]+)$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1 [L]
+# a-z-list-reviews permalink rule
+RewriteRule ^af/a-z-list-reviews/permalink$ ?launchpad=af&page=a-z-list-reviews&meta=permalink [L]
+RewriteRule ^af/a-z-list-reviews/permalink/$ ?launchpad=af&page=a-z-list-reviews&meta=permalink [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1 [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1 [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1&month=$2 [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1&month=$2&day=$3 [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
+RewriteRule ^af/a-z-list-reviews/permalink/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=permalink&year=$1&month=$2&day=$3&title=$4 [L]
 
-# a-z-list comment rule
-RewriteRule ^af/a-z-list/comment/([^/]+)$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1 [L]
-RewriteRule ^af/a-z-list/comment/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1 [L]
-RewriteRule ^af/a-z-list/comment/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1&commentticketid=$2 [L]
-RewriteRule ^af/a-z-list/comment$ ?launchpad=af&page=a-z-list&meta=comment [L]
-RewriteRule ^af/a-z-list/comment/$ ?launchpad=af&page=a-z-list&meta=comment [L]
-RewriteRule ^af/a-z-list/comment/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=comment&operand=$1&commentticketid=$2 [L]
+# a-z-list-reviews tag rule
+RewriteRule ^af/a-z-list-reviews/tag/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=tag&tag=$1 [L]
 
-# a-z-list archive (botr) rule
-RewriteRule ^af/a-z-list/botr$ ?launchpad=af&page=a-z-list&meta=botr [L]
-RewriteRule ^af/a-z-list/botr/$ ?launchpad=af&page=a-z-list&meta=botr [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1 [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1 [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2 [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2 [L]
+# a-z-list-reviews comment rule
+RewriteRule ^af/a-z-list-reviews/comment/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=comment&operand=$1 [L]
+RewriteRule ^af/a-z-list-reviews/comment/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=comment&operand=$1 [L]
+RewriteRule ^af/a-z-list-reviews/comment/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=comment&operand=$1&commentticketid=$2 [L]
+RewriteRule ^af/a-z-list-reviews/comment$ ?launchpad=af&page=a-z-list-reviews&meta=comment [L]
+RewriteRule ^af/a-z-list-reviews/comment/$ ?launchpad=af&page=a-z-list-reviews&meta=comment [L]
+RewriteRule ^af/a-z-list-reviews/comment/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=comment&operand=$1&commentticketid=$2 [L]
 
-# a-z-list pagination rules
-RewriteRule ^af/a-z-list/category/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=category&category=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/category/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=category&category=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/user/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=users&user=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/user/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=users&user=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/authors/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=authors&author=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/authors/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=authors&author=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/tag/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/tag/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=tag&tag=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/([^/]+)$ ?launchpad=af&page=a-z-list&pagination=$1 [L]
-RewriteRule ^af/a-z-list/([^/]+)/$ ?launchpad=af&page=a-z-list&pagination=$1 [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&pagination=$2 [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2&pagination=$3 [L]
-RewriteRule ^af/a-z-list/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list&meta=botr&year=$1&month=$2&pagination=$3 [L]
+# a-z-list-reviews archive (botr) rule
+RewriteRule ^af/a-z-list-reviews/botr$ ?launchpad=af&page=a-z-list-reviews&meta=botr [L]
+RewriteRule ^af/a-z-list-reviews/botr/$ ?launchpad=af&page=a-z-list-reviews&meta=botr [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1 [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1 [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1&month=$2 [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1&month=$2 [L]
+
+# a-z-list-reviews pagination rules
+RewriteRule ^af/a-z-list-reviews/category/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/category/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=category&category=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/user/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/user/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=users&user=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/authors/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=authors&author=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/authors/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=authors&author=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/tag/([^/]+)/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/tag/([^/]+)/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=tag&tag=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&pagination=$1 [L]
+RewriteRule ^af/a-z-list-reviews/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&pagination=$1 [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1&pagination=$2 [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)/([^/]+)/page/([^/]+)$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1&month=$2&pagination=$3 [L]
+RewriteRule ^af/a-z-list-reviews/botr/([^/]+)/([^/]+)/page/([^/]+)/$ ?launchpad=af&page=a-z-list-reviews&meta=botr&year=$1&month=$2&pagination=$3 [L]
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,121 @@
+@import "colors";
+
+/* BASICS */
+#header-leftcol {
+	display: table-cell;
+	width: 20%;
+	background: #317df0;
+	vertical-align: middle;
+	cursor: pointer;
+	padding: 10px;
+}
+.searchClass {
+	background: $search1-background !important;
+}
+.searchClass:hover {
+	background: $search-background-hover !important;
+}
+/* END BASICS */
+
+/* NAVIGATION STYLES */
+.nav-item-0 {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #063D68;
+}
+.nav-item-0-active {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #363636;
+}
+.nav-item-0 a {
+	text-decoration: none;
+	color: white;
+}
+.nav-item-0 a:hover {
+	
+}
+.nav-item-0-active a {
+	text-decoration: none;
+	color: white;
+}
+.nav-item-1 {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #46056C;
+}
+.nav-item-1-active {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #363636;
+}
+.nav-item-1 a {
+	text-decoration: none;
+	color: white;
+}
+.nav-item-1 a:hover {
+	
+}
+.nav-item-1-active a {
+	text-decoration: none;
+	color: white;
+}
+.nav-item-2 {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #639700;
+}
+.nav-item-2-active {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #363636;
+}
+.nav-item-2 a {
+	text-decoration: none;
+	color: white;
+}
+.nav-item-2 a:hover {
+	
+}
+.nav-item-2-active a {
+	text-decoration: none;
+	color: white;
+}
+.nav-item-3 {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #A25D00;
+}
+.nav-item-3-active {
+	display: table-cell;
+	width: 25%;
+	text-align: center;
+	vertical-align: middle;
+	background: #363636;
+}
+.nav-item-3 a {
+	text-decoration: none;
+	color: white;
+}
+.nav-item-3 a:hover {
+	
+}
+.nav-item-3-active a {
+	text-decoration: none;
+	color: white;
+}
+/* END NAVIGATION STYLES */

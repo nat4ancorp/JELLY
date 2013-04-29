@@ -19,12 +19,12 @@ if(isset($_POST['change_mode'])){
 ?>
 This form will change the mode of this entire site. Be careful when doing so, as some options might unleash this site to the public prematurely and/or take you away from this place.
 <form action="" method="post">
-	<div id="formLayoutTable">
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+	<div id="formLayoutTableConstruction">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				<label>Mode</label>
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="hidden" name="wtd" value="change_mode" />
 				<select name="mode" onchange="document.getElementById('change_mode').disabled=false;">
 					<?php
@@ -50,11 +50,11 @@ This form will change the mode of this entire site. Be careful when doing so, as
 			</div>
 		</div>                   
 		
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="submit" name="change_mode" id="change_mode" disabled="disabled" value="Save" class="submit" />
 			</div>
 		</div>

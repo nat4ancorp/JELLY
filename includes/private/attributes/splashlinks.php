@@ -91,4 +91,34 @@ if($_SERVER['HTTP_HOST']=="localhost"){
 <?php
 }
 ?>
+<h2>Want to know the latest? Add your email to our mailing list today!</h2>
+<button id="show-form" disabled="disabled" title="This is being developed...please hang on. :) or you could follow @nat4ancorp on Twitter!" style="cursor:help;">ADD ME NOW!</button>
+<div id="mail_list_popup" style="display:none;" class="fb-popup">
+Contents
+</div>
+
+<script type="text/javascript">
+// Semicolon (;) to ensure closing of earlier scripting
+// Encapsulation
+// $ is assigned to jQuery
+;(function($) {
+
+     // DOM Ready
+    $(function() {
+
+        $('#show-form').bind('click', function(e) {
+			e.preventDefault();
+			
+			$('#mail_list_popup').bPopup({
+				appendTo: 'body'
+				, modalClose: false
+				, modalColor: 'gray'
+			});
+		});
+
+    });
+
+})(jQuery);
+</script>
+
 </center>

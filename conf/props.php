@@ -372,10 +372,10 @@ function getPageKeywords($launchpadPN,$page,$properties){
 		//its a project
 		@$projectname=$_GET['name'];
 		$projectname=str_replace("-"," ",$projectname);
-		$GET_REAL_NAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}work_projects WHERE name='$projectname'");
+		$GET_REAL_NAME=mysql_query("SELECT * FROM {$properties->DB_PREFIX}work_projects WHERE title='$projectname'");
 		$FETCH_REAL_NAME=mysql_fetch_array($GET_REAL_NAME);
-		@$real_name=$FETCH_REAL_NAME['name'];
-		$CHECK_PAGE=mysql_query("SELECT * FROM {$properties->DB_PREFIX}work_projects WHERE name='$real_name'");		
+		@$real_name=$FETCH_REAL_NAME['title'];
+		$CHECK_PAGE=mysql_query("SELECT * FROM {$properties->DB_PREFIX}work_projects WHERE title='$real_name'");		
 		$FETCH_PAGE=mysql_fetch_array($CHECK_PAGE);
 		$pageKEYWORDS.=$FETCH_PAGE['tags'];
 	}
@@ -633,6 +633,7 @@ function getGlobalVars($properties,$type){
 }
 
 function SEARCH($properties,$searchQuery){
+	error_reporting(0);
 	include 'conf/connect.php';
 	@$launchpad=$_GET['launchpad'];	
 	@$total_results=0;
@@ -800,7 +801,7 @@ function SEARCH($properties,$searchQuery){
 		if($total_results < 1){$total_ending="s";}
 		if(($total_results > 0) && ($total_ending < 2)){$total_ending="";}
 		if($total_results > 1){$total_ending="s";}
-		echo "<h1 style=\"color: #ccc;line-height:1.2em;\">Searching &quot;{$searchQuery}&quot; gave {$total_results} result{$total_ending}</h1>";
+		echo "<h1 style=\"color: #666;line-height:1.2em;\">Searching &quot;{$searchQuery}&quot; gave {$total_results} result{$total_ending}</h1>";
 	}
 }
 function CHECK_EMAIL($email) {
@@ -843,6 +844,7 @@ $domain_array[$i])) {
 
 function CENTRALIZED_EMAIL_RESPONSE_SYSTEM($properties,$message_indicator,$to,$PADINFO,$pname_uri){
 	//access all the variables needed
+	global $comment_id;
 	global $yname;
 	global $b_year;
 	global $b_month;
@@ -883,8 +885,10 @@ function CENTRALIZED_EMAIL_RESPONSE_SYSTEM($properties,$message_indicator,$to,$P
 	$message=str_replace("(FNAME)",$fname,$message);
 	$message=str_replace("(LNAME)",$lname,$message);
 	//special implementation as of 3.9.1
-	if($_SERVER['HTTP_HOST']==$properties->HTTP_HOST){$WEBSITE_URL=$properties->WEBSITE_TEST_URL;}else{$WEBSITE_URL=$properties->WEBSITE_REMO_URL;}	
+	/* DETERMINE THE WEBSITE_URL */
+	if($_SERVER['HTTP_HOST']=="localhost"){$WEBSITE_URL=$properties->WEBSITE_TEST_URL;}else{$WEBSITE_URL=$properties->WEBSITE_REMO_URL;}
 	$message=str_replace("(WEBSITE_URL)",$WEBSITE_URL,$message);
+	$message=str_replace("(COMMENT_ID)",$comment_id,$message);
 	$message=str_replace("(WEBSITE_URL_NAME)",$properties->WEBSITE_NAME.$properties->WEBSITE_EXT,$message);
 	$message=str_replace("(TO_WHOM_IT_MAY_CONCERN)",$yname,$message);
 	$message=str_replace("(PNAME_URI)",$pname_uri,$message);

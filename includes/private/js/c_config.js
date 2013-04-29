@@ -39,7 +39,7 @@ c_styles['MM']=[ // MainMenu (the shorter the class name the better)
 'solid',	// BorderStyle (CSS valid values except 'none')
 '#FFFFFF',	// BorderColor ('color')
 1,		// Padding
-'#03344E',	// Background ('color','transparent','[image_source]')
+'#1240AB',	// Background ('color','transparent','[image_source]')
 '',		// IEfilter (only transition filters work well - not static filters)
 ''		// Custom additional CSS for the menu box (valid CSS)
 ],[
@@ -50,10 +50,10 @@ c_styles['MM']=[ // MainMenu (the shorter the class name the better)
 '#FFFFFF',	// BorderColor ('color')
 '#FFFFFF',	// OVER BorderColor
 4,		// Padding
-'#03344E',	// Background ('color','transparent','[image_source]') what you see
-'#7FB9D9',	// OVER Background
-'',	// Color
-'',	// OVER Color
+'#1240AB',	// Background ('color','transparent','[image_source]') what you see
+'#FFAA00',	// OVER Background
+'white',	// Color
+'black',	// OVER Color
 '1em',		// FontSize (values in CSS valid units - %,em,ex,px,pt)
 'verdana,arial,helvetica,sans-serif',	// FontFamily
 'bold',		// FontWeight (CSS valid values - 'bold','normal','bolder','lighter','100',...,'900')
@@ -78,7 +78,7 @@ true,		// UseSubMenuImage (true,false)
 '[h_arrow.gif]',	// VISITED SubMenuImageSource
 'solid',			// CURRENT BorderStyle
 '#FFFFFF',			// CURRENT BorderColor
-'#03344E',			// CURRENT Background
+'#1240AB',			// CURRENT Background
 '',			// CURRENT Color
 'none',				// CURRENT TextDecoration
 '[h_arrow.gif]',	// CURRENT SubMenuImageSource

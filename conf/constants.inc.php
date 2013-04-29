@@ -6,7 +6,7 @@ const HTTP_HOST 						= "localhost";
 const HTTP_HOST_LOCAL_ONLY				= "http://"; /* LEAVE THIS; IMPLEMENTED AS OF 3.9.1 TO FIX HTTP REDIRECT BUG */
 const APP_NAME 							= "WITLL/"; /* *** MUST HAVE TRAILING SLASH *** */
 const BRANCH							= "Nat4andotcom/"; /* *** MUST HAVE TRAILING SLASH *** */
-const VERSION 							= "Versions/1.0.39/"; /* *** MUST HAVE TRAILING SLASH *** */ /* DEFAULT: "Versions/..." (WHERE ... REPRESENTS THE NUMBER) */
+const VERSION 							= "Versions/1.0.4b1/"; /* *** MUST HAVE TRAILING SLASH *** */ /* DEFAULT: "Versions/..." (WHERE ... REPRESENTS THE NUMBER) */
 
 /* CORE APP DATA (REMOTE; REAL PURPOSE) */
 const HTTP_HOST_REMOTE 					= "http://www.nat4an.com";
@@ -14,7 +14,7 @@ const APP_NAME_REMOTE					= ""; /* *** MUST HAVE TRAILING SLASH *** */
 const BRANCH_REMOTE						= ""; /* *** MUST HAVE TRAILING SLASH *** */
 const VERSION_REMOTE					= ""; /* *** MUST HAVE TRAILING SLASH *** */ /* DEFAULT: "Versions/..." (WHERE ... REPRESENTS THE NUMBER) */
 
-const VERSION_NUMBER					= "1.0.39"; /* JUST THE NUMBER, NO TRAILING SLASH */
+const VERSION_NUMBER					= "1.0.4b1"; /* JUST THE NUMBER, NO TRAILING SLASH */
 
 /* THE REST */
 const DOMAIN 							= "Nat4an.com";
@@ -32,13 +32,13 @@ const WEBSITE_SLOGAN_SHORT 				= "Freelance Web Designer";
 /* DEFINE YOUR TEST BED (IF YOU HAVE ONE) AND YOUR REMOTE BED (IF YOU HAVE NO TEST SERVER THAN LEAVE BLANK AS YOU WILL NEVER USE IT */
 /* **** WEBSITE_(TEST OR REMO)_URL IS WHAT YOU WANT TO FOCUS ON THE MOST **** */
 /* FULL_(TEST OR REMO)_WURL IS THE FULL URL PROVIDED WITH THE PADMAIN NAME AND DEFAULT PAGE */
-const FULL_WEBSITE_TEST_URL				= "http://localhost/WITLL/Nat4andotcom/Versions/1.0.39/portfolio/home";
+const FULL_WEBSITE_TEST_URL				= "http://localhost/WITLL/Nat4andotcom/Versions/1.0.4b1/portfolio/home";
 const FULL_WEBSITE_REMO_URL				= "http://www.nat4an.com/portfolio/home";
-const WEBSITE_TEST_URL					= "http://localhost/WITLL/Nat4andotcom/Versions/1.0.39/";
+const WEBSITE_TEST_URL					= "http://localhost/WITLL/Nat4andotcom/Versions/1.0.4b1/";
 const WEBSITE_REMO_URL					= "http://www.nat4an.com/";
 
 /* THEME DATA */
-const PATH_TO_THEME_ASSETS 				= "includes/private/bin/tm-assets/"; /* where the theme assets are located (must include trailing slash */
+const PATH_TO_THEME_ASSETS 				= "themes/(THEME_NAME)/exempt/"; /* where the theme assets are located (must include trailing slash */
 
 const TURN_ON_BOTTOM_NAV 				= "yes";
 const TURN_ON_TOP_NAV 					= "yes";
@@ -61,22 +61,22 @@ const SITE_KEYWORDS 					= "web design,nathan smyth,freelance web developer,web 
 
 /* I WOULD SUGGEST NOT TOUCHING THIS :) */
 const PROPS_VAR_BODYSB_WRAP_START		= "<div class=\"props-var-body-wrap\">";
-const PROPS_VAR_BODYSB_WRAP_END			= "</div>";
+const PROPS_VAR_BODYSB_WRAP_END			= "</div><br /><br /><br /><br />";
 
 /* DATABASE CORE DATA */
 const DB_HOST 							= "localhost";
-const DB_USER 							= "root"; /*remote: "mrnat4an_master" or local: "root"*/
-const DB_PASS							= ""; /*remote: "thecreation101" or local: ""*/
+const DB_USER 							= "mrnat4an_master"; /*remote: "mrnat4an_master" or local: "root"*/
+const DB_PASS							= "thecreation101"; /*remote: "thecreation101" or local: ""*/
 const DB_NAME 							= "mrnat4an_nat4an";
 const DB_PREFIX 						= "h_";
 
 const MAIN_TITLE 						= "Nat4an";
 const MAIN_TITLE_ALIGN					= "l"; //l = left; c = center; r = right
 const MAIN_SLOGAN 						= "Freelance Web Designer";
-const MAIN_SLOGAN_EXTRA_PAD1 			= "a Righteous, Dedicated, and Intrigued Anime Fanatic";
-const MAIN_SLOGAN_EXTRA_PAD2 			= "a Hardcore Gamer Freak who Lives for Kill-Joys...:P";
-const MAIN_SLOGAN_EXTRA_PAD3 			= "is a Kid from TX who makes Epic Dance Music 4 U";
-const MAIN_SLOGAN_EXTRA_PAD4 			= "is a Super Linux Nerd who Lives in the Terminal $ su";
+const MAIN_SLOGAN_EXTRA_PAD1 			= "a Right, Dedi, and Intr Anime Fan"; /* a Righteous, Dedicated, and Intrigued Anime Fanatic */
+const MAIN_SLOGAN_EXTRA_PAD2 			= "a Gamer Freak Livin 4 Kill-Joys...:P"; /* a Hardcore Gamer Freak who Lives for Kill-Joys...:P */
+const MAIN_SLOGAN_EXTRA_PAD3 			= "a Kid 4m TX makin Dance Music 4 U"; /* is a Kid from TX who makes Epic Dance Music 4 U */
+const MAIN_SLOGAN_EXTRA_PAD4 			= "a Su Linux Nerd Livin in Terminalan"; /* is a Super Linux Nerd who Lives in the Terminal $ su */
 const MAIN_SLOGAN_ALIGN 				= "l"; //l = left; c = center; r = right
 const HEADER_RIGHT_SIDE_CONTENT			= "";
 const HEADER_RIGHT_SIDE_CONTENT_ALIGN 	= "c"; //l = left; c = center; r = right

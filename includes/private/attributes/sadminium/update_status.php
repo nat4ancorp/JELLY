@@ -17,20 +17,20 @@ if(isset($_POST['poststatus'])){
 ?>
 How are you coming along with the website?
 <form action="" method="post">
-	<div id="formLayoutTable">
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">																																														</div>
-			<div class="formLayoutTableRowRightCol">
+	<div id="formLayoutTableConstruction">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">																																														</div>
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="hidden" name="wtd" value="update_status" />
 				<input type="text" maxlength="300" name="status" value="<?php echo getGlobalVars($properties,'status_update');?>" />
 			</div>
 		</div>                   
 		
-		<div class="formLayoutTableRow">
-			<div class="formLayoutTableRowLeftCol">
+		<div class="formLayoutTableConstructionRow">
+			<div class="formLayoutTableConstructionRowLeftCol">
 				
 			</div>
-			<div class="formLayoutTableRowRightCol">
+			<div class="formLayoutTableConstructionRowRightCol">
 				<input type="submit" name="poststatus" value="Save" class="submit" />
 			</div>
 		</div>
