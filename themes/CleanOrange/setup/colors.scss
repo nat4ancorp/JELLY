@@ -1,0 +1,527 @@
+/* ------------------------------- THEMING INFO --------------------------------------------- */
+/*
+GOLDEN_GLORY : http://colorschemedesigner.com/#1z226L4E6GNDe	
+ASU : http://colorschemedesigner.com/#3L21Tw0w0w0w0
+CleanOrange : Top: 374348, Accent: f6ab31, Highlight: da431c, in-the-ground: eeeeee, secondary color: 93d0ea
+*/
+/* ------------------------------- END THEMING INFO ---------------------------------------------*/
+/* COLORS */
+$topcolor: #374348;
+
+$colormain: #f6ab31;
+$colormain_alt: #f6ab31;
+$colormain_hover: #da431c;
+
+$color1: #317df0;
+$color1_alt: #FF6600;
+$color1_hover: #FFF;
+
+$color2: #8c4a9d;
+$color2_alt: #E6E600;
+$color2_hover: #FFF;
+
+$color3: #faca0e;
+$color3_alt: #6A29AB;
+$color3_hover: #FFF;
+
+$color4: #d6002d;
+$color4_alt: #1947D1;
+$color4_hover: #FFF;
+
+$color_boxshadow: #000000;
+/* END COLORS */
+$body-background: #e0e0e0;
+/*$top-background: #0c191f;*/
+$wyo-button-background: #da431c;
+$wyo-button-color: #FFF;
+
+$back-button-background: #f6ab31;
+$back-button-color: #000;
+
+$big-url-color: #000;
+$big-url-background: #f6ab31;
+$big-url-color-hover: #FFF;
+$big-url-background-hover: #da431c;
+
+$mid-url-color: #000;
+$mid-url-background: #FFAA00;
+$mid-url-color-hover: #000;
+$mid-url-background-hover: #FFAA00;
+
+/* CONTAINER STYLES */
+/* SINGLE LAYOUT */
+$container-single-main-content-background: #eeeeee;
+$container-single-special-background: #eeeeee;
+
+/* DOUBLE LAYOUT */
+$container-double-main-content-background: #eeeeee;
+$container-double-special-background: #eeeeee;
+$container-double-sidebar-background: #eeeeee;
+
+/* TRIPLE LAYOUT */
+$container-triple-main-content-background: #eeeeee;
+$container-triple-special-background: #eeeeee;
+$container-triple-sidebar1-background: #eeeeee;
+$container-triple-sidebar2-background: #eeeeee;
+
+/* END CONTAINER STYLES */
+
+/* FEATURED JQUERY SLIDER STYLES */
+$featured-works-background: #eeeeee;
+$featured-works-inner-background: #eeeeee;
+$featured-works-inner-border-top-color: #2A4480;
+$featured-works-inner-border-sides-color: #E6E6E6;
+$featured-works-inner-border-bottom-color: #da431c;
+
+$featured-works-inner-border-top-size: 5px;
+$featured-works-inner-border-bottom-size: 15px;
+/* END FEATURED JQUERY SLIDER STYLES */
+
+/* FOOTER STYLES */
+$footer-color: #6d6d6d;
+$footer-background: #fafafa;
+$footer-backtotop-background: #f6ab31;
+$footer-backtotop-color: #000;
+$footer-backtotop-border-color: #da431c;
+
+$footer-backtotop-background-hover: #da431c;
+$footer-backtotop-color-hover: #FFF;
+$footer-backtotop-border-color-hover: #f6ab31;
+/* END FOOTER STYLES */
+
+/* FORMLAYOUT */
+$formlayout-background: #FFF;
+$formlayout-color: #000;
+
+$formlayout-input-background: #f6ab31;
+$formlayout-input-color: #000;
+$formlayout-input-hover-background: #da431c;
+$formlayout-input-hover-color: #FFF;
+$formlayout-input-focus-background: #da431c;
+$formlayout-input-focus-color: #FFF;
+
+/* HEADER STYLES */
+$header-height: 75px;
+$header-border-left: none;
+$header-border-right: none;
+$header-border-top: none;
+$header-border-bottom: none;
+$header-box-shadow-inset-color: #000;
+/* END HEADER STYLES */
+
+/* HTML ENTITIES */
+$blockquote-background: #f6ab31;
+$blockquote-color: black;
+$code-background: #f6ab31;
+$code-color: black;
+/* END HTML ENTITIES */
+
+/* MODES STYLES */
+$mode-background: #202020;
+$mode-color: #808080;
+$mode-header-color: #5e5e5e;
+$mode-header-color-hover: white;
+$mode-splash-col2-mid-background: white;
+$mode-progress-bar-background: #5e5e5e;
+$mode-inner-progress-bar-background: #AEAEAE;
+$mode-fb-popup-background: white;
+$mode-fb-popup-color: black;
+/* END MODES STYLES */
+
+/* MAIN LINK (OR HEADER) STYLES */
+$main-link-color-padmain-background-active: #374348;
+$main-link-color-padmain-background-hover: #374348;
+$main-link-color-padmain-background-selected: #374348;
+$main-link-color-padmain-background-selectedhover: #374348;
+
+$main-link-color-padmain-color-active: #FFF;
+$main-link-color-padmain-color-hover: #FFF;
+$main-link-color-padmain-color-selected: #FFF;
+$main-link-color-padmain-color-selectedhover: #FFF;
+
+$main-link-color-pad1-background-active: #317df0;
+$main-link-color-pad1-background-hover: #317df0;
+$main-link-color-pad1-background-selected: #317df0;
+$main-link-color-pad1-background-selectedhover: #317df0;
+
+$main-link-color-pad1-color-active: black;
+$main-link-color-pad1-color-hover: black;
+$main-link-color-pad1-color-selected: black;
+$main-link-color-pad1-color-selectedhover: black;
+
+$main-link-color-pad2-background-active: #8c4a9d;
+$main-link-color-pad2-background-hover: #8c4a9d;
+$main-link-color-pad2-background-selected: #8c4a9d;
+$main-link-color-pad2-background-selectedhover: #8c4a9d;
+
+$main-link-color-pad2-color-active: black;
+$main-link-color-pad2-color-hover: black;
+$main-link-color-pad2-color-selected: black;
+$main-link-color-pad2-color-selectedhover: black;
+
+$main-link-color-pad3-background-active: #FFDF00;
+$main-link-color-pad3-background-hover: #FFDF00;
+$main-link-color-pad3-background-selected: #FFDF00;
+$main-link-color-pad3-background-selectedhover: #FFDF00;
+
+$main-link-color-pad3-color-active: black;
+$main-link-color-pad3-color-hover: black;
+$main-link-color-pad3-color-selected: black;
+$main-link-color-pad3-color-selectedhover: black;
+
+$main-link-color-pad4-background-active: #d6002d;
+$main-link-color-pad4-background-hover: #d6002d;
+$main-link-color-pad4-background-selected: #d6002d;
+$main-link-color-pad4-background-selectedhover: #d6002d;
+
+$main-link-color-pad4-color-active: black;
+$main-link-color-pad4-color-hover: black;
+$main-link-color-pad4-color-selected: black;
+$main-link-color-pad4-color-selectedhover: black;
+/* END MAIN LINK (OR HEADER) STYLES */
+
+/* NAVIGATION STYLES */
+$navigation-height: 50px;
+$navigation-border-left: thin solid #000;
+$navigation-border-right: thin solid #000;
+$navigation-border-top: 0px #2A4480 solid;
+$navigation-border-bottom: 0px #2A4480 solid;
+$navigation-box-shadow-inset-color: #191919;
+
+/* NAVIGATION LP LINK STYLES */
+/* LP 1 STYLES */
+$nav-link-LP1-1-background-normal: #f6ab31;
+$nav-link-LP1-1-color-normal: black;
+$nav-link-LP1-1-background-hover: #da431c;
+$nav-link-LP1-1-color-hover: black;
+
+$nav-link-LP1-2-background-normal: #f6ab31;
+$nav-link-LP1-2-color-normal: black;
+$nav-link-LP1-2-background-hover: #da431c;
+$nav-link-LP1-2-color-hover: black;
+
+$nav-link-LP1-3-background-normal: #f6ab31;
+$nav-link-LP1-3-color-normal: black;
+$nav-link-LP1-3-background-hover: #da431c;
+$nav-link-LP1-3-color-hover: black;
+
+$nav-link-LP1-4-background-normal: #f6ab31;
+$nav-link-LP1-4-color-normal: black;
+$nav-link-LP1-4-background-hover: #da431c;
+$nav-link-LP1-4-color-hover: black;
+/* END LP 1 STYLES */
+
+/* LP 2 STYLES */
+$nav-link-LP2-1-background-normal: #2764C0;
+$nav-link-LP2-1-color-normal: white;
+$nav-link-LP2-1-background-hover: #FF6600;
+$nav-link-LP2-1-color-hover: black;
+
+$nav-link-LP2-2-background-normal: #2764C0;
+$nav-link-LP2-2-color-normal: white;
+$nav-link-LP2-2-background-hover: #FF6600;
+$nav-link-LP2-2-color-hover: black;
+
+$nav-link-LP2-3-background-normal: #2764C0;
+$nav-link-LP2-3-color-normal: white;
+$nav-link-LP2-3-background-hover: #FF6600;
+$nav-link-LP2-3-color-hover: black;
+
+$nav-link-LP2-4-background-normal: #2764C0;
+$nav-link-LP2-4-color-normal: white;
+$nav-link-LP2-4-background-hover: #FF6600;
+$nav-link-LP2-4-color-hover: black;
+/* END LP 2 STYLES */
+
+/* LP 3 STYLES */
+$nav-link-LP3-1-background-normal: #62346E;
+$nav-link-LP3-1-color-normal: white;
+$nav-link-LP3-1-background-hover: #E6E600;
+$nav-link-LP3-1-color-hover: black;
+
+$nav-link-LP3-2-background-normal: #62346E;
+$nav-link-LP3-2-color-normal: white;
+$nav-link-LP3-2-background-hover: #E6E600;
+$nav-link-LP3-2-color-hover: black;
+
+$nav-link-LP3-3-background-normal: #62346E;
+$nav-link-LP3-3-color-normal: white;
+$nav-link-LP3-3-background-hover: #E6E600;
+$nav-link-LP3-3-color-hover: black;
+
+$nav-link-LP3-4-background-normal: #62346E;
+$nav-link-LP3-4-color-normal: white;
+$nav-link-LP3-4-background-hover: #E6E600;
+$nav-link-LP3-4-color-hover: black;
+/* END LP 3 STYLES */
+
+/* LP 4 STYLES */
+$nav-link-LP4-1-background-normal: #C8A20B;
+$nav-link-LP4-1-color-normal: black;
+$nav-link-LP4-1-background-hover: #6A29AB;
+$nav-link-LP4-1-color-hover: white;
+
+$nav-link-LP4-2-background-normal: #C8A20B;
+$nav-link-LP4-2-color-normal: black;
+$nav-link-LP4-2-background-hover: #6A29AB;
+$nav-link-LP4-2-color-hover: white;
+
+$nav-link-LP4-3-background-normal: #C8A20B;
+$nav-link-LP4-3-color-normal: black;
+$nav-link-LP4-3-background-hover: #6A29AB;
+$nav-link-LP4-3-color-hover: white;
+
+$nav-link-LP4-4-background-normal: #C8A20B;
+$nav-link-LP4-4-color-normal: black;
+$nav-link-LP4-4-background-hover: #6A29AB;
+$nav-link-LP4-4-color-hover: white;
+/* END LP 4 STYLES */
+
+/* LP 5 STYLES */
+$nav-link-LP5-1-background-normal: #AB0024;
+$nav-link-LP5-1-color-normal: white;
+$nav-link-LP5-1-background-hover: #1947D1;
+$nav-link-LP5-1-color-hover: white;
+
+$nav-link-LP5-2-background-normal: #AB0024;
+$nav-link-LP5-2-color-normal: white;
+$nav-link-LP5-2-background-hover: #1947D1;
+$nav-link-LP5-2-color-hover: white;
+
+$nav-link-LP5-3-background-normal: #AB0024;
+$nav-link-LP5-3-color-normal: white;
+$nav-link-LP5-3-background-hover: #1947D1;
+$nav-link-LP5-3-color-hover: white;
+
+$nav-link-LP5-4-background-normal: #AB0024;
+$nav-link-LP5-4-color-normal: white;
+$nav-link-LP5-4-background-hover: #1947D1;
+$nav-link-LP5-4-color-hover: white;
+/* END LP 5 STYLES */
+/* END NAVIGATION LP LINK STYLES */
+
+/* MODULE CONTAINER */
+$module-container-mini-footer-title-background-normal: #93d0ea;
+$module-container-mini-footer-title-color-normal: black;
+
+$module-container-mini-footer-title-background-hover: #da431c;
+$module-container-mini-footer-title-color-hover: white;
+/* END MODULE CONTAINER */
+
+/* PAGES STYLES */
+$pages-maincontent-title-background: #FFAA00;
+$pages-maincontent-title-color: #000;
+$pages-sidebar-title-background: #da431c;
+$pages-sidebar-title-color: #FFF;
+
+$pages-maincontent-content-background: #f7f7f7;
+$pages-maincontent-content-color: black;
+
+$pages-maincontent-content-author-color: #000;
+$pages-maincontent-content-author-color-hover: #06266F;
+
+$pages-maincontent-content-comments-color: #000;
+$pages-maincontent-content-comments-color-hover: #06266F;
+
+$pages-maincontent-content-category-color: #000;
+$pages-maincontent-content-category-color-hover: #06266F;
+
+$pages-maincontent-content-tags-color: #000;
+$pages-maincontent-content-tags-inside-color: #06266F;
+$pages-maincontent-content-tags-color-hover: #2A4480;
+$pages-maincontent-content-tags-background: #FFF;
+
+$pages-maincontent-content-date-gts-background: red;
+$pages-maincontent-content-date-gts-color: 000;
+
+$pages-maincontent-content-small-date-gts-background: red;
+$pages-maincontent-content-small-date-gts-color: 000;
+
+$pages-maincontent-content-date-background: #f6ab31;
+$pages-maincontent-content-date-color: #000;
+
+$pages-maincontent-content-small-date-background: #FFAA00;
+$pages-maincontent-content-small-date-color: #000;
+
+$pages-maincontent-content-inner-title-background: #FFDF00;
+$pages-maincontent-content-inner-title-color: #000;
+
+$pages-maincontent-content-inner-title-background-hover: #FFDF00;
+$pages-maincontent-content-inner-title-color-hover: #06266F;
+
+$pages-maincontent-content-inner-under-background: #f6ab31;
+$pages-maincontent-content-inner-under-color: black;
+
+$pages-maincontent-content-inner-under-a-color: black;
+$pages-maincontent-content-inner-under-a-color-hover: #da431c;
+
+$pages-maincontent-content-inner-content-background: #FFF;
+$pages-maincontent-content-inner-content-color: #000;
+
+$pages-maincontent-content-inner-content-extra-background: #FFF;
+$pages-maincontent-content-inner-content-extra-color: #000;
+
+$pages-maincontent-content-inner-content-extra-items-background: #FFF;
+$pages-maincontent-content-inner-content-extra-items-color: #000;
+
+$pages-maincontent-content-inner-content-extra-items-content-background: #FFF;
+$pages-maincontent-content-inner-content-extra-items-content-color: #000;
+
+$pages-maincontent-content-inner-content-extra-items-title-background: #FFAA00;
+$pages-maincontent-content-inner-content-extra-items-title-color: #000;
+
+$pages-maincontent-content-inner-content-extra-items-postedby-background: #FFAA00;
+$pages-maincontent-content-inner-content-extra-items-postedby-color: #000;
+
+$pages-maincontent-content-inner-content-extra-items-postedby-a-color: #000;
+$pages-maincontent-content-inner-content-extra-items-postedby-a-hover-color: #000;
+
+$pages-maincontent-content-inner-content-a-color: #000;
+$pages-maincontent-content-inner-content-a-color-hover: #000;
+
+$pages-maincontent-content-inner-background: #6C8CD5;
+$pages-maincontent-content-inner-color: black;
+
+$pages-maincontent-content-readmorebtn-background: #f6ab31;
+$pages-maincontent-content-readmorebtn-color: black;
+
+$pages-sidebar-content-background: #FFF;
+$pages-sidebar-content-color: black;
+
+$pages-sidebar-content-jq-background: #250267;
+$pages-sidebar-content-jq-color: white;
+
+$pages-sidebar-content-jq-col-background: #da431c;
+$pages-sidebar-content-jq-col-color: black;
+
+$pages-sidebar-content-jq-col-background-hover: #f6ab31;
+$pages-sidebar-content-jq-col-color-hover: black;
+
+$pages-sidebar-content-jq-title-background: none;
+$pages-sidebar-content-jq-title-color: #666666;
+/* END PAGES STYLES */
+
+/* PAGINATION LINK STYLES */
+$pagination-link-background: #da431c;
+$pagination-link-color: #FFF;
+$pagination-link-background-hover: #f6ab31;
+$pagination-link-color-hover: #000;
+$pagination-link-border: thin black solid;
+/* END PAGINATION LINK STYLES */
+
+/* SEARCH STYLES */
+$search-background: $colormain_alt;
+$search1-background: $color1_alt;
+$search2-background: $color2_alt;
+$search3-background: $color3_alt;
+$search4-background: $color4_alt;
+
+$search-background-hover: $colormain_hover;
+$search1-background-hover: $color1_hover;
+$search2-background-hover: $color2_hover;
+$search3-background-hover: $color3_hover;
+$search4-background-hover: $color4_hover;
+
+$search-color: black;
+$search1-color: #000;
+$search2-color: #000;
+$search3-color: #FFF;
+$search4-color: #FFF;
+
+$search-color-hover: white;
+$search1-color-hover: #000;
+$search2-color-hover: #000;
+$search3-color-hover: #000;
+$search4-color-hover: #000;
+/* END SEARCH STYLES */
+
+/* TOOLKIT STYLES */
+$launchpad-mini-background: #f6ab31;
+$launchpad-mini-color: black;
+$launchpad-mini-background-hover: #da431c;
+$launchpad-mini-color-hover: white;
+
+$toolkit-lps-first-a-background-normal: #da431c;
+$toolkit-lps-first-a-color-normal: black;
+$toolkit-lps-first-a-background-hover: #f6ab31;
+$toolkit-lps-first-a-color-hover: black;
+$toolkit-lps-first-a-border-normal: thin solid white;
+$toolkit-lps-first-a-border-hover: thin solid white;
+
+$toolkit-lps-second-a-background-normal: #da431c;
+$toolkit-lps-second-a-color-normal: black;
+$toolkit-lps-second-a-background-hover: #317df0;
+$toolkit-lps-second-a-color-hover: black;
+$toolkit-lps-second-a-border-normal: thin solid white;
+$toolkit-lps-second-a-border-hover: thin solid white;
+
+$toolkit-lps-third-a-background-normal: #da431c;
+$toolkit-lps-third-a-color-normal: black;
+$toolkit-lps-third-a-background-hover: #8c4a9d;
+$toolkit-lps-third-a-color-hover: black;
+$toolkit-lps-third-a-border-normal: thin solid white;
+$toolkit-lps-third-a-border-hover: thin solid white;
+
+$toolkit-lps-fourth-a-background-normal: #da431c;
+$toolkit-lps-fourth-a-color-normal: black;
+$toolkit-lps-fourth-a-background-hover: #faca0e;
+$toolkit-lps-fourth-a-color-hover: black;
+$toolkit-lps-fourth-a-border-normal: thin solid white;
+$toolkit-lps-fourth-a-border-hover: thin solid white;
+
+$toolkit-lps-last-a-background-normal: #da431c;
+$toolkit-lps-last-a-color-normal: black;
+$toolkit-lps-last-a-background-hover: #d6002d;
+$toolkit-lps-last-a-color-hover: black;
+$toolkit-lps-last-a-border-normal: thin solid white;
+$toolkit-lps-last-a-border-hover: thin solid white;
+/* END TOOLKIT STYLES */
+
+/* TOP NAV STYLES */
+$top-navigation-background: #374348;
+$top-navigation-border-bottom: #666 solid thin;
+$top-navigation-actioncenter-background: #f6ab31;
+$top-navigation-actioncenter-border-bottom: #666 solid thin;
+/* END TOP NAV STYLES */
+
+/* TWEET STYLES */
+$tweet-list-background: #1240AB;
+$tweet-list-color: #FFF;
+$tweet-list-even-background: #FFAA00;
+$tweet-list-even-color: #000;
+$tweet-list-even-a-color: #000;
+$tweet-list-even-a-color-hover: #000;
+
+$tweet-list-homepage-background: #93d0ea;
+$tweet-list-homepage-color: #000;
+$tweet-list-homepage-even-background: #8751E9;
+$tweet-list-homepage-even-color: #000;
+$tweet-list-homepage-even-a-color: #FFF;
+$tweet-list-homepage-even-a-color-hover: #FFF;
+/* END TWEET STYLES */
+
+/* WORK CONTAINER */
+$work-project-container-title-background: #2A4480;
+$work-project-container-title-color: white;
+
+$work-project-container-author-background: #2A4480;
+$work-project-container-author-color: white;
+$work-project-container-author-a-color: white;
+$work-project-container-author-a-hover-color: white;
+
+$work-project-container-launchbtn-background: #2A4480;
+$work-project-container-launchbtn-color: white;
+$work-project-container-launchbtn-a-color: white;
+$work-project-container-launchbtn-a-hover-color: white;;
+
+$work-project-container-description-background: #2A4480;
+$work-project-container-description-color: white;
+$work-project-container-description-a-color: white;
+$work-project-container-description-a-hover-color: white;
+
+$work-project-container-tags-background: #2A4480;
+$work-project-container-tags-color: white;
+$work-project-container-tags-a-color: white;
+$work-project-container-tags-a-hover-color: white;
+/* END WORK CONTAINER */
+/* ----------------------------- END THEMING INFO ------------------------------------------- */

@@ -1,0 +1,206 @@
+/* ------------------------------- THEMING INFO --------------------------------------------- */
+/*
+GOLDEN_GLORY : http://colorschemedesigner.com/#1z226L4E6GNDe	
+ASU : http://colorschemedesigner.com/#3L21Tw0w0w0w0
+CleanOrange : Top: 374348, Accent: f6ab31, Highlight: da431c, in-the-ground: eeeeee, secondary color: 93d0ea
+*/
+/* ------------------------------- END THEMING INFO ---------------------------------------------*/
+/* COLORS */
+/* END COLORS */
+/*$top-background: #0c191f;*/
+/* CONTAINER STYLES */
+/* SINGLE LAYOUT */
+/* DOUBLE LAYOUT */
+/* TRIPLE LAYOUT */
+/* END CONTAINER STYLES */
+/* FEATURED JQUERY SLIDER STYLES */
+/* END FEATURED JQUERY SLIDER STYLES */
+/* FOOTER STYLES */
+/* END FOOTER STYLES */
+/* FORMLAYOUT */
+/* HEADER STYLES */
+/* END HEADER STYLES */
+/* HTML ENTITIES */
+/* END HTML ENTITIES */
+/* MODES STYLES */
+/* END MODES STYLES */
+/* MAIN LINK (OR HEADER) STYLES */
+/* END MAIN LINK (OR HEADER) STYLES */
+/* NAVIGATION STYLES */
+/* NAVIGATION LP LINK STYLES */
+/* LP 1 STYLES */
+/* END LP 1 STYLES */
+/* LP 2 STYLES */
+/* END LP 2 STYLES */
+/* LP 3 STYLES */
+/* END LP 3 STYLES */
+/* LP 4 STYLES */
+/* END LP 4 STYLES */
+/* LP 5 STYLES */
+/* END LP 5 STYLES */
+/* END NAVIGATION LP LINK STYLES */
+/* MODULE CONTAINER */
+/* END MODULE CONTAINER */
+/* PAGES STYLES */
+/* END PAGES STYLES */
+/* PAGINATION LINK STYLES */
+/* END PAGINATION LINK STYLES */
+/* SEARCH STYLES */
+/* END SEARCH STYLES */
+/* TOOLKIT STYLES */
+/* END TOOLKIT STYLES */
+/* TOP NAV STYLES */
+/* END TOP NAV STYLES */
+/* TWEET STYLES */
+/* END TWEET STYLES */
+/* WORK CONTAINER */
+/* END WORK CONTAINER */
+/* ----------------------------- END THEMING INFO ------------------------------------------- */
+/* BASICS */
+#header-leftcol {
+  display: table-cell;
+  width: 20%;
+  background: #8c4a9d;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 10px; }
+
+.searchClass {
+  background: #e6e600 !important;
+  color: black !important; }
+
+.searchClass:hover {
+  background: white !important;
+  color: black !important; }
+
+.searchClassGlass {
+  background: #e6e600 !important;
+  color: black !important; }
+
+.searchClassGlass:hover {
+  background: white !important;
+  color: black !important; }
+
+.searchClassGlassSelected {
+  background: white !important;
+  color: black !important; }
+
+.searchClassGlassSelected:hover {
+  background: #e6e600 !important;
+  color: black !important; }
+
+.searchClass-noAdmaker {
+  background: #e6e600 !important;
+  color: black !important; }
+
+.searchClass-noAdmaker:hover {
+  background: white !important;
+  color: black !important; }
+
+.searchClassGlass-noAdmaker {
+  background: #e6e600 !important;
+  color: black !important; }
+
+.searchClassGlass-noAdmaker:hover {
+  background: white !important;
+  color: black !important; }
+
+.searchClassGlassSelected-noAdmaker {
+  background: white !important;
+  color: black !important; }
+
+.searchClassGlassSelected-noAdmaker:hover {
+  background: #e6e600 !important;
+  color: black !important; }
+
+/* END BASICS */
+/* NAVIGATION STYLES */
+.nav-item-0 {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #AF00A0; }
+
+.nav-item-0-active {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #363636; }
+
+.nav-item-0 a {
+  text-decoration: none;
+  color: white; }
+
+.nav-item-0-active a {
+  text-decoration: none;
+  color: white; }
+
+.nav-item-1 {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #FF1300; }
+
+.nav-item-1-active {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #363636; }
+
+.nav-item-1 a {
+  text-decoration: none;
+  color: white; }
+
+.nav-item-1-active a {
+  text-decoration: none;
+  color: white; }
+
+.nav-item-2 {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #00C422; }
+
+.nav-item-2-active {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #363636; }
+
+.nav-item-2 a {
+  text-decoration: none;
+  color: white; }
+
+.nav-item-2-active a {
+  text-decoration: none;
+  color: white; }
+
+.nav-item-3 {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #C6F500; }
+
+.nav-item-3-active {
+  display: table-cell;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+  background: #363636; }
+
+.nav-item-3 a {
+  text-decoration: none;
+  color: white; }
+
+.nav-item-3-active a {
+  text-decoration: none;
+  color: white; }
+
+/* END NAVIGATION STYLES */
