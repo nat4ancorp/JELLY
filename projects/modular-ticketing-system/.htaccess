@@ -1,7 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine on
-
-# ignore specific directories
-
-# checkstatus rule
-RewriteRule ^checkstatus$ ?meta=checkstatus [L]
