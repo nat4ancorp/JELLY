@@ -1,0 +1,2 @@
+<h1>Header</h1>
+<p>At the moment all Header settings are managed by the Theme CSS. Edit the .scss file in the theme directory of your choosing. You can edit the colors.scss file change the header height.</p>
